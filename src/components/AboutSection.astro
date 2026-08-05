@@ -1,0 +1,284 @@
+---
+/**
+ * AboutSection.astro — About section with journey timeline.
+ */
+const timelineEvents = [
+  {
+    year: '2024',
+    title: 'Discovered AI-First Development',
+    description: 'Began leveraging AI agents as co-pilots for building real software systems, not just prompting for answers.',
+    icon: '🤖',
+  },
+  {
+    year: '2024',
+    title: 'Built AEONIS OPS Architecture',
+    description: 'Designed a comprehensive AI-powered operations platform — system-level architecture for autonomous DevOps workflows.',
+    tag: 'Architecture Stage',
+  },
+  {
+    year: '2025',
+    title: 'Ultron — AI Agent Framework',
+    description: 'Conceptualized and began architecting Ultron, an autonomous agent orchestration framework for enterprise automation.',
+    tag: 'Planning Stage',
+  },
+  {
+    year: '2025',
+    title: 'Systems-Level Thinking',
+    description: 'Mastered prompt engineering, workflow automation, and the art of orchestrating AI to ship production-grade code at scale.',
+    icon: '⚡',
+  },
+];
+---
+
+<section class="about section" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="about__header reveal">
+      <span class="section-label">About Me</span>
+      <h2 id="about-heading" class="section-heading">
+        Not just a fresher —<br />
+        A <span class="gradient-text">systems-level thinker</span>.
+      </h2>
+      <p class="section-subtitle">
+        I don't just write code. I architect solutions, orchestrate AI agents,
+        and build production-grade systems that solve real problems. My approach is honest,
+        transparent, and engineering-first.
+      </p>
+    </div>
+
+    <!-- Philosophy Cards -->
+    <div class="about__philosophy reveal">
+      <div class="philosophy-card glass">
+        <div class="philosophy-card__icon" aria-hidden="true">🏗️</div>
+        <h3 class="philosophy-card__title">Architecture First</h3>
+        <p class="philosophy-card__text">
+          Every project starts with system design. I think in modules, APIs, and data flows before writing a single line of code.
+        </p>
+      </div>
+      <div class="philosophy-card glass">
+        <div class="philosophy-card__icon" aria-hidden="true">🤝</div>
+        <h3 class="philosophy-card__title">Radical Honesty</h3>
+        <p class="philosophy-card__text">
+          Projects in planning stage are marked as such. No fake deployments, no exaggerated metrics — just genuine work and transparency.
+        </p>
+      </div>
+      <div class="philosophy-card glass">
+        <div class="philosophy-card__icon" aria-hidden="true">⚡</div>
+        <h3 class="philosophy-card__title">AI-Augmented</h3>
+        <p class="philosophy-card__text">
+          I use AI as a force multiplier — not a crutch. Every AI-generated line is reviewed, tested, and architected with intent.
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="about__timeline">
+      <h3 class="timeline__title reveal">My Journey</h3>
+      <div class="timeline">
+        {timelineEvents.map((event, i) => (
+          <div class="timeline__item reveal" style={`--delay: ${i * 100}ms`}>
+            <div class="timeline__marker" aria-hidden="true">
+              {event.icon ? (
+                <span class="timeline__marker-icon">{event.icon}</span>
+              ) : (
+                <span class="timeline__marker-dot"></span>
+              )}
+            </div>
+            <div class="timeline__content glass">
+              <div class="timeline__meta">
+                <span class="timeline__year">{event.year}</span>
+                {event.tag && (
+                  <span class="badge badge--planning">{event.tag}</span>
+                )}
+              </div>
+              <h4 class="timeline__event-title">{event.title}</h4>
+              <p class="timeline__event-text">{event.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ================================================
+     ABOUT SECTION
+     ================================================ */
+
+  /* — Section Label & Heading (reusable) — */
+  .section-label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-heading {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 620px;
+  }
+
+  .about__header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* — Philosophy Cards — */
+  .about__philosophy {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-20);
+  }
+
+  @media (min-width: 768px) {
+    .about__philosophy {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .philosophy-card {
+    padding: var(--space-8);
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border var(--transition-base);
+  }
+
+  .philosophy-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .philosophy-card__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .philosophy-card__title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+
+  .philosophy-card__text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 100%;
+  }
+
+  /* — Timeline — */
+  .about__timeline {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .timeline__title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: var(--space-10);
+  }
+
+  /* Vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      var(--color-accent) 0%,
+      var(--color-border) 100%
+    );
+  }
+
+  .timeline__item {
+    position: relative;
+    margin-bottom: var(--space-8);
+  }
+
+  .timeline__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline__marker {
+    position: absolute;
+    left: calc(-1 * var(--space-10) + 6px);
+    top: var(--space-5);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-base);
+  }
+
+  .timeline__marker-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 3px solid var(--color-bg-primary);
+    box-shadow: 0 0 10px var(--color-accent-glow);
+  }
+
+  .timeline__marker-icon {
+    font-size: 1.1rem;
+    background: var(--color-bg-primary);
+    padding: 2px;
+    border-radius: 50%;
+  }
+
+  .timeline__content {
+    padding: var(--space-6);
+  }
+
+  .timeline__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .timeline__year {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .timeline__event-title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline__event-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 100%;
+  }
+</style>
