@@ -71,17 +71,17 @@ export const MagneticCursorTracker: React.FC = () => {
       }}
       animate={{
         opacity: isVisible ? 1 : 0,
-        scale: isHovered ? 1.6 : 1,
+        scale: isHovered ? 1.5 : 1,
       }}
       transition={springPresets.snappy}
       className="pointer-events-none fixed top-0 left-0 z-[9999] hidden lg:block"
     >
-      {/* Outer Follower Ring */}
+      {/* Outer Follower Ring for Bright Apple UI */}
       <div 
         className={`rounded-full border transition-colors duration-200 ${
           isHovered
-            ? 'w-10 h-10 border-violet-400 bg-violet-500/15 shadow-[0_0_20px_rgba(139,92,246,0.5)]'
-            : 'w-7 h-7 border-white/30 bg-white/[0.03]'
+            ? 'w-10 h-10 border-[#0071E3]/50 bg-[#0071E3]/10 shadow-[0_0_20px_rgba(0,113,227,0.3)]'
+            : 'w-7 h-7 border-black/20 bg-black/[0.02]'
         }`}
       />
     </motion.div>

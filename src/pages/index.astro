@@ -1,30 +1,31 @@
 ---
 /**
- * index.astro — Home page.
- * Assembles all sections into the complete single-page portfolio.
+ * index.astro — Home page for Naveen Bishnoi Portfolio.
+ * Built with Apple visionOS Design System, Fluid Spring Interactions & Multi-Agent Runtimes.
  */
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import HeroSection from '../components/HeroSection.astro';
-import AboutSection from '../components/AboutSection.astro';
 import WorkflowsSection from '../components/WorkflowsSection.astro';
 import HermesSection from '../components/HermesSection.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
-import SkillsSection from '../components/SkillsSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
 import ContactSection from '../components/ContactSection.astro';
-import Footer from '../components/Footer.astro';
+import FooterSection from '../components/FooterSection.astro';
 ---
 
-<BaseLayout title="Home" description="Naveen Bishnoi — AI Automation Engineer & Software Architect. Building production-grade systems with AI-first architecture, precision engineering, and honest craftsmanship.">
+<Layout 
+  title="Home" 
+  description="Naveen Bishnoi — AI Automation Engineer & Software Architect. Building production-grade systems with AI-first architecture, multi-agent frameworks, and precision craftsmanship."
+>
   <Header slot="header" />
 
   <HeroSection />
   <WorkflowsSection />
   <HermesSection />
   <ProjectsSection />
-  <SkillsSection />
-  <AboutSection />
+  <ExperienceSection />
   <ContactSection />
 
-  <Footer slot="footer" />
-</BaseLayout>
+  <FooterSection slot="footer" />
+</Layout>

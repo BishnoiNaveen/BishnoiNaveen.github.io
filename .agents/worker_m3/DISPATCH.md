@@ -1,63 +1,34 @@
-## 2026-08-23T09:17:43Z
-You are Worker 3 for Milestone 3 (Fluid React Islands & Visualizers) on the Naveen Bishnoi Portfolio Redesign project.
-Working directory: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m3\
-Workspace root: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio
-Authoritative user request: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\ORIGINAL_REQUEST.md
-Master architecture document: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\PROJECT.md
-Test infrastructure document: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\TEST_INFRA.md
-Spring physics presets: `src/lib/springs.ts`
-Data files: `src/data/workflows.ts`, `src/data/hermes.ts`, `src/data/projects.ts`
+## 2026-08-24T00:42:38Z
+You are Worker M3: Workflows, Hermes Agentic System & Footer Implementation Worker.
+Working Directory: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m3
+Project Root: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio
+Original User Request: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\ORIGINAL_REQUEST.md
+Inspiration Guide: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\apple_ui_inspiration.md
+PROJECT.md: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\PROJECT.md
+Content & Data Catalog: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\explorer_0_3\analysis.md
+Design Tokens Spec: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\explorer_0_2\analysis.md
 
-MANDATORY INTEGRITY WARNING:
-DO NOT CHEAT. All implementations must be genuine. DO NOT hardcode test results, create dummy/facade implementations, or circumvent the intended task. A teamwork_preview_auditor will independently verify your work. Integrity violations WILL be detected and your work WILL be rejected.
+Files Owned Exclusively:
+- src/components/Workflows.tsx
+- src/components/WorkflowsSection.astro
+- src/components/Hermes.tsx
+- src/components/HermesSection.astro
+- src/components/Footer.tsx
+- src/components/FooterSection.astro
+- src/pages/index.astro
 
-Your scope of work:
-Implement all the Apple-style fluid React island components using Framer Motion springs (`import { springPresets } from '../lib/springs'`):
-1. `src/components/HeaderNav.tsx`:
-   - Apple-style floating dock / pill with shared `layoutId="active-nav-pill"` gliding spring indicator.
-   - Active scroll spy matching sections: `#hero`, `#workflows`, `#hermes`, `#projects`, `#skills`, `#about`, `#contact`.
-   - Responsive mobile navigation toggle and fluid animated mobile sheet with gestural close.
-2. `src/components/HeroInteractiveCanvas.tsx`:
-   - Interactive 3D perspective tilt card using Framer Motion springs (`springPresets.buoyant`).
-   - Magnetic CTA buttons using `useMagnetic` hook.
-   - Animated live status badges ("Open to Select Architectures", "KRONE Edge Telematics").
-3. `src/components/WorkflowVisualizer.tsx`:
-   - Interactive multi-step DAG/pipeline node visualizer loading all 5 workflows from `src/data/workflows.ts`.
-   - Workflow category picker / selector.
-   - Animated SVG flow lines with stroke-dashoffset pulses between nodes.
-   - Step node click opening an Apple-style fluid slide-over detail drawer (`WorkflowStepDrawer` or integrated) showing inputs/outputs, failure policy, telemetry metrics, and syntax-highlighted code snippet with copy button.
-   - Direct scrubber / progress indicator with boundary clamping.
-4. `src/components/HermesTelemetryDashboard.tsx`:
-   - Live simulated agent telemetry feed with toggleable "Live Stream" mode and pause/play controls.
-   - Real-time animated rolling spring counters for tokens, latency, cost.
-   - Multi-agent status cards with glowing pulse halos.
-   - 3-tier Memory Inspector tabs:
-     - Working Memory (active context tokens, key-value entries).
-     - Episodic Memory (Qdrant vector recall entries with spring-animated cosine similarity percentage bars).
-     - Semantic Knowledge Graph (entity-relationship cards and triple inspector).
-   - Dynamic LLM Router Matrix visualizer showing complexity evaluation and route arbitration.
-   - Integrated `JsonGraphInspector` with search filter and 1-click JSON copy.
-5. `src/components/JsonGraphInspector.tsx`:
-   - Collapsible, syntax-highlighted JSON viewer with instant search and copy button.
-6. `src/components/ProjectsFilterGrid.tsx` & `src/components/FluidProjectCard.tsx`:
-   - Category filter tabs with shared `layoutId="active-category-pill"`.
-   - FLIP layout animations on project card grid (`layout`, `springPresets.morph`).
-   - Project card hover lift and 3D tilt.
-   - Click to expand into a full-screen or centered modal with shared `layoutId={`project-card-${project.title}`}`, showing full description, highlights, architecture invariants, and tech stack tags.
-7. `src/components/SkillsInteractiveMatrix.tsx`:
-   - Interactive category switcher (AI & Agents, Systems & Embedded, Cloud & Data, Architecture & Security).
-   - Spring-animated proficiency bars (`springPresets.buoyant`) and skill tag cloud.
-8. `src/components/FluidContact.tsx`:
-   - Translucent spring-animated contact cards, quick copy email button with feedback toast, resume download CTA, social links.
-9. `src/components/MagneticCursorTracker.tsx`:
-   - Trailing magnetic cursor follower ring for fine pointers (`@media (pointer: fine)`).
-
-Requirements & Quality Rules:
-- All interactive state changes MUST use Framer Motion springs (`springPresets` from `src/lib/springs.ts`).
-- NO static CSS `transition: all 0.3s ease` on interactive components.
-- Full TypeScript types, zero `any` shortcuts, zero build errors.
-- Support `useReducedMotion()` from `framer-motion` for accessibility.
-- Run `npm run build` and verify that the project builds cleanly.
-- Run `node tests/run-all.mjs` and check test results.
-- Write a detailed handoff report in `c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m3\handoff.md`.
-- Send a completion message to parent with build and test outcomes.
+Tasks:
+1. Implement `src/components/Workflows.tsx` and `src/components/WorkflowsSection.astro` with the bright Apple visionOS aesthetic:
+   - 5 enterprise architectures: KRONE IoT Agri-Telematics (50Hz CAN edge), AEONIS OPS Autonomous CI/CD, Ultron Agentic Framework DAG, Medallion Stream Lakehouse, GAMS Transactional C State Machine.
+   - Interactive flow selector, step-by-step pipeline node visualizer with animated connectors, interactive step inspector showing typed I/O, failure recovery policy, code snippets (Rust, Python, TypeScript, SQL, C), and live telemetry metrics.
+   - Pure white translucent glass cards (`rgba(255,255,255,0.70)`), specular highlights, 32px rounded corners, subtle ambient drop shadows.
+2. Implement `src/components/Hermes.tsx` and `src/components/HermesSection.astro` with the bright Apple visionOS aesthetic:
+   - 6 specialized autonomous agents (Architect, Explorer, Implementer, Verifier, Auditor, Router) with live status beacons, latency, token velocity, and assigned tools.
+   - 3-tier memory telemetry visualization (Working Context Buffer, 148.9k Qdrant vector embeddings, 2,450 Knowledge Graph triples) with interactive memory search mock simulation.
+   - Byzantine Fault Tolerant consensus simulator (3f+1 validator quorum) and Multi-LLM Router decision audit log.
+3. Implement `src/components/Footer.tsx` and `src/components/FooterSection.astro`:
+   - Minimalist Apple footer with contact callouts (Email, LinkedIn, GitHub, X), status pill ("Available for Select Architectures"), navigation links, and back-to-top glass button.
+4. Update `src/pages/index.astro` so that all sections (Header, Hero, Projects, Experience, Workflows, Hermes, Footer) are composed and hydrated with `client:visible` or `client:load`.
+5. Execute `npm run build` using your terminal tool and verify 0 errors, 0 warnings.
+6. Write your handoff report to `c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m3\handoff.md`.
+7. Send a message to parent with build status and summary.

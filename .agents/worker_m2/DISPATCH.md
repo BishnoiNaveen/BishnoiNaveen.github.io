@@ -1,36 +1,30 @@
-## 2026-08-23T09:12:17Z
+## 2026-08-24T00:39:17Z
+You are the Worker for Milestone 2: Projects Showcase with Rich Imagery & Experience Bento Grid.
+Working Directory: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m2
+Project Root: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio
+Original User Request: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\ORIGINAL_REQUEST.md
+Inspiration Guide: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\apple_ui_inspiration.md
+PROJECT.md: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\PROJECT.md
+Content & Data Catalog: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\explorer_0_3\analysis.md
+Design Tokens Spec: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\explorer_0_2\analysis.md
 
-You are Worker 2 for Milestone 2 (Workflows & Hermes Data Layer) on the Naveen Bishnoi Portfolio Redesign project.
-Working directory: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m2\
-Workspace root: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio
-Authoritative user request: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\ORIGINAL_REQUEST.md
-Master architecture document: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\PROJECT.md
-Explorer Survey 3 report: c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\teamwork_preview_explorer_survey_3\handoff.md
+Files Owned Exclusively:
+- src/components/Projects.tsx
+- src/components/ProjectsSection.astro
+- src/components/Experience.tsx
+- src/components/ExperienceSection.astro
 
-MANDATORY INTEGRITY WARNING:
-DO NOT CHEAT. All implementations must be genuine. DO NOT hardcode test results, create dummy/facade implementations, or circumvent the intended task. A teamwork_preview_auditor will independently verify your work. Integrity violations WILL be detected and your work WILL be rejected.
-
-Your scope of work (Exclusive write ownership of these files):
-1. Create `src/types/workflow.ts`:
-   - Define all TypeScript interfaces for Workflows, WorkflowStep, WorkflowMetric, WorkflowIO, FailurePolicy, StepTelemetry, CodeSnippet, WorkflowCategory, ArchitectureType, StepType.
-2. Create `src/types/hermes.ts`:
-   - Define all TypeScript interfaces for Hermes telemetry: AgentTelemetryRecord, TokenMetrics, LatencyBreakdown, HermesTaskGraph, HermesTaskNode, HermesTaskEdge, HermesMemorySystem, WorkingMemoryEntry, VectorRecallResult, KnowledgeEntity, KnowledgeRelation, RouterDecision, QuorumSession, QuorumVote.
-3. Create `src/types/project.ts`:
-   - Clean typed definitions for projects.
-4. Create `src/data/workflows.ts`:
-   - Implement 5 comprehensive, deeply detailed real-world workflows for Naveen Bishnoi:
-     1. KRONE Edge-to-Cloud Agricultural Telematics & Yield Optimization
-     2. AEONIS OPS Autonomous Multi-Agent CI/CD & Self-Healing Pipeline
-     3. Ultron Autonomous Agentic Task Decomposition & Execution Engine
-     4. High-Throughput IoT Data Engineering & Medallion Stream Lakehouse
-     5. Enterprise GAMS Transactional State Machine
-   - Include complete steps, inputs/outputs, telemetry numbers, failure policies, and code snippets.
-5. Create `src/data/hermes.ts`:
-   - Implement full runtime data for:
-     - `hermesTelemetryRecords` (multiple active/idle agents with token burn, latency percentiles, uptime)
-     - `hermesTaskGraph` (DAG topology with nodes, dependencies, execution durations)
-     - `hermesMemorySystem` (working memory tokens, episodic vector recall records with cosine similarity scores, semantic knowledge graph entities and triples)
-     - `hermesRouterLogs` (dynamic LLM routing decisions, prompt classification, latency/cost trade-offs)
-     - `hermesQuorumSessions` (multi-agent Byzantine consensus voting records)
-6. Write your comprehensive handoff report in `c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m2\handoff.md`.
-7. Send a completion message to parent with your summary and report path.
+Tasks:
+1. Implement `src/components/Projects.tsx` (and `ProjectsSection.astro` wrapper) with the brand new bright Apple visionOS aesthetic:
+   - Feature all 6 projects with real high-resolution images (`/images/krone-telematics.jpg`, `/images/aeonis-ops.jpg`, `/images/ultron-engine.jpg`, `/images/medallion-pipeline.jpg`, `/images/gams-terminal.jpg`, `/images/hermes-agent.jpg`).
+   - Pure white translucent glass cards (`rgba(255,255,255,0.70)`), specular borders (`border-t border-white/80`), 32px rounded corners, subtle ambient drop shadows.
+   - Category filtering (All, Autonomous & AI, Systems & IoT, Data & Lakehouse), live metrics badges, tech stack tags, GitHub/Live Demo links.
+   - Interactive modal / deep-dive drawer for inspecting project system invariants, architectural decisions, and live metrics.
+2. Implement `src/components/Experience.tsx` (and `ExperienceSection.astro`) with an Apple-style Bento grid:
+   - Career journey & timeline (KRONE Agriculture India Pvt Ltd, etc.).
+   - 3 Engineering Philosophies (Architecture First, Radical Honesty, AI-Augmented).
+   - Interactive Technical Competencies matrix across 4 domains (Agentic & AI, Cloud & Data, Systems & IoT, Core Languages) with fluency indicators.
+3. Verify that `src/pages/index.astro` mounts these components seamlessly.
+4. Execute `npm run build` using your terminal tool and verify 0 errors, 0 warnings.
+5. Write your handoff report to `c:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio\.agents\worker_m2\handoff.md`.
+6. Send a message to parent with build status and summary.

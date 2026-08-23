@@ -1,178 +1,22 @@
 ---
 /**
- * BaseLayout.astro — Master layout wrapper.
- * Provides: <html>, <head> (SEO, OG, JSON-LD), <body>, global CSS,
- *           scroll-reveal observer, and GSAP core loader.
+ * BaseLayout.astro — Backward compatibility forwarder to Layout.astro.
  */
-import MagneticCursorTracker from '../components/MagneticCursorTracker';
+import Layout from './Layout.astro';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
   ogImage?: string;
   canonicalUrl?: string;
+  keywords?: string[];
 }
 
-const {
-  title,
-  description = 'Naveen Bishnoi — AI Automation Engineer & Software Architect. Building production-grade systems with AI-first architecture.',
-  ogImage = '/og-image.png',
-  canonicalUrl = Astro.url.href,
-} = Astro.props;
-
-const siteName = 'Naveen Bishnoi';
-const siteUrl  = Astro.site ?? new URL(Astro.url.pathname, 'https://naveenbishnoi.dev');
-const fullOgImage = new URL(ogImage, siteUrl).href;
-
-/* JSON-LD Structured Data — Person + WebSite */
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": siteName,
-      "url": siteUrl.toString(),
-      "description": description,
-    },
-    {
-      "@type": "Person",
-      "name": "Naveen Bishnoi",
-      "url": siteUrl.toString(),
-      "jobTitle": "AI Automation Engineer & Software Architect",
-      "knowsAbout": [
-        "AI Automation",
-        "Prompt Engineering",
-        "Software Architecture",
-        "Full-Stack Development",
-        "Python",
-        "JavaScript",
-        "System Design"
-      ],
-      "sameAs": [
-        "https://github.com/BishnoiNaveen",
-        "https://www.linkedin.com/in/naveen-bishnoi-b0b00941a"
-      ]
-    }
-  ]
-};
+const props = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- ====== Critical Meta ====== -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#0d1117" />
-    <meta name="color-scheme" content="dark" />
-
-    <!-- ====== SEO ====== -->
-    <title>{title} | {siteName}</title>
-    <meta name="description" content={description} />
-    <meta name="author" content="Naveen Bishnoi" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonicalUrl} />
-
-    <!-- ====== Open Graph (Facebook / LinkedIn) ====== -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | ${siteName}`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={fullOgImage} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content={siteName} />
-
-    <!-- ====== Twitter Card ====== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | ${siteName}`} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={fullOgImage} />
-
-    <!-- ====== Favicons ====== -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <!-- ====== JSON-LD Structured Data ====== -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
-    <!-- ====== Generator ====== -->
-    <meta name="generator" content={Astro.generator} />
-
-    <!-- ====== Preconnect and Preload Critical Fonts ====== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
-
-    <!-- ====== Design System CSS ====== -->
-    <style is:global>
-      @import '../styles/design-system.css';
-    </style>
-  </head>
-
-  <body>
-    <!-- Skip-to-content link for keyboard navigation (a11y) -->
-    <a href="#main-content" class="skip-link sr-only" id="skip-nav">
-      Skip to main content
-    </a>
-
-    <slot name="header" />
-
-    <main id="main-content" tabindex="-1">
-      <slot />
-    </main>
-
-    <slot name="footer" />
-
-    <MagneticCursorTracker client:idle />
-
-    <!-- ====== Scroll Reveal Observer (Vanilla JS — no framework needed) ====== -->
-    <script>
-      /* IntersectionObserver for .reveal elements */
-      if (typeof IntersectionObserver !== 'undefined') {
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReducedMotion) {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-          );
-
-          document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-        } else {
-          /* If reduced motion, show all immediately */
-          document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
-        }
-      }
-    </script>
-  </body>
-</html>
-
-<style is:global>
-  /* Skip link — visible on focus */
-  .skip-link:focus {
-    position: fixed;
-    top: var(--space-4);
-    left: var(--space-4);
-    width: auto;
-    height: auto;
-    padding: var(--space-3) var(--space-6);
-    clip: auto;
-    overflow: visible;
-    white-space: normal;
-    background: var(--color-accent);
-    color: var(--color-bg-primary);
-    font-weight: 600;
-    border-radius: var(--radius-md);
-    z-index: var(--z-toast);
-    outline: none;
-    box-shadow: var(--shadow-glow);
-  }
-</style>
+<Layout {...props}>
+  <slot name="header" slot="header" />
+  <slot />
+  <slot name="footer" slot="footer" />
+</Layout>

@@ -184,23 +184,23 @@ export const SkillsInteractiveMatrix: React.FC = () => {
   const activeCategory = SKILL_CATEGORIES.find(c => c.id === activeCategoryId) || SKILL_CATEGORIES[0];
 
   return (
-    <div className="w-full max-w-6xl mx-auto flex flex-col gap-8 py-6 text-left">
+    <div className="w-full max-w-7xl mx-auto flex flex-col gap-8 py-6 text-left">
       {/* Section Header */}
-      <div>
-        <div className="flex items-center gap-2 text-xs font-mono text-violet-400 mb-1">
+      <div className="flex flex-col gap-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-[#0071E3] text-xs font-semibold tracking-wider uppercase w-fit shadow-sm">
           <Code2 size={14} />
-          <span>TECHNICAL MATRIX</span>
+          <span>Technical Arsenal Matrix</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1D1D1F] tracking-tight">
           Engineering Expertise & Competencies
         </h2>
-        <p className="text-sm text-gray-400 mt-1 max-w-2xl">
+        <p className="text-base text-[#424245] max-w-2xl">
           Deep technical proficiencies across distributed AI systems, embedded vehicle telematics, and Apple-grade fluid interfaces.
         </p>
       </div>
 
       {/* Category Switcher Tabs */}
-      <div className="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-white/10 overflow-x-auto scrollbar-none">
+      <div className="flex items-center gap-1.5 p-1.5 bg-white/70 backdrop-blur-2xl rounded-full border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-x-auto scrollbar-none self-start">
         {SKILL_CATEGORIES.map((cat) => {
           const isSelected = activeCategoryId === cat.id;
           const Icon = cat.icon;
@@ -209,19 +209,19 @@ export const SkillsInteractiveMatrix: React.FC = () => {
             <button
               key={cat.id}
               onClick={() => setActiveCategoryId(cat.id)}
-              className={`relative px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
-                isSelected ? 'text-white' : 'text-gray-400 hover:text-gray-200'
+              className={`relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] ${
+                isSelected ? 'text-[#1D1D1F]' : 'text-[#86868B] hover:text-[#1D1D1F]'
               }`}
             >
               <div className="flex items-center gap-2 relative z-10">
-                <Icon size={16} className={isSelected ? 'text-violet-300' : 'text-gray-400'} />
+                <Icon size={15} className={isSelected ? 'text-[#0071E3]' : 'text-[#86868B]'} />
                 <span>{cat.name}</span>
               </div>
 
               {isSelected && (
                 <motion.div
                   layoutId="active-skill-category-pill"
-                  className="absolute inset-0 z-0 bg-violet-600/30 border border-violet-500/50 rounded-xl shadow-[0_0_15px_rgba(139,92,246,0.3)]"
+                  className="absolute inset-0 z-0 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-black/[0.04]"
                   transition={shouldReduceMotion ? { duration: 0 } : springPresets.glide}
                 />
               )}
@@ -241,9 +241,9 @@ export const SkillsInteractiveMatrix: React.FC = () => {
           className="flex flex-col gap-6"
         >
           {/* Category Headline Banner */}
-          <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs sm:text-sm text-gray-300 font-mono flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-violet-400 shrink-0" />
-            <span>{activeCategory.headline}</span>
+          <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200/60 text-xs sm:text-sm text-[#1D1D1F] font-mono flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#0071E3] shrink-0" />
+            <span className="font-semibold">{activeCategory.headline}</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -253,45 +253,45 @@ export const SkillsInteractiveMatrix: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ...springPresets.buoyant, delay: index * 0.05 }}
-                className="p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 via-slate-900/70 to-slate-950/90 border border-white/10 hover:border-violet-500/30 shadow-xl backdrop-blur-xl flex flex-col justify-between gap-4 transition-colors"
+                className="p-6 rounded-[28px] bg-white/70 backdrop-blur-2xl border-t border-l border-white/90 border-r border-b border-black/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,113,227,0.08)] flex flex-col justify-between gap-4 transition-shadow"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-base sm:text-lg font-bold text-white">
+                    <h3 className="text-base sm:text-lg font-bold text-[#1D1D1F]">
                       {skill.name}
                     </h3>
-                    <span className="text-xs font-mono font-bold text-violet-400 bg-violet-500/10 px-2.5 py-0.5 rounded-full border border-violet-500/20">
+                    <span className="text-xs font-mono font-bold text-[#0071E3] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
                       {skill.proficiency}%
                     </span>
                   </div>
 
-                  <div className="text-[11px] font-mono text-emerald-400 mt-1">
+                  <div className="text-[11px] font-mono text-emerald-700 mt-1 font-semibold">
                     {skill.experience}
                   </div>
 
-                  <p className="text-xs text-gray-300 mt-2 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#424245] mt-2 leading-relaxed">
                     {skill.description}
                   </p>
                 </div>
 
                 {/* Spring-Animated Proficiency Bar */}
                 <div className="flex flex-col gap-1.5">
-                  <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden p-0.5 border border-white/5">
+                  <div className="w-full bg-black/[0.05] h-2 rounded-full overflow-hidden p-0.5 border border-black/[0.03]">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${skill.proficiency}%` }}
                       transition={shouldReduceMotion ? { duration: 0 } : springPresets.buoyant}
-                      className="h-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-indigo-400 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"
+                      className="h-full bg-gradient-to-r from-[#0071E3] via-[#AF52DE] to-[#34C759] rounded-full shadow-[0_0_8px_rgba(0,113,227,0.4)]"
                     />
                   </div>
                 </div>
 
                 {/* Technologies Tag Cloud */}
-                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-black/[0.06]">
                   {skill.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-white/[0.04] border border-white/10 text-gray-300"
+                      className="text-[11px] font-mono px-2.5 py-0.5 rounded-lg bg-black/[0.03] border border-black/[0.06] text-[#424245] font-medium"
                     >
                       {tech}
                     </span>

@@ -1,21 +1,22 @@
 ---
 /**
- * ProjectsSection.astro — Architectural Portfolio Section.
- * Hosts ProjectsFilterGrid React island with client:visible hydration.
+ * ProjectsSection.astro — Architectural Systems Portfolio Section.
+ * Hosts Projects React island with client:visible hydration in Apple visionOS style.
  */
-import ProjectsFilterGrid from './ProjectsFilterGrid';
+import Projects from './Projects';
 ---
 
 <section class="projects section" id="projects" aria-labelledby="projects-heading">
   <div class="container">
-    <ProjectsFilterGrid client:visible />
+    <Projects client:visible />
   </div>
 </section>
 
 <style>
   .projects {
     position: relative;
-    padding: var(--space-20) 0;
+    padding: var(--space-24) 0;
     overflow: hidden;
+    z-index: 10;
   }
 </style>
