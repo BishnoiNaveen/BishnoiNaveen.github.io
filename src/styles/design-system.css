@@ -91,6 +91,25 @@
   --glass-border:     1px solid var(--color-border);
   --glass-border-hover: 1px solid var(--color-border-hover);
 
+  /* --- Apple-Style Translucent Material Layers & Vibrancy --- */
+  --material-canvas:            hsl(228, 18%, 7%);
+  --material-glass-level-1:     hsla(228, 16%, 10%, 0.60);
+  --material-glass-level-2:     hsla(228, 16%, 12%, 0.75);
+  --material-glass-level-3:     hsla(228, 16%, 14%, 0.88);
+
+  --blur-level-1:               16px;
+  --blur-level-2:               24px;
+  --blur-level-3:               32px;
+
+  /* Specular Hairline Borders with Dynamic Directional Light */
+  --border-specular-subtle:     1px solid hsla(220, 20%, 95%, 0.08);
+  --border-specular-elevated:   1px solid hsla(220, 20%, 95%, 0.15);
+  --border-specular-active:     1px solid hsla(258, 90%, 66%, 0.40);
+
+  --shadow-specular-ambient:    0 12px 32px -4px hsla(0, 0%, 0%, 0.45);
+  --shadow-specular-hover:      0 20px 48px -8px hsla(0, 0%, 0%, 0.60),
+                                0 0 24px -2px hsla(258, 90%, 66%, 0.25);
+
   /* --- Transitions --- */
   --transition-fast:     150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base:     250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -206,6 +225,20 @@ p {
 
 .section {
   padding: var(--section-padding);
+  contain: layout style;
+}
+
+/* — CSS Containment Utilities for Performance Optimization — */
+.contain-layout {
+  contain: layout style;
+}
+
+.contain-paint {
+  contain: layout style paint;
+}
+
+.contain-strict {
+  contain: strict;
 }
 
 /* — Visually Hidden (a11y) — */
@@ -241,6 +274,36 @@ p {
 .glass:hover {
   border: var(--glass-border-hover);
   box-shadow: var(--shadow-glow);
+}
+
+/* --- Apple Translucent Material Layer Utilities --- */
+.material-glass-1 {
+  background: var(--material-glass-level-1);
+  -webkit-backdrop-filter: blur(var(--blur-level-1)) saturate(180%);
+  backdrop-filter: blur(var(--blur-level-1)) saturate(180%);
+  border: var(--border-specular-subtle);
+  box-shadow: var(--shadow-specular-ambient), inset 0 1px 0 0 hsla(255, 100%, 100%, 0.06);
+}
+
+.material-glass-2 {
+  background: var(--material-glass-level-2);
+  -webkit-backdrop-filter: blur(var(--blur-level-2)) saturate(190%);
+  backdrop-filter: blur(var(--blur-level-2)) saturate(190%);
+  border: var(--border-specular-elevated);
+  box-shadow: var(--shadow-specular-ambient), inset 0 1px 0 0 hsla(255, 100%, 100%, 0.10);
+}
+
+.material-glass-3 {
+  background: var(--material-glass-level-3);
+  -webkit-backdrop-filter: blur(var(--blur-level-3)) saturate(200%);
+  backdrop-filter: blur(var(--blur-level-3)) saturate(200%);
+  border: var(--border-specular-active);
+  box-shadow: var(--shadow-specular-hover), inset 0 1px 0 0 hsla(255, 100%, 100%, 0.15);
+}
+
+.will-animate-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* — Gradient Text — */

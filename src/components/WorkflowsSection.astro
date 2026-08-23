@@ -1,0 +1,21 @@
+---
+/**
+ * WorkflowsSection.astro — Enterprise Systems & Multi-Agent Workflows Island.
+ * Hosts WorkflowVisualizer React island with client:visible hydration.
+ */
+import WorkflowVisualizer from './WorkflowVisualizer';
+---
+
+<section class="workflows section" id="workflows" aria-labelledby="workflows-heading">
+  <div class="container">
+    <WorkflowVisualizer client:visible />
+  </div>
+</section>
+
+<style>
+  .workflows {
+    position: relative;
+    padding: var(--space-20) 0;
+    overflow: hidden;
+  }
+</style>

@@ -4,6 +4,8 @@
  * Provides: <html>, <head> (SEO, OG, JSON-LD), <body>, global CSS,
  *           scroll-reveal observer, and GSAP core loader.
  */
+import MagneticCursorTracker from '../components/MagneticCursorTracker';
+
 interface Props {
   title: string;
   description?: string;
@@ -62,6 +64,8 @@ const jsonLd = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#0d1117" />
+    <meta name="color-scheme" content="dark" />
 
     <!-- ====== SEO ====== -->
     <title>{title} | {siteName}</title>
@@ -95,9 +99,11 @@ const jsonLd = {
     <!-- ====== Generator ====== -->
     <meta name="generator" content={Astro.generator} />
 
-    <!-- ====== Preload Critical Font ====== -->
+    <!-- ====== Preconnect and Preload Critical Fonts ====== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
 
     <!-- ====== Design System CSS ====== -->
     <style is:global>
@@ -118,6 +124,8 @@ const jsonLd = {
     </main>
 
     <slot name="footer" />
+
+    <MagneticCursorTracker client:idle />
 
     <!-- ====== Scroll Reveal Observer (Vanilla JS — no framework needed) ====== -->
     <script>

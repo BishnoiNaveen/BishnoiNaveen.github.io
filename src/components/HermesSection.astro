@@ -1,0 +1,21 @@
+---
+/**
+ * HermesSection.astro — Hermes Agentic Telemetry & 3-Tier Memory Dashboard.
+ * Hosts HermesTelemetryDashboard React island with client:visible hydration.
+ */
+import HermesTelemetryDashboard from './HermesTelemetryDashboard';
+---
+
+<section class="hermes section" id="hermes" aria-labelledby="hermes-heading">
+  <div class="container">
+    <HermesTelemetryDashboard client:visible />
+  </div>
+</section>
+
+<style>
+  .hermes {
+    position: relative;
+    padding: var(--space-20) 0;
+    overflow: hidden;
+  }
+</style>
