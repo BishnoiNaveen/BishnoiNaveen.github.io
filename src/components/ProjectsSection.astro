@@ -40,6 +40,9 @@ const categories = ['All', ...new Set(projects.map(p => p.category))];
         <article class="project-card glass reveal" style={`--delay: ${(i % 3) * 120}ms`} data-category={project.category} aria-labelledby={`project-${i}-title`}>
           <!-- Card Header -->
           <div class="project-card__header">
+            {project.image && (
+              <img src={project.image} alt={`${project.title} screenshot`} class="project-card__image" loading="lazy" />
+            )}
             <div class="project-card__meta">
               <span class={`badge badge--${project.status}`}>{project.statusLabel}</span>
               <span class="badge badge--category">{project.category}</span>
@@ -257,6 +260,15 @@ const categories = ['All', ...new Set(projects.map(p => p.category))];
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  .project-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-border);
   }
 
   .project-card__header {

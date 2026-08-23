@@ -11,6 +11,7 @@ export interface Project {
   highlights: string[];
   github: string | null;
   live: string | null;
+  image?: string;
 }
 
 export const projects: Project[] = [
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/BishnoiNaveen/gas-agency-management-system',
     live: null,
+    image: '/images/gas_agency_system.jpg',
   },
   {
     title: 'Smart Task System',
@@ -45,6 +47,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/BishnoiNaveen/smart-task-system',
     live: null,
+    image: '/images/smart_task_system.jpg',
   },
   {
     title: 'Naveen Bishnoi Portfolio',
@@ -61,6 +64,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/BishnoiNaveen/BishnoiNaveen',
     live: 'https://naveenbishnoi.com',
+    image: '/images/portfolio_hero.jpg',
   },
   {
     title: 'AEONIS OPS',
@@ -77,6 +81,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/BishnoiNaveen/AEONIS-OPS',
     live: null,
+    image: '/images/aeonis_ops.jpg',
   },
   {
     title: 'Ultron Framework',
@@ -93,6 +98,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/BishnoiNaveen/Ultron',
     live: null,
+    image: '/images/ultron_framework.jpg',
   },
   {
     title: 'Sentinel AI Security',
@@ -109,5 +115,6 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/BishnoiNaveen/SentinelAI',
     live: null,
+    image: '/images/sentinel_ai.jpg',
   }
 ];
