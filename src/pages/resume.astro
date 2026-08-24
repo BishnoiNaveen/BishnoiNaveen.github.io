@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderNav from '../components/HeaderNav';
+---
+
+<Layout 
+  title="Resume | Naveen Bishnoi" 
+  description="Experience, Education, and Technical Skills of Naveen Bishnoi."
+>
+  <HeaderNav client:load />
+
+  <main class="w-full min-h-screen bg-[#09090b] pt-32 pb-24 text-white">
+    <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+      
+      <header class="mb-24">
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6">RESUME</h1>
+        <p class="text-xl md:text-2xl text-zinc-400 font-light max-w-3xl leading-relaxed">
+          A comprehensive overview of my professional experience, education, and technical expertise in software architecture and AI automation.
+        </p>
+        <div class="mt-8 flex gap-4">
+          <a href="/Naveen_Bishnoi_Resume.pdf" target="_blank" class="px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-zinc-200 transition-colors text-sm uppercase tracking-widest">
+            Download PDF
+          </a>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        
+        {/* Left Column: Experience & Education */}
+        <div class="lg:col-span-8 flex flex-col gap-24">
+          
+          {/* Experience Section */}
+          <section>
+            <h2 class="text-xs font-bold tracking-widest uppercase text-zinc-500 mb-12 border-b border-white/10 pb-4">Professional Experience</h2>
+            
+            <div class="flex flex-col gap-16">
+              
+              <div class="relative pl-8 md:pl-0">
+                <div class="hidden md:block absolute left-[-40px] top-2 w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
+                <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+                  <h3 class="text-2xl md:text-3xl font-bold text-white">Software Architect</h3>
+                  <span class="text-sm font-medium text-zinc-500 tracking-widest uppercase mt-2 md:mt-0">2022 — Present</span>
+                </div>
+                <h4 class="text-lg text-emerald-400 font-medium mb-6">Krone Agriculture India Pvt. Ltd.</h4>
+                <p class="text-base md:text-lg text-zinc-400 font-light leading-relaxed mb-6">
+                  Spearheading the architecture and development of enterprise IoT telemetry platforms and autonomous agent workflows. Orchestrating high-throughput data pipelines using Kafka and Python, alongside modern frontend architectures (React/Astro).
+                </p>
+                <ul class="flex flex-col gap-3 text-zinc-300 font-light list-disc pl-5">
+                  <li>Designed and deployed KRONE IoT Fleet Telemetry serving global assets with sub-second latency.</li>
+                  <li>Architected the Ultron Framework for multi-agent consensus reducing manual operational overhead by 40%.</li>
+                  <li>Implemented real-time event-driven architectures utilizing PostgreSQL, Redis, and FastAPI.</li>
+                </ul>
+              </div>
+
+              <div class="relative pl-8 md:pl-0">
+                <div class="hidden md:block absolute left-[-40px] top-2 w-3 h-3 rounded-full bg-zinc-700"></div>
+                <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+                  <h3 class="text-2xl md:text-3xl font-bold text-white">AI Automation Engineer</h3>
+                  <span class="text-sm font-medium text-zinc-500 tracking-widest uppercase mt-2 md:mt-0">2020 — 2022</span>
+                </div>
+                <h4 class="text-lg text-zinc-300 font-medium mb-6">Tech Consulting</h4>
+                <p class="text-base md:text-lg text-zinc-400 font-light leading-relaxed mb-6">
+                  Developed intelligent automation solutions integrating LLMs (LangChain, Autogen) into legacy supply chain systems, bridging the gap between traditional operations and autonomous decision-making.
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {/* Education Section */}
+          <section>
+            <h2 class="text-xs font-bold tracking-widest uppercase text-zinc-500 mb-12 border-b border-white/10 pb-4">Education</h2>
+            
+            <div class="flex flex-col gap-12">
+              <div class="relative pl-8 md:pl-0">
+                <div class="hidden md:block absolute left-[-40px] top-2 w-3 h-3 rounded-full bg-zinc-700"></div>
+                <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+                  <h3 class="text-xl md:text-2xl font-bold text-white">Bachelor of Technology in Computer Science</h3>
+                  <span class="text-sm font-medium text-zinc-500 tracking-widest uppercase mt-2 md:mt-0">2016 — 2020</span>
+                </div>
+                <h4 class="text-lg text-zinc-300 font-medium mb-4">University of Engineering and Technology</h4>
+                <p class="text-zinc-400 font-light leading-relaxed">Focus on Distributed Systems, Artificial Intelligence, and Advanced Data Structures.</p>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        {/* Right Column: Skills & Details */}
+        <div class="lg:col-span-4 flex flex-col gap-16">
+          
+          <div class="p-8 rounded-3xl glass-panel border border-white/5 bg-white/[0.02]">
+            <h2 class="text-xs font-bold tracking-widest uppercase text-zinc-500 mb-8 border-b border-white/10 pb-4">Core Competencies</h2>
+            <div class="flex flex-wrap gap-3">
+              {['System Architecture', 'Multi-Agent Systems', 'Event-Driven Design', 'High-Throughput Pipelines', 'Predictive Analytics', 'UI/UX Engineering'].map(skill => (
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm font-medium text-zinc-300">{skill}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-panel border border-white/5 bg-white/[0.02]">
+            <h2 class="text-xs font-bold tracking-widest uppercase text-zinc-500 mb-8 border-b border-white/10 pb-4">Technical Stack</h2>
+            
+            <div class="mb-8">
+              <h3 class="text-sm font-bold text-white mb-4">Languages & Frameworks</h3>
+              <div class="flex flex-wrap gap-2">
+                {['Python', 'TypeScript', 'JavaScript', 'React', 'Astro', 'Node.js', 'FastAPI'].map(skill => (
+                  <span class="text-zinc-400 font-light text-sm bg-black/50 px-3 py-1 rounded-md border border-white/5">{skill}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div class="mb-8">
+              <h3 class="text-sm font-bold text-white mb-4">Infrastructure & Data</h3>
+              <div class="flex flex-wrap gap-2">
+                {['Kafka', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'Vector Databases'].map(skill => (
+                  <span class="text-zinc-400 font-light text-sm bg-black/50 px-3 py-1 rounded-md border border-white/5">{skill}</span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-bold text-white mb-4">AI & Agents</h3>
+              <div class="flex flex-wrap gap-2">
+                {['LangChain', 'Autogen', 'LLMs', 'Agentic Workflows'].map(skill => (
+                  <span class="text-zinc-400 font-light text-sm bg-black/50 px-3 py-1 rounded-md border border-white/5">{skill}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+</Layout>
