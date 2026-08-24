@@ -231,3 +231,25 @@ export function createTestSuite(suiteName, tier = 1, description = '') {
  * Root directory resolver relative to project workspace.
  */
 export const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..', '..');
+
+/**
+ * Returns combined CSS content from src/styles and dist/_astro for CSS token/rule auditing.
+ */
+export function getCssContent() {
+  const stylesDir = path.join(WORKSPACE_ROOT, 'src', 'styles');
+  let combined = '';
+  if (fs.existsSync(stylesDir)) {
+    const files = fs.readdirSync(stylesDir).filter(f => f.endsWith('.css'));
+    for (const f of files) {
+      combined += '\n/* --- ' + f + ' --- */\n' + fs.readFileSync(path.join(stylesDir, f), 'utf8');
+    }
+  }
+  const distAstroDir = path.join(WORKSPACE_ROOT, 'dist', '_astro');
+  if (fs.existsSync(distAstroDir)) {
+    const files = fs.readdirSync(distAstroDir).filter(f => f.endsWith('.css'));
+    for (const f of files) {
+      combined += '\n/* --- dist/_astro/' + f + ' --- */\n' + fs.readFileSync(path.join(distAstroDir, f), 'utf8');
+    }
+  }
+  return combined;
+}

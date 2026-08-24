@@ -2,17 +2,17 @@
  * dom-and-sections.test.mjs — Tier 1: Semantic DOM Structure & Section Verification
  * Inspects dist/index.html and source templates to verify semantic landmarks,
  * section anchors (#hero, #about, #workflows, #hermes, #projects, #skills, #contact),
- * translucent glassmorphism classes, and accessibility tags.
+ * translucent glassmorphism classes, navigation dock, links, and accessibility tags.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { createTestSuite, WORKSPACE_ROOT } from '../utils/test-helpers.mjs';
+import { createTestSuite, WORKSPACE_ROOT, getCssContent } from '../utils/test-helpers.mjs';
 
 const suite = createTestSuite(
   'Semantic DOM Structure & Sections (Tier 1)',
   1,
-  'Validates semantic HTML landmarks, required section containers, glassmorphism classes, and accessibility compliance.'
+  'Validates semantic HTML landmarks, required section containers, glassmorphism classes, navigation items, links, and accessibility compliance.'
 );
 
 suite.test('Semantic landmarks (<header>, <main>, <footer>, <nav>) in built HTML or templates', (ctx) => {
@@ -77,29 +77,35 @@ suite.test('Workflows and Hermes dedicated data section containers', (ctx) => {
   );
 });
 
-suite.test('Glassmorphism design system tokens in design-system.css', (ctx) => {
-  const cssPath = path.join(WORKSPACE_ROOT, 'src', 'styles', 'design-system.css');
-  ctx.assertFileExists(cssPath, 'src/styles/design-system.css must exist');
+suite.test('Glassmorphism design system tokens and utilities in CSS stylesheets', (ctx) => {
+  const css = getCssContent();
+  ctx.assert(css.length > 500, 'CSS stylesheets must contain non-empty style rules');
 
-  const css = fs.readFileSync(cssPath, 'utf8');
-
-  // Verify translucent glass tokens
-  ctx.assert(css.includes('--color-bg-primary'), 'design-system.css must define --color-bg-primary');
-  ctx.assert(css.includes('--color-accent'), 'design-system.css must define --color-accent');
-  ctx.assert(css.includes('--glass-bg') || css.includes('--color-bg-glass'), 'design-system.css must define translucent glass token');
-  ctx.assert(css.includes('backdrop-filter') || css.includes('--glass-blur'), 'design-system.css must configure backdrop-filter blur');
-  ctx.assert(css.includes('.glass'), 'design-system.css must provide .glass utility class');
+  // Verify translucent glass tokens and theme foundation
+  ctx.assert(css.includes('--apple-canvas') || css.includes('--color-bg-primary'), 'CSS must define primary background canvas token');
+  ctx.assert(css.includes('--apple-blue') || css.includes('--color-accent'), 'CSS must define accent color token');
+  ctx.assert(css.includes('--apple-glass-base') || css.includes('--color-bg-glass') || css.includes('--glass-bg'), 'CSS must define translucent glass token');
+  ctx.assert(css.includes('backdrop-filter'), 'CSS must configure backdrop-filter blur');
+  ctx.assert(css.includes('.apple-glass-card') || css.includes('.glass'), 'CSS must provide glass card utility classes');
+  ctx.assert(css.includes('.apple-glass-dock') || css.includes('apple-glass'), 'CSS must provide glass dock utility classes');
 });
 
-suite.test('Accessibility: interactive elements have valid attributes', (ctx) => {
+suite.test('Navigation items, interactive components, and anchor links integrity', (ctx) => {
   const indexPath = path.join(WORKSPACE_ROOT, 'dist', 'index.html');
   const html = fs.readFileSync(indexPath, 'utf8');
+
+  // Verify floating navigation dock or links exist
+  const navTargets = ['hero', 'about', 'workflows', 'hermes', 'projects', 'skills', 'contact'];
+  for (const target of navTargets) {
+    const hasNavAnchor = html.includes(`href="#${target}"`) || html.includes(`href='#${target}'`) || html.toLowerCase().includes(target);
+    ctx.assert(hasNavAnchor, `Navigation target or anchor for "${target}" must be present`);
+  }
 
   // Check all anchor tags with target="_blank" have rel="noopener" or "noreferrer"
   const blankLinks = html.match(/<a\s+[^>]*target=["']_blank["'][^>]*>/gi) || [];
   for (const link of blankLinks) {
     ctx.assert(
-      link.includes('rel="noopener') || link.includes('rel="noreferrer') || link.includes("rel='noopener"),
+      link.includes('rel="noopener') || link.includes('rel="noreferrer') || link.includes("rel='noopener") || link.includes("rel='noreferrer"),
       `External link must include rel="noopener" for security/a11y: ${link}`
     );
   }

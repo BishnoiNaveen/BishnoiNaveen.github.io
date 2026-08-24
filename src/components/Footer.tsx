@@ -35,7 +35,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: 'Email',
-    href: 'mailto:naveenbishnoi108@gmail.com',
+    href: 'mailto:0029bishnoinaveen@gmail.com',
     icon: <Mail size={18} />,
     color: '#EA4335',
   },

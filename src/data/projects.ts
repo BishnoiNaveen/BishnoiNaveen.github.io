@@ -10,7 +10,7 @@ export const projects: Project[] = [
     description: 'A robust console-based Gas Agency Management System (GAMS) built in C. Features complete LPG inventory control, customer bookings, delivery tracking, billing, CSV reporting, and a secure admin dashboard with zero memory leaks.',
     techStack: ['C', 'File I/O', 'Data Structures', 'Linux Syscalls'],
     status: 'live',
-    statusLabel: 'Completed',
+    statusLabel: 'Completed / Systems Project',
     category: 'Open Source',
     domain: 'Systems & IoT',
     highlights: [
@@ -23,10 +23,10 @@ export const projects: Project[] = [
     image: '/images/gas_agency_system.jpg',
     featured: true,
     metrics: [
-      { label: 'Throughput', value: '850 tx/s', description: 'Deterministic state transitions' },
-      { label: 'Commit Latency', value: '0.85 ms', description: 'Atomic file rename write speed' },
+      { label: 'Commit Mode', value: 'Atomic Rename', description: 'POSIX temp-file inode swap' },
       { label: 'Valgrind Leak', value: '0 Bytes', description: 'Zero heap/stack memory leak' },
-      { label: 'Crash Recovery', value: '100%', description: 'Write-ahead log journal recovery' },
+      { label: 'Persistence', value: 'WAL Journal', description: 'Write-ahead log crash recovery' },
+      { label: 'Architecture', value: 'ANSI C', description: 'Zero external DBMS dependencies' },
     ],
     architecturalLayer: 'Transactional C Core & Storage Inode Swapper',
     systemInvariants: [
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     description: 'A comprehensive distributed multi-agent operations platform for autonomous CI/CD pipelines, AST code vulnerability auditing, and automated canary deployment rollback.',
     techStack: ['Python', 'AST Taint Analysis', 'Multi-Agent', 'DevOps'],
     status: 'planning',
-    statusLabel: 'Architecture Stage',
+    statusLabel: 'Prototype / Architecture Spec',
     category: 'Antigravity Labs',
     domain: 'Autonomous & AI',
     highlights: [
@@ -61,10 +61,10 @@ export const projects: Project[] = [
     image: '/images/aeonis_ops.jpg',
     featured: true,
     metrics: [
-      { label: 'PR Audit Rate', value: '35 PR/hr', description: 'Concurrent multi-agent evaluation' },
-      { label: 'MTTA Time', value: '38.4s', description: 'Mean Time to Action upon vulnerability' },
-      { label: 'Consensus Rate', value: '99.8%', description: 'Byzantine Fault Tolerant Quorum' },
-      { label: 'False Positives', value: '0.00%', description: 'Forward AST taint propagation' },
+      { label: 'Consensus Gate', value: 'BFT Quorum', description: '4-Agent cryptographic sign-off' },
+      { label: 'Taint Analysis', value: 'AST Traversal', description: 'Tree-sitter forward taint propagation' },
+      { label: 'Canary Sentry', value: 'Istio Telemetry', description: 'Automated 5% traffic rollback' },
+      { label: 'Stage', value: 'Architecture Spec', description: 'System design and multi-agent prototype' },
     ],
     architecturalLayer: 'Distributed Multi-Agent Consensus Runtime',
     systemInvariants: [
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     description: 'An advanced multi-agent framework designed for enterprise automation. Coordinates distributed agent swarms to execute complex multi-step workflows with topological DAG scheduling and 3-tier memory.',
     techStack: ['Python', 'LangChain', 'Dynamic DAG', 'Qdrant Vector'],
     status: 'beta',
-    statusLabel: 'Beta Testing',
+    statusLabel: 'Experimental / Framework Beta',
     category: 'Open Source',
     domain: 'Autonomous & AI',
     highlights: [
@@ -99,10 +99,10 @@ export const projects: Project[] = [
     image: '/images/ultron_framework.jpg',
     featured: true,
     metrics: [
-      { label: 'Parallel Nodes', value: '8 Nodes', description: 'Concurrent non-blocking DAG execution' },
-      { label: 'Turn Latency', value: '<1.8s', description: 'End-to-end task turnaround time' },
-      { label: 'Vector Recall', value: '94.8%', description: 'Cosine semantic memory precision' },
-      { label: 'Sandbox Isolation', value: '100%', description: 'Ephemeral Docker tool execution' },
+      { label: 'Task Engine', value: 'Dynamic DAG', description: 'Topological cycle detection scheduler' },
+      { label: 'Memory Store', value: '3-Tier System', description: 'Context, Qdrant vectors & RDF graph' },
+      { label: 'Tool Sandbox', value: 'Docker Isolation', description: 'Ephemeral containerized execution' },
+      { label: 'Stage', value: 'Experimental Beta', description: 'Autonomous agent runtime under active research' },
     ],
     architecturalLayer: 'Dynamic DAG Task Decomposition & Execution Engine',
     systemInvariants: [
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     description: 'A production-grade portfolio engineered with Astro, React 19, Framer Motion, and Hermes multi-agent data layer. Features bright visionOS glassmorphism, fluid spring physics, and 100/100 Lighthouse performance.',
     techStack: ['Astro', 'React 19', 'Framer Motion', 'TypeScript', 'Tailwind CSS'],
     status: 'live',
-    statusLabel: 'Live',
+    statusLabel: 'Live / Production',
     category: 'Live',
     domain: 'Data & Lakehouse',
     highlights: [
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     description: 'A specialized AI security agent that continuously monitors repositories for OWASP Top 10 vulnerabilities, automatically tracing AST taint paths and synthesizing surgical pull request patches.',
     techStack: ['TypeScript', 'Babel AST', 'GitHub Actions', 'OpenAI API'],
     status: 'planning',
-    statusLabel: 'In Development',
+    statusLabel: 'Prototype / Security Research',
     category: 'Antigravity Labs',
     domain: 'Autonomous & AI',
     highlights: [
@@ -175,10 +175,10 @@ export const projects: Project[] = [
     image: '/images/sentinel_ai.jpg',
     featured: true,
     metrics: [
-      { label: 'Taint Leaks', value: '0 Leaks', description: 'Zero unparameterized SQL/Command sinks' },
-      { label: 'SAIF Tier', value: 'Tier 3', description: 'Enterprise Google SAIF compliance' },
-      { label: 'Analysis Speed', value: '195 ms', description: 'Initial AST token parse and traversal' },
-      { label: 'Patch Precision', value: '99.4%', description: 'Surgical diff generation without regression' },
+      { label: 'Analysis Engine', value: 'AST Parser', description: 'Static taint path extraction across sinks' },
+      { label: 'Security Model', value: 'SAIF Tier 3', description: 'Enterprise Google SAIF compliance' },
+      { label: 'Patch Method', value: 'Surgical Diff', description: 'Exact AST transformation syntax synthesis' },
+      { label: 'Stage', value: 'Research Prototype', description: 'Automated repository security sentry' },
     ],
     architecturalLayer: 'AST Security Sentry & Surgical Patch Synthesizer',
     systemInvariants: [
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     description: 'A dynamic task management architecture designed for seamless tracking and execution. Features client-side state persistence, event-driven optimistic UI mutation, and sub-16ms layout rendering.',
     techStack: ['JavaScript', 'HTML5', 'CSS3', 'DOM Architecture'],
     status: 'live',
-    statusLabel: 'Completed',
+    statusLabel: 'Completed / Web App',
     category: 'Open Source',
     domain: 'Data & Lakehouse',
     highlights: [
@@ -214,9 +214,9 @@ export const projects: Project[] = [
     featured: false,
     metrics: [
       { label: 'Frame Rate', value: '60 FPS', description: 'Sub-16ms layout rendering cycle' },
-      { label: 'State Sync', value: '100% Acid', description: 'Atomic LocalStorage persistence' },
-      { label: 'UI Latency', value: '<8 ms', description: 'Optimistic DOM mutation responsiveness' },
-      { label: 'Memory Footprint', value: '<12 MB', description: 'Minimalist memory consumption' },
+      { label: 'State Engine', value: 'Synchronous', description: 'Atomic LocalStorage persistence' },
+      { label: 'Runtime Stack', value: 'Vanilla JS', description: 'Zero framework overhead lightweight DOM' },
+      { label: 'Stage', value: 'Completed App', description: 'Dynamic event-driven workflow manager' },
     ],
     architecturalLayer: 'Reactive DOM State Machine & Transactional Storage',
     systemInvariants: [

@@ -26,6 +26,7 @@ interface TimelineEvent {
   year: string;
   role: string;
   organization: string;
+  type: 'corporate' | 'academic' | 'opensource';
   tag: string;
   tagType: 'production' | 'architecture' | 'ai' | 'milestone';
   description: string;
@@ -35,39 +36,53 @@ interface TimelineEvent {
 const TIMELINE_EVENTS: TimelineEvent[] = [
   {
     year: '2024 - Present',
-    role: 'AI Automation Engineer & Systems Architect',
+    role: 'AI Automation Engineer & Systems Intern',
     organization: 'KRONE Agriculture India Pvt Ltd',
-    tag: 'Production Edge IoT',
+    type: 'corporate',
+    tag: 'Corporate / Industrial IoT',
     tagType: 'production',
-    description: 'Architected edge-to-cloud agricultural telematics, 50Hz ISOBUS/CAN ingestion, and real-time ONNX vibration anomaly detection. Engineered 72-hour offline store-and-forward sync protocol over cellular MQTT.',
-    invariants: ['<25ms Edge Anomaly SLA', 'Zero-Loss 72hr Ring Buffer', 'Delaunay Yield Triangulation']
+    description: 'Architecting edge-to-cloud agricultural telematics, 50Hz ISOBUS/CAN ingestion, and real-time ONNX vibration anomaly detection. Engineered 72-hour offline store-and-forward sync protocol over cellular MQTT.',
+    invariants: ['50Hz CAN Ingestion SLA', 'Zero-Loss 72hr Ring Buffer', 'Delaunay Yield Triangulation']
+  },
+  {
+    year: '2021 - 2024',
+    role: 'Bachelor of Computer Applications (BCA)',
+    organization: 'Academic Foundation & Computer Science',
+    type: 'academic',
+    tag: 'Degree Foundation',
+    tagType: 'milestone',
+    description: 'Graduated with deep foundations in C programming, operating systems, Linux POSIX APIs, data structures, algorithms, memory management, and relational database systems.',
+    invariants: ['Algorithms & Data Structures', 'Linux POSIX Systems', 'Memory Architecture']
   },
   {
     year: '2024 - 2025',
-    role: 'Autonomous Operations Architect',
-    organization: 'AEONIS OPS Pipeline',
-    tag: 'Multi-Agent Security',
-    tagType: 'architecture',
-    description: 'Designed hierarchical multi-agent CI/CD platform with AST taint tracking, automated mutation testing, and Byzantine-fault-tolerant quorum gates preventing vulnerable commits.',
-    invariants: ['Zero False-Negative AST Taint', '4/4 Byzantine Consensus Gate', 'Automated Istio Rollback']
+    role: 'Transactional Systems Programmer',
+    organization: 'Gas Agency Management System (GAMS)',
+    type: 'opensource',
+    tag: 'Open-Source C Core',
+    tagType: 'milestone',
+    description: 'Architected bare-metal inventory state machine in C featuring double-entry balance verification, atomic POSIX temp-file inode renaming, and 0 byte memory leakage verified via Valgrind.',
+    invariants: ['Double-Entry Balance Verification', 'Atomic Inode Renaming (POSIX)', '0 Byte Dynamic Memory Leak']
   },
   {
     year: '2025',
-    role: 'Framework Designer & Agentic Engineer',
+    role: 'Agentic DAG Framework Designer',
     organization: 'Ultron Multi-Agent Engine',
-    tag: 'Agentic DAG Runtime',
+    type: 'opensource',
+    tag: 'Open-Source AI Runtime',
     tagType: 'ai',
-    description: 'Engineered directed acyclic graph (DAG) task scheduler with topological cycle detection, 3-tier memory (Context, Qdrant vectors, RDF graphs), and isolated Docker sandboxes.',
+    description: 'Engineered directed acyclic graph (DAG) task scheduler with topological cycle detection, 3-tier memory (Context, Qdrant vectors, RDF graphs), and isolated Docker execution environments.',
     invariants: ['Acyclic DAG Topological Sort', '100% Sandbox Container Isolation', 'Reflexion Loop Self-Repair']
   },
   {
     year: '2024 - 2025',
-    role: 'Systems Programmer & FSM Architect',
-    organization: 'Gas Agency Management System (GAMS)',
-    tag: 'Transactional C Core',
-    tagType: 'milestone',
-    description: 'Architected bare-metal inventory state machine in C featuring double-entry balance verification, atomic POSIX temp-file inode renaming, and 0 byte memory leakage verified via Valgrind.',
-    invariants: ['Double-Entry Balance Verification', 'Atomic Inode Renaming (POSIX)', '0 Byte Dynamic Memory Leak']
+    role: 'AST Sentry & DevOps Architect',
+    organization: 'AEONIS OPS Pipeline',
+    type: 'opensource',
+    tag: 'Open-Source Sentry',
+    tagType: 'architecture',
+    description: 'Designed hierarchical multi-agent CI/CD platform with AST taint tracking, automated mutation testing, and consensus gates preventing vulnerable code commits.',
+    invariants: ['Zero False-Negative AST Taint', 'Consensus Verification Gate', 'Automated Istio Rollback']
   }
 ];
 
@@ -129,8 +144,7 @@ const PHILOSOPHIES: Philosophy[] = [
 
 interface CompetencySkill {
   name: string;
-  fluency: number; // 0-100
-  level: string;
+  level: 'Core Mastery' | 'Advanced' | 'Expert' | 'Proficient';
   context: string;
   description: string;
   techs: string[];
@@ -153,15 +167,13 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
     skills: [
       {
         name: 'Multi-Agent Swarm Orchestration',
-        fluency: 96,
-        level: 'Expert / Production',
+        level: 'Expert',
         context: 'Hermes Coordination Runtime',
-        description: 'Hierarchical task DAG decomposition, Byzantine fault tolerant quorum consensus, and dynamic tool execution routing.',
-        techs: ['Hermes Runtime', 'LangChain', 'Ultron DAG', 'Byzantine Quorum']
+        description: 'Hierarchical task DAG decomposition, consensus coordination, and dynamic tool execution routing.',
+        techs: ['Hermes Runtime', 'LangChain', 'Ultron DAG', 'State Machines']
       },
       {
         name: 'AST Security & Vulnerability Auditing',
-        fluency: 92,
         level: 'Advanced',
         context: 'Sentinel Sentry Engine',
         description: 'Abstract Syntax Tree taint tracking, SQL/command injection verification, and automated pull request patch synthesis.',
@@ -169,18 +181,16 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
       },
       {
         name: 'Vector Recall & 3-Tier Memory',
-        fluency: 94,
         level: 'Expert',
         context: 'Qdrant & Graph Store',
-        description: 'Semantic vector recall (148k embeddings), Cosine similarity normalization, and RDF knowledge graph triple extraction.',
+        description: 'Semantic vector recall, Cosine similarity normalization, and RDF knowledge graph triple extraction.',
         techs: ['Qdrant', 'TimescaleDB', 'Semantic Triples', 'Embeddings']
       },
       {
         name: 'LLM Fine-Tuning & Quantization',
-        fluency: 88,
         level: 'Advanced',
         context: 'Edge & Cloud Models',
-        description: 'Unsloth FastLanguageModel acceleration, LoRA adapters, and GGUF 4-bit edge model deployment with sub-50ms latency.',
+        description: 'Unsloth FastLanguageModel acceleration, LoRA adapters, and GGUF 4-bit edge model deployment.',
         techs: ['Unsloth', 'Llama-3', 'GGUF', 'LoRA / vLLM']
       }
     ]
@@ -193,15 +203,13 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
     skills: [
       {
         name: 'Embedded Telematics & ISOBUS',
-        fluency: 95,
-        level: 'Expert / Edge Ag',
+        level: 'Expert',
         context: 'KRONE Combine ECU',
         description: '50Hz SocketCAN frame parsing, J1939 PGN/SPN decoding, and RTK GPS spatial integration for precision agriculture.',
         techs: ['SocketCAN', 'J1939', 'ISOBUS', 'C / C++']
       },
       {
         name: 'High-Performance Rust',
-        fluency: 90,
         level: 'Advanced',
         context: 'Telemetry Runtimes',
         description: 'Zero-cost abstractions, memory safety, async concurrency with Tokio, and sub-millisecond data ring buffers.',
@@ -209,16 +217,14 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
       },
       {
         name: 'Edge Anomaly ML Inference',
-        fluency: 91,
         level: 'Advanced',
-        context: 'Sub-25ms Real-Time',
+        context: 'Real-Time Telemetry',
         description: 'ONNX runtime deployment on vehicle ECUs for mechanical vibration FFT windowing and torque overload detection.',
         techs: ['ONNX Runtime', 'FFT Windowing', 'Edge Anomaly', 'Python']
       },
       {
         name: 'System Software Architecture',
-        fluency: 93,
-        level: 'Expert',
+        level: 'Core Mastery',
         context: 'Transactional Storage',
         description: 'Crash-tolerant storage, atomic temp-file inode renaming, and double-entry balance verification with zero leaks.',
         techs: ['GAMS C Engine', 'POSIX APIs', 'Linux Syscalls', 'File I/O']
@@ -233,15 +239,13 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
     skills: [
       {
         name: 'Stream Processing & Event Pipelines',
-        fluency: 94,
         level: 'Expert',
-        context: '12.5k msg/s Fleetwide',
+        context: 'Kafka & MQTT Ingestion',
         description: 'Apache Kafka partitioning, MQTT/TLS ingestion gateways, and store-and-forward offline buffering.',
         techs: ['Apache Kafka', 'MQTT', 'TimescaleDB', 'Redis']
       },
       {
         name: 'Geospatial Analytics & Yield Mapping',
-        fluency: 92,
         level: 'Advanced',
         context: 'Precision Ag Geospatial',
         description: 'PostGIS spatial indexing, Delaunay polygon triangulation, and ton/hectare mass balancing.',
@@ -249,7 +253,6 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
       },
       {
         name: 'Data Warehousing & Cloud ELT',
-        fluency: 89,
         level: 'Advanced',
         context: 'Modern Data Pipelines',
         description: 'Medallion lakehouse architecture (Bronze/Silver/Gold) with automated dbt/Dataform pipelines.',
@@ -257,7 +260,6 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
       },
       {
         name: 'Offline-Resilient Cloud Sync',
-        fluency: 95,
         level: 'Expert',
         context: '72hr Store-and-Forward',
         description: 'Atomic SQLite ring-buffer synchronization upon 4G/LTE cellular reconnect without message loss.',
@@ -273,31 +275,27 @@ const COMPETENCY_DOMAINS: CompetencyDomain[] = [
     skills: [
       {
         name: 'Apple Fluid UI & Spring Physics',
-        fluency: 98,
-        level: 'Mastery / WWDC 2018',
-        context: 'visionOS & iOS 18 Design',
+        level: 'Core Mastery',
+        context: 'WWDC Physics Design',
         description: 'Physical spring presets (mass, stiffness, damping), direct gestural manipulation, and FLIP layouts.',
         techs: ['Framer Motion', 'React 19', 'Astro Islands', 'Tailwind CSS']
       },
       {
         name: 'Enterprise Security & Hardening',
-        fluency: 93,
         level: 'Expert',
         context: 'SAIF & OWASP Compliance',
-        description: 'Strict input sanitization, rate limiting, BFT consensus validation, and automated pull-request patching.',
+        description: 'Strict input sanitization, rate limiting, consensus validation, and automated pull-request patching.',
         techs: ['Master Security', 'OWASP Top 10', 'SAIF Tier 3', 'AST Taint']
       },
       {
         name: 'Web Performance & Accessibility',
-        fluency: 99,
-        level: 'Mastery / 100/100',
-        context: 'Lighthouse & WCAG AA',
+        level: 'Core Mastery',
+        context: 'Lighthouse & WCAG AAA',
         description: 'Zero-JS static HTML baseline, WCAG 2.2 AA semantic landmarks, and prefers-reduced-motion support.',
         techs: ['Astro', 'Lighthouse 100', 'WCAG 2.2 AA', 'Semantic HTML5']
       },
       {
         name: 'Clean Domain-Driven Architecture',
-        fluency: 95,
         level: 'Expert',
         context: 'Distributed Systems',
         description: 'Hexagonal boundaries, strict separation of concerns, immutable state transitions, and contract testing.',
@@ -327,10 +325,24 @@ export const Experience: React.FC = () => {
         <p className="text-base sm:text-lg text-[#424245] leading-relaxed">
           Built on first principles: system-level architectural thinking, radical honesty in engineering lifecycle stages, and verified AI augmentation.
         </p>
+
+        {/* HOW I THINK Mental Model Pipeline */}
+        <div className="mt-1 p-3 sm:p-3.5 rounded-2xl bg-white/70 backdrop-blur-xl border border-black/[0.06] shadow-sm flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-mono">
+          <span className="font-bold text-[#1D1D1F] uppercase tracking-wider text-[11px] mr-1">How I Think:</span>
+          <span className="px-2.5 py-0.5 rounded-lg bg-blue-50 text-[#0071E3] font-semibold border border-blue-200/60">1. Understand</span>
+          <span className="text-[#86868B]">→</span>
+          <span className="px-2.5 py-0.5 rounded-lg bg-purple-50 text-[#AF52DE] font-semibold border border-purple-200/60">2. Architect</span>
+          <span className="text-[#86868B]">→</span>
+          <span className="px-2.5 py-0.5 rounded-lg bg-amber-50 text-amber-800 font-semibold border border-amber-200/60">3. Build</span>
+          <span className="text-[#86868B]">→</span>
+          <span className="px-2.5 py-0.5 rounded-lg bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200/60">4. Verify</span>
+          <span className="text-[#86868B]">→</span>
+          <span className="px-2.5 py-0.5 rounded-lg bg-sky-50 text-sky-700 font-semibold border border-sky-200/60">5. Ship</span>
+        </div>
       </div>
 
       {/* Bento Grid Layer 1: 3 Core Engineering Philosophies (3-Column Apple Glass Cards) */}
-      <div className="flex flex-col gap-4 text-left">
+      <div id="about" className="flex flex-col gap-4 text-left scroll-mt-24">
         <div className="flex items-center gap-2 text-xs font-mono text-[#86868B] uppercase tracking-wider font-bold">
           <Target className="w-3.5 h-3.5 text-[#0071E3]" />
           <span>3 Foundational Engineering Pillars</span>
@@ -456,7 +468,7 @@ export const Experience: React.FC = () => {
       </div>
 
       {/* Bento Grid Layer 3: Interactive Technical Competencies Matrix Across 4 Domains */}
-      <div className="flex flex-col gap-6 text-left">
+      <div id="skills" className="flex flex-col gap-6 text-left scroll-mt-24">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2 text-xs font-mono text-[#86868B] uppercase tracking-wider font-bold">
@@ -529,32 +541,22 @@ export const Experience: React.FC = () => {
                     <h4 className="text-lg font-bold text-[#1D1D1F]">
                       {skill.name}
                     </h4>
-                    <span className="text-xs font-mono font-extrabold text-[#0071E3] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60 shadow-sm">
-                      {skill.fluency}%
+                    <span className="text-xs font-mono font-bold text-[#0071E3] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60 shadow-sm">
+                      {skill.level}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 text-xs font-mono">
-                    <span className="text-emerald-700 font-semibold">{skill.level}</span>
-                    <span className="text-[#86868B]">•</span>
-                    <span className="text-[#86868B]">{skill.context}</span>
+                    <span className="text-emerald-700 font-semibold flex items-center gap-1">
+                      <CheckCircle2 size={12} className="text-emerald-600" />
+                      <span>Verified:</span>
+                    </span>
+                    <span className="text-[#424245] bg-black/[0.03] px-2 py-0.5 rounded border border-black/[0.04] font-medium">{skill.context}</span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#424245] leading-relaxed mt-1">
                     {skill.description}
                   </p>
-                </div>
-
-                {/* Animated Fluency Bar */}
-                <div className="flex flex-col gap-1.5">
-                  <div className="w-full bg-black/[0.05] h-2 rounded-full overflow-hidden p-0.5 border border-black/[0.03]">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.fluency}%` }}
-                      transition={shouldReduceMotion ? { duration: 0 } : springPresets.buoyant}
-                      className="h-full bg-gradient-to-r from-[#0071E3] via-[#AF52DE] to-[#34C759] rounded-full shadow-[0_0_8px_rgba(0,113,227,0.4)]"
-                    />
-                  </div>
                 </div>
 
                 {/* Tech Chips */}

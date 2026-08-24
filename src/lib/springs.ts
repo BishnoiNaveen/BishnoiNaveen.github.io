@@ -10,7 +10,7 @@ export const springPresets = {
     type: 'spring',
     mass: 0.6,
     stiffness: 450,
-    damping: 24,
+    damping: 28,
     restDelta: 0.001,
   } satisfies Transition,
 
@@ -19,7 +19,7 @@ export const springPresets = {
     type: 'spring',
     mass: 0.8,
     stiffness: 380,
-    damping: 28,
+    damping: 30,
     restDelta: 0.001,
   } satisfies Transition,
 
@@ -28,7 +28,7 @@ export const springPresets = {
     type: 'spring',
     mass: 1.0,
     stiffness: 300,
-    damping: 24,
+    damping: 26,
     restDelta: 0.001,
   } satisfies Transition,
 

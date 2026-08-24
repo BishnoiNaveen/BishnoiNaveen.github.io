@@ -166,13 +166,12 @@ export const Hero: React.FC = () => {
   }, [mouseX, mouseY]);
 
   const handleCopyCode = () => {
-    const code = `// Hermes Multi-Agent Orchestrator
-const hermes = new AgentConsensusEngine({
-  protocol: 'Byzantine_Fault_Tolerant',
-  invariants: ['Zero_False_Positive_AST', 'CAN_50Hz_ISOBUS'],
-  sla: { p99LatencyMs: 25, offlineBufferHours: 72 }
+    const code = `// Systems & Multi-Agent Architecture
+const engine = new SystemRuntimeEngine({
+  invariants: ['Atomic_POSIX_Rename', 'CAN_50Hz_ISOBUS', 'Zero_Byte_Leak'],
+  storage: { ringBufferHours: 72, sync: 'Store_and_Forward' }
 });
-await hermes.executeTopologicalDAG(taskPlan);`;
+await engine.executeTopologicalDAG(taskPlan);`;
 
     navigator.clipboard
       .writeText(code)
@@ -225,10 +224,9 @@ await hermes.executeTopologicalDAG(taskPlan);`;
             transition={springPresets.buoyant}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-[-0.035em] text-[#1D1D1F] leading-[1.05]"
           >
-            Engineering <br />
-            Autonomous Systems.{' '}
+            Building Resilient Systems.{' '}
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0071E3] via-[#AF52DE] to-[#FF2D55]">
-              Redefining Intelligence.
+              Architecting AI Automation.
             </span>
           </motion.h1>
 
@@ -238,7 +236,7 @@ await hermes.executeTopologicalDAG(taskPlan);`;
             transition={{ ...springPresets.buoyant, delay: 0.12 }}
             className="text-base sm:text-lg lg:text-xl text-[#424245] max-w-2xl font-normal leading-relaxed mt-2"
           >
-            Architecting production-grade multi-agent swarms, high-throughput IoT edge telemetry, and zero-compromise fluid interfaces with WWDC spring physics.
+            Crafting high-performance software, autonomous agent architectures, edge IoT telemetry, and POSIX C systems with radical engineering honesty.
           </motion.p>
         </div>
 
@@ -266,11 +264,11 @@ await hermes.executeTopologicalDAG(taskPlan);`;
             style={shouldReduceMotion ? {} : magneticSecondary.style}
             whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
             whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
-            href="#hermes"
+            href="#projects"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold text-[#1D1D1F] bg-white/70 hover:bg-white/90 active:bg-white border border-black/[0.08] hover:border-[#0071E3]/40 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] focus-visible:ring-offset-2"
           >
             <Cpu className="w-4 h-4 text-[#0071E3]" />
-            <span>Hermes Telemetry</span>
+            <span>Selected Work</span>
           </motion.a>
         </motion.div>
 
@@ -286,11 +284,10 @@ await hermes.executeTopologicalDAG(taskPlan);`;
             delay={0.25}
           />
           <BentoStatCard
-            prefix="< "
-            targetValue={25}
-            suffix="ms"
-            label="Consensus"
-            sublabel="BFT Quorum Finality"
+            targetValue={0}
+            suffix=" B"
+            label="Memory Safety"
+            sublabel="Valgrind Verified Leak"
             icon={<Zap size={16} />}
             accentColor="#AF52DE"
             delay={0.30}
@@ -353,7 +350,7 @@ await hermes.executeTopologicalDAG(taskPlan);`;
               <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-sm" />
               <span className="ml-2 text-xs font-mono text-[#86868B] flex items-center gap-1.5 font-medium">
                 <Terminal className="w-3.5 h-3.5 text-[#0071E3]" />
-                hermes_core.ts
+                system_core.ts
               </span>
             </div>
 
@@ -378,31 +375,27 @@ await hermes.executeTopologicalDAG(taskPlan);`;
 
           {/* High-Contrast Syntax Highlighted Code Viewer */}
           <div className="font-mono text-xs text-[#1D1D1F] leading-relaxed overflow-x-auto p-3.5 rounded-xl bg-slate-900/[0.03] border border-black/[0.04] space-y-1">
-            <div className="text-[#86868B] italic">// Hermes Multi-Agent Consensus Protocol</div>
+            <div className="text-[#86868B] italic">// Verified Systems Architecture & DAG Runtime</div>
             <div>
               <span className="text-[#AF52DE] font-semibold">const</span>{' '}
-              <span className="text-[#0071E3] font-semibold">hermes</span> ={' '}
+              <span className="text-[#0071E3] font-semibold">engine</span> ={' '}
               <span className="text-[#AF52DE] font-semibold">new</span>{' '}
-              <span className="text-[#00C7BE] font-semibold">AgentConsensusEngine</span>({'{'}
-            </div>
-            <div className="pl-4">
-              <span className="text-[#6366F1]">protocol</span>:{' '}
-              <span className="text-[#D97706]">'Byzantine_Fault_Tolerant'</span>,
+              <span className="text-[#00C7BE] font-semibold">SystemRuntimeEngine</span>({'{'}
             </div>
             <div className="pl-4">
               <span className="text-[#6366F1]">invariants</span>: [
-              <span className="text-[#D97706]">'Zero_False_Positive_AST'</span>,{' '}
+              <span className="text-[#D97706]">'Atomic_POSIX_Rename'</span>,{' '}
               <span className="text-[#D97706]">'CAN_50Hz_ISOBUS'</span>],
             </div>
             <div className="pl-4">
-              <span className="text-[#6366F1]">sla</span>: {'{ '}
-              <span className="text-[#0071E3]">p99LatencyMs</span>: <span className="text-[#D97706] font-semibold">25</span>,{' '}
-              <span className="text-[#0071E3]">offlineBufferHours</span>: <span className="text-[#D97706] font-semibold">72</span> {'}'}
+              <span className="text-[#6366F1]">storage</span>: {'{ '}
+              <span className="text-[#0071E3]">ringBufferHours</span>: <span className="text-[#D97706] font-semibold">72</span>,{' '}
+              <span className="text-[#0071E3]">valgrindLeakBytes</span>: <span className="text-[#D97706] font-semibold">0</span> {'}'}
             </div>
             <div>{'}'});</div>
             <div className="pt-1">
               <span className="text-[#AF52DE] font-semibold">await</span>{' '}
-              <span className="text-[#0071E3] font-semibold">hermes</span>.
+              <span className="text-[#0071E3] font-semibold">engine</span>.
               <span className="text-[#2563EB] font-semibold">executeTopologicalDAG</span>(taskPlan);
             </div>
           </div>
@@ -411,11 +404,11 @@ await hermes.executeTopologicalDAG(taskPlan);`;
           <div className="mt-4 grid grid-cols-2 gap-3">
             <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 border border-black/[0.04]">
               <div className="p-2 rounded-lg bg-violet-100 text-[#AF52DE]">
-                <Zap size={16} />
+                <Cpu size={16} />
               </div>
               <div className="text-left">
-                <div className="text-[11px] text-[#86868B] font-medium">Active Turn</div>
-                <div className="text-xs font-bold text-[#1D1D1F] font-mono">Turn #1,540</div>
+                <div className="text-[11px] text-[#86868B] font-medium">Core Runtime</div>
+                <div className="text-xs font-bold text-[#1D1D1F] font-mono">POSIX C / AST</div>
               </div>
             </div>
 
@@ -424,8 +417,8 @@ await hermes.executeTopologicalDAG(taskPlan);`;
                 <CheckCircle2 size={16} />
               </div>
               <div className="text-left">
-                <div className="text-[11px] text-emerald-800 font-medium">Quorum State</div>
-                <div className="text-xs font-bold text-emerald-700 font-mono">Consensus OK</div>
+                <div className="text-[11px] text-emerald-800 font-medium">Verification</div>
+                <div className="text-xs font-bold text-emerald-700 font-mono">100% Invariants</div>
               </div>
             </div>
           </div>

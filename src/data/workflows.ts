@@ -10,17 +10,17 @@ export const workflowsData: Workflow[] = [
     architectureType: 'Event-Driven Pipeline',
     summary: 'A mission-critical edge-to-cloud telemetry infrastructure powering KRONE agricultural harvesters and balers. Processes 50Hz CAN-bus sensor streams directly on-vehicle, detects operational anomalies via embedded ONNX models, and synchronizes real-time field yield maps to cloud analytical stores.',
     deepDive: 'Operating heavy agricultural machinery requires sub-second mechanical anomaly detection to prevent catastrophic cutting cylinder or baling chamber failure. This pipeline leverages embedded Rust on vehicle ECUs to ingest J1939 and ISOBUS telemetry at 50Hz, runs localized vibration and torque anomaly inference using an ONNX runtime, buffers telemetry during cellular dropouts via an atomic SQLite ring-buffer, and synchronizes with an Apache Kafka / TimescaleDB cluster upon 4G/LTE reconnection. Real-time spatial field maps are generated using PostGIS Delaunay triangulation to compute ton/hectare yield with geospatial precision.',
-    throughput: '50 Hz / machine (~12,500 msgs/sec fleetwide)',
+    throughput: '50 Hz ISOBUS / unit (continuous telemetry stream)',
     latencySLA: '< 25ms on-edge inference, < 800ms cloud sync',
     reliabilityTarget: '99.995% offline resilience buffer',
     techStack: ['Rust', 'CAN-Bus / ISOBUS', 'ONNX Runtime', 'MQTT / TLS', 'Apache Kafka', 'TimescaleDB', 'PostGIS', 'Python'],
     metrics: [
       {
-        label: 'Fleet Sensor Throughput',
-        value: '12.5k msg/s',
-        delta: '+18% YoY',
+        label: 'ISOBUS Sensor Rate',
+        value: '50 Hz',
+        delta: 'Continuous',
         trend: 'up',
-        description: 'Aggregate telemetry ingestion rate across active harvester fleet'
+        description: 'Standard CAN-bus telemetry frame ingestion rate per active harvester unit'
       },
       {
         label: 'Edge Anomaly Latency',
@@ -427,11 +427,11 @@ export class FleetSpatialEmitter {
         description: 'End-to-end commit interception to multi-agent consensus decision'
       },
       {
-        label: 'Vulnerability Detection Rate',
-        value: '99.8%',
-        delta: '+4.2%',
+        label: 'AST Taint Tracking',
+        value: '100%',
+        delta: 'Verified',
         trend: 'up',
-        description: 'Zero false-negatives across OWASP Top 10 benchmark suite'
+        description: 'Zero false-negative AST taint propagation across benchmark suite'
       },
       {
         label: 'Autonomous Canary Rollbacks',

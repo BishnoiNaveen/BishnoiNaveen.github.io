@@ -16,7 +16,7 @@ import {
 
 interface SkillItem {
   name: string;
-  proficiency: number; // 0 to 100
+  level: 'Core Mastery' | 'Advanced' | 'Expert' | 'Proficient';
   experience: string;
   description: string;
   technologies: string[];
@@ -39,28 +39,28 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       {
         name: 'Multi-Agent Swarm Orchestration',
-        proficiency: 96,
-        experience: 'Production Frameworks',
-        description: 'Hierarchical task decomposition, Byzantine-fault-tolerant quorum consensus, and dynamic DAG scheduling.',
+        level: 'Expert',
+        experience: 'Hermes Coordination Runtime',
+        description: 'Hierarchical task decomposition, consensus coordination, and dynamic DAG scheduling.',
         technologies: ['Hermes Runtime', 'LangChain', 'Ultron Framework', 'Task Graphs'],
       },
       {
         name: 'AST Security & Vulnerability Auditing',
-        proficiency: 92,
+        level: 'Advanced',
         experience: 'Automated CI/CD Gates',
         description: 'Abstract Syntax Tree taint tracking, SQL/command injection verification, and automated patch synthesis.',
         technologies: ['Sentinel AI', 'Babel AST', 'Tree-sitter', 'OWASP Top 10'],
       },
       {
         name: 'Vector Retrieval & 3-Tier Memory',
-        proficiency: 94,
-        experience: 'Enterprise Scale',
+        level: 'Expert',
+        experience: 'Semantic Vector Store',
         description: 'Semantic vector recall, Cosine similarity metric normalization, and knowledge graph triple extraction.',
         technologies: ['Qdrant', 'TimescaleDB', 'Semantic Triples', 'Embeddings'],
       },
       {
         name: 'LLM Fine-Tuning & Quantization',
-        proficiency: 88,
+        level: 'Advanced',
         experience: 'Edge & Cloud Models',
         description: 'Unsloth FastLanguageModel acceleration, LoRA adapters, and GGUF 4-bit edge model deployment.',
         technologies: ['Unsloth', 'Llama-3', 'GGUF', 'HuggingFace'],
@@ -75,28 +75,28 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       {
         name: 'Embedded Telematics & ISOBUS',
-        proficiency: 95,
+        level: 'Expert',
         experience: 'KRONE Edge Agriculture',
         description: '50Hz CAN-bus frame parsing, J1939 PGN/SPN decoding, and RTK GPS spatial integration.',
         technologies: ['SocketCAN', 'J1939', 'ISOBUS', 'C / C++'],
       },
       {
         name: 'High-Performance Rust',
-        proficiency: 90,
+        level: 'Advanced',
         experience: 'Telemetry Runtimes',
         description: 'Zero-cost abstractions, memory safety, thread concurrency, and sub-millisecond data ring buffers.',
         technologies: ['Rust', 'Tokio', 'SocketCAN-rs', 'Serde'],
       },
       {
         name: 'Edge Anomaly ML Inference',
-        proficiency: 91,
-        experience: 'Sub-25ms Real-Time',
+        level: 'Advanced',
+        experience: 'Real-Time Telemetry',
         description: 'ONNX runtime deployment on vehicle ECUs for mechanical vibration and torque overload detection.',
         technologies: ['ONNX Runtime', 'FFT Windowing', 'Edge Anomaly', 'Python'],
       },
       {
         name: 'System Software Architecture',
-        proficiency: 93,
+        level: 'Core Mastery',
         experience: 'Transactional Storage',
         description: 'Crash-tolerant storage, atomic temp-file inode renaming, and double-entry balance verification.',
         technologies: ['GAMS C Engine', 'POSIX APIs', 'Linux Syscalls', 'File I/O'],
@@ -111,28 +111,28 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       {
         name: 'Stream Processing & Event Pipelines',
-        proficiency: 94,
-        experience: '12.5k msg/sec Fleetwide',
+        level: 'Expert',
+        experience: 'Kafka & MQTT Ingestion',
         description: 'Apache Kafka partitioning, MQTT/TLS ingestion gateways, and store-and-forward offline buffering.',
         technologies: ['Apache Kafka', 'MQTT', 'TimescaleDB', 'Redis'],
       },
       {
         name: 'Geospatial Analytics & Yield Mapping',
-        proficiency: 92,
+        level: 'Advanced',
         experience: 'Precision Ag Geospatial',
         description: 'PostGIS spatial indexing, Delaunay polygon triangulation, and ton/hectare mass balancing.',
         technologies: ['PostGIS', 'GeoJSON', 'Spatial SQL', 'TimescaleDB'],
       },
       {
         name: 'Data Warehousing & Cloud ELT',
-        proficiency: 89,
+        level: 'Advanced',
         experience: 'Modern Data Pipelines',
         description: 'Medallion lakehouse architecture (Bronze/Silver/Gold) with automated dbt/Dataform pipelines.',
         technologies: ['BigQuery', 'Dataform', 'PostgreSQL', 'Docker'],
       },
       {
         name: 'Offline-Resilient Cloud Sync',
-        proficiency: 95,
+        level: 'Expert',
         experience: '72hr Store-and-Forward',
         description: 'Atomic SQLite ring-buffer synchronization upon 4G/LTE cellular reconnect without message loss.',
         technologies: ['SQLite Ring Buffer', 'Sync Protocol', 'Idempotency', 'gRPC'],
@@ -147,28 +147,28 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       {
         name: 'Apple Fluid UI & Spring Physics',
-        proficiency: 98,
-        experience: 'WWDC 2018 Standards',
+        level: 'Core Mastery',
+        experience: 'WWDC Physics Design',
         description: 'Physical spring presets (mass, stiffness, damping), direct gestural manipulation, and FLIP layouts.',
         technologies: ['Framer Motion', 'React 19', 'Astro Islands', 'Tailwind CSS'],
       },
       {
         name: 'Enterprise Security & Hardening',
-        proficiency: 93,
+        level: 'Expert',
         experience: 'SAIF & OWASP Compliance',
-        description: 'Strict input sanitization, rate limiting, BFT consensus validation, and automated pull-request patching.',
+        description: 'Strict input sanitization, rate limiting, consensus validation, and automated pull-request patching.',
         technologies: ['Master Security', 'OWASP Top 10', 'SAIF', 'AST Taint Tracking'],
       },
       {
         name: 'Web Performance & Accessibility',
-        proficiency: 99,
+        level: 'Core Mastery',
         experience: 'Lighthouse 100/100',
         description: 'Zero-JS static HTML baseline, WCAG 2.2 AA semantic landmarks, and prefers-reduced-motion support.',
         technologies: ['Astro', 'Lighthouse 100', 'WCAG 2.2 AA', 'Semantic HTML5'],
       },
       {
         name: 'Clean Domain-Driven Architecture',
-        proficiency: 95,
+        level: 'Expert',
         experience: 'Distributed Systems',
         description: 'Hexagonal boundaries, strict separation of concerns, immutable state transitions, and testability.',
         technologies: ['Hexagonal Arch', 'TDD / E2E', 'Contract Testing', 'TypeScript'],
@@ -261,29 +261,18 @@ export const SkillsInteractiveMatrix: React.FC = () => {
                       {skill.name}
                     </h3>
                     <span className="text-xs font-mono font-bold text-[#0071E3] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
-                      {skill.proficiency}%
+                      {skill.level}
                     </span>
                   </div>
 
-                  <div className="text-[11px] font-mono text-emerald-700 mt-1 font-semibold">
-                    {skill.experience}
+                  <div className="text-[11px] font-mono text-emerald-700 mt-1 font-semibold flex items-center gap-1">
+                    <CheckCircle2 size={12} className="text-emerald-600" />
+                    <span>Verified: {skill.experience}</span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#424245] mt-2 leading-relaxed">
                     {skill.description}
                   </p>
-                </div>
-
-                {/* Spring-Animated Proficiency Bar */}
-                <div className="flex flex-col gap-1.5">
-                  <div className="w-full bg-black/[0.05] h-2 rounded-full overflow-hidden p-0.5 border border-black/[0.03]">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.proficiency}%` }}
-                      transition={shouldReduceMotion ? { duration: 0 } : springPresets.buoyant}
-                      className="h-full bg-gradient-to-r from-[#0071E3] via-[#AF52DE] to-[#34C759] rounded-full shadow-[0_0_8px_rgba(0,113,227,0.4)]"
-                    />
-                  </div>
                 </div>
 
                 {/* Technologies Tag Cloud */}

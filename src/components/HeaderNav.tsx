@@ -56,7 +56,7 @@ export const HeaderNav: React.FC = () => {
             const item = NAV_ITEMS[i];
             const el = document.getElementById(item.id);
             if (el) {
-              const top = el.offsetTop;
+              const top = el.getBoundingClientRect().top + scrollY;
               if (scrollPosition >= top) {
                 setActiveSection(item.id);
                 break;

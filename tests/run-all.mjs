@@ -17,6 +17,7 @@ const SUITES = [
   { file: 'tests/e2e/boundary-and-corner.test.mjs', name: 'Boundary & Corner Cases', tier: 2 },
   { file: 'tests/e2e/empirical-challenge.test.mjs', name: 'Empirical Data Safety & Edge Cases', tier: 2 },
   { file: 'tests/e2e/cross-feature.test.mjs', name: 'Cross-Feature Integration & Contracts', tier: 3 },
+  { file: 'tests/e2e/radical-honesty-audit.test.mjs', name: 'Radical Honesty & Anti-Fabrication', tier: 3 },
   { file: 'tests/e2e/real-world-workload.test.mjs', name: 'Real-World Workloads & Stress', tier: 4 },
   { file: 'tests/e2e/m3-empirical-challenge.test.mjs', name: 'M3 Empirical Physics & Stress', tier: 4 },
   { file: 'tests/e2e/lighthouse-audit.test.mjs', name: 'Lighthouse Performance, SEO & A11y', tier: 4 },

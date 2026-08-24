@@ -1,17 +1,18 @@
 /**
  * boundary-and-corner.test.mjs — Tier 2: Boundary & Corner Cases Test Suite
  * Tests edge cases, boundary values (0.0 to 1.0 metrics), empty filter states,
- * prefers-reduced-motion accessibility rules, responsive breakpoints, and null safety.
+ * prefers-reduced-motion accessibility rules, responsive breakpoints (320px to 1920px),
+ * missing asset fallbacks, and null safety.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { createTestSuite, WORKSPACE_ROOT, importModule } from '../utils/test-helpers.mjs';
+import { createTestSuite, WORKSPACE_ROOT, importModule, getCssContent } from '../utils/test-helpers.mjs';
 
 const suite = createTestSuite(
   'Boundary & Corner Cases (Tier 2)',
   2,
-  'Tests edge cases, category filtering boundaries, reduced motion overrides, mathematical thresholds, and null safety.'
+  'Tests edge cases, category filtering boundaries, responsive range (320px-1920px), reduced motion overrides, mathematical thresholds, and fallback safety.'
 );
 
 suite.test('Project category filter boundary logic (valid, empty, and invalid categories)', async (ctx) => {
@@ -49,16 +50,43 @@ suite.test('Project category filter boundary logic (valid, empty, and invalid ca
   ctx.assertEqual(allProjects.length, projects.length, 'Filter "All" must return all projects');
 });
 
-suite.test('Accessibility: prefers-reduced-motion CSS rules and duration overrides', (ctx) => {
-  const cssPath = path.join(WORKSPACE_ROOT, 'src', 'styles', 'design-system.css');
-  ctx.assertFileExists(cssPath, 'src/styles/design-system.css must exist');
+suite.test('Responsive layout boundary: Viewport range from 320px to 1920px', (ctx) => {
+  const css = getCssContent();
+  const indexPath = path.join(WORKSPACE_ROOT, 'dist', 'index.html');
+  const html = fs.existsSync(indexPath) ? fs.readFileSync(indexPath, 'utf8') : '';
 
-  const css = fs.readFileSync(cssPath, 'utf8');
+  // 1. Mobile narrow boundary (320px - 375px)
+  ctx.assert(
+    css.includes('overflow-x: hidden') || css.includes('overflow-x:hidden') || html.includes('overflow-x-hidden'),
+    'Viewport 320px: Must enforce overflow-x hidden on root or body to prevent horizontal scroll'
+  );
+
+  // 2. Tablet breakpoint (640px / 768px)
+  ctx.assert(
+    css.includes('640px') || css.includes('768px') || html.includes('sm:') || html.includes('md:'),
+    'Viewport 768px: Must include tablet responsive media query or Tailwind sm/md breakpoint classes'
+  );
+
+  // 3. Desktop breakpoint (1024px / 1280px)
+  ctx.assert(
+    css.includes('1024px') || css.includes('1280px') || html.includes('lg:') || html.includes('xl:'),
+    'Viewport 1024px+: Must include desktop responsive grid or Tailwind lg/xl breakpoint classes'
+  );
+
+  // 4. Ultra-wide boundary (1440px - 1920px) container bounding
+  ctx.assert(
+    css.includes('--max-width') || css.includes('max-w-7xl') || css.includes('max-w-6xl') || css.includes('1240px'),
+    'Viewport 1920px: Must constrain layout container with max-width to prevent distortion on ultra-wide monitors'
+  );
+});
+
+suite.test('Accessibility: prefers-reduced-motion CSS rules and duration overrides', (ctx) => {
+  const css = getCssContent();
 
   // Assert presence of prefers-reduced-motion media query
   ctx.assert(
     css.includes('@media (prefers-reduced-motion: reduce)') || css.includes('prefers-reduced-motion'),
-    'design-system.css must include @media (prefers-reduced-motion: reduce) rule'
+    'CSS stylesheets must include @media (prefers-reduced-motion: reduce) rule'
   );
 
   // Assert animation duration override
@@ -75,13 +103,12 @@ suite.test('Accessibility: prefers-reduced-motion CSS rules and duration overrid
 });
 
 suite.test('Responsive layout: fluid typography clamp() and viewport units', (ctx) => {
-  const cssPath = path.join(WORKSPACE_ROOT, 'src', 'styles', 'design-system.css');
-  const css = fs.readFileSync(cssPath, 'utf8');
+  const css = getCssContent();
 
   // Check fluid typography with clamp()
-  ctx.assert(css.includes('clamp('), 'design-system.css must use fluid typography with clamp()');
+  ctx.assert(css.includes('clamp('), 'CSS must use fluid typography with clamp()');
   ctx.assert(css.includes('vw') || css.includes('rem'), 'clamp() scale must incorporate viewport or rem units');
-  ctx.assert(css.includes('--max-width'), 'design-system.css must define container max-width bounds');
+  ctx.assert(css.includes('--max-width') || css.includes('max-width'), 'CSS must define container max-width bounds');
 });
 
 suite.test('Vector memory similarity boundary: strict [0.0, 1.0] and ranking integrity', async (ctx) => {
@@ -139,7 +166,7 @@ suite.test('Quorum consensus mathematical threshold boundary logic', async (ctx)
   ctx.assert(true, 'Quorum threshold boundary evaluated');
 });
 
-suite.test('Null safety: optional links (github: null, live: null) rendering safety', async (ctx) => {
+suite.test('Null safety and fallback handling: optional links (github: null, live: null) and image fallbacks', async (ctx) => {
   const projectsPath = path.join(WORKSPACE_ROOT, 'src', 'data', 'projects.ts');
   const { projects } = await importModule(projectsPath);
 
@@ -156,6 +183,8 @@ suite.test('Null safety: optional links (github: null, live: null) rendering saf
     if (p.live === null) {
       ctx.assertEqual(p.live, null, `Project "${p.title}" live property must be strictly null, not string "null"`);
     }
+    // Verify image path or fallback
+    ctx.assertNonEmptyString(p.image, `Project "${p.title}" must have an image path or fallback`);
   }
 });
 

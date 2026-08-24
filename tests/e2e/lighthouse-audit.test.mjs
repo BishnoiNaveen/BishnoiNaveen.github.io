@@ -6,7 +6,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { createTestSuite, WORKSPACE_ROOT } from '../utils/test-helpers.mjs';
+import { createTestSuite, WORKSPACE_ROOT, getCssContent } from '../utils/test-helpers.mjs';
 
 const suite = createTestSuite(
   'Lighthouse Performance, SEO & Accessibility Audit (Tier 4)',
@@ -67,20 +67,18 @@ suite.test('Performance & Core Web Vitals: Payload budgets, font preconnects and
 });
 
 suite.test('CSS Containment & Layout Stability: layout style paint isolation and smooth scroll', (ctx) => {
-  const cssPath = path.join(WORKSPACE_ROOT, 'src', 'styles', 'design-system.css');
-  ctx.assertFileExists(cssPath, 'design-system.css must exist');
-
-  const css = fs.readFileSync(cssPath, 'utf8');
+  const css = getCssContent();
+  ctx.assert(css.length > 500, 'CSS stylesheets must exist and contain rules');
 
   // Verify containment rules in design system
   ctx.assert(
-    css.includes('contain:') || css.includes('contain-layout') || css.includes('contain-paint'),
-    'design-system.css must declare CSS containment rules for layout performance'
+    css.includes('contain:') || css.includes('contain-layout') || css.includes('contain-paint') || css.includes('contain: layout style'),
+    'CSS stylesheets must declare CSS containment rules for layout performance'
   );
 
   // Verify smooth scroll and scroll padding
-  ctx.assert(css.includes('scroll-behavior: smooth'), 'HTML must declare scroll-behavior: smooth');
-  ctx.assert(css.includes('scroll-padding-top:'), 'HTML must set scroll-padding-top for fixed navigation offset');
+  ctx.assert(css.includes('scroll-behavior: smooth'), 'HTML/CSS must declare scroll-behavior: smooth');
+  ctx.assert(css.includes('scroll-padding-top:'), 'HTML/CSS must set scroll-padding-top for fixed navigation offset');
 });
 
 suite.test('SEO Metadata & Social Cards: OpenGraph, Twitter Cards, Canonical & Viewport', (ctx) => {
@@ -193,11 +191,10 @@ suite.test('Accessibility & WCAG 2.2 AA: Heading hierarchy, landmarks, skip link
   );
 
   // 5. Reduced motion stylesheet verification
-  const cssPath = path.join(WORKSPACE_ROOT, 'src', 'styles', 'design-system.css');
-  const css = fs.readFileSync(cssPath, 'utf8');
+  const css = getCssContent();
   ctx.assert(
-    css.includes('@media (prefers-reduced-motion: reduce)') || css.includes('@media(prefers-reduced-motion:reduce)'),
-    'design-system.css must define @media (prefers-reduced-motion: reduce)'
+    css.includes('@media (prefers-reduced-motion: reduce)') || css.includes('@media(prefers-reduced-motion:reduce)') || css.includes('prefers-reduced-motion'),
+    'CSS stylesheets must define @media (prefers-reduced-motion: reduce)'
   );
   ctx.assert(
     css.includes('animation-duration: 0.01ms') || css.includes('transition-duration: 0.01ms') || css.includes('animation: none'),

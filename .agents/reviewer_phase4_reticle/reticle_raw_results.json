@@ -1,0 +1,2886 @@
+[
+  {
+    "breakpoint": {
+      "name": "Mobile Mini",
+      "width": 320,
+      "height": 600,
+      "category": "Mobile"
+    },
+    "overflow": {
+      "innerWidth": 320,
+      "scrollWidth": 320,
+      "hasHorizontalScroll": false,
+      "overflowCount": 59,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 330,
+          "width": 667,
+          "overflowAmount": 10
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--purple",
+          "right": 587,
+          "width": 613,
+          "overflowAmount": 267
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--teal",
+          "right": 560,
+          "width": 490,
+          "overflowAmount": 240
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 340,
+          "width": 616,
+          "overflowAmount": 20
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--2",
+          "right": 520,
+          "width": 533,
+          "overflowAmount": 200
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--3",
+          "right": 522,
+          "width": 451,
+          "overflowAmount": 202
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-no",
+          "right": 378,
+          "width": 99,
+          "overflowAmount": 58
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 378,
+          "width": 99,
+          "overflowAmount": 58
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 322,
+          "width": 44,
+          "overflowAmount": 2
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "text-[11px] font-normal opacity-60",
+          "right": 378,
+          "width": 48,
+          "overflowAmount": 58
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 1104,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 1104,
+        "height": 2220,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 3323,
+        "height": 2874,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 6197,
+        "height": 2916,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 9113,
+        "height": 4022,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 13134,
+        "height": 842,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 12,
+      "left": 0,
+      "width": 320,
+      "height": 20,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Mobile Standard (iPhone SE)",
+      "width": 375,
+      "height": 667,
+      "category": "Mobile"
+    },
+    "overflow": {
+      "innerWidth": 375,
+      "scrollWidth": 375,
+      "hasHorizontalScroll": false,
+      "overflowCount": 51,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 386,
+          "width": 672,
+          "overflowAmount": 11
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--purple",
+          "right": 588,
+          "width": 617,
+          "overflowAmount": 213
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--teal",
+          "right": 576,
+          "width": 493,
+          "overflowAmount": 201
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 398,
+          "width": 621,
+          "overflowAmount": 23
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--2",
+          "right": 523,
+          "width": 538,
+          "overflowAmount": 148
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--3",
+          "right": 535,
+          "width": 455,
+          "overflowAmount": 160
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-no",
+          "right": 379,
+          "width": 100,
+          "overflowAmount": 4
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 379,
+          "width": 100,
+          "overflowAmount": 4
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "text-[11px] font-normal opacity-60",
+          "right": 379,
+          "width": 48,
+          "overflowAmount": 4
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-no",
+          "right": 549,
+          "width": 163,
+          "overflowAmount": 174
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 1044,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 1044,
+        "height": 2025,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 3069,
+        "height": 2626,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 5695,
+        "height": 3017,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 8712,
+        "height": 3655,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 12367,
+        "height": 737,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 12,
+      "left": 0,
+      "width": 375,
+      "height": 20,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Mobile Large (iPhone Pro Max)",
+      "width": 428,
+      "height": 926,
+      "category": "Mobile"
+    },
+    "overflow": {
+      "innerWidth": 428,
+      "scrollWidth": 428,
+      "hasHorizontalScroll": false,
+      "overflowCount": 35,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 437,
+          "width": 683,
+          "overflowAmount": 9
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--purple",
+          "right": 597,
+          "width": 626,
+          "overflowAmount": 169
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--teal",
+          "right": 597,
+          "width": 500,
+          "overflowAmount": 169
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 452,
+          "width": 632,
+          "overflowAmount": 24
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--2",
+          "right": 536,
+          "width": 548,
+          "overflowAmount": 108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--3",
+          "right": 546,
+          "width": 461,
+          "overflowAmount": 118
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-no",
+          "right": 551,
+          "width": 165,
+          "overflowAmount": 123
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 551,
+          "width": 165,
+          "overflowAmount": 123
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 511,
+          "width": 125,
+          "overflowAmount": 83
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "text-[11px] font-normal opacity-60",
+          "right": 551,
+          "width": 32,
+          "overflowAmount": 123
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 926,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 926,
+        "height": 1838,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2764,
+        "height": 2440,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 5204,
+        "height": 3155,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 8360,
+        "height": 3312,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 11672,
+        "height": 738,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 12,
+      "left": 0,
+      "width": 428,
+      "height": 20,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "24",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "0",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Tablet Portrait (iPad Mini)",
+      "width": 768,
+      "height": 1024,
+      "category": "Tablet"
+    },
+    "overflow": {
+      "innerWidth": 768,
+      "scrollWidth": 758,
+      "hasHorizontalScroll": false,
+      "overflowCount": 19,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 780,
+          "width": 692,
+          "overflowAmount": 12
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 805,
+          "width": 641,
+          "overflowAmount": 37
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-1.5 p-1.5 bg-white/70 backdrop-blur-2xl rounded-full borde",
+          "right": 817,
+          "width": 793,
+          "overflowAmount": 49
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-no",
+          "right": 816,
+          "width": 135,
+          "overflowAmount": 48
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 816,
+          "width": 135,
+          "overflowAmount": 48
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 816,
+          "width": 127,
+          "overflowAmount": 48
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 770,
+          "width": 202,
+          "overflowAmount": 2
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 770,
+          "width": 202,
+          "overflowAmount": 2
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 770,
+          "width": 194,
+          "overflowAmount": 2
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 979,
+          "width": 203,
+          "overflowAmount": 211
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 1024,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 1024,
+        "height": 1391,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2415,
+        "height": 1875,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 4290,
+        "height": 1790,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 6080,
+        "height": 2240,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 8320,
+        "height": 522,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 20,
+      "left": 0,
+      "width": 758,
+      "height": 34,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "25",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Tablet Standard (iPad Pro 11)",
+      "width": 834,
+      "height": 1194,
+      "category": "Tablet"
+    },
+    "overflow": {
+      "innerWidth": 834,
+      "scrollWidth": 824,
+      "hasHorizontalScroll": false,
+      "overflowCount": 12,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 848,
+          "width": 698,
+          "overflowAmount": 14
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 874,
+          "width": 646,
+          "overflowAmount": 40
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1021,
+          "width": 205,
+          "overflowAmount": 187
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 1021,
+          "width": 205,
+          "overflowAmount": 187
+        },
+        {
+          "tag": "path",
+          "id": "",
+          "className": "[object SVGAnimatedString]",
+          "right": 838,
+          "width": 20,
+          "overflowAmount": 4
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 1021,
+          "width": 197,
+          "overflowAmount": 187
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1275,
+          "width": 249,
+          "overflowAmount": 441
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 1275,
+          "width": 249,
+          "overflowAmount": 441
+        },
+        {
+          "tag": "path",
+          "id": "",
+          "className": "[object SVGAnimatedString]",
+          "right": 1049,
+          "width": 4,
+          "overflowAmount": 215
+        },
+        {
+          "tag": "path",
+          "id": "",
+          "className": "[object SVGAnimatedString]",
+          "right": 1033,
+          "width": 4,
+          "overflowAmount": 199
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 1194,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 1194,
+        "height": 1385,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2579,
+        "height": 1867,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 4446,
+        "height": 1860,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 6306,
+        "height": 2105,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 8411,
+        "height": 526,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 20,
+      "left": 0,
+      "width": 824,
+      "height": 34,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "25",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Tablet Large / Small Laptop (iPad 12.9)",
+      "width": 1024,
+      "height": 1366,
+      "category": "Tablet"
+    },
+    "overflow": {
+      "innerWidth": 1024,
+      "scrollWidth": 1014,
+      "hasHorizontalScroll": false,
+      "overflowCount": 15,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 1046,
+          "width": 701,
+          "overflowAmount": 22
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 1079,
+          "width": 648,
+          "overflowAmount": 55
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1039,
+          "width": 112,
+          "overflowAmount": 15
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "relative z-10",
+          "right": 1039,
+          "width": 112,
+          "overflowAmount": 15
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1188,
+          "width": 143,
+          "overflowAmount": 164
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "relative z-10",
+          "right": 1188,
+          "width": 143,
+          "overflowAmount": 164
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1143,
+          "width": 210,
+          "overflowAmount": 119
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 1143,
+          "width": 210,
+          "overflowAmount": 119
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 1143,
+          "width": 202,
+          "overflowAmount": 119
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1404,
+          "width": 255,
+          "overflowAmount": 380
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 1366,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 1366,
+        "height": 1296,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2662,
+        "height": 1670,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 4332,
+        "height": 1335,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 5667,
+        "height": 2027,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 7695,
+        "height": 535,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 20,
+      "left": 0,
+      "width": 1014,
+      "height": 34,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "25",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Desktop HD",
+      "width": 1280,
+      "height": 800,
+      "category": "Desktop"
+    },
+    "overflow": {
+      "innerWidth": 1280,
+      "scrollWidth": 1270,
+      "hasHorizontalScroll": false,
+      "overflowCount": 11,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 1315,
+          "width": 702,
+          "overflowAmount": 35
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 1356,
+          "width": 647,
+          "overflowAmount": 76
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1300,
+          "width": 211,
+          "overflowAmount": 20
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 1300,
+          "width": 211,
+          "overflowAmount": 20
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 1300,
+          "width": 203,
+          "overflowAmount": 20
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1562,
+          "width": 256,
+          "overflowAmount": 282
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 1562,
+          "width": 256,
+          "overflowAmount": 282
+        },
+        {
+          "tag": "path",
+          "id": "",
+          "className": "[object SVGAnimatedString]",
+          "right": 1328,
+          "width": 4,
+          "overflowAmount": 48
+        },
+        {
+          "tag": "path",
+          "id": "",
+          "className": "[object SVGAnimatedString]",
+          "right": 1312,
+          "width": 4,
+          "overflowAmount": 32
+        },
+        {
+          "tag": "path",
+          "id": "",
+          "className": "[object SVGAnimatedString]",
+          "right": 1321,
+          "width": 5,
+          "overflowAmount": 41
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 893,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 893,
+        "height": 1304,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2197,
+        "height": 1724,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 3921,
+        "height": 1436,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 5357,
+        "height": 1943,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 7300,
+        "height": 542,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 20,
+      "left": 59,
+      "width": 1152,
+      "height": 34,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "25",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Desktop Standard (MacBook Pro)",
+      "width": 1440,
+      "height": 900,
+      "category": "Desktop"
+    },
+    "overflow": {
+      "innerWidth": 1440,
+      "scrollWidth": 1430,
+      "hasHorizontalScroll": false,
+      "overflowCount": 5,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 1483,
+          "width": 701,
+          "overflowAmount": 43
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 1530,
+          "width": 644,
+          "overflowAmount": 90
+        },
+        {
+          "tag": "button",
+          "id": "",
+          "className": "relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowr",
+          "right": 1642,
+          "width": 256,
+          "overflowAmount": 202
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex items-center gap-2 relative z-10",
+          "right": 1642,
+          "width": 256,
+          "overflowAmount": 202
+        },
+        {
+          "tag": "span",
+          "id": "",
+          "className": "",
+          "right": 1642,
+          "width": 248,
+          "overflowAmount": 202
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 900,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 900,
+        "height": 1307,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2207,
+        "height": 1731,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 3937,
+        "height": 1437,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 5375,
+        "height": 1949,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 7324,
+        "height": 543,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 20,
+      "left": 139,
+      "width": 1152,
+      "height": 34,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "25",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  },
+  {
+    "breakpoint": {
+      "name": "Desktop Ultrawide / FHD",
+      "width": 1920,
+      "height": 1080,
+      "category": "Desktop"
+    },
+    "overflow": {
+      "innerWidth": 1920,
+      "scrollWidth": 1910,
+      "hasHorizontalScroll": false,
+      "overflowCount": 2,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "apple-mesh-orb apple-mesh-orb--blue",
+          "right": 1989,
+          "width": 697,
+          "overflowAmount": 69
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "hero__gradient-orb hero__gradient-orb--1",
+          "right": 2052,
+          "width": 635,
+          "overflowAmount": 132
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "top": 0,
+        "height": 1080,
+        "paddingTop": "96px",
+        "paddingBottom": "48px",
+        "display": "flex",
+        "visibility": "visible"
+      },
+      {
+        "id": "workflows",
+        "top": 1080,
+        "height": 1307,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "hermes",
+        "top": 2387,
+        "height": 1731,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "projects",
+        "top": 4117,
+        "height": 1437,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "experience",
+        "top": 5555,
+        "height": 1949,
+        "paddingTop": "96px",
+        "paddingBottom": "96px",
+        "display": "block",
+        "visibility": "visible"
+      },
+      {
+        "id": "contact",
+        "top": 7504,
+        "height": 543,
+        "paddingTop": "80px",
+        "paddingBottom": "80px",
+        "display": "block",
+        "visibility": "visible"
+      }
+    ],
+    "dock": {
+      "found": true,
+      "top": 20,
+      "left": 379,
+      "width": 1152,
+      "height": 34,
+      "position": "static",
+      "backdropFilter": "blur(32px) saturate(1.8)",
+      "background": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)"
+    },
+    "contrastSamples": [
+      {
+        "role": "Headings / Titles",
+        "text": "Engineering Autonomous Systems. Red",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(245,245,247)",
+        "ratio": 15.46,
+        "passesAA": true,
+        "passesAAA": true
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "50",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "25",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Headings / Titles",
+        "text": "100",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      },
+      {
+        "role": "Body Copy",
+        "text": "Workflows",
+        "fg": "rgb(29, 29, 31)",
+        "bg": "rgb(0,0,0)",
+        "ratio": 1.25,
+        "passesAA": false,
+        "passesAAA": false
+      }
+    ],
+    "anchors": [
+      {
+        "href": "#hero",
+        "label": "<NB/>Naveen.",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hero",
+        "label": "Home",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#skills",
+        "label": "Skills",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#about",
+        "label": "About",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#workflows",
+        "label": "Workflows",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#hermes",
+        "label": "Hermes AI",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#projects",
+        "label": "Projects",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#experience",
+        "label": "Experience",
+        "targetExists": true,
+        "targetVisible": true
+      },
+      {
+        "href": "#contact",
+        "label": "Contact",
+        "targetExists": true,
+        "targetVisible": true
+      }
+    ],
+    "focus": [
+      {
+        "tag": "a",
+        "text": "Skip to main content",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "<NB/>Naveen.",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Home",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "a",
+        "text": "Workflows",
+        "outline": "rgb(29, 29, 31) none 3px",
+        "outlineColor": "rgb(29, 29, 31)",
+        "outlineWidth": "3px",
+        "boxShadow": "none"
+      }
+    ]
+  }
+]
