@@ -53,7 +53,7 @@ export default function Terminal() {
         newHistory.push({ type: 'output', text: 'A Software Architect & AI Engineer who builds distributed systems that don\'t break.' });
         break;
       case 'skills':
-        newHistory.push({ type: 'output', text: 'System Architecture, AI Automation, React, Astro, FastAPI, Kafka, PostgreSQL, Autogen, LangChain.' });
+        newHistory.push({ type: 'output', text: 'Agentic AI, Autonomous Looping Prompts, Graphical Engineering, Prompt Architecture, Distributed Systems, Kafka, React.' });
         break;
       case 'clear':
         setHistory([]);

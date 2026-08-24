@@ -36,13 +36,8 @@ export default function Hero() {
   };
 
   return (
-    <div className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-[#050505]">
+    <div className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden">
       
-      {/* Interactive WebGL/Canvas Particle Background (Made subtle) */}
-      <div className="absolute inset-0 z-0 opacity-20 overflow-hidden pointer-events-auto">
-        <CanvasBackground />
-      </div>
-
       <div className="max-w-[100rem] mx-auto w-full px-6 md:px-12 flex flex-col items-center justify-center relative z-10 pt-20">
         
         {/* Animated Status Pill */}
@@ -106,9 +101,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.19, 1.0, 0.22, 1.0] }}
-          className="text-lg md:text-2xl text-zinc-400 font-light max-w-2xl text-center leading-relaxed mb-12 mix-blend-difference z-10"
+          className="text-lg md:text-2xl text-zinc-400 font-light max-w-3xl text-center leading-relaxed mb-12 mix-blend-difference z-10"
         >
-          Software Architect & AI Automation Engineer crafting high-performance systems and intelligent digital experiences.
+          Software Architect & <span className="text-white font-medium">Agentic AI Engineer</span> crafting autonomous systems, generative workflows, and high-performance digital experiences.
         </motion.p>
         
         <motion.div

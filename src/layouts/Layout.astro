@@ -4,6 +4,7 @@ import { ClientRouter } from 'astro:transitions';
 import CustomCursor from '../components/CustomCursor';
 import Preloader from '../components/Preloader';
 import Terminal from '../components/Terminal';
+import CanvasBackground from '../components/CanvasBackground';
 
 interface Props {
 // ... no changes to interface Props
@@ -65,7 +66,15 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
     <ClientRouter />
   </head>
 
-  <body class="antialiased bg-[#09090b] text-white overflow-x-hidden">
+  <body class="antialiased bg-[#050505] text-white overflow-x-hidden">
+    
+    {/* Global Persistent Neural Network Background */}
+    <div class="fixed inset-0 z-0 opacity-[0.15] pointer-events-auto">
+      <CanvasBackground client:load />
+    </div>
+    
+    <div class="fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] pointer-events-none"></div>
+
     <Preloader client:load />
     <Terminal client:load />
     <CustomCursor client:load />
