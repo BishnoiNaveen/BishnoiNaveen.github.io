@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import CustomCursor from '../components/CustomCursor';
 
 interface Props {
@@ -58,7 +58,7 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
     <!-- Lenis for smooth scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js" is:inline></script>
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
 
   <body class="antialiased bg-[#09090b] text-white overflow-x-hidden cursor-none">
