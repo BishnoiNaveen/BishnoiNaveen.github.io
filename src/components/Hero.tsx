@@ -1,96 +1,122 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
-  return (
-    <div className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden pt-24 md:pt-20">
-      
-      {/* Background large text for depth */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] md:text-[15vw] font-black text-white/[0.02] whitespace-nowrap select-none pointer-events-none tracking-tighter">
-        ENGINEER
-      </div>
+  const { scrollY } = useScroll();
+  
+  // Parallax effects
+  const yText = useTransform(scrollY, [0, 1000], [0, 200]);
+  const yImage = useTransform(scrollY, [0, 1000], [0, 100]);
+  const scaleImage = useTransform(scrollY, [0, 1000], [1, 1.1]);
 
-      <div className="max-w-[90rem] mx-auto w-full px-6 md:px-12 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 z-10 pb-12 lg:pb-0">
+  const nameVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 1.2, 
+        ease: [0.19, 1.0, 0.22, 1.0],
+        staggerChildren: 0.1 
+      }
+    }
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 50, rotateX: -90 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      rotateX: 0,
+      transition: { duration: 1.2, ease: [0.19, 1.0, 0.22, 1.0] }
+    }
+  };
+
+  return (
+    <div className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden">
+      
+      {/* Abstract Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#09090b] via-[#09090b] to-[#121217] z-0"></div>
+
+      <div className="max-w-[100rem] mx-auto w-full px-6 md:px-12 flex flex-col items-center justify-center relative z-10 pt-20">
         
-        {/* Left Side: Typography */}
-        <div className="flex-1 flex flex-col items-center text-center lg:items-start lg:text-left pt-4 lg:pt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        {/* Animated Status Pill */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span className="text-[10px] md:text-xs font-bold text-zinc-300 uppercase tracking-[0.2em]">Available for new opportunities</span>
+        </motion.div>
+
+        {/* Center Typography & Parallax Image */}
+        <div className="relative w-full flex justify-center items-center h-[50vh] md:h-[60vh] mt-4 mb-8">
+          
+          {/* Background Parallax Image */}
+          <motion.div 
+            style={{ y: yImage, scale: scaleImage }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm sm:max-w-md md:max-w-2xl aspect-[4/5] md:aspect-[16/9] rounded-[2rem] overflow-hidden opacity-40 md:opacity-50 z-0 border border-white/5"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-[10px] md:text-xs font-medium text-zinc-300 uppercase tracking-widest">Available for new opportunities</span>
-            </div>
+            <div className="absolute inset-0 bg-black/30 z-10"></div>
+            <img 
+              src="/images/portfolio_hero.jpg" 
+              alt="Background texture"
+              className="w-full h-full object-cover grayscale brightness-75"
+            />
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.9] mb-6 md:mb-8"
+          {/* Foreground Text */}
+          <motion.div 
+            style={{ y: yText }}
+            variants={nameVariants}
+            initial="hidden"
+            animate="visible"
+            className="relative z-10 text-center flex flex-col items-center"
           >
-            NAVEEN <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>BISHNOI
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg sm:text-xl md:text-2xl text-zinc-400 font-light max-w-xl leading-relaxed mb-10 md:mb-12"
-          >
-            Software Architect & AI Automation Engineer crafting high-performance systems and intelligent digital experiences.
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto"
-          >
-            <a 
-              href="/projects" 
-              className="group flex w-full sm:w-auto items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-zinc-200 transition-colors"
-            >
-              Explore Selected Work
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            
-            <a 
-              href="https://github.com/BishnoiNaveen" 
-              target="_blank" 
-              rel="noreferrer"
-              className="group flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 text-zinc-300 hover:text-white transition-colors"
-            >
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-              </svg>
-              <span className="font-medium">GitHub</span>
-            </a>
+            <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-[0.8] text-white mix-blend-difference flex overflow-hidden">
+              {['N', 'A', 'V', 'E', 'E', 'N'].map((char, i) => (
+                <motion.span key={i} variants={letterVariants} className="inline-block transform-gpu">{char}</motion.span>
+              ))}
+            </h1>
+            <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-[0.8] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 flex overflow-hidden -mt-2">
+              {['B', 'I', 'S', 'H', 'N', 'O', 'I'].map((char, i) => (
+                <motion.span key={i} variants={letterVariants} className="inline-block transform-gpu">{char}</motion.span>
+              ))}
+            </h1>
           </motion.div>
         </div>
 
-        {/* Right Side: Massive Image */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-1 w-full lg:h-[75vh] flex items-center justify-center lg:justify-end mt-8 lg:mt-0"
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.8, ease: [0.19, 1.0, 0.22, 1.0] }}
+          className="text-lg md:text-2xl text-zinc-400 font-light max-w-2xl text-center leading-relaxed mb-12 mix-blend-difference z-10"
         >
-          <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-square sm:aspect-[4/5] lg:aspect-auto lg:h-[90%] rounded-[2rem] overflow-hidden glass-panel group">
-            <img 
-              src="/images/portfolio_hero.jpg" 
-              alt="Naveen Bishnoi"
-              className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out lg:grayscale-[20%]"
-            />
-            {/* Elegant lighting overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10 pointer-events-none mix-blend-overlay"></div>
-            <div className="absolute inset-0 border border-white/10 rounded-[2rem] pointer-events-none"></div>
-          </div>
+          Software Architect & AI Automation Engineer crafting high-performance systems and intelligent digital experiences.
+        </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 z-10"
+        >
+          <a 
+            href="/projects" 
+            className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold hover:scale-105 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 w-full h-full bg-zinc-200 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
+            <span className="relative z-10">Explore Work</span>
+            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+          </a>
         </motion.div>
+
       </div>
     </div>
   );

@@ -1,6 +1,90 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+
+const ProjectCard = ({ project, index }: { project: any, index: number }) => {
+  const isEven = index % 2 === 0;
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const yImage = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  return (
+    <section ref={containerRef} className="w-full relative py-12">
+      <div className={`max-w-[100rem] mx-auto px-6 md:px-12 flex flex-col-reverse ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
+        
+        {/* Text Content */}
+        <div className="flex-[0.8] flex flex-col items-start z-10 w-full">
+          <motion.div
+            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1, ease: [0.19, 1.0, 0.22, 1.0] }}
+            className="w-full"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <span className="text-4xl md:text-5xl font-black text-white/10">{project.id}</span>
+              <div className="h-px bg-white/20 flex-1"></div>
+              <span className="text-zinc-500 font-bold tracking-widest uppercase text-xs md:text-sm">
+                {project.subtitle}
+              </span>
+            </div>
+            
+            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight leading-[1.1]">
+              {project.title}
+            </h3>
+            <p className="text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed font-light">
+              {project.description}
+            </p>
+            
+            <div className="flex flex-wrap gap-3 mb-12">
+              {project.tech.map((t: string) => (
+                <span key={t} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-medium text-zinc-300 shadow-xl">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <a href="https://github.com/BishnoiNaveen" target="_blank" rel="noreferrer" className="group flex items-center gap-4 text-white font-bold text-sm tracking-[0.2em] uppercase transition-all overflow-hidden w-max">
+              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-500">
+                <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+              </div>
+              <span className="relative">
+                <span className="absolute left-0 bottom-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
+                View Case Study
+              </span>
+            </a>
+          </motion.div>
+        </div>
+        
+        {/* Image Content with Parallax */}
+        <div className="flex-[1.2] w-full">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1.2, ease: [0.19, 1.0, 0.22, 1.0] }}
+            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group"
+          >
+            <motion.div style={{ y: yImage }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-[2s] ease-out brightness-75 group-hover:brightness-100" 
+              />
+            </motion.div>
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
+          </motion.div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
 
 export default function Projects() {
   const projects = [
@@ -40,81 +124,22 @@ export default function Projects() {
 
   return (
     <div className="w-full flex flex-col pt-24 md:pt-32 pb-24" id="work">
-      <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12 mb-16 md:mb-32">
+      <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 mb-16 md:mb-32 overflow-hidden">
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 100, rotateX: 45 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="editorial-headline text-white text-5xl sm:text-7xl md:text-8xl lg:text-[7rem]"
+          transition={{ duration: 1.2, ease: [0.19, 1.0, 0.22, 1.0] }}
+          className="text-[12vw] lg:text-[8rem] font-black text-white tracking-tighter leading-[0.85] uppercase"
         >
-          SELECTED<br />WORK
+          Selected<br />Work
         </motion.h2>
       </div>
 
-      <div className="w-full flex flex-col gap-24 md:gap-32 lg:gap-48">
-        {projects.map((project, index) => {
-          const isEven = index % 2 === 0;
-          return (
-            <section key={project.id} className="w-full relative">
-              <div className={`max-w-[90rem] mx-auto px-6 md:px-12 flex flex-col-reverse ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
-                
-                {/* Text Content */}
-                <div className="flex-1 flex flex-col items-start z-10 w-full">
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full"
-                  >
-                    <span className="text-zinc-500 font-bold tracking-widest uppercase text-xs md:text-sm mb-6 block border-b border-white/10 pb-4 w-full">
-                      {project.id} &mdash; {project.subtitle}
-                    </span>
-                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 tracking-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-8 md:mb-10 leading-relaxed font-light">
-                      {project.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 md:gap-3 mb-10 md:mb-12">
-                      {project.tech.map(t => (
-                        <span key={t} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-[10px] md:text-xs font-medium text-zinc-300">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
-                    <a href="https://github.com/BishnoiNaveen" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 text-white font-semibold text-xs md:text-sm tracking-wide uppercase transition-all">
-                      <span className="border-b border-transparent group-hover:border-white transition-colors pb-1">View Case Study</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                    </a>
-                  </motion.div>
-                </div>
-                
-                {/* Image Content */}
-                <div className="flex-1 w-full">
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden glass-panel group"
-                  >
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out" 
-                    />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-700"></div>
-                  </motion.div>
-                </div>
-
-              </div>
-            </section>
-          );
-        })}
+      <div className="w-full flex flex-col gap-24 md:gap-40 lg:gap-56">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
       </div>
     </div>
   );
