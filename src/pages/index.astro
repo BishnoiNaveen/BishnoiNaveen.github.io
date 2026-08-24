@@ -1,31 +1,60 @@
 ---
 /**
- * index.astro — Home page for Naveen Bishnoi Portfolio.
+ * index.astro - Home page for Naveen Bishnoi Portfolio.
  * Built with Apple visionOS Design System, Fluid Spring Interactions & Multi-Agent Runtimes.
  */
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import HeroSection from '../components/HeroSection.astro';
-import WorkflowsSection from '../components/WorkflowsSection.astro';
-import HermesSection from '../components/HermesSection.astro';
-import ProjectsSection from '../components/ProjectsSection.astro';
-import ExperienceSection from '../components/ExperienceSection.astro';
-import ContactSection from '../components/ContactSection.astro';
-import FooterSection from '../components/FooterSection.astro';
+import HeaderNav from '../components/HeaderNav';
+import Hero from '../components/Hero';
+import Projects from '../components/Projects';
+import About from '../components/About';
+import Lab from '../components/Lab';
 ---
 
 <Layout 
   title="Home" 
-  description="Naveen Bishnoi — Developer, AI Automation Engineer & Systems Builder. Building production-grade systems with AI-first architecture, multi-agent frameworks, and precision craftsmanship."
+  description="Naveen Bishnoi - Developer, AI Automation Engineer & Systems Builder."
 >
-  <Header slot="header" />
+  <HeaderNav client:load />
 
-  <HeroSection />
-  <WorkflowsSection />
-  <HermesSection />
-  <ProjectsSection />
-  <ExperienceSection />
-  <ContactSection />
+  <div class="flex flex-col w-full min-h-screen">
+    <Hero client:load />
+    
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent my-12"></div>
+    
+    <Projects client:load />
+    
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent my-12"></div>
+    
+    <About client:load />
+    
+    <Lab client:load />
 
-  <FooterSection slot="footer" />
+    <!-- Contact Section -->
+    <section class="w-full py-32" id="contact">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="editorial-headline text-[#1D1D1F] dark:text-[#F5F5F7] mb-8">LET'S BUILD SOMETHING</h2>
+        <p class="text-xl text-[#6E6E73] dark:text-[#86868B] font-light mb-12">
+          Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+        </p>
+        <a href="mailto:hello@naveenbishnoi.com" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-[#1D1D1F] rounded-full hover:bg-black transition-colors duration-300">
+          Say Hello
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 border-t border-black/5 dark:border-white/5">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-[#6E6E73] dark:text-[#86868B]">
+          &copy; {new Date().getFullYear()} Naveen Bishnoi. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          <a href="https://github.com/BishnoiNaveen" target="_blank" rel="noreferrer" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] dark:text-[#86868B] dark:hover:text-[#F5F5F7] transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/naveen-bishnoi" target="_blank" rel="noreferrer" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] dark:text-[#86868B] dark:hover:text-[#F5F5F7] transition-colors">LinkedIn</a>
+          <a href="https://twitter.com/naveen_bishnoi" target="_blank" rel="noreferrer" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] dark:text-[#86868B] dark:hover:text-[#F5F5F7] transition-colors">Twitter</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </Layout>

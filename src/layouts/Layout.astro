@@ -1,18 +1,4 @@
 ---
-/**
- * src/layouts/Layout.astro — Master Apple-Themed Root Layout Wrapper
- * Features:
- * - Bright theme metadata (#F5F5F7, light color-scheme)
- * - SEO meta tags, OpenGraph cards, Twitter cards, canonical URL
- * - Rich Schema.org JSON-LD (Person + WebSite)
- * - Preloaded fonts (Inter & JetBrains Mono)
- * - Fixed Siri Glowing Mesh Gradient Background with 4 floating orbs
- * - Accessible skip-to-content link (#main-content)
- * - Header, default, and Footer slots
- * - Vanilla JS IntersectionObserver for scroll-reveal performance
- * - Magnetic Cursor Tracker island (client:idle)
- */
-import MagneticCursorTracker from '../components/MagneticCursorTracker';
 import '../styles/global.css';
 
 interface Props {
@@ -24,146 +10,71 @@ interface Props {
 }
 
 const {
-  title = 'Home',
-  description = 'Naveen Bishnoi — Developer, AI Automation Engineer & Systems Builder. Building production-grade systems with AI-first architecture, multi-agent frameworks, and precision craftsmanship.',
+  title = 'Naveen Bishnoi',
+  description = 'Developer, AI Automation Engineer & Systems Builder.',
   ogImage = '/images/portfolio_hero.jpg',
   canonicalUrl = Astro.url.href,
   keywords = [
     'Naveen Bishnoi',
     'Developer',
-    'AI Automation Engineer',
-    'Systems Builder',
-    'Multi-Agent Systems',
-    'Hermes Telemetry',
-    'Apple Fluid Interface',
-    'Python',
-    'TypeScript',
-    'Astro',
-    'React'
+    'AI Automation',
+    'Systems'
   ],
 } = Astro.props;
 
 const siteName = 'Naveen Bishnoi';
 const siteUrl = Astro.site ?? new URL(Astro.url.pathname, 'https://BishnoiNaveen.github.io');
 const fullOgImage = new URL(ogImage, siteUrl).href;
-
-/* JSON-LD Structured Data — Person + WebSite */
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": siteName,
-      "url": siteUrl.toString(),
-      "description": description,
-    },
-    {
-      "@type": "Person",
-      "name": "Naveen Bishnoi",
-      "url": siteUrl.toString(),
-      "image": fullOgImage,
-      "jobTitle": "Developer, AI Automation Engineer & Systems Builder",
-      "knowsAbout": [
-        "AI Automation",
-        "Multi-Agent Orchestration",
-        "System Architecture",
-        "Full-Stack Development",
-        "Python",
-        "TypeScript",
-        "React",
-        "Astro",
-        "Vector Databases",
-        "Precision Agriculture Telemetry"
-      ],
-      "sameAs": [
-        "https://github.com/BishnoiNaveen",
-        "https://www.linkedin.com/in/naveen-bishnoi-b0b00941a",
-        "https://www.instagram.com/bishnoi_.naveen"
-      ]
-    }
-  ]
-};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- ====== Critical Meta ====== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#F5F5F7" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
 
-    <!-- ====== SEO ====== -->
     <title>{title} | {siteName}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
     <meta name="author" content="Naveen Bishnoi" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonicalUrl} />
 
-    <!-- ====== Open Graph (Facebook / LinkedIn) ====== -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | ${siteName}`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullOgImage} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content={siteName} />
 
-    <!-- ====== Twitter Card ====== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | ${siteName}`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullOgImage} />
 
-    <!-- ====== Favicons ====== -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- ====== JSON-LD Structured Data ====== -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
-    <!-- ====== Generator ====== -->
     <meta name="generator" content={Astro.generator} />
 
-    <!-- ====== Preconnect and Preload Critical Fonts ====== -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
 
-  <body>
-    <!-- Skip-to-content link for keyboard navigation (a11y) -->
-    <a href="#main-content" class="skip-link sr-only" id="skip-nav">
-      Skip to main content
-    </a>
+  <body class="antialiased selection:bg-blue-500/30 selection:text-current">
+    <div class="atmospheric-glow" aria-hidden="true"></div>
 
-    <!-- ====== Siri Glowing Mesh Gradient Background Layer ====== -->
-    <div class="apple-mesh-container" aria-hidden="true">
-      <div class="apple-mesh-orb apple-mesh-orb--blue"></div>
-      <div class="apple-mesh-orb apple-mesh-orb--purple"></div>
-      <div class="apple-mesh-orb apple-mesh-orb--amber"></div>
-      <div class="apple-mesh-orb apple-mesh-orb--teal"></div>
-    </div>
-
-    <!-- Header Slot -->
     <slot name="header" />
 
-    <!-- Main Content -->
     <main id="main-content" tabindex="-1" class="relative z-10">
       <slot />
     </main>
 
-    <!-- Footer Slot -->
     <slot name="footer" />
 
-    <!-- Magnetic Cursor Follower -->
-    <MagneticCursorTracker client:idle />
-
-    <!-- ====== Scroll Reveal Observer ====== -->
     <script>
       if (typeof IntersectionObserver !== 'undefined') {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -177,36 +88,14 @@ const jsonLd = {
                 }
               });
             },
-            { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
           );
 
-          document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+          document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
         } else {
-          document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+          document.querySelectorAll('.reveal-up').forEach((el) => el.classList.add('is-visible'));
         }
       }
     </script>
   </body>
 </html>
-
-<style is:global>
-  /* Skip link — visible on focus */
-  .skip-link:focus {
-    position: fixed;
-    top: var(--space-4, 1rem);
-    left: var(--space-4, 1rem);
-    width: auto;
-    height: auto;
-    padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
-    clip: auto;
-    overflow: visible;
-    white-space: normal;
-    background: var(--apple-blue, #0071E3);
-    color: #FFFFFF;
-    font-weight: 600;
-    border-radius: var(--apple-radius-pill, 9999px);
-    z-index: 9999;
-    outline: 2px solid #FFFFFF;
-    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.40);
-  }
-</style>
