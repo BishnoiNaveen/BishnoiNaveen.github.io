@@ -79,16 +79,20 @@ export default function Hero() {
             animate="visible"
             className="relative z-10 text-center flex flex-col items-center"
           >
-            <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-[0.8] text-white mix-blend-difference flex overflow-hidden">
+            {/* ACCESSIBILITY FIX: Screen readers will read this, but it is visually hidden */}
+            <h1 className="sr-only">Naveen Bishnoi</h1>
+
+            {/* VISUAL PRESENTATION: Hidden from screen readers */}
+            <div aria-hidden="true" className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-[0.8] text-white mix-blend-difference flex overflow-hidden">
               {['N', 'A', 'V', 'E', 'E', 'N'].map((char, i) => (
                 <motion.span key={i} variants={letterVariants} className="inline-block transform-gpu">{char}</motion.span>
               ))}
-            </h1>
-            <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-[0.8] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 flex overflow-hidden -mt-2">
+            </div>
+            <div aria-hidden="true" className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-[0.8] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 flex overflow-hidden -mt-2">
               {['B', 'I', 'S', 'H', 'N', 'O', 'I'].map((char, i) => (
                 <motion.span key={i} variants={letterVariants} className="inline-block transform-gpu">{char}</motion.span>
               ))}
-            </h1>
+            </div>
           </motion.div>
         </div>
 
