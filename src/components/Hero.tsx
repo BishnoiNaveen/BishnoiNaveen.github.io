@@ -59,16 +59,16 @@ export default function Hero() {
         {/* Center Typography & Parallax Image */}
         <div className="relative w-full flex justify-center items-center h-[50vh] md:h-[60vh] mt-4 mb-8 pointer-events-none">
           
-          {/* Background Parallax Image */}
+          {/* Background Parallax Image - Fixed to look abstract & mathematical instead of 'weird/fake' */}
           <motion.div 
             style={{ y: yImage, scale: scaleImage }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm sm:max-w-md md:max-w-2xl aspect-[4/5] md:aspect-[16/9] rounded-[2rem] overflow-hidden opacity-30 md:opacity-40 z-0 border border-white/5"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm sm:max-w-md md:max-w-2xl aspect-[4/5] md:aspect-[16/9] rounded-[2rem] overflow-hidden opacity-20 md:opacity-30 z-0 border border-white/5 mix-blend-luminosity"
           >
-            <div className="absolute inset-0 bg-black/40 z-10"></div>
+            <div className="absolute inset-0 bg-black/60 z-10"></div>
             <img 
-              src="/images/portfolio_hero.jpg" 
-              alt="Background texture"
-              className="w-full h-full object-cover grayscale brightness-75"
+              src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2000&auto=format&fit=crop" 
+              alt="Abstract Architectural Wireframe"
+              className="w-full h-full object-cover grayscale contrast-150 brightness-50"
             />
           </motion.div>
 

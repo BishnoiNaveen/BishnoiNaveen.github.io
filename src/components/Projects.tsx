@@ -49,13 +49,13 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
               ))}
             </div>
 
-            <a href="https://github.com/BishnoiNaveen" target="_blank" rel="noreferrer" className="group flex items-center gap-4 text-white font-bold text-sm tracking-[0.2em] uppercase transition-all overflow-hidden w-max">
-              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-500">
+            <a href={project.id === "01" ? "/projects/krone-iot" : "https://github.com/BishnoiNaveen"} target={project.id === "01" ? "_self" : "_blank"} rel="noreferrer" className="group flex items-center gap-4 text-white font-bold text-sm tracking-[0.2em] uppercase transition-all overflow-hidden w-max">
+              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-black transition-colors duration-500">
                 <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
               </div>
               <span className="relative">
-                <span className="absolute left-0 bottom-0 w-0 h-px bg-white transition-all duration-500 group-hover:w-full"></span>
-                View Case Study
+                <span className="absolute left-0 bottom-0 w-0 h-px bg-emerald-400 transition-all duration-500 group-hover:w-full"></span>
+                {project.id === "01" ? "Read Architecture Report" : "View Code Repository"}
               </span>
             </a>
           </motion.div>
@@ -68,16 +68,16 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
             whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 1.2, ease: [0.19, 1.0, 0.22, 1.0] }}
-            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group"
+            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-black border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group"
           >
             <motion.div style={{ y: yImage }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-[2s] ease-out brightness-75 group-hover:brightness-100" 
+                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-[2s] ease-out brightness-50 group-hover:brightness-75 grayscale contrast-125 mix-blend-luminosity" 
               />
             </motion.div>
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
+            <div className="absolute inset-0 bg-emerald-500/5 mix-blend-overlay group-hover:bg-emerald-500/10 transition-colors duration-700"></div>
           </motion.div>
         </div>
 

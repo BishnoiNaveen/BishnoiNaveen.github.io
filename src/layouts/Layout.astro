@@ -5,6 +5,7 @@ import CustomCursor from '../components/CustomCursor';
 import Preloader from '../components/Preloader';
 import Terminal from '../components/Terminal';
 import CanvasBackground from '../components/CanvasBackground';
+import ScrollProgress from '../components/ScrollProgress';
 
 interface Props {
 // ... no changes to interface Props
@@ -75,6 +76,7 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
       <CanvasBackground client:load />
     </div>
 
+    <ScrollProgress client:load />
     <Preloader client:load />
     <Terminal client:load />
     <CustomCursor client:load />

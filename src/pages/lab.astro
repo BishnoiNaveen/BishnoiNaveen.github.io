@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeaderNav from '../components/HeaderNav';
-import LabComponent from '../components/Lab';
+import LabComponent from '../components/LabComponent';
 ---
 
 <Layout 
   title="Lab | Naveen Bishnoi" 
-  description="Experimental technical works by Naveen Bishnoi."
+  description="Experiments and isolated prototypes."
 >
   <HeaderNav client:load />
 
   <main class="flex flex-col w-full min-h-screen bg-transparent pt-32 pb-20">
-    <LabComponent />
+    <LabComponent client:load />
   </main>
 </Layout>
