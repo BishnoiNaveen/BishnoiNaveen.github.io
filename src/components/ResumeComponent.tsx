@@ -82,6 +82,36 @@ export default function ResumeComponent() {
         </pre>
       </motion.div>
 
+      {/* Deep Scrolling Section: Core Philosophy */}
+      <div className="col-span-1 lg:col-span-2 mt-24 border-t border-white/10 pt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
+        >
+          <div>
+            <h3 className="text-2xl font-bold mb-4">01. Autonomous By Default</h3>
+            <p className="text-zinc-400 font-light leading-relaxed">
+              I believe software should not just react; it should think. My architectures prioritize self-healing, multi-agent consensus, and automated failovers before a human ever receives an alert.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-4">02. Uncompromising Performance</h3>
+            <p className="text-zinc-400 font-light leading-relaxed">
+              Latency is a product killer. From sub-200ms Kafka streams to 120fps WebGL interfaces, I engineer systems that feel instantaneous at every layer of the stack.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-4">03. Radical Transparency</h3>
+            <p className="text-zinc-400 font-light leading-relaxed">
+              No black boxes. I design AI systems and architectures with absolute observability, ensuring every decision, token, and latency spike is logged, analyzed, and understood.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
     </div>
   );
 }

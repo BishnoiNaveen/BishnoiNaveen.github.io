@@ -77,6 +77,37 @@ export default function LabComponent() {
         ))}
       </div>
 
+      {/* Deep Scrolling Section: Infrastructure */}
+      <div className="mt-32 border-t border-white/10 pt-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12"
+        >
+          <h2 className="text-3xl md:text-5xl font-black">Infrastructure <br/><span className="text-zinc-500">& Compute.</span></h2>
+          <p className="max-w-md text-zinc-400 font-light leading-relaxed">
+            The foundation of the lab. Every experiment is backed by a robust, self-hosted deployment architecture optimized for AI throughput.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { label: "Vector DB", val: "Qdrant / Milvus", desc: "HNSW Indexed" },
+            { label: "Message Broker", val: "Apache Kafka", desc: "1M+ Events/s" },
+            { label: "Caching Layer", val: "Redis Enterprise", desc: "Sub-ms Latency" },
+            { label: "Orchestration", val: "Docker Swarm", desc: "Multi-node" }
+          ].map((stat, i) => (
+            <div key={i} className="p-6 bg-white/5 rounded-xl border border-white/10">
+              <span className="block text-xs font-mono text-emerald-400 mb-4">{stat.label}</span>
+              <span className="block text-xl font-bold mb-1">{stat.val}</span>
+              <span className="block text-sm text-zinc-500">{stat.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }

@@ -1,83 +1,80 @@
 %PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
 <<
-  /Type /Catalog
-  /Pages 2 0 R
+/F1 2 0 R /F2 3 0 R /F3 4 0 R
 >>
 endobj
 2 0 obj
 <<
-  /Type /Pages
-  /Kids [3 0 R]
-  /Count 1
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
 >>
 endobj
 3 0 obj
 <<
-  /Type /Page
-  /Parent 2 0 R
-  /MediaBox [0 0 612 792]
-  /Contents 4 0 R
-  /Resources <<
-    /Font <<
-      /F1 5 0 R
-    >>
-  >>
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
 >>
 endobj
 4 0 obj
 <<
-  /Length 550
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
 >>
-stream
-BT
-/F1 20 Tf
-50 720 Td
-(NAVEEN BISHNOI) Tj
-/F1 12 Tf
-0 -25 Td
-(AI Automation Engineer & Software Architect) Tj
-0 -20 Td
-(Email: bishnoinaveen759@gmail.com | Web: https://BishnoiNaveen.github.io) Tj
-0 -30 Td
-(EXPERTISE: Multi-Agent Systems, Event-Driven Architecture, High-Throughput Pipelines) Tj
-0 -20 Td
-(FRAMEWORKS: Astro, React, TypeScript, Python, FastAPI, Node.js, Framer Motion) Tj
-0 -20 Td
-(DATA & AGENTS: Hermes Telemetry, LangChain, Autogen, Kafka, PostgreSQL, Redis) Tj
-0 -30 Td
-(KEY PROJECTS:) Tj
-0 -20 Td
-(- KRONE IoT Fleet Telemetry & Predictive Analytics) Tj
-0 -20 Td
-(- AEONIS OPS: Autonomous Supply Chain Orchestration) Tj
-0 -20 Td
-(- Ultron Framework: Multi-Agent Consensus & Execution DAG) Tj
-0 -20 Td
-(- Medallion Stream: Real-Time Event Architecture) Tj
-ET
-endstream
 endobj
 5 0 obj
 <<
-  /Type /Font
-  /Subtype /Type1
-  /BaseFont /Helvetica
+/Contents 9 0 R /MediaBox [ 0 0 612 792 ] /Parent 8 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
 >>
 endobj
+6 0 obj
+<<
+/PageMode /UseNone /Pages 8 0 R /Type /Catalog
+>>
+endobj
+7 0 obj
+<<
+/Author (anonymous) /CreationDate (D:20260824155417+05'00') /Creator (anonymous) /Keywords () /ModDate (D:20260824155417+05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (untitled) /Trapped /False
+>>
+endobj
+8 0 obj
+<<
+/Count 1 /Kids [ 5 0 R ] /Type /Pages
+>>
+endobj
+9 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1704
+>>
+stream
+GatU39lo&I&A@7.m%p8KO_'^PYiSepR?![pZ77VtFs\#]KLjT<^]?\\lK$!0!E'O^gM,<m*_3)\h8S-Xmql<KnCt@cir\-oK%"KO>S!Pd\AS:WU0I,^=8'00hU"CZcMQd[kACrBjM9FKcP>qq55jjFF1;XqS,$@Z#,8jUqJ@;Y_n.i)T^OaHqVE((cJ\J)R3$![lO9IhlN\U_9P'_K9k+XI_DHdWV+![,'-)Ck1/=frSA#_R4?9aQ(..;oaI0Pg9^>S^S=ZmNb.(iLCaeEDPj,8QopIdf3S&I]QX:;i?\%0]P=I?V:X'jW=;:66(7F+Q!o?[WQjh<d#D;!NS$YL,](OD?h(*B<,8:<?`h%UD6b)H;C]!(Np\f&I8P`_5&"9OOn#lUC%.<9,>;1O0\,J2NEGX,lF.iMX)V.&uW>gL<VB<DsJ1>9W8C%3C49``AUUV^?V'+PC9afL(BhGpJ0qR^ao/A5F:)6g3Ke*Ljl-&9P2>YcjT_bmS@RE.h8`G)Y1_qi$)&'#Pb"[0sPFS^p$40X7Z;m`8!b>AY,q7DC<4QTg`)HkT8IG;:jLqSZ$:G"'dH&8m7cuW],qE\ipGYMQV3$s1;]mSfBimrmUo#'$;+O7b/#j\Q.7!H'87YtV8<i*7YqnDH$6_BcYoJVHlaueM>PI02(ldef,Cakm%q`les3HD6N.UO*+1u)I*(=V@2%u-Zr$Rh7B3j\>\>I&m51kM.FLZ(.C<m\<gT42R,W"h*TC$rYL;p]UV\QXFFh<EQLp5NHSF%@cgQI;rA>S_1Ha4g,fARg\*GZTP,'CT^@)q7rq[cCm@]X!5^ZtgUB&!qqd=Z5/1_(#0+VJPI0K@93_XJa]9X,%4Ma"0t"rp,<ZW+@`h$P6_p0g.Hof_QU67ABsMAZ%p8TAp9(*^JjZ3R#,mm=l+%crQrWrE$+%%gHj3u``8T05+Qa'Np'n(=l<MYIWE/FV^bdMsVQe`Ib+%_`%l&D^_1I"@H7UX02%nH]>_qXbR?ESc`eXn>E;S/,)I/aPn7:kp4=`JW_Ap-n!`"i7O8ib-k'V-<Pa(IjUol)7;o'W&pf:!-@C6Xu+>N6rJ+i^WDJ>,Y9=P:AJ:R1Yih,ST]uqG:!jD/h<+jZ?VcXc$Ld/D#t$CXJOa<LT2O`^\8$,]NJEmZ<VaPmUI[,W@_R:=!pM[h&og=&Kr8^m?&"_G;92pBOeTBGRFK8eSY.)k)]5;I\qKc%?Sq(1C8slp;m42@OH1.iI+i(`D'_<b]biD<YH\!kEnJaa28_F/"X]>C*6J/FtI37Qmu>*7`P\puU@WP85Bd879;)#)lY/^D3X.BTacqTS4tr0RemP'b]a]j<@$Z@'N%FN1#!h1[Vj<Xo%Nu&ec3C?;"]DR(rf%&$0T=*YdGiK'"V<U2n.\*";_T7Qtf&[Gpflk3NQCg-5:]R3h765DqiAedq`DEd#p"D-l6tT5kWn%XT^W0<[TDPc`EOCkqSJ2]^$#3@ur><_^?W\?[ZrR_ClM;3i[`6K+YP)m,c2B&%,?[6X2oW;D[eNS&WS$-@6e7&VCX"^W-pR\)u;45+I;kBjgX@B$_uUu"SpgE[V]`1]#WB=0ej*!bR6LPGAECQV/Db#SRT%B:%p#RRnI"K^qf"H-Ngq(Kk?VqEmn,O5hIe(2]k7,n^O;4pm_9SG3r:Y,()K8%^ASTm)/#**nj,SaXq'a\4F$d<Yt)#~>endstream
+endobj
 xref
-0 6
+0 10
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000262 00000 n 
-0000000865 00000 n 
+0000000061 00000 n 
+0000000112 00000 n 
+0000000219 00000 n 
+0000000331 00000 n 
+0000000446 00000 n 
+0000000639 00000 n 
+0000000707 00000 n 
+0000000968 00000 n 
+0000001027 00000 n 
 trailer
 <<
-  /Size 6
-  /Root 1 0 R
+/ID 
+[<a60b33433ae90a1a36e7bbb078b3b7dc><a60b33433ae90a1a36e7bbb078b3b7dc>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 7 0 R
+/Root 6 0 R
+/Size 10
 >>
 startxref
-934
+2822
 %%EOF
