@@ -1,4 +1,3 @@
-// Simple Web Audio API Synthesizer for UI Sounds
 let audioCtx: AudioContext | null = null;
 
 const initAudio = () => {
@@ -9,6 +8,12 @@ const initAudio = () => {
     audioCtx.resume();
   }
 };
+
+// Unlock audio context on first user interaction
+if (typeof window !== 'undefined') {
+  window.addEventListener('click', initAudio, { once: true });
+  window.addEventListener('touchstart', initAudio, { once: true });
+}
 
 export const playHoverSound = () => {
   try {

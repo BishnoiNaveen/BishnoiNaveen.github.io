@@ -36,13 +36,10 @@ export default function Hero() {
   };
 
   return (
-    <div className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden">
+    <div className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-[#050505]">
       
-      {/* Abstract Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#09090b] via-[#09090b] to-[#121217] z-0"></div>
-
-      {/* Interactive WebGL/Canvas Particle Background */}
-      <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen overflow-hidden">
+      {/* Interactive WebGL/Canvas Particle Background (Made subtle) */}
+      <div className="absolute inset-0 z-0 opacity-20 overflow-hidden pointer-events-auto">
         <CanvasBackground />
       </div>
 

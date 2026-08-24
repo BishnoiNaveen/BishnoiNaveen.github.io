@@ -10,25 +10,33 @@ export default function CanvasBackground() {
     if (!ctx) return;
 
     let particles: any[] = [];
-    let w = canvas.width = canvas.parentElement!.offsetWidth;
-    let h = canvas.height = canvas.parentElement!.offsetHeight;
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
     
     // Mouse interaction
     let mouse = { x: w / 2, y: h / 2, radius: 150 };
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     };
     
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
+    };
+
     const handleMouseLeave = () => {
       mouse.x = w / 2;
       mouse.y = h / 2;
     };
 
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchstart', handleTouchMove, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave);
 
     class Particle {
       x: number;
@@ -84,7 +92,7 @@ export default function CanvasBackground() {
 
     const init = () => {
       particles = [];
-      const numberOfParticles = (w * h) / 9000;
+      const numberOfParticles = Math.min((w * h) / 9000, 150); // Cap particles for performance
       for (let i = 0; i < numberOfParticles; i++) {
         particles.push(new Particle());
       }
@@ -97,7 +105,6 @@ export default function CanvasBackground() {
         particles[i].update();
         particles[i].draw();
         
-        // Connect lines
         for (let j = i; j < particles.length; j++) {
           let dx = particles[i].x - particles[j].x;
           let dy = particles[i].y - particles[j].y;
@@ -118,8 +125,8 @@ export default function CanvasBackground() {
     };
 
     const handleResize = () => {
-      w = canvas.width = canvas.parentElement!.offsetWidth;
-      h = canvas.height = canvas.parentElement!.offsetHeight;
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
       init();
     };
 
@@ -129,11 +136,13 @@ export default function CanvasBackground() {
     animate();
 
     return () => {
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchstart', handleTouchMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full mix-blend-screen opacity-60" />;
+  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />;
 }

@@ -77,6 +77,7 @@ export default function Terminal() {
   };
 
   return (
+    <>
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -126,5 +127,17 @@ export default function Terminal() {
         </motion.div>
       )}
     </AnimatePresence>
+    
+    {/* Mobile Terminal Trigger */}
+    {!isOpen && (
+      <button 
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-6 right-6 z-[89000] md:hidden w-12 h-12 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center text-zinc-400 font-mono text-xs shadow-2xl hover:bg-white/10 transition-colors"
+        aria-label="Open Terminal"
+      >
+        [ _ ]
+      </button>
+    )}
+    </>
   );
 }
