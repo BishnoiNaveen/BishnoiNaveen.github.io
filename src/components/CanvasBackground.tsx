@@ -51,12 +51,12 @@ export default function CanvasBackground() {
         this.y = Math.random() * h;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.size = Math.random() * 2 + 0.5;
+        this.size = Math.random() * 3 + 1; // Made particles slightly bigger
         this.density = (Math.random() * 30) + 1;
       }
 
       draw() {
-        ctx!.fillStyle = 'rgba(167, 250, 208, 0.7)'; // Faint emerald tint
+        ctx!.fillStyle = 'rgba(167, 250, 208, 0.9)'; // Brighter emerald
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx!.closePath();
@@ -112,7 +112,7 @@ export default function CanvasBackground() {
           
           if (distance < 110) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(167, 250, 208, ${0.2 - distance / 1000})`; // Faint emerald connections
+            ctx.strokeStyle = `rgba(167, 250, 208, ${0.4 - distance / 500})`; // Much brighter emerald connections
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
