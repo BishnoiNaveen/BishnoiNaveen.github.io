@@ -12,31 +12,33 @@ export default function HeaderNav() {
   }, []);
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4">
+    <div className="fixed top-8 left-0 right-0 z-50 flex justify-center pointer-events-none px-4">
       <nav 
-        className={`pointer-events-auto flex items-center gap-6 px-6 py-3 rounded-full transition-all duration-500 ${
+        className={`pointer-events-auto flex items-center gap-8 px-8 py-4 rounded-full transition-all duration-700 ${
           isScrolled 
             ? 'floating-nav' 
-            : 'bg-transparent'
+            : 'bg-transparent border border-transparent'
         }`}
       >
-        <a href="/" className="font-semibold text-lg tracking-tight hover:opacity-70 transition-opacity">
-          NB
+        <a href="/" className="font-bold text-white tracking-tight hover:text-white/80 transition-colors">
+          NB.
         </a>
         
-        <div className="h-4 w-px bg-current opacity-20 hidden md:block"></div>
+        <div className="h-4 w-px bg-white/20 hidden md:block"></div>
         
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#work" className="hover:opacity-70 transition-opacity">Work</a>
-          <a href="#about" className="hover:opacity-70 transition-opacity">About</a>
-          <a href="#lab" className="hover:opacity-70 transition-opacity">Lab</a>
-          <a href="#contact" className="hover:opacity-70 transition-opacity">Contact</a>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+          <a href="#work" className="hover:text-white transition-colors">Work</a>
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#lab" className="hover:text-white transition-colors">Lab</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div>
+
+        <div className="h-4 w-px bg-white/20 hidden md:block"></div>
 
         <a 
           href="/Naveen_Bishnoi_Resume.pdf" 
           target="_blank" 
-          className="text-sm font-medium opacity-60 hover:opacity-100 transition-opacity ml-2"
+          className="text-sm font-medium text-white hover:text-white/80 transition-colors ml-2"
         >
           Resume
         </a>
