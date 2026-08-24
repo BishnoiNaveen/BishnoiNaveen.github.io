@@ -2,8 +2,12 @@
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import CustomCursor from '../components/CustomCursor';
+import Preloader from '../components/Preloader';
+import Terminal from '../components/Terminal';
 
 interface Props {
+// ... no changes to interface Props
+
   title?: string;
   description?: string;
   ogImage?: string;
@@ -62,6 +66,8 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
   </head>
 
   <body class="antialiased bg-[#09090b] text-white overflow-x-hidden">
+    <Preloader client:load />
+    <Terminal client:load />
     <CustomCursor client:load />
 
     <div class="atmospheric-glow" aria-hidden="true"></div>

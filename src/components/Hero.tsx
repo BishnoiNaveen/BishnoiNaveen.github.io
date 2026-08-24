@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import CanvasBackground from './CanvasBackground';
+import Magnetic from './Magnetic';
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -39,31 +41,38 @@ export default function Hero() {
       {/* Abstract Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#09090b] via-[#09090b] to-[#121217] z-0"></div>
 
+      {/* Interactive WebGL/Canvas Particle Background */}
+      <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen overflow-hidden">
+        <CanvasBackground />
+      </div>
+
       <div className="max-w-[100rem] mx-auto w-full px-6 md:px-12 flex flex-col items-center justify-center relative z-10 pt-20">
         
         {/* Animated Status Pill */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
-        >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span className="text-[10px] md:text-xs font-bold text-zinc-300 uppercase tracking-[0.2em]">Available for new opportunities</span>
-        </motion.div>
+        <Magnetic>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-[0_0_30px_rgba(255,255,255,0.05)] cursor-none"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-[10px] md:text-xs font-bold text-zinc-300 uppercase tracking-[0.2em]">Press Cmd+K for Terminal</span>
+          </motion.div>
+        </Magnetic>
 
         {/* Center Typography & Parallax Image */}
-        <div className="relative w-full flex justify-center items-center h-[50vh] md:h-[60vh] mt-4 mb-8">
+        <div className="relative w-full flex justify-center items-center h-[50vh] md:h-[60vh] mt-4 mb-8 pointer-events-none">
           
           {/* Background Parallax Image */}
           <motion.div 
             style={{ y: yImage, scale: scaleImage }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm sm:max-w-md md:max-w-2xl aspect-[4/5] md:aspect-[16/9] rounded-[2rem] overflow-hidden opacity-40 md:opacity-50 z-0 border border-white/5"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm sm:max-w-md md:max-w-2xl aspect-[4/5] md:aspect-[16/9] rounded-[2rem] overflow-hidden opacity-30 md:opacity-40 z-0 border border-white/5"
           >
-            <div className="absolute inset-0 bg-black/30 z-10"></div>
+            <div className="absolute inset-0 bg-black/40 z-10"></div>
             <img 
               src="/images/portfolio_hero.jpg" 
               alt="Background texture"
@@ -111,14 +120,16 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 z-10"
         >
-          <a 
-            href="/projects" 
-            className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold hover:scale-105 transition-all duration-500 overflow-hidden"
-          >
-            <div className="absolute inset-0 w-full h-full bg-zinc-200 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
-            <span className="relative z-10">Explore Work</span>
-            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-          </a>
+          <Magnetic>
+            <a 
+              href="/projects" 
+              className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold hover:scale-105 transition-all duration-500 overflow-hidden cursor-none"
+            >
+              <div className="absolute inset-0 w-full h-full bg-zinc-200 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
+              <span className="relative z-10">Explore Work</span>
+              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </Magnetic>
         </motion.div>
 
       </div>
