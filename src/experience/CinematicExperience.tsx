@@ -28,7 +28,11 @@ import Scene06City from './scenes/Scene06City';
 import Scene07Portfolio from './scenes/Scene07Portfolio';
 import PostProcessingPipeline from './postprocessing/PostProcessingPipeline';
 import CinematicOverlay from './overlay/CinematicOverlay';
+import CityDestinations from './overlay/CityDestinations';
 import { useTimeline } from './timeline/CinematicTimeline';
+import { useQualityTier } from './quality/useQualityTier';
+import { getParticleScale } from './quality/useQualityTier';
+import { useAudioEngine } from './audio/useAudioEngine';
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -132,6 +136,37 @@ export default function CinematicExperience({
     }
   };
 
+  // Expose a Lenis-aware scroll helper so overlays (city destinations, etc.)
+  // can navigate into the editorial portfolio sections without fighting Lenis.
+  useEffect(() => {
+    const w = window as unknown as { __cineScrollToSection?: (sel: string) => void };
+    w.__cineScrollToSection = (selector: string) => {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY;
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(y, { duration: 1.4 });
+      } else {
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    };
+    return () => {
+      delete w.__cineScrollToSection;
+    };
+  }, []);
+
+  // Quality tier (Performance Engineer): adaptive DPR + postfx + particle scale
+  const quality = useQualityTier();
+  const setQuality = useTimeline((s) => s.setQuality);
+  useEffect(() => {
+    setQuality(quality.tier);
+  }, [quality.tier, setQuality]);
+
+  // Optional cinematic audio (OFF by default, user-gated)
+  const soundEnabled = useTimeline((s) => s.soundEnabled);
+  const setSoundEnabled = useTimeline((s) => s.setSoundEnabled);
+  useAudioEngine(soundEnabled);
+
   // Compute fixed canvas container opacity.
   // The 3D world stays fully visible through the journey, then dissolves
   // completely into the editorial portfolio UI as progress reaches 1.0.
@@ -157,7 +192,7 @@ export default function CinematicExperience({
               toneMapping: THREE.ACESFilmicToneMapping,
               toneMappingExposure: 1.1,
             }}
-            dpr={[1, Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 2)]}
+            dpr={quality.dpr}
             camera={{ position: [0, 0, 45], fov: 45, near: 0.1, far: 250 }}
             className="w-full h-full block"
           >
@@ -177,7 +212,7 @@ export default function CinematicExperience({
             <Scene07Portfolio />
 
             {/* Film-Grade Post-Processing Pipeline */}
-            <PostProcessingPipeline enabled={enablePostProcessing} />
+            <PostProcessingPipeline enabled={enablePostProcessing && quality.postfx} />
           </Canvas>
         ) : (
           <div className="w-full h-full bg-[#030712] flex items-center justify-center text-cyan-400 font-mono text-xs">
@@ -187,6 +222,29 @@ export default function CinematicExperience({
 
         {/* Synchronized HUD & Narrative DOM Overlays */}
         <CinematicOverlay progress={progress} onSkip={handleSkip} />
+
+        {/* Quality badge + SOUND toggle (Audio is optional, OFF by default) */}
+        <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2 pointer-events-auto">
+          <span
+            className="px-2.5 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-widest uppercase text-cyan-300/70 backdrop-blur-md"
+            title="Adaptive render quality tier"
+          >
+            Q:{quality.tier}
+          </span>
+          <button
+            type="button"
+            onClick={() => setSoundEnabled(!soundEnabled)}
+            aria-pressed={soundEnabled}
+            aria-label={soundEnabled ? 'Mute cinematic audio' : 'Enable cinematic audio'}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-widest uppercase text-cyan-300/70 backdrop-blur-md hover:bg-cyan-500/20 hover:border-cyan-400/40 transition-colors cursor-pointer active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+          >
+            <span className={`w-1.5 h-1.5 rounded-full ${soundEnabled ? 'bg-emerald-400 animate-pulse' : 'bg-cyan-400/40'}`} />
+            {soundEnabled ? 'SOUND ON' : 'SOUND OFF'}
+          </button>
+        </div>
+
+        {/* Digital City navigation destinations (Scene 06) */}
+        <CityDestinations />
       </div>
 
       {/* 2. Scroll Track Container (Provides physical scroll delta for scrubbing) */}

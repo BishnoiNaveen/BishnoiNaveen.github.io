@@ -106,6 +106,22 @@ Scene progress windows (tuned, not fixed):
   - Verified: `astro build` green; canvas mounts; boot identity shows; portfolio
     reveals; camera path proven to travel 192 world units in XYZ.
   - Console clean of code errors (only sandbox-blocked Google-Font 504s remain).
-- **M2+ — pending:** per-scene visual polish, mobile quality tiers, audio toggle,
-  deeper QA pass on a real-GPU device, and navigation from the digital-city
-  discipline towers into the corresponding portfolio sections.
+- **M2 — Portfolio Arrival & Navigation Integration (DONE)**
+  - **Performance Engineer**: `src/experience/quality/useQualityTier.ts` — adaptive
+    `high/medium/low` tiers from device cores/RAM/DPR/mobile/reduced-motion. Drives
+    Canvas `dpr`, post-processing on/off, and per-scene particle counts
+    (boot/brain/signal scale by tier). `Q:<tier>` badge shown in HUD.
+  - **UI/UX Engineer**: `src/experience/overlay/CityDestinations.tsx` — the four
+    digital-city discipline megaliths (PROJECTS / AI LAB / RESUME / CONTACT) become
+    real, clickable destinations during Scene 06. Clicking routes through a
+    Lenis-aware scroll helper into the matching portfolio section (verified:
+    clicking PROJECTS lands `#work` at viewport top).
+  - **Audio**: `src/experience/audio/useAudioEngine.ts` — optional procedural WebAudio
+    ambience (drone + motion-reactive shimmer). OFF by default; SOUND ON/OFF toggle
+    requires explicit user gesture; no autoplay; zero third-party audio URLs.
+  - Verified: `astro build` green; canvas mounts; SOUND off by default; Q badge
+    detected; 4 city buttons render in city window + navigate; console clean of code
+    errors (only sandbox-blocked Google-Font 504s remain).
+- **M3+ — pending:** per-scene visual polish on real GPU, reduced-motion fallback UI
+  path verification, mobile quality-mode visual QA, and the separate portfolio routes
+  (/projects, /lab, /resume, /contact) cross-linking back into the journey.
