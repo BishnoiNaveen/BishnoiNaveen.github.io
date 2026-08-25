@@ -167,21 +167,28 @@ export default function CinematicExperience({
   const setSoundEnabled = useTimeline((s) => s.setSoundEnabled);
   useAudioEngine(soundEnabled);
 
-  // Compute fixed canvas container opacity.
-  // The 3D world stays fully visible through the journey, then dissolves
-  // completely into the editorial portfolio UI as progress reaches 1.0.
-  const canvasOpacity =
-    progress >= 0.95 ? Math.max(0, 1.0 - (progress - 0.95) * 20) : 1.0;
+  // Reduced motion: collapse the long scroll journey so the portfolio is
+  // immediately reachable (no forced 700vh camera travel) and fade the canvas
+  // in instantly instead of scrubbing through the world. The 3D layer still
+  // renders once as a static backdrop; all real content lives in the portfolio.
+  const reducedMotion = useTimeline((s) => s.reducedMotion);
+  const effectiveTrackHeight = reducedMotion ? '120vh' : scrollTrackHeight;
+  const canvasOpacity = reducedMotion
+    ? 0
+    : progress >= 0.95
+      ? Math.max(0, 1.0 - (progress - 0.95) * 20)
+      : 1.0;
 
   return (
     <div ref={containerRef} className={`relative w-full ${className}`}>
-      {/* 1. Fixed 3D WebGL Canvas Layer */}
+      {/* 1. Fixed 3D WebGL Canvas Layer (decorative — content lives in the portfolio below) */}
       <div
         className="fixed inset-0 w-screen h-screen pointer-events-none transition-opacity duration-700 ease-out"
         style={{
           zIndex: 0,
           opacity: canvasOpacity,
         }}
+        aria-hidden="true"
       >
         {hasWebGL ? (
           <Canvas
@@ -250,7 +257,7 @@ export default function CinematicExperience({
       {/* 2. Scroll Track Container (Provides physical scroll delta for scrubbing) */}
       <div
         ref={trackRef}
-        style={{ height: scrollTrackHeight }}
+        style={{ height: effectiveTrackHeight }}
         className="relative w-full pointer-events-none"
         aria-hidden="true"
       />

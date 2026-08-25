@@ -122,6 +122,21 @@ Scene progress windows (tuned, not fixed):
   - Verified: `astro build` green; canvas mounts; SOUND off by default; Q badge
     detected; 4 city buttons render in city window + navigate; console clean of code
     errors (only sandbox-blocked Google-Font 504s remain).
-- **M3+ — pending:** per-scene visual polish on real GPU, reduced-motion fallback UI
-  path verification, mobile quality-mode visual QA, and the separate portfolio routes
-  (/projects, /lab, /resume, /contact) cross-linking back into the journey.
+- **M3 — Accessibility, Mobile & Cross-linking (DONE)**
+  - **Accessibility**: cinematic 3D overlay marked `aria-hidden="true"` (all real
+    content lives in the HTML portfolio below, so screen readers skip the decorative
+    WebGL layer). `prefers-reduced-motion` now (a) collapses the 700vh scroll track to
+    120vh so the portfolio is immediately reachable without a forced camera journey,
+    and (b) fades the canvas out instantly instead of scrubbing; post-processing and
+    mouse-parallax are already disabled under reduced motion (M2 tier logic).
+  - **Mobile**: verified at 390×844 — WebGL canvas mounts (DPR-scaled 780×1688), **zero
+    horizontal overflow**, adaptive `Q:<tier>` badge + SOUND toggle render and stay
+    on-screen, no code errors. Particle/postprocessing counts scale down via the
+    quality tier. City destination buttons remain reachable in the city window.
+  - **Cross-linking**: the global `NB` logo is now an explicit `/#hero` link, so from any
+    sub-page (`/projects`, `/lab`, `/resume`, `/contact`) it re-enters the cinematic
+    journey; on the home page it smooth-scrolls to top.
+  - QA note: pre-existing framer-motion `tabindex` hydration warnings (in SkillsBento /
+    Projects / LabSuite / ContactTerminal) are benign and unrelated to these changes.
+- **M4+ — pending:** per-scene visual polish on real GPU, perf instrumentation
+  (FPS/draw-call HUD), and final production-build + full browser QA pass.
