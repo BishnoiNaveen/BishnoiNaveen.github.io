@@ -1,0 +1,58 @@
+{
+  "totalFrames": 120,
+  "width": 1920,
+  "height": 1080,
+  "format": "webp",
+  "framePattern": "/assets/3d-frames/frame_%03d.webp",
+  "glbModel": "/public/assets/3d/neural_core.glb",
+  "fps": 60,
+  "aspectRatio": "16:9",
+  "averageFrameSizeKb": 85.72,
+  "totalSequencePayloadMb": 10.05,
+  "acts": [
+    {
+      "act": 1,
+      "name": "Cosmic Overview",
+      "startFrame": 1,
+      "endFrame": 30,
+      "progressStart": 0.0,
+      "progressEnd": 0.25,
+      "description": "Wide cosmic view of floating AI neural core with rotating golden-ratio cyber rings."
+    },
+    {
+      "act": 2,
+      "name": "Quantum Dive",
+      "startFrame": 31,
+      "endFrame": 69,
+      "progressStart": 0.25,
+      "progressEnd": 0.58,
+      "description": "Accelerated dive into neural core lattice; synaptic nodes and axon links whip past lens."
+    },
+    {
+      "act": 3,
+      "name": "Singularity Tunnel",
+      "startFrame": 70,
+      "endFrame": 99,
+      "progressStart": 0.58,
+      "progressEnd": 0.83,
+      "description": "Singularity core pass-through; intense volumetric chromatic glow and quantum warp."
+    },
+    {
+      "act": 4,
+      "name": "Horizon Breakout",
+      "startFrame": 100,
+      "endFrame": 120,
+      "progressStart": 0.83,
+      "progressEnd": 1.0,
+      "description": "Camera emerges into calm negative space with radiant light flare transition to resume."
+    }
+  ],
+  "colorPalette": {
+    "cyan": "#00f0ff",
+    "neonViolet": "#a855f7",
+    "electricAmber": "#f59e0b",
+    "background": "#030712"
+  },
+  "generator": "Blender 5.2.0 Headless (bpy) + Draco glTF",
+  "generatedAt": "2026-08-25T06:20:00Z"
+}

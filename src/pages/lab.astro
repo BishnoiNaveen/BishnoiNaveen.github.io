@@ -1,16 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeaderNav from '../components/HeaderNav';
-import LabComponent from '../components/LabComponent';
+/**
+ * src/pages/lab.astro — Dedicated Systems Lab Showcase
+ * Author: Naveen Bishnoi
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import LabSuite from '../components/lab/LabSuite';
+import Footer from '../components/contact/Footer.astro';
 ---
 
-<Layout 
-  title="Lab | Naveen Bishnoi" 
-  description="Experiments and isolated prototypes."
+<BaseLayout
+  title="The Systems Lab | Naveen Bishnoi"
+  description="Interactive experimental systems sandbox: Kahn topological DAG scheduling, AST security taint traversal, and POSIX atomic inode swap crash recovery."
 >
-  <HeaderNav client:load />
+  <FloatingNav client:load slot="header" />
 
-  <main class="flex flex-col w-full min-h-screen bg-transparent pt-32 pb-20">
-    <LabComponent client:load />
-  </main>
-</Layout>
+  <div class="w-full min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] pt-32 pb-24 px-4 sm:px-6 md:px-12 lg:px-16">
+    <div class="max-w-[96rem] mx-auto w-full flex flex-col gap-12">
+      <LabSuite client:load />
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

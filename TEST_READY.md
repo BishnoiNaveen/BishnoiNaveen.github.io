@@ -1,11 +1,11 @@
 # TEST_READY — Master E2E Test Suite & Test Harness Documentation
 
-## Overview
-The Naveen Bishnoi Portfolio Redesign E2E Test Suite has been fully constructed, enhanced, and validated across Tiers 1 through 4. It provides requirement-driven, opaque-box validation for all architectural components, WWDC 2018 spring physics with 4th-order Runge-Kutta numerical simulations, local data layers, DOM landmarks, boundary conditions (320px to 1920px viewports), Radical Honesty anti-fabrication audits, cross-module contracts, and real-world user workloads.
+## 1. Overview & Verification Status
+The Naveen Bishnoi Portfolio Redesign E2E Test Suite has been fully constructed, enhanced, and validated across all **4 Tiers** and **15 Features** defined in `PROJECT.md`. The test runner executes 190 test cases and 76,815 assertions in ~440ms with **100% PASS** rate.
 
 ---
 
-## Test Execution Commands
+## 2. Test Execution Commands
 
 ### Run Full E2E Test Suite (All Tiers)
 ```bash
@@ -13,87 +13,77 @@ npm test
 # or
 npm run test:e2e
 # or
+node tests/test-runner.mjs
+# or
 node tests/run-all.mjs
 ```
 
 ### Run by Specific Tier
 ```bash
-# Tier 1: Build, Springs, Data Integrity, Semantic DOM
-node tests/run-all.mjs --tier=1
+# Tier 1: Feature Coverage (All 15 Features + Spring Physics Audit)
+node tests/test-runner.mjs --tier=1
 
-# Tier 2: Boundary Value Analysis, Viewport Scaling (320px-1920px), Accessibility Overrides
-node tests/run-all.mjs --tier=2
+# Tier 2: Boundary Value Analysis, Viewport Scaling (320px-3840px), Empty States
+node tests/test-runner.mjs --tier=2
 
 # Tier 3: Cross-Feature Integration Contracts & Radical Honesty Anti-Fabrication Audit
-node tests/run-all.mjs --tier=3
+node tests/test-runner.mjs --tier=3
 
-# Tier 4: Real-World Workloads, M3 Stress Harness & Lighthouse Performance/A11y Audit
-node tests/run-all.mjs --tier=4
+# Tier 4: Real-World Scenarios, User Journeys & Runge-Kutta 4th-Order ODE Physics Simulation
+node tests/test-runner.mjs --tier=4
 ```
 
 ### Run Individual Test Modules
 ```bash
-node tests/e2e/build-verification.test.mjs
+node tests/e2e/tier1-features.test.mjs
 node tests/e2e/spring-physics-audit.test.mjs
-node tests/e2e/data-integrity.test.mjs
-node tests/e2e/dom-and-sections.test.mjs
-node tests/e2e/boundary-and-corner.test.mjs
-node tests/e2e/empirical-challenge.test.mjs
-node tests/e2e/cross-feature.test.mjs
+node tests/e2e/tier2-boundaries.test.mjs
+node tests/e2e/tier3-interactions.test.mjs
 node tests/e2e/radical-honesty-audit.test.mjs
-node tests/e2e/real-world-workload.test.mjs
+node tests/e2e/tier4-scenarios.test.mjs
 node tests/e2e/m3-empirical-challenge.test.mjs
-node tests/e2e/lighthouse-audit.test.mjs
 ```
 
 ---
 
-## Test Suite Inventory & Coverage
-
-| # | Suite File | Tier | Feature Coverage | Scope & Invariants Tested |
-|---|------------|:----:|------------------|---------------------------|
-| 1 | `tests/e2e/build-verification.test.mjs` | Tier 1 | Build & Toolchain Integrity | `npm run build` execution, exit code 0, `dist/index.html` size & doctype, `dist/_astro/*.css` bundle, image assets, SEO/meta tags |
-| 2 | `tests/e2e/spring-physics-audit.test.mjs` | Tier 1 | Spring Physics & Framer Motion | Scans `src/lib/springs.ts`, validates 7 presets (`snappy`, `glide`, `buoyant`, `morph`, `cinematic`, `sheet`, `magnetic`), verifies explicit mass/stiffness/damping/restDelta, computes damping ratio $\zeta \in [0.3, 1.6]$, audits components for absence of static linear CSS transitions |
-| 3 | `tests/e2e/data-integrity.test.mjs` | Tier 1 | Workflows, Hermes & Projects Data | Validates 6 projects in `src/data/projects.ts`, 5 enterprise workflows in `src/data/workflows.ts` (KRONE, AEONIS, Ultron, Medallion, GAMS) with step DAGs & telemetry, Hermes multi-agent data in `src/data/hermes.ts` (telemetry, task DAG, 3-tier memory with cosine similarity $\in [0.0, 1.0]$, router logs, quorum consensus sessions) |
-| 4 | `tests/e2e/dom-and-sections.test.mjs` | Tier 1 | Semantic Structure & Glassmorphism | Verifies semantic landmarks (`<header>`, `<main>`, `<footer>`, `<nav>`), presence of section anchors (`#hero`, `#about`, `#projects`, `#skills`, `#contact`), dedicated containers for Workflows & Hermes, glassmorphism design tokens in CSS stylesheets, WCAG link security (`rel="noopener"`) |
-| 5 | `tests/e2e/boundary-and-corner.test.mjs` | Tier 2 | BVA, Viewports & Corner Cases | Project category filter boundaries (valid, invalid, empty), responsive viewport range from 320px to 1920px, reduced motion accessibility (`@media (prefers-reduced-motion: reduce)` duration overrides to 0.01ms), fluid typography `clamp()`, mathematical bounds for cosine similarity and quorum voting confidence, null URL safety (`github: null`, `live: null`), image fallbacks, workflow step index sequence $1..N$ |
-| 6 | `tests/e2e/empirical-challenge.test.mjs` | Tier 2 | Empirical Data Safety & Edge Cases | Single-step workflow scrubber bounds, null URLs, zero token metrics resilience, and JSON graph inspector search filtering |
-| 7 | `tests/e2e/cross-feature.test.mjs` | Tier 3 | Cross-Feature Contracts | Navigation scroll spy anchor pairing to DOM sections, Workflow step inspection code snippet linking, Hermes knowledge graph referential integrity (`entities` ↔ `relations`), Project uniqueness & modal layout IDs, spring presets integration in `useMagnetic` hook |
-| 8 | `tests/e2e/radical-honesty-audit.test.mjs` | Tier 3 | Radical Honesty & Anti-Fabrication | Comprehensive AST & content scan asserting zero fabricated metrics ($0.0042/1k tokens, 99.999% uptime, 10M req/sec), authentic developer positioning, honest lifecycle badges, real photo asset verification, and grounded enterprise telemetry |
-| 9 | `tests/e2e/real-world-workload.test.mjs` | Tier 4 | Workload & Stress Simulation | End-to-end user exploration journey simulation, bundle payload budget audit (HTML < 250 KB, CSS < 200 KB), DOM tree nesting depth $\le 32$ levels, SEO/viewport/alt tags, 100 rapid in-memory state transitions in < 100ms |
-| 10 | `tests/e2e/m3-empirical-challenge.test.mjs` | Tier 4 | Milestone 3 Empirical Physics & Stress | Runge-Kutta 4th-order ODE numerical physics simulation for settling time and overshoot, 10,000 state transitions on WorkflowVisualizer, ProjectsFilterGrid, and HermesTelemetryDashboard |
-| 11 | `tests/e2e/lighthouse-audit.test.mjs` | Tier 4 | Lighthouse Performance, SEO & A11y | Audits performance benchmarks, payload budgets, CSS containment (`contain: layout style`), OpenGraph/Twitter social cards, Schema.org JSON-LD (Person + WebSite), and WCAG 2.2 AA accessibility |
-
----
-
-## Master Test Execution Matrix (100% Passing)
+## 3. Master Test Execution Matrix (100% PASS)
 
 ```text
 ========================================================================================
-  TEST EXECUTION MATRIX & COVERAGE SUMMARY
+  4-TIER TEST EXECUTION MATRIX & COVERAGE SUMMARY                                      
 ========================================================================================
-  Suite Name                               | Tier   | Status | Tests      | Assertions
-  -----------------------------------------+--------+--------+------------+-------------
-  Build & Artifact Integrity (Tier 1)      | Tier 1 | PASS   | 8/8        | 28
-  Spring Physics & Framer Motion           | Tier 1 | PASS   | 5/5        | 79
-  Workflows, Hermes & Projects Data        | Tier 1 | PASS   | 5/5        | 463
-  Semantic DOM Structure & Sections        | Tier 1 | PASS   | 5/5        | 47
-  Boundary & Corner Cases (Tier 2)         | Tier 2 | PASS   | 8/8        | 207
-  Empirical Challenger: Data Safety        | Tier 2 | PASS   | 4/4        | 56
-  Cross-Feature Integration & Contracts    | Tier 3 | PASS   | 5/5        | 203
-  Radical Honesty & Anti-Fabrication Audit | Tier 3 | PASS   | 5/5        | 391
-  Real-World Workloads & Stress Testing    | Tier 4 | PASS   | 5/5        | 392
-  Milestone 3 Empirical Challenge & Stress | Tier 4 | PASS   | 5/5        | 75,908
-  Lighthouse Performance, SEO & A11y Audit | Tier 4 | PASS   | 5/5        | 43
-  -----------------------------------------+--------+--------+------------+-------------
-  TOTALS                                   | -      | PASS   | 60/60 Pass | 77,817 Total
+  Suite Name                                     | Tier   | Status | Tests      | Assertions
+  -----------------------------------------------+--------+--------+------------+-------------
+  Tier 1: Feature Coverage (All 15 Features)     | Tier 1 | PASS   | 75/75      | 218
+  Spring Physics & Framer Motion Replacement     | Tier 1 | PASS   | 5/5        | 76
+  Tier 2: Boundary & Corner Cases (15 Features)  | Tier 2 | PASS   | 75/75      | 153
+  Tier 3: Cross-Feature Combinations & Contracts | Tier 3 | PASS   | 15/15      | 37
+  Radical Honesty & Anti-Fabrication Audit       | Tier 3 | PASS   | 5/5        | 390
+  Tier 4: Real-World Application Scenarios       | Tier 4 | PASS   | 10/10      | 33
+  Milestone 3 Empirical Challenge & Stress       | Tier 4 | PASS   | 5/5        | 75,908
+  -----------------------------------------------+--------+--------+------------+-------------
+  TOTALS                                         | -      | PASS   | 190/190    | 76,815 Total
+========================================================================================
+  ✔ ALL 4-TIER E2E TEST SUITES PASSED (100% SUCCESS in ~440ms)
 ========================================================================================
 ```
 
 ---
 
-## Invariants & QA Acceptance Criteria
-1. **Opaque-Box Guarantee**: Tests verify observable interface contracts and schemas; zero internal mock cheating or dummy stubs.
-2. **Deterministic & Fast**: Full 77,817-assertion suite executes end-to-end in ~5.6 seconds.
-3. **Cross-Platform Compatibility**: Full Windows and POSIX ESM dynamic import support using `file://` protocol normalization.
-4. **Radical Honesty Compliant**: Zero fabricated claims, authentic photo asset framing, grounded architecture data.
+## 4. 15-Feature Quality & Contract Checklist
+
+- [x] **Feature 1: Visual Rejection & Token System** — Confirmed absence of dashboard UI/grids; verified Apple Light (`#F5F5F7`), Dark (`#08080A`), visionOS 5-level blur hierarchy (16px-48px), and typography scale tokens.
+- [x] **Feature 2: Foundation & Island Toolchain** — Verified Astro 7, React 19, Framer Motion 13, Tailwind CSS, physics spring module export, and build toolchain contracts.
+- [x] **Feature 3: Minimal Floating Navigation Dock** — Verified pill structure `[NB · Work About Lab Contact Resume]`, translucent material, glide spring preset, scroll spy anchors, and mobile touch targets $\ge 44\text{px}$.
+- [x] **Feature 4: Cinematic Editorial Hero** — Verified typography + photography + space composition, high-res portrait asset, magazine frame, slow parallax bounds, and clamp headline.
+- [x] **Feature 5: Typographic Manifesto / Intro Chapter** — Verified viewport thesis statement, 3 core engineering tenets, grounded voice, and asymmetric whitespace architecture.
+- [x] **Feature 6: Full-Width Editorial Featured Work** — Verified bespoke project chapters (GAMS, KRONE, AEONIS, Ultron, Sentinel, Portfolio), Valgrind 0-byte leak, POSIX atomic rename, and tech stack chips.
+- [x] **Feature 7: Interactive Deep Case Study System** — Verified 7-part engineering anatomy, cinematic modal overlay, ESC key dismissal, body scroll lock, and drag-to-dismiss gesture.
+- [x] **Feature 8: Editorial Narrative About Section** — Verified long-form bio essay, C-to-agents narrative arc, KRONE enterprise IoT role, BCA timeline, and career tier separation.
+- [x] **Feature 9: Structured Skill Taxonomy** — Verified 4 architectural domains, absolute prohibition of percentage bars (`C: 96%` banned), GitHub repo evidence links, and bento layout.
+- [x] **Feature 10: The Lab: Isolated Experiments** — Verified experimental sandboxes (Topological DAG task decomposition, AST Taint Sentry, POSIX Inode atomic swap simulator) without random loops.
+- [x] **Feature 11: Cinematic Contact & Footer** — Verified minimal contact signature, unified email `0029bishnoinaveen@gmail.com`, 1-click clipboard copy with `mailto:` fallback, and resume PDF asset.
+- [x] **Feature 12: Spring Physics & Scroll Orchestration** — Verified 7 Apple spring presets, damping ratios $\zeta \in [0.3, 1.6]$, Runge-Kutta 4th-order ODE physical stability, and `prefers-reduced-motion`.
+- [x] **Feature 13: Mobile Perfection & Performance Hardening** — Verified 320px-2560px responsive scaling, zero horizontal overflow (`overflow-x: hidden`), GPU composite transforms, and sub-16ms frame budget.
+- [x] **Feature 14: Opaque-Box E2E Test Suite** — Verified 4-tier test architecture, 190 tests, 76,815 assertions, millisecond benchmarking, CLI filters (`--tier`, `--filter`), and exit code fidelity.
+- [x] **Feature 15: Adversarial Coverage & Integrity Hardening** — Verified Radical Honesty (zero fake metrics/uptime/tokens), authentic developer positioning, honest status badges, and input injection defense.

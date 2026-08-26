@@ -1,0 +1,19 @@
+---
+/**
+ * src/components/lab/LabSection.astro — Semantic Section Wrapper for The Systems Lab
+ * Standard: Semantic landmarks, Section anchors #lab, #workflows, #hermes, visionOS surface styling
+ */
+import LabSuite from './LabSuite';
+---
+
+<section
+  id="lab"
+  aria-label="The Systems Lab & Interactive Simulators"
+  class="relative py-24 md:py-36 px-4 sm:px-6 md:px-12 lg:px-16 border-t border-[var(--color-border-subtle)] bg-[var(--color-canvas)] text-[var(--color-text-primary)] contain-layout"
+>
+  <div id="workflows" class="max-w-[96rem] mx-auto w-full">
+    <div id="hermes" class="w-full">
+      <LabSuite client:load />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+---
+/**
+ * src/components/about/AboutSection.astro — Semantic Section Wrapper for Editorial About
+ * Standard: Semantic landmarks, Section anchor #about & #timeline, visionOS surface styling
+ */
+import EditorialAbout from './EditorialAbout.astro';
+---
+
+<section
+  id="about"
+  aria-label="About Naveen Bishnoi & Architectural Narrative"
+  class="relative py-24 md:py-36 px-4 sm:px-6 md:px-12 lg:px-16 border-t border-[var(--color-border-subtle)] bg-[var(--color-canvas)] text-[var(--color-text-primary)] contain-layout"
+>
+  <div class="max-w-[96rem] mx-auto w-full">
+    <EditorialAbout />
+  </div>
+</section>

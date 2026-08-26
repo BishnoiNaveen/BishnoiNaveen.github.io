@@ -1,0 +1,16 @@
+---
+/**
+ * src/components/Cinematic/CinematicHero.astro
+ * Milestone M3: Cinematic 3D Scroll-Jacking Engine & Overlays
+ * Pinned 400vh Scroll Track with Lenis Smooth Momentum & GSAP ScrollTrigger
+ */
+import CinematicSection from './CinematicSection';
+---
+
+<section
+  id="cinematic-experience"
+  aria-label="Cinematic 3D Neural Dive"
+  class="relative w-full bg-[#030712] overflow-hidden select-none contain-layout"
+>
+  <CinematicSection client:load />
+</section>

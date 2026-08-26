@@ -115,6 +115,7 @@ export interface TimelineState {
   reducedMotion: boolean;
   soundEnabled: boolean;
   quality: QualityTier;
+  statsOn: boolean;
   setProgress: (p: number) => void;
   setTargetProgress: (p: number) => void;
   setCinematicActive: (active: boolean) => void;
@@ -151,6 +152,7 @@ export const useTimeline = create<TimelineState>((set) => ({
   reducedMotion: false,
   soundEnabled: false,
   quality: 'high',
+  statsOn: false,
   setProgress: (p) => {
     const clamped = Math.max(0, Math.min(1, p));
     const sceneIdx = getSceneIndex(clamped);
@@ -163,6 +165,7 @@ export const useTimeline = create<TimelineState>((set) => ({
   setCinematicActive: (active) => set({ isCinematicActive: active }),
   setCanvasVisible: (visible) => set({ isCanvasVisible: visible }),
   setReducedMotion: (reduced) => set({ reducedMotion: reduced }),
-  setSoundEnabled: (enabled) => set({ soundEnabled: enabled }),
-  setQuality: (q) => set({ quality: q }),
+  setSoundEnabled: (on: boolean) => set({ soundEnabled: on }),
+  setStatsOn: (on: boolean) => set({ statsOn: on }),
+  setQuality: (q: QualityTier) => set({ quality: q }),
 }));

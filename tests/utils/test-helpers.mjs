@@ -3,6 +3,11 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 /**
+ * Root directory resolver relative to project workspace.
+ */
+export const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..', '..');
+
+/**
  * Converts a file path to a file:// URL compatible with ESM dynamic import across all platforms.
  */
 export function toFileUrl(filePath) {
@@ -84,6 +89,34 @@ export function createTestSuite(suiteName, tier = 1, description = '') {
     },
 
     /**
+     * Assert two values are not equal.
+     */
+    assertNotEqual(actual, unexpected, message) {
+      totalAssertions++;
+      if (actual === unexpected) {
+        failedAssertions++;
+        const msg = message ? `${message} | ` : '';
+        throw new Error(`${msg}Expected value NOT to be [${unexpected}]`);
+      }
+      passedAssertions++;
+    },
+
+    /**
+     * Assert deep equality for JSON-serializable structures.
+     */
+    assertDeepEqual(actual, expected, message) {
+      totalAssertions++;
+      const actualJson = JSON.stringify(actual);
+      const expectedJson = JSON.stringify(expected);
+      if (actualJson !== expectedJson) {
+        failedAssertions++;
+        const msg = message ? `${message} | ` : '';
+        throw new Error(`${msg}Deep equality mismatch:\nExpected: ${expectedJson}\nActual:   ${actualJson}`);
+      }
+      passedAssertions++;
+    },
+
+    /**
      * Assert a numeric value is strictly positive (> 0).
      */
     assertPositive(val, message) {
@@ -114,7 +147,31 @@ export function createTestSuite(suiteName, tier = 1, description = '') {
       totalAssertions++;
       if (typeof str !== 'string' || !regex.test(str)) {
         failedAssertions++;
-        throw new Error(message || `Expected string to match pattern ${regex}`);
+        throw new Error(message || `Expected string to match pattern ${regex}, received: "${str?.substring?.(0, 100)}..."`);
+      }
+      passedAssertions++;
+    },
+
+    /**
+     * Assert a string does NOT match a regular expression.
+     */
+    assertDoesNotMatch(str, regex, message) {
+      totalAssertions++;
+      if (typeof str === 'string' && regex.test(str)) {
+        failedAssertions++;
+        throw new Error(message || `Expected string NOT to match pattern ${regex}`);
+      }
+      passedAssertions++;
+    },
+
+    /**
+     * Assert haystack contains needle.
+     */
+    assertContains(haystack, needle, message) {
+      totalAssertions++;
+      if (!haystack || !haystack.includes(needle)) {
+        failedAssertions++;
+        throw new Error(message || `Expected item to contain "${needle}"`);
       }
       passedAssertions++;
     },
@@ -163,6 +220,38 @@ export function createTestSuite(suiteName, tier = 1, description = '') {
       if (!Array.isArray(arr) || arr.length < minLength) {
         failedAssertions++;
         throw new Error(message || `Expected array with at least ${minLength} items, but got length ${arr?.length}`);
+      }
+      passedAssertions++;
+    },
+
+    /**
+     * Assert that a function throws an error matching an optional pattern.
+     */
+    assertThrows(fn, expectedPattern, message) {
+      totalAssertions++;
+      let threw = false;
+      let caughtError = null;
+      try {
+        fn();
+      } catch (err) {
+        threw = true;
+        caughtError = err;
+      }
+      if (!threw) {
+        failedAssertions++;
+        throw new Error(message || 'Expected function to throw an error, but it returned normally');
+      }
+      if (expectedPattern && caughtError) {
+        const errorMsg = caughtError.message || String(caughtError);
+        if (expectedPattern instanceof RegExp) {
+          if (!expectedPattern.test(errorMsg)) {
+            failedAssertions++;
+            throw new Error(message || `Expected error message to match ${expectedPattern}, got "${errorMsg}"`);
+          }
+        } else if (!errorMsg.includes(expectedPattern)) {
+          failedAssertions++;
+          throw new Error(message || `Expected error message to contain "${expectedPattern}", got "${errorMsg}"`);
+        }
       }
       passedAssertions++;
     },
@@ -228,11 +317,6 @@ export function createTestSuite(suiteName, tier = 1, description = '') {
 }
 
 /**
- * Root directory resolver relative to project workspace.
- */
-export const WORKSPACE_ROOT = path.resolve(import.meta.dirname, '..', '..');
-
-/**
  * Returns combined CSS content from src/styles and dist/_astro for CSS token/rule auditing.
  */
 export function getCssContent() {
@@ -252,4 +336,102 @@ export function getCssContent() {
     }
   }
   return combined;
+}
+
+/**
+ * Reads and returns dist/index.html content if it exists.
+ */
+export function getDistHtml() {
+  const indexPath = path.join(WORKSPACE_ROOT, 'dist', 'index.html');
+  if (fs.existsSync(indexPath)) {
+    return fs.readFileSync(indexPath, 'utf8');
+  }
+  return '';
+}
+
+/**
+ * Returns all source code contents across src/ as a concatenated string for security & anti-fabrication scans.
+ */
+export function getAllSourceContent() {
+  const srcDir = path.join(WORKSPACE_ROOT, 'src');
+  let combined = '';
+  function walk(dir) {
+    if (!fs.existsSync(dir)) return;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(fullPath);
+      } else if (/\.(ts|tsx|astro|css|mjs|js|json)$/.test(entry.name)) {
+        combined += `\n/* FILE: ${entry.name} */\n` + fs.readFileSync(fullPath, 'utf8');
+      }
+    }
+  }
+  walk(srcDir);
+  return combined;
+}
+
+/**
+ * Computes spring physics damping ratio: zeta = c / (2 * sqrt(k * m))
+ */
+export function computeDampingRatio(mass, stiffness, damping) {
+  return damping / (2 * Math.sqrt(stiffness * mass));
+}
+
+/**
+ * 4th-Order Runge-Kutta (RK4) numerical ODE solver for mass-spring-damper system:
+ * m * x'' + c * x' + k * x = 0  =>  x'' = -(c/m)*v - (k/m)*x
+ */
+export function simulateSpringRK4(mass, stiffness, damping, initialPos = 1.0, initialVel = 0.0, dt = 0.001, totalSteps = 2000) {
+  let x = initialPos;
+  let v = initialVel;
+  const history = [{ t: 0, x, v }];
+
+  const accel = (pos, vel) => -(damping / mass) * vel - (stiffness / mass) * pos;
+
+  for (let step = 1; step <= totalSteps; step++) {
+    // k1
+    const k1_v = accel(x, v);
+    const k1_x = v;
+
+    // k2
+    const k2_v = accel(x + 0.5 * dt * k1_x, v + 0.5 * dt * k1_v);
+    const k2_x = v + 0.5 * dt * k1_v;
+
+    // k3
+    const k3_v = accel(x + 0.5 * dt * k2_x, v + 0.5 * dt * k2_v);
+    const k3_x = v + 0.5 * dt * k2_v;
+
+    // k4
+    const k4_v = accel(x + dt * k3_x, v + dt * k3_v);
+    const k4_x = v + dt * k3_v;
+
+    // Update state
+    x += (dt / 6) * (k1_x + 2 * k2_x + 2 * k3_x + k4_x);
+    v += (dt / 6) * (k1_v + 2 * k2_v + 2 * k3_v + k4_v);
+
+    history.push({ t: step * dt, x, v });
+  }
+
+  return history;
+}
+
+/**
+ * Calculates WCAG 2.2 Relative Luminance and Contrast Ratio for two hex colors.
+ */
+export function calculateContrastRatio(hex1, hex2) {
+  const parseHex = (hex) => {
+    const clean = hex.replace('#', '');
+    const r = parseInt(clean.substring(0, 2), 16) / 255;
+    const g = parseInt(clean.substring(2, 4), 16) / 255;
+    const b = parseInt(clean.substring(4, 6), 16) / 255;
+    const toLinear = (c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4));
+    return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+  };
+
+  const lum1 = parseHex(hex1);
+  const lum2 = parseHex(hex2);
+  const lighter = Math.max(lum1, lum2);
+  const darker = Math.min(lum1, lum2);
+  return (lighter + 0.05) / (darker + 0.05);
 }

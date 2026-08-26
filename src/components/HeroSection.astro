@@ -1,29 +1,8 @@
 ---
-import Hero from './Hero';
+/**
+ * src/components/HeroSection.astro — Legacy Root Adapter for CinematicHero
+ */
+import CinematicHero from './hero/CinematicHero.astro';
 ---
 
-<section class="hero-section" id="hero">
-  <div class="hero-content">
-    <Hero client:load />
-  </div>
-</section>
-
-<style>
-  .hero-section {
-    position: relative;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: var(--bg-primary);
-  }
-  .hero-content {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-</style>
+<CinematicHero />

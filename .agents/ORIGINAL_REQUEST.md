@@ -1,59 +1,84 @@
-﻿# Original User Request
+# Original User Request
 
-## 2026-08-24T04:48:55Z
+## Initial Request — 2026-08-25T07:37:55Z
 
 <USER_REQUEST>
 # Teamwork Project Prompt — Draft
 
 > Status: Launched.
-> Goal: Craft prompt → get user approval → delegate to teamwork_preview
-> Requested team: Full team (Creative Director, UX Researcher, Brand Editor, Frontend Architect, Motion Engineer, Performance Engineer, A11y Engineer, Red Team, Reticle Verification)
+> Goal: Execute the world-class cinematic portfolio redesign
+> Requested team: Use a very large team of agents. (6 Specific Roles: Creative Director, 3D/WebGL Engineer, Motion Engineer, UI/UX, Perf, QA)
 
-Transform the existing Naveen Bishnoi portfolio into a world-class personal digital experience that feels handcrafted by an elite product-design + creative-engineering team. The target is a distinctive, premium, human portfolio with the design discipline of Apple, the interaction quality of award-winning creative websites, and the technical credibility of a serious engineer.
+A cinematic digital experience where the visitor travels through a continuous 3D AI universe (from system boot, diving inside a massive humanoid robot's neural brain, morphing into a digital city) and eventually arriving inside a high-end professional portfolio.
 
-Working directory: c:/Users/Naveen/OneDrive - KRONE AGRICULTURE INDIA PVT LTD/Desktop/Naveen Bishnoi Portfolio
+Working directory: C:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio
 Integrity mode: development
 
 ## Requirements
 
-### R1. Non-Negotiable Execution Order
-- **PHASE 0: Forensic Audit.** Inspect current repository, framework, assets, copy, build config. Identify what to keep, remove, redesign, or rewrite. Output: INITIAL_REPOSITORY_AUDIT.md.
-- **PHASE 1: Visual Benchmark.** Study Apple storytelling, Awwwards portfolios, Bruno Simon, and provided GitHub links to extract principles (hierarchy, whitespace, storytelling). Do not copy layouts/assets. Output: DESIGN_BENCHMARK.md.
-- **PHASE 2: Design Quality Gate.** Produce visual direction (feel, identity, where to use motion/glass). Reject generic AI templates. Output: DESIGN_DIRECTION.md.
+### R1. Master Directive & Cinematic Direction
+The team must execute the following Master Command EXACTLY as specified:
 
-### R2. Core Design & Visual System
-- **Creative Director Veto:** Reject visually noisy, over-animated, or dashboard-like decisions. Do not prioritize tech over UX.
-- **Brand:** Position as Developer, AI Automation Engineer, Systems Builder. Avoid generic AI copy ( revolutionizing the future). Use confident, human language.
-- **Visual System:** Light/Dark palette (restrained, no rainbow gradients). Implement a 5-level Material System (do NOT overuse glass; use solid content by default).
-- **Typography:** SF Pro Display (or Geist/Inter/system-ui). Large editorial headlines, restrained weights. No excessive monospace/uppercase.
+- **PHASE 0:** Inspect repo. Initialize production-grade React+TS+Vite if needed (or adapt existing Astro+React gracefully). Create ARCHITECTURE.md, CINEMATIC_DIRECTION.md, SCENE_MAP.md, TECHNICAL_PLAN.md.
+- **PHASE 1:** Ensure `three`, `@react-three/fiber`, `@react-three/drei`, `gsap`, `lenis`, `@react-three/postprocessing` are installed. Use GSAP ScrollTrigger + Lenis.
+- **PHASE 2 & 3:** Utilize relevant Antigravity skills and MCP tools (Browser/Playwright for visual QA).
+- **PHASE 4:** Form a 6-agent team (Creative Director, WebGL Engineer, Motion Engineer, UI/UX, Performance, QA) and simulate this workflow.
+- **PHASE 5:** **THIS MUST FEEL LIKE ONE CONTINUOUS CAMERA JOURNEY.** No hard cuts. The camera physically travels.
+  - **SCENE 01 (BOOT):** Darkness, subtle particles, minimal system boot text ("INITIALIZING...").
+  - **SCENE 02 (AI WORLD):** Reveal massive futuristic AI environment (servers, floating geometry, depth).
+  - **SCENE 03 (ROBOT):** Gigantic humanoid AI. Camera approaches, passes through outer shell INTO the robot.
+  - **SCENE 04 (BRAIN):** Massive 3D neural network. Glowing signal paths.
+  - **SCENE 05 (SIGNAL):** Follow a bright signal. Neural nodes morph into a digital city.
+  - **SCENE 06 (CITY):** Structures represent portfolio sections (Projects, AI Lab, Resume, Contact).
+  - **SCENE 07 (PORTFOLIO):** Camera enters main structure -> Transitions to actual high-end UI portfolio.
 
-### R3. Information Architecture & Content
-- **Structure:** Home (Hero, Selected Work, About, How I Think, Lab, Skills, Contact, Footer) and Case Studies (Hermes, AEONIS, Ultron, etc.).
-- **Hero:** Premium editorial, real photograph of Naveen (supplied), elegant material framing, subtle depth. CTA: Explore Work, Secondary: GitHub.
-- **Featured Work:** Editorial storytelling (product launch style), not dense cards. Distinct compositions per project.
-- **Case Studies:** Overview, Problem, Why I Built It, Architecture, Implementation, Verification, Challenges, Lessons, Outcome, GitHub/Demo.
-- **About/Lab:** Human-centric Who I Am/How I Think. Optional Lab for AI playgrounds.
-
-### R4. Technology, Motion & Performance
-- **Tech Policy:** Use GSAP, Lenis, Framer Motion, Three.js ONLY if justified by UX improvements without hurting performance. No unnecessary dependencies.
-- **Motion:** Must communicate hierarchy/depth. No constant particles, bouncing, or excessive parallax. Support reduced motion.
-- **Performance:** Optimized images (WebP/AVIF), lazy loading, minimal JS/hydration, no layout shift.
-- **Accessibility:** Target WCAG 2.2 AA (semantic HTML, keyboard nav, contrast).
-- **Responsive:** Design intentionally for 320px to 1920px. No horizontal overflow or broken glass.
-
-### R5. Radical Honesty & Verification
-- **Radical Honesty Gate:** Every factual claim must be VERIFIED or UNVERIFIED. Remove all unverified claims (latency, users, perfect scores, fake costs).
-- **Multi-Agent Protocol:** Roles 01-09 must generate their respective output MD files (e.g., UX_AUDIT.md, ARCHITECTURE.md).
-- **Visual QA Loop:** Render and visually inspect after each stage. Code quality is not enough; it must look exceptional.
+### R2. Visual & Technical Quality
+- **Aesthetic:** Cinematic sci-fi (spacecraft, advanced lab). NO cheap purple gradients, NO generic glass cards, NO template sections. Dark environment, strong contrast, high-end typography, minimal UI.
+- **Camera:** Dedicated CameraController (spline/path interpolation, damping) mapped strictly to ScrollTrigger timeline.
+- **Performance:** Adaptive rendering, lazy loading, mobile fallback (never a blank WebGL screen).
 
 ## Acceptance Criteria
 
-### Final Quality & Verification Gates
-- [ ] Visual identity passes the Creative Director veto (not AI-generated, not a dashboard).
-- [ ] No fake metrics, fabricated claims, or generic AI jargon exist.
-- [ ] Site meets WCAG 2.2 AA standards.
-- [ ] Responsive design functions perfectly without clipping or overflow.
-- [ ] Reticle Verification passes (build, lint, typecheck, tests, routes, accessibility, performance).
-- [ ] All 12 Final Deliverables (MD files) are generated and present.
-- [ ] Final question answered YES: If the visitor never sees the source code, will this website still convince them that Naveen is a serious builder?
+### Verification
+- [ ] **Continuous Journey:** The scroll from top to bottom feels like a single, unbreakable movie shot travelling physically through 3D space. No blank screens or simple 2D zoom hacks.
+- [ ] **Scene Verification:** Scenes 1 through 7 are visually distinct but connected seamlessly via the camera path.
+- [ ] **UI Integration:** The final portfolio is not blocked by massive, ugly text. Text is minimal, cinematic, and beautifully integrated.
+- [ ] **Visual QA:** Browser automation proves the canvas renders correctly without generic template feels.
+- [ ] **Build:** The project builds cleanly with 0 errors.
 </USER_REQUEST>
+
+## Follow-up — 2026-08-25T07:38:39Z
+
+[CRITICAL TECHNICAL BLUEPRINT FOR WEBGL & MOTION ENGINEERS]
+
+The browser researcher has provided the exact technical blueprint used by Awwwards Site of the Month winners for cinematic scroll diving. You must enforce these mechanics in the codebase:
+
+1. Core Mechanic: Use `THREE.CatmullRomCurve3` for the camera path. Decouple scroll using Lenis and GSAP ScrollTrigger to normalize scroll `0.0` to `1.0`. In the render loop, use `curve.getPointAt()` and `curve.getTangentAt()` with `THREE.MathUtils.lerp()` to give the camera physical drag/weight.
+2. Performance/Lighting: Fake lighting for performance. Bake global illumination/shadows into textures in Blender and use `THREE.MeshBasicMaterial`. Use `THREE.InstancedMesh` for particles/neural nodes.
+3. Cinematic Post-Processing: This is non-negotiable for the "movie" feel. Use `EffectComposer` with:
+   - Depth of Field (`BokehPass` dynamically focusing via raycaster).
+   - UnrealBloomPass (glowing neural paths).
+   - Chromatic Aberration and Film Grain (Custom ShaderPass for anamorphic lens feel).
+   - SMAAPass/FXAAPass for anti-aliasing.
+4. Minimal UI Integration: Canvas must be `position: fixed; z-index: -1`. DOM text must be pure HTML/CSS, fading in via GSAP. Consider `mix-blend-mode: difference` or `overlay` for cinematic text blending over the WebGL.
+
+## Follow-up — 2026-08-25T07:40:28Z
+
+USER OVERRIDE - EXECUTION COMMAND.
+
+The user has explicitly ordered: "EXECUTION COMMAND — DO NOT JUST PLAN, BUILD AND VERIFY".
+You MUST NOT output any more plans, documents, or research. You must write code immediately.
+
+Initialized environment in `C:\Users\Naveen\OneDrive - KRONE AGRICULTURE INDIA PVT LTD\Desktop\Naveen Bishnoi Portfolio`:
+1. Installed: `three`, `@react-three/fiber`, `@react-three/drei`, `postprocessing`, `@react-three/postprocessing`, `zustand`.
+2. Architecture: `src/experience/camera`, `src/experience/scenes`, `src/experience/world`.
+3. Created: `src/experience/timeline/CinematicTimeline.ts`.
+
+IMMEDIATE TASK (MILESTONE 1):
+- Implement `src/experience/camera/CameraController.tsx` using `THREE.CatmullRomCurve3`.
+- Implement `src/experience/CinematicExperience.tsx` replacing the current Astro index layout.
+- Build the 7 scenes incrementally as per the user's master command.
+
+Do not plan. Execute. Build. Verify. Commit.
+
+

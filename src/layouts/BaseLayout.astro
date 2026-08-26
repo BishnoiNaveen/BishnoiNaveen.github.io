@@ -1,8 +1,11 @@
 ---
 /**
- * BaseLayout.astro — Backward compatibility forwarder to Layout.astro.
+ * src/layouts/BaseLayout.astro — Master Base Layout for Naveen Bishnoi Portfolio
+ * Implements Apple Light & Dark theme foundations, Anti-FOUC hydration,
+ * typography preconnects, SEO metadata, OpenGraph, and Schema.org JSON-LD.
  */
-import Layout from './Layout.astro';
+import '../styles/design-system.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -10,13 +13,222 @@ interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   keywords?: string[];
+  type?: string;
+  publishedTime?: string;
+  noindex?: boolean;
 }
 
-const props = Astro.props;
+const {
+  title = 'Naveen Bishnoi | Software Architect & AI Automation Engineer',
+  description = 'Personal Brand & Systems Architecture Showcase of Naveen Bishnoi — Software Architect, AI Automation Engineer, and Systems Builder.',
+  ogImage = '/images/portfolio_hero.jpg',
+  canonicalUrl = Astro.url.href,
+  keywords = [
+    'Naveen Bishnoi',
+    'Software Architect',
+    'AI Automation Engineer',
+    'Distributed Systems',
+    'Agricultural IoT',
+    'KRONE Agriculture',
+    'POSIX C Systems',
+    'visionOS Architecture',
+    'Astro 7',
+    'React 19',
+  ],
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'Naveen Bishnoi';
+const siteUrl = Astro.site ?? new URL(Astro.url.pathname, 'https://BishnoiNaveen.github.io');
+const fullOgImage = new URL(ogImage, siteUrl).href;
+
+// Format title consistently
+const formattedTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+
+// Schema.org JSON-LD Structured Data Graph
+const jsonLdGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://BishnoiNaveen.github.io/#person',
+      name: 'Naveen Bishnoi',
+      alternateName: 'Bishnoi Naveen',
+      jobTitle: 'Software Architect & AI Automation Engineer',
+      description: 'Systems builder specializing in distributed systems, AI automation swarms, agricultural IoT telematics, and high-performance software.',
+      url: 'https://BishnoiNaveen.github.io',
+      image: 'https://BishnoiNaveen.github.io/images/portfolio_hero.jpg',
+      email: '0029bishnoinaveen@gmail.com',
+      sameAs: [
+        'https://github.com/BishnoiNaveen',
+        'https://linkedin.com/in/naveen-bishnoi',
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'KRONE Agriculture India',
+      },
+      knowsAbout: [
+        'Distributed Systems Architecture',
+        'AI Agent Automation & AST Security',
+        'Agricultural IoT & CAN Bus Telematics',
+        'POSIX C Low-Level Memory Management',
+        'Topological DAG Scheduling Engines',
+        'High-Performance Web Architecture',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://BishnoiNaveen.github.io/#website',
+      url: 'https://BishnoiNaveen.github.io',
+      name: 'Naveen Bishnoi Portfolio',
+      description: description,
+      publisher: {
+        '@id': 'https://BishnoiNaveen.github.io/#person',
+      },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': canonicalUrl,
+      url: canonicalUrl,
+      name: formattedTitle,
+      isPartOf: {
+        '@id': 'https://BishnoiNaveen.github.io/#website',
+      },
+      mainEntity: {
+        '@id': 'https://BishnoiNaveen.github.io/#person',
+      },
+    },
+  ],
+};
 ---
 
-<Layout {...props}>
-  <slot name="header" slot="header" />
-  <slot />
-  <slot name="footer" slot="footer" />
-</Layout>
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light dark" />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Anti-FOUC Theme Hydration Script (Executes before paint) -->
+    <script is:inline>
+      (function () {
+        try {
+          var storageKey = 'naveen-bishnoi-theme';
+          var stored = localStorage.getItem(storageKey);
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored === 'dark' || (!stored && prefersDark) || (stored === 'system' && prefersDark);
+          var root = document.documentElement;
+          if (isDark) {
+            root.classList.add('dark');
+            root.classList.remove('light');
+            root.setAttribute('data-theme', 'dark');
+            root.style.colorScheme = 'dark';
+          } else {
+            root.classList.add('light');
+            root.classList.remove('dark');
+            root.setAttribute('data-theme', 'light');
+            root.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Primary Metadata -->
+    <title>{formattedTitle}</title>
+    <meta name="title" content={formattedTitle} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="author" content="Naveen Bishnoi" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Mobile Browser Theme Color -->
+    <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#08080A" media="(prefers-color-scheme: dark)" />
+
+    <!-- OpenGraph Social Metadata -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={formattedTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Social Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@BishnoiNaveen" />
+    <meta name="twitter:creator" content="@BishnoiNaveen" />
+    <meta name="twitter:title" content={formattedTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Typography Preconnect & Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
+
+    <!-- Astro View Transitions -->
+    <ClientRouter />
+  </head>
+
+  <body class="min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased selection:bg-[var(--color-accent)] selection:text-white overflow-x-hidden w-full max-w-full">
+    <!-- Skip to main content link for Accessibility (WCAG AAA & >= 44x44px touch target) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only skip-link focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-5 focus:py-3 focus:bg-[var(--color-accent)] focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white min-h-[44px] font-semibold text-sm inline-flex items-center justify-center cursor-pointer"
+    >
+      Skip to main content
+    </a>
+
+    <slot name="header" />
+
+    <main id="main-content" tabindex="-1" class="relative z-10 w-full min-h-screen">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+
+    <!-- Astro ViewTransitions Theme Preservation -->
+    <script is:inline>
+      document.addEventListener('astro:after-swap', function () {
+        try {
+          var storageKey = 'naveen-bishnoi-theme';
+          var stored = localStorage.getItem(storageKey);
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored === 'dark' || (!stored && prefersDark) || (stored === 'system' && prefersDark);
+          var root = document.documentElement;
+          if (isDark) {
+            root.classList.add('dark');
+            root.classList.remove('light');
+            root.setAttribute('data-theme', 'dark');
+            root.style.colorScheme = 'dark';
+          } else {
+            root.classList.add('light');
+            root.classList.remove('dark');
+            root.setAttribute('data-theme', 'light');
+            root.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      });
+    </script>
+  </body>
+</html>

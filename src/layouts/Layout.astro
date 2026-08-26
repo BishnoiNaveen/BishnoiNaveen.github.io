@@ -1,124 +1,30 @@
 ---
-import '../styles/global.css';
-import { ClientRouter } from 'astro:transitions';
-import CustomCursor from '../components/CustomCursor';
-import Preloader from '../components/Preloader';
-import Terminal from '../components/Terminal';
-import CanvasBackground from '../components/CanvasBackground';
-import ScrollProgress from '../components/ScrollProgress';
+/**
+ * src/layouts/Layout.astro — Clean alias / adapter for BaseLayout.astro
+ * Ensures backward compatibility across all site routes while adhering
+ * to the Master Design System & Apple Light/Dark material architecture.
+ */
+import BaseLayout from './BaseLayout.astro';
 
 interface Props {
-// ... no changes to interface Props
-
   title?: string;
   description?: string;
   ogImage?: string;
   canonicalUrl?: string;
   keywords?: string[];
+  type?: string;
+  publishedTime?: string;
+  noindex?: boolean;
 }
 
 const {
-  title = 'Naveen Bishnoi',
-  description = 'Developer, AI Automation Engineer & Systems Builder.',
   ogImage = '/images/portfolio_hero.jpg',
-  canonicalUrl = Astro.url.href,
-  keywords = [
-    'Naveen Bishnoi',
-    'Developer',
-    'AI Automation',
-    'Systems'
-  ],
+  ...rest
 } = Astro.props;
-
-const siteName = 'Naveen Bishnoi';
-const siteUrl = Astro.site ?? new URL(Astro.url.pathname, 'https://BishnoiNaveen.github.io');
-const fullOgImage = new URL(ogImage, siteUrl).href;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
-    <title>{title} | {siteName}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords.join(', ')} />
-    <meta name="author" content="Naveen Bishnoi" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | ${siteName}`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={fullOgImage} />
-    <meta property="og:url" content={canonicalUrl} />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-    <!-- Lenis for smooth scroll (Deferred so it doesn't block parsing) -->
-    <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-
-    <ClientRouter />
-  </head>
-
-  <body class="antialiased bg-[#050505] text-white overflow-x-hidden">
-    
-    <div class="fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] pointer-events-none"></div>
-
-    {/* Global Persistent Neural Network Background - OPACITY FIXED (100% visible) */}
-    <div class="fixed inset-0 z-0 pointer-events-auto">
-      <CanvasBackground client:load />
-    </div>
-
-    <ScrollProgress client:load />
-    <Preloader client:load />
-    <Terminal client:load />
-    <CustomCursor client:load />
-
-    <div class="atmospheric-glow" aria-hidden="true"></div>
-
-    <slot name="header" />
-
-    <main id="main-content" tabindex="-1" class="relative z-10">
-      <slot />
-    </main>
-
-    <slot name="footer" />
-
-    <script is:inline>
-      window.addEventListener('DOMContentLoaded', () => {
-        if (typeof Lenis !== 'undefined') {
-          // Initialize Lenis smooth scrolling
-          const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-          });
-
-          function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-          }
-          requestAnimationFrame(raf);
-        }
-      });
-
-      // Astro ViewTransitions hook to re-init
-      document.addEventListener('astro:page-load', () => {
-        window.scrollTo(0, 0);
-      });
-    </script>
-  </body>
-</html>
+<BaseLayout ogImage={ogImage} {...rest}>
+  <slot name="header" slot="header" />
+  <slot />
+  <slot name="footer" slot="footer" />
+</BaseLayout>

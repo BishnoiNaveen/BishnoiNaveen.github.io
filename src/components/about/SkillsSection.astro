@@ -1,0 +1,17 @@
+---
+/**
+ * src/components/about/SkillsSection.astro — Semantic Section Wrapper for Competencies Bento Grid
+ * Standard: Semantic landmarks, Section anchor #skills, visionOS surface styling
+ */
+import SkillsBento from './SkillsBento';
+---
+
+<section
+  id="skills"
+  aria-label="Technical Competencies & Systems Architecture Bento Grid"
+  class="relative py-24 md:py-36 px-4 sm:px-6 md:px-12 lg:px-16 border-t border-[var(--color-border-subtle)] bg-[var(--material-1-bg)] text-[var(--color-text-primary)] contain-layout"
+>
+  <div class="max-w-[96rem] mx-auto w-full">
+    <SkillsBento client:load />
+  </div>
+</section>

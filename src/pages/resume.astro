@@ -1,16 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeaderNav from '../components/HeaderNav';
+/**
+ * src/pages/resume.astro — Dedicated Curriculum Vitae & Invariants Schema
+ * Author: Naveen Bishnoi
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
 import ResumeComponent from '../components/ResumeComponent';
+import Footer from '../components/contact/Footer.astro';
 ---
 
-<Layout 
-  title="Resume | Naveen Bishnoi" 
-  description="Experience and skills of Naveen Bishnoi."
+<BaseLayout
+  title="Curriculum Vitae | Naveen Bishnoi"
+  description="Verified engineering trajectory, 3-tier timeline, and machine invariants schema for Naveen Bishnoi — Software Architect & AI Systems Engineer at KRONE Agriculture India."
 >
-  <HeaderNav client:load />
+  <FloatingNav client:load slot="header" />
 
-  <main class="w-full min-h-screen bg-transparent pt-32 pb-24 text-white">
-    <ResumeComponent client:load />
-  </main>
-</Layout>
+  <div class="w-full min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] pt-32 pb-24 px-4 sm:px-6 md:px-12 lg:px-16">
+    <div class="max-w-[96rem] mx-auto w-full">
+      <ResumeComponent client:load />
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,41 +1,42 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import HeaderNav from '../../components/HeaderNav';
+import Footer from '../../components/contact/Footer.astro';
 ---
 
 <Layout 
   title="KRONE IoT Telemetry | Case Study" 
   description="Architecture Report: KRONE IoT Telemetry"
 >
-  <HeaderNav client:load />
+  <HeaderNav client:load slot="header" />
 
-  <main class="w-full min-h-screen bg-transparent pt-40 pb-32 text-white">
-    <article class="max-w-4xl mx-auto px-6 md:px-12">
+  <div class="w-full min-h-screen bg-[var(--color-canvas)] pt-32 sm:pt-40 pb-24 text-[var(--color-text-primary)]">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 md:px-12">
       
-      <header class="mb-24">
-        <div class="flex items-center gap-4 mb-8">
-          <span class="text-emerald-400 font-mono text-sm tracking-widest uppercase">Case Study 01</span>
-          <div class="h-px bg-white/20 flex-1"></div>
+      <header class="mb-16 md:mb-24">
+        <div class="flex items-center gap-4 mb-6 md:mb-8">
+          <span class="text-emerald-600 dark:text-emerald-400 font-mono text-sm tracking-widest uppercase font-bold">Case Study 01</span>
+          <div class="h-px bg-[var(--color-border)] flex-1"></div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight mb-8">
-          KRONE IoT <br/><span class="text-zinc-500">Telemetry.</span>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-tight mb-6 md:mb-8 text-[var(--color-text-primary)]">
+          KRONE IoT <br/><span class="text-[var(--color-text-secondary)] font-medium">Telemetry.</span>
         </h1>
-        <p class="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed">
-          Predictive Analytics & Fleet Management architecture capable of ingesting high-throughput sensor data globally.
+        <p class="text-lg sm:text-xl md:text-2xl text-[var(--color-text-secondary)] font-normal leading-relaxed">
+          Predictive Analytics &amp; Fleet Management architecture capable of ingesting high-throughput sensor data globally.
         </p>
       </header>
 
-      <div class="prose prose-invert prose-lg max-w-none text-zinc-300">
+      <div class="space-y-8 text-[var(--color-text-secondary)]">
         
-        <h2 class="text-2xl font-bold text-white mt-16 mb-6">The Problem</h2>
-        <p class="font-light leading-relaxed mb-8">
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mt-12 mb-4">The Problem</h2>
+        <p class="text-base sm:text-lg leading-relaxed mb-8">
           Managing a global fleet of agricultural machinery requires real-time insight into hardware health, location, and yield data. Traditional polling architectures were failing under the load of thousands of simultaneous socket connections, resulting in dropped telemetry packets and delayed predictive maintenance alerts.
         </p>
 
-        <h2 class="text-2xl font-bold text-white mt-16 mb-6">The Architecture</h2>
-        <div class="w-full p-8 bg-[#0a0a0c] border border-white/5 rounded-2xl mb-8 font-mono text-sm overflow-x-auto text-zinc-400">
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mt-12 mb-4">The Architecture</h2>
+        <div class="w-full p-6 sm:p-8 bg-[#111114] border border-zinc-800 rounded-2xl mb-8 font-mono text-xs sm:text-sm overflow-x-auto text-zinc-300 shadow-inner">
           <pre>
-[ Machinery Fleet ] --> MQTT/WSS --> [ Load Balancer ]
+[ Machinery Fleet ] --&gt; MQTT/WSS --&gt; [ Load Balancer ]
                                           |
                                  [ FastAPI Ingestion ]
                                           |
@@ -46,18 +47,20 @@ import HeaderNav from '../../components/HeaderNav';
                   [ Real-time UI ]        [ Predictive AI Model ]
           </pre>
         </div>
-        <p class="font-light leading-relaxed mb-8">
+        <p class="text-base sm:text-lg leading-relaxed mb-8">
           To solve the throughput bottleneck, we shifted to an event-driven architecture. <strong>FastAPI</strong> handles the massive influx of WebSocket connections asynchronously, instantly dumping raw telemetry payloads into an <strong>Apache Kafka</strong> cluster. This decoupling allows the ingestion layer to remain lightning-fast, while downstream consumers process the data at their own pace.
         </p>
 
-        <h2 class="text-2xl font-bold text-white mt-16 mb-6">The Impact</h2>
-        <ul class="flex flex-col gap-4 font-light mb-16">
-          <li class="flex gap-4"><span class="text-emerald-400">→</span> Scaled ingestion from 1,000 to 50,000+ concurrent machines.</li>
-          <li class="flex gap-4"><span class="text-emerald-400">→</span> Reduced data pipeline latency from 4 seconds to under 200ms.</li>
-          <li class="flex gap-4"><span class="text-emerald-400">→</span> Predictive AI integration reduced average hardware downtime by 24%.</li>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mt-12 mb-4">The Impact</h2>
+        <ul class="flex flex-col gap-4 mb-16">
+          <li class="flex gap-4 text-base sm:text-lg"><span class="text-emerald-600 dark:text-emerald-400 font-bold">→</span> Scaled ingestion from 1,000 to 50,000+ concurrent machines.</li>
+          <li class="flex gap-4 text-base sm:text-lg"><span class="text-emerald-600 dark:text-emerald-400 font-bold">→</span> Reduced data pipeline latency from 4 seconds to under 200ms.</li>
+          <li class="flex gap-4 text-base sm:text-lg"><span class="text-emerald-600 dark:text-emerald-400 font-bold">→</span> Predictive AI integration reduced average hardware downtime by 24%.</li>
         </ul>
 
       </div>
     </article>
-  </main>
+  </div>
+
+  <Footer slot="footer" />
 </Layout>

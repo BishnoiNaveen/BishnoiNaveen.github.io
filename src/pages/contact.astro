@@ -1,38 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeaderNav from '../components/HeaderNav';
+/**
+ * src/pages/contact.astro — Dedicated Contact & Communication Showcase
+ * Author: Naveen Bishnoi
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import ContactTerminal from '../components/contact/ContactTerminal';
+import Footer from '../components/contact/Footer.astro';
 ---
 
-<Layout 
-  title="Contact | Naveen Bishnoi" 
-  description="Get in touch with Naveen Bishnoi."
+<BaseLayout
+  title="Contact & Advisory | Naveen Bishnoi"
+  description="Direct communication with Naveen Bishnoi — Software Architect, Systems Engineer & AI Automation Craftsman. Response SLA < 24 hours guaranteed."
 >
-  <HeaderNav client:load />
+  <FloatingNav client:load slot="header" />
 
-  <main class="w-full min-h-screen bg-transparent flex flex-col items-center justify-center relative overflow-hidden px-6 pt-32 pb-24">
-    {/* Background flare */}
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-96 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-    
-    <div class="max-w-4xl mx-auto w-full text-center relative z-10">
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter">LET'S TALK</h1>
-      <p class="text-xl md:text-2xl text-zinc-400 font-light mb-16 max-w-2xl mx-auto leading-relaxed">
-        Currently open for new opportunities. Whether you have a complex system to build, an AI agent framework to architect, or just want to connect.
-      </p>
-      
-      <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
-        <a href="mailto:0029bishnoinaveen@gmail.com" class="w-full md:w-auto inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-black bg-white rounded-full hover:bg-zinc-200 hover:scale-105 transition-all duration-300">
-          0029bishnoinaveen@gmail.com
-        </a>
-        <a href="tel:+919478334329" class="w-full md:w-auto inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:scale-105 transition-all duration-300">
-          +91 9478334329
-        </a>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-8 border-t border-white/10 pt-16">
-        <a href="https://github.com/BishnoiNaveen" target="_blank" rel="noreferrer" class="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest">GitHub</a>
-        <a href="https://linkedin.com/in/naveen-bishnoi" target="_blank" rel="noreferrer" class="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest">LinkedIn</a>
-        <a href="https://twitter.com/naveen_bishnoi" target="_blank" rel="noreferrer" class="text-sm font-bold text-zinc-400 hover:text-white transition-colors uppercase tracking-widest">Twitter</a>
-      </div>
+  <div class="w-full min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] pt-32 pb-24 px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col justify-center">
+    <div class="max-w-[96rem] mx-auto w-full">
+      <ContactTerminal client:load />
     </div>
-  </main>
-</Layout>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

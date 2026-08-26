@@ -29,6 +29,7 @@ import Scene07Portfolio from './scenes/Scene07Portfolio';
 import PostProcessingPipeline from './postprocessing/PostProcessingPipeline';
 import CinematicOverlay from './overlay/CinematicOverlay';
 import CityDestinations from './overlay/CityDestinations';
+import PerfHUD from './overlay/PerfHUD';
 import { useTimeline } from './timeline/CinematicTimeline';
 import { useQualityTier } from './quality/useQualityTier';
 import { getParticleScale } from './quality/useQualityTier';
@@ -179,6 +180,10 @@ export default function CinematicExperience({
       ? Math.max(0, 1.0 - (progress - 0.95) * 20)
       : 1.0;
 
+  // Live performance HUD toggle
+  const statsOn = useTimeline((s) => s.statsOn);
+  const setStatsOn = useTimeline((s) => s.setStatsOn);
+
   return (
     <div ref={containerRef} className={`relative w-full ${className}`}>
       {/* 1. Fixed 3D WebGL Canvas Layer (decorative — content lives in the portfolio below) */}
@@ -220,6 +225,9 @@ export default function CinematicExperience({
 
             {/* Film-Grade Post-Processing Pipeline */}
             <PostProcessingPipeline enabled={enablePostProcessing && quality.postfx} />
+
+            {/* Live performance instrumentation (Performance Engineer HUD) */}
+            <PerfHUD />
           </Canvas>
         ) : (
           <div className="w-full h-full bg-[#030712] flex items-center justify-center text-cyan-400 font-mono text-xs">
@@ -247,6 +255,16 @@ export default function CinematicExperience({
           >
             <span className={`w-1.5 h-1.5 rounded-full ${soundEnabled ? 'bg-emerald-400 animate-pulse' : 'bg-cyan-400/40'}`} />
             {soundEnabled ? 'SOUND ON' : 'SOUND OFF'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setStatsOn(!statsOn)}
+            aria-pressed={statsOn}
+            aria-label={statsOn ? 'Hide performance stats' : 'Show performance stats'}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 border border-white/10 text-[10px] font-mono tracking-widest uppercase text-cyan-300/70 backdrop-blur-md hover:bg-cyan-500/20 hover:border-cyan-400/40 transition-colors cursor-pointer active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+          >
+            <span className={`w-1.5 h-1.5 rounded-full ${statsOn ? 'bg-amber-400 animate-pulse' : 'bg-cyan-400/40'}`} />
+            {statsOn ? 'STATS ON' : 'STATS OFF'}
           </button>
         </div>
 

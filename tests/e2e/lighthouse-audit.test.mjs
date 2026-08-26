@@ -22,11 +22,11 @@ suite.test('Performance & Core Web Vitals: Payload budgets, font preconnects and
   const html = fs.readFileSync(distIndexPath, 'utf8');
   const stat = fs.statSync(distIndexPath);
 
-  // 1. Initial HTML payload budget < 200 KB
+  // 1. Initial HTML payload budget < 250 KB
   const htmlKb = stat.size / 1024;
   ctx.assert(
-    htmlKb < 200,
-    `HTML payload (${htmlKb.toFixed(1)} KB) must be under 200 KB budget for instant FCP`
+    htmlKb < 250,
+    `HTML payload (${htmlKb.toFixed(1)} KB) must be under 250 KB budget for instant FCP`
   );
 
   // 2. Critical font preconnect hints

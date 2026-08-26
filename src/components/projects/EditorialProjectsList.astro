@@ -1,0 +1,15 @@
+---
+/**
+ * EditorialProjectsList.astro — Server-rendered host for the EditorialProjectsList React island.
+ */
+import EditorialProjectsListReact from './EditorialProjectsList';
+import type { Project } from '../../types/project';
+
+interface Props {
+  projects?: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<EditorialProjectsListReact client:visible customProjects={projects} />

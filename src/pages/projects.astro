@@ -1,16 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeaderNav from '../components/HeaderNav';
-import ProjectsComponent from '../components/Projects';
+/**
+ * src/pages/projects.astro — Comprehensive Engineering Works & Case Studies
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import EditorialProjectsList from '../components/projects/EditorialProjectsList';
+import Footer from '../components/contact/Footer.astro';
 ---
 
-<Layout 
-  title="Projects | Naveen Bishnoi" 
-  description="Selected works and case studies by Naveen Bishnoi."
+<BaseLayout
+  title="Featured Engineering Works | Naveen Bishnoi"
+  description="Deep architectural case studies and systems implementations by Naveen Bishnoi: GAMS, KRONE IoT, AEONIS OPS, Ultron Framework, Sentinel AI, and High-Performance Portfolio."
 >
-  <HeaderNav client:load />
+  <FloatingNav client:load slot="header" />
 
-  <main class="flex flex-col w-full min-h-screen bg-transparent pt-32 pb-20">
-    <ProjectsComponent client:load />
-  </main>
-</Layout>
+  <div class="relative w-full overflow-hidden bg-[var(--color-canvas)] text-[var(--color-text-primary)] pt-32 pb-24">
+    <div class="max-w-[96rem] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 w-full mb-12 md:mb-20">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-[var(--color-border)] mb-6 select-none">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
+        <span class="type-badge-label text-[var(--color-text-secondary)] text-[11px] font-semibold tracking-[0.08em] uppercase">
+          Engineering Architecture Portfolio
+        </span>
+      </div>
+
+      <h1 class="type-display-hero text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] text-[var(--color-text-primary)] mb-6 leading-[1.05]">
+        Featured Works &amp; Case Studies.
+      </h1>
+
+      <p class="type-subhead-lead text-base sm:text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-3xl leading-relaxed">
+        Full 7-part engineering deep-dives covering distributed consensus, POSIX atomic file storage, 50Hz CAN edge telematics, topological DAG schedulers, and static AST taint sentries.
+      </p>
+    </div>
+
+    <div class="px-4 sm:px-6 md:px-12 lg:px-16">
+      <EditorialProjectsList client:load />
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

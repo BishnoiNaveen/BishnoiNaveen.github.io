@@ -1,31 +1,35 @@
-# Project Execution Plan: Naveen Bishnoi Portfolio Redesign
+# Master Plan: World-Class Animated 3D Portfolio Redesign
 
-## Objectives
-1. **Apple-Style Fluid Interface (WWDC 2018)**:
-   - Physics-driven spring animations (explicit damping/response parameters).
-   - Interruptible interactions, spatial continuity, translucent materials (glassmorphism/vibrancy).
-   - React + Framer Motion islands integrated smoothly into Astro.
-2. **Workflows & Hermes Data Integration**:
-   - Structured local data files (MDX / JSON / TS) representing Naveen Bishnoi's engineering workflows, AI/ML pipelines, and Hermes agent framework data.
-   - Rich, interactive UI components presenting this data with fluid transitions.
-3. **Performance & Build Integrity**:
-   - Strict TypeScript and Astro build (`npm run build` zero errors).
-   - Lighthouse Performance score >= 90.
-   - Comprehensive test verification & forensic integrity audit.
+## Phase 0: Survey & Discovery (Exploration)
+- [ ] Spawn 3 parallel Explorers:
+  1. Explorer 1 (`explorer_research`): Web search and deep research on high-end 3D scroll-driven sites (Apple, Linear, Lusion, Active Theory, etc.), mechanics breakdown (scroll-jacking, canvas image sequences vs Three.js vs WebGL vs video scrubbing).
+  2. Explorer 2 (`explorer_codebase`): Existing portfolio architecture, dependencies, Vite/Next/React/HTML structure, resume data, current sections, styling system, build commands.
+  3. Explorer 3 (`explorer_blender`): Blender CLI / Python API setup, headless rendering workflow, generating 3D AI neural cyber world / tunnel scene, output formats (PNG frame sequence / WebM / MP4 / GLTF), performance optimization for web.
 
-## Orchestration Tracks
-- **Track 1: E2E Testing Track**
-  - Opaque-box requirement tests (Tiers 1-4).
-  - Produces TEST_INFRA.md and TEST_READY.md.
-- **Track 2: Implementation Track**
-  - Milestone 1: Astro/React/Framer-Motion Foundation & Design System (Tailwind/CSS tokens, spring presets, layout primitives).
-  - Milestone 2: Fluid Interactive Components & Materials (Translucent cards, dynamic nav, spring gestures, interruptible modals/drawers).
-  - Milestone 3: Workflows & Hermes Data Architecture & Presentation (Local data models, interactive workflow visualizer, Hermes data dashboard).
-  - Milestone 4: Page Architecture, Hero, Projects, About, & Experience Pages (Complete page assembly with fluid spatial layout).
-  - Final Milestone: E2E Test Suite Execution & Performance/Lighthouse Optimization.
+## Phase 1: Architecture & Decomposition
+- [ ] Merge explorer findings into `PROJECT.md`.
+- [ ] Define feature inventory, milestone definitions, data contracts, and code layout.
+- [ ] Initialize research documentation (`docs/research_scroll_mechanics.md`).
+- [ ] Initialize E2E testing strategy (`TEST_INFRA.md`).
 
-## Quality Gates per Milestone
-1. Build & test pass.
-2. Reviewers APPROVE.
-3. Challengers confirm correctness.
-4. Forensic Auditor verdict is CLEAN.
+## Phase 2: Implementation & E2E Testing Dual Track
+- [ ] **Track A: Blender 3D Scene & Asset Rendering Pipeline**:
+  - Script Blender Python generation (`scripts/generate_3d_assets.py` or similar).
+  - Execute Blender headless render to produce high-resolution, optimized frame sequences / video / 3D models for AI world dive & transition out.
+- [ ] **Track B: Scroll-Linked 3D Engine & Canvas/Video Scrubbing**:
+  - Build high-performance canvas / WebGL / video frame-scrubbing engine linked to smooth scroll (GSAP ScrollTrigger / Lenis / Framer Motion).
+  - Implement dive into AI neural core and transition to resume.
+- [ ] **Track C: Ultra-Premium UI/UX Redesign & Resume Presentation**:
+  - Bright, vibrant color palette, glassmorphism, responsive typography, interactive sections (Experience, Projects, Skills, Contact).
+- [ ] **Track D: E2E Testing Suite**:
+  - Create automated test runner and verification suite (Tiers 1-4).
+
+## Phase 3: Review, Challenge & Forensic Integrity Audit
+- [ ] Reviewers: Review code quality, responsiveness, smoothness, performance.
+- [ ] Challengers: Empirical verification of scroll mechanics, asset generation, load speed, responsive behavior across screen sizes.
+- [ ] Forensic Auditor: Verify authenticity of Blender generation, canvas/scroll rendering, and build integrity.
+
+## Phase 4: Build Verification & Final Delivery
+- [ ] Execute `npm run build` verification.
+- [ ] Confirm all acceptance criteria from `ORIGINAL_REQUEST.md`.
+- [ ] Synthesize final report and present to user.
