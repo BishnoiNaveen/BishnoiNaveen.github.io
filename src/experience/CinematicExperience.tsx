@@ -30,6 +30,7 @@ import PostProcessingPipeline from './postprocessing/PostProcessingPipeline';
 import CinematicOverlay from './overlay/CinematicOverlay';
 import CityDestinations from './overlay/CityDestinations';
 import PerfHUD from './overlay/PerfHUD';
+import GlInfoBridge from './overlay/GlInfoBridge';
 import { useTimeline } from './timeline/CinematicTimeline';
 import { useQualityTier } from './quality/useQualityTier';
 import { getParticleScale } from './quality/useQualityTier';
@@ -226,8 +227,8 @@ export default function CinematicExperience({
             {/* Film-Grade Post-Processing Pipeline */}
             <PostProcessingPipeline enabled={enablePostProcessing && quality.postfx} />
 
-            {/* Live performance instrumentation (Performance Engineer HUD) */}
-            <PerfHUD />
+            {/* Per-frame WebGL stats bridge (feeds the DOM PerfHUD) */}
+            <GlInfoBridge />
           </Canvas>
         ) : (
           <div className="w-full h-full bg-[#030712] flex items-center justify-center text-cyan-400 font-mono text-xs">
@@ -270,6 +271,9 @@ export default function CinematicExperience({
 
         {/* Digital City navigation destinations (Scene 06) */}
         <CityDestinations />
+
+        {/* Live performance HUD (DOM overlay, reads gl.info via bridge) */}
+        <PerfHUD />
       </div>
 
       {/* 2. Scroll Track Container (Provides physical scroll delta for scrubbing) */}

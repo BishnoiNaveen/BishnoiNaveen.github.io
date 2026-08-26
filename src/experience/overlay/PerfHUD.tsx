@@ -1,55 +1,43 @@
 /**
  * src/experience/overlay/PerfHUD.tsx
- * Performance Engineer deliverable — live WebGL instrumentation.
+ * Performance Engineer deliverable — live WebGL instrumentation (DOM overlay).
  *
- * MUST be rendered inside the R3F <Canvas> (uses useFrame / useThree).
- * Reads real renderer stats from gl.info every frame:
- *   - FPS (rolling average from frame deltas)
- *   - draw calls   (gl.info.render.calls)
- *   - triangles    (gl.info.render.triangles)
- *   - geometries   (gl.info.memory.geometries)
- *   - textures     (gl.info.memory.textures)
- *   - active quality tier + adaptive DPR
+ * Lives OUTSIDE the R3F <Canvas> (pure DOM), so it must not use useThree/useFrame.
+ * Reads the shared perfState ref (updated each frame by GlInfoBridge inside the
+ * Canvas) plus the active quality tier. Decorative (aria-hidden).
  *
- * Decorative (aria-hidden). Visibility is controlled by the store `statsOn`
- * flag, toggled by the STATS button in CinematicOverlay.
+ * Visibility is controlled by the store `statsOn` flag (STATS button).
  */
 
 import { useEffect, useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
 import { useTimeline } from '../timeline/CinematicTimeline';
 import { useQualityTier } from '../quality/useQualityTier';
+import { perfState } from './perfBridge';
 
 export default function PerfHUD() {
-  const gl = useThree((s) => s.gl);
   const tier = useQualityTier();
   const statsOn = useTimeline((s) => s.statsOn);
-
-  const fpsRef = useRef(0);
-  const lastRef = useRef(performance.now());
   const labelRef = useRef<HTMLSpanElement>(null);
   const rafRef = useRef<number | null>(null);
-
-  useFrame(() => {
-    const now = performance.now();
-    const dt = now - lastRef.current;
-    lastRef.current = now;
-    if (dt > 0) {
-      const inst = 1000 / dt;
-      fpsRef.current = fpsRef.current === 0 ? inst : fpsRef.current * 0.9 + inst * 0.1;
-    }
-  });
+  const fpsRef = useRef(0);
+  const lastRef = useRef(performance.now());
 
   useEffect(() => {
     if (!statsOn) return;
     const tick = () => {
+      const now = performance.now();
+      const dt = now - lastRef.current;
+      lastRef.current = now;
+      if (dt > 0) {
+        const inst = 1000 / dt;
+        fpsRef.current = fpsRef.current === 0 ? inst : fpsRef.current * 0.9 + inst * 0.1;
+      }
       const el = labelRef.current;
       if (el) {
-        const info = gl.info;
         el.textContent =
-          `FPS ${Math.round(fpsRef.current)}  |  DRAW ${info.render.calls}  |  ` +
-          `TRIS ${(info.render.triangles / 1000).toFixed(1)}k  |  GEO ${info.memory.geometries}  |  ` +
-          `TEX ${info.memory.textures}  |  Q ${tier.tier} @${tier.dpr}`;
+          `FPS ${Math.round(fpsRef.current)}  |  DRAW ${perfState.calls}  |  ` +
+          `TRIS ${(perfState.triangles / 1000).toFixed(1)}k  |  GEO ${perfState.geometries}  |  ` +
+          `TEX ${perfState.textures}  |  Q ${tier.tier} @${tier.dpr}`;
       }
       rafRef.current = requestAnimationFrame(tick);
     };
@@ -58,7 +46,7 @@ export default function PerfHUD() {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
     };
-  }, [statsOn, gl, tier.tier, tier.dpr]);
+  }, [statsOn, tier.tier, tier.dpr]);
 
   if (!statsOn) return null;
 
