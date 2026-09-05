@@ -10,33 +10,25 @@ export default function CanvasBackground() {
     if (!ctx) return;
 
     let particles: any[] = [];
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
+    let w = canvas.width = canvas.parentElement!.offsetWidth;
+    let h = canvas.height = canvas.parentElement!.offsetHeight;
     
     // Mouse interaction
     let mouse = { x: w / 2, y: h / 2, radius: 150 };
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
     };
     
-    const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        mouse.x = e.touches[0].clientX;
-        mouse.y = e.touches[0].clientY;
-      }
-    };
-
     const handleMouseLeave = () => {
       mouse.x = w / 2;
       mouse.y = h / 2;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
-    window.addEventListener('touchstart', handleTouchMove, { passive: true });
-    document.addEventListener('mouseleave', handleMouseLeave);
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
 
     class Particle {
       x: number;
@@ -51,12 +43,12 @@ export default function CanvasBackground() {
         this.y = Math.random() * h;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.size = Math.random() * 3 + 1; // Made particles slightly bigger
+        this.size = Math.random() * 2 + 0.5;
         this.density = (Math.random() * 30) + 1;
       }
 
       draw() {
-        ctx!.fillStyle = 'rgba(167, 250, 208, 0.9)'; // Brighter emerald
+        ctx!.fillStyle = 'rgba(255, 255, 255, 0.8)';
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx!.closePath();
@@ -92,7 +84,7 @@ export default function CanvasBackground() {
 
     const init = () => {
       particles = [];
-      const numberOfParticles = Math.min((w * h) / 9000, 150); // Cap particles for performance
+      const numberOfParticles = (w * h) / 9000;
       for (let i = 0; i < numberOfParticles; i++) {
         particles.push(new Particle());
       }
@@ -105,14 +97,15 @@ export default function CanvasBackground() {
         particles[i].update();
         particles[i].draw();
         
+        // Connect lines
         for (let j = i; j < particles.length; j++) {
           let dx = particles[i].x - particles[j].x;
           let dy = particles[i].y - particles[j].y;
           let distance = Math.sqrt(dx * dx + dy * dy);
           
-          if (distance < 110) {
+          if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(167, 250, 208, ${0.4 - distance / 500})`; // Much brighter emerald connections
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 - distance / 1000})`;
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -125,8 +118,8 @@ export default function CanvasBackground() {
     };
 
     const handleResize = () => {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
+      w = canvas.width = canvas.parentElement!.offsetWidth;
+      h = canvas.height = canvas.parentElement!.offsetHeight;
       init();
     };
 
@@ -136,13 +129,11 @@ export default function CanvasBackground() {
     animate();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchstart', handleTouchMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full mix-blend-screen opacity-60" />;
 }

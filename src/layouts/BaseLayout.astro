@@ -121,8 +121,8 @@ const jsonLdGraph = {
         try {
           var storageKey = 'naveen-bishnoi-theme';
           var stored = localStorage.getItem(storageKey);
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var isDark = stored === 'dark' || (!stored && prefersDark) || (stored === 'system' && prefersDark);
+          // Default to Dark Luxury for the cinematic portfolio
+          var isDark = stored !== 'light';
           var root = document.documentElement;
           if (isDark) {
             root.classList.add('dark');

@@ -88,31 +88,25 @@ export default function FloatingNav() {
         <nav
           role="navigation"
           aria-label="Primary Navigation"
-          className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 md:gap-6 px-3.5 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-300 ${
+          className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 md:gap-6 px-3.5 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-300 bg-[#0a0d17]/85 backdrop-blur-2xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.7)] ${
             isScrolled
-              ? 'bg-[rgba(255,255,255,0.85)] dark:bg-[rgba(18,18,21,0.85)] backdrop-blur-2xl shadow-[0_16px_40px_-10px_rgba(0,0,0,0.12)] dark:shadow-[0_16px_40px_-10px_rgba(0,0,0,0.6)] border border-[rgba(255,255,255,0.95)] dark:border-[rgba(255,255,255,0.12)]'
-              : 'bg-[rgba(255,255,255,0.72)] dark:bg-[rgba(18,18,21,0.72)] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.80)] dark:border-[rgba(255,255,255,0.08)]'
+              ? 'border-cyan-500/30 shadow-[0_12px_40px_rgba(6,182,212,0.15)]'
+              : ''
           }`}
         >
           {/* Logo Pill */}
-          <motion.a
-            href="/#hero"
-            whileTap={{ scale: 0.95 }}
-            transition={springPresets.snappy}
+          <a
+            href="#hero"
             onClick={(e) => {
-              // On the home page, behave as in-page smooth scroll; elsewhere
-              // the real href="/#hero" re-enters the cinematic journey.
-              if (window.location.pathname === '/') {
-                e.preventDefault();
-                handleNavClick('#hero');
-              }
+              e.preventDefault();
+              handleNavClick('#hero');
             }}
-            aria-label="Naveen Bishnoi — Return to top / cinematic intro"
-            className="group relative flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-full text-xs font-bold tracking-tight text-[var(--color-text-primary)] hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer select-none"
+            aria-label="Naveen Bishnoi — Return to top"
+            className="group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-tight text-[var(--color-text-primary)] hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
           >
             <span className="font-extrabold tracking-tighter text-sm">NB</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] group-hover:scale-125 transition-transform" />
-          </motion.a>
+          </a>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1 relative">
@@ -134,7 +128,7 @@ export default function FloatingNav() {
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative px-3.5 py-2 min-h-[44px] flex items-center rounded-full text-xs font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer ${
+                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
                     isActive
                       ? 'text-[var(--color-text-primary)] font-semibold'
                       : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -145,7 +139,7 @@ export default function FloatingNav() {
                     <motion.div
                       layoutId="active-nav-pill"
                       transition={springPresets.glide}
-                      className="absolute inset-0 rounded-full bg-black/5 dark:bg-white/10 shadow-sm -z-10"
+                      className="absolute inset-0 rounded-full bg-white/15 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] -z-10"
                     />
                   )}
 
@@ -153,8 +147,8 @@ export default function FloatingNav() {
                   {isHovered && !isActive && (
                     <motion.div
                       layoutId="hover-nav-pill"
-                      transition={springPresets.snappy}
-                      className="absolute inset-0 rounded-full bg-black/[0.03] dark:bg-white/[0.05] -z-10"
+                      transition={{ type: 'spring', mass: 0.5, stiffness: 400, damping: 30 }}
+                      className="absolute inset-0 rounded-full bg-white/[0.08] -z-10"
                     />
                   )}
 
@@ -174,17 +168,15 @@ export default function FloatingNav() {
             <ThemeToggle />
 
             {/* Mobile Hamburger Button */}
-            <motion.button
+            <button
               type="button"
               onClick={() => setIsMobileSheetOpen(true)}
-              whileTap={{ scale: 0.92 }}
-              transition={springPresets.snappy}
               aria-label="Open Navigation Menu"
               aria-expanded={isMobileSheetOpen}
-              className="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-full text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer"
+              className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
             >
               <Menu className="w-4 h-4" />
-            </motion.button>
+            </button>
           </div>
         </nav>
       </header>

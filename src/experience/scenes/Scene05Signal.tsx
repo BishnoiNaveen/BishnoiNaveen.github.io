@@ -13,11 +13,9 @@ import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTimeline } from '../timeline/CinematicTimeline';
-import { useQualityTier, getParticleScale } from '../quality/useQualityTier';
 
 export default function Scene05Signal() {
   const progress = useTimeline((s) => s.progress);
-  const tier = useQualityTier();
 
   // Compute scene visibility window (0.56 to 0.78)
   const opacity = useMemo(() => {
@@ -34,8 +32,7 @@ export default function Scene05Signal() {
     return Math.min(1, (progress - 0.60) / 0.14);
   }, [progress]);
 
-  const baseStreakCount = 180;
-  const streakCount = Math.max(40, Math.round(baseStreakCount * getParticleScale(tier.tier)));
+  const streakCount = 180;
   const streaksRef = useRef<THREE.InstancedMesh>(null);
   const leadSignalRef = useRef<THREE.Group>(null);
   const morphPillarsRef = useRef<THREE.InstancedMesh>(null);

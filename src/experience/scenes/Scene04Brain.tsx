@@ -13,11 +13,9 @@ import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTimeline } from '../timeline/CinematicTimeline';
-import { useQualityTier, getParticleScale } from '../quality/useQualityTier';
 
 export default function Scene04Brain() {
   const progress = useTimeline((s) => s.progress);
-  const tier = useQualityTier();
 
   // Compute scene visibility window (0.40 to 0.64)
   const opacity = useMemo(() => {
@@ -28,8 +26,7 @@ export default function Scene04Brain() {
     return 0;
   }, [progress]);
 
-  const baseNodeCount = 96; // 84+ Fibonacci nodes
-  const nodeCount = Math.max(24, Math.round(baseNodeCount * getParticleScale(tier.tier)));
+  const nodeCount = 96; // 84+ Fibonacci nodes
   const nodesMeshRef = useRef<THREE.InstancedMesh>(null);
   const pulsesMeshRef = useRef<THREE.InstancedMesh>(null);
   const linesRef = useRef<THREE.LineSegments>(null);

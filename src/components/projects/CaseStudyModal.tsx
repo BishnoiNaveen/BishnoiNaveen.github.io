@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Project, CaseStudy, CaseStudySection } from '../../types/project';
-import { springPresets, instantTransition } from '../../lib/springs';
+import { springPresets } from '../../lib/springs';
 import MagneticButton from '../ui/MagneticButton';
 
 interface CaseStudyModalProps {
@@ -32,7 +32,6 @@ const TAB_CONFIG: { key: TabKey; label: string; number: string }[] = [
 export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyModalProps) {
   const [activeTab, setActiveTab] = useState<TabKey>('problem');
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-  const shouldReduceMotion = useReducedMotion();
 
   // Reset to first tab when new project opened
   useEffect(() => {
@@ -76,10 +75,6 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
   const caseStudy = project.caseStudy;
   const currentSection: CaseStudySection | undefined = caseStudy ? caseStudy[activeTab] : undefined;
 
-  const modalTransition = shouldReduceMotion ? instantTransition : springPresets.cinematic;
-  const backdropTransition = shouldReduceMotion ? instantTransition : springPresets.snappy;
-  const morphTransition = shouldReduceMotion ? instantTransition : springPresets.morph;
-
   return (
     <AnimatePresence>
       <div
@@ -93,7 +88,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={backdropTransition}
+          transition={springPresets.snappy}
           onClick={onClose}
           className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-md"
           aria-hidden="true"
@@ -101,10 +96,10 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
 
         {/* Modal Window (Level 4 visionOS Glass Sheet) */}
         <motion.div
-          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
-          animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
-          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
-          transition={modalTransition}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={springPresets.cinematic}
           className="relative w-full max-w-5xl max-h-[90vh] flex flex-col rounded-3xl md:rounded-[32px] border border-white/80 dark:border-white/15 bg-[var(--material-1-bg)]/95 dark:bg-[#121215]/95 backdrop-blur-[48px] shadow-[0_32px_72px_-16px_rgba(0,0,0,0.35)] overflow-hidden z-10 my-auto"
         >
           {/* Top Mobile Drag Handle Bar */}
@@ -135,18 +130,16 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
             </div>
 
             {/* Close Button */}
-            <motion.button
+            <button
               type="button"
               onClick={onClose}
-              whileTap={shouldReduceMotion ? undefined : { scale: 0.92 }}
-              transition={springPresets.snappy}
-              className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/5 dark:bg-white/10 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/10 dark:hover:bg-white/20 transition-colors cursor-pointer shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              className="p-2.5 rounded-full bg-black/5 dark:bg-white/10 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/10 dark:hover:bg-white/20 transition-all cursor-pointer shrink-0"
               aria-label="Close Case Study Modal"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </motion.button>
+            </button>
           </div>
 
           {/* 7-Tab Anatomy Navigation Strip */}
@@ -155,13 +148,11 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
               {TAB_CONFIG.map((tab) => {
                 const isActive = activeTab === tab.key;
                 return (
-                  <motion.button
+                  <button
                     key={tab.key}
                     type="button"
                     onClick={() => setActiveTab(tab.key)}
-                    whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
-                    transition={springPresets.snappy}
-                    className={`relative px-4 py-2.5 min-h-[44px] rounded-full text-xs font-mono font-medium transition-colors cursor-pointer flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
+                    className={`relative px-3.5 py-2 rounded-full text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                       isActive
                         ? 'text-white dark:text-black font-bold'
                         : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/5'
@@ -170,13 +161,13 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
                     {isActive && (
                       <motion.div
                         layoutId="activeCaseStudyTabPill"
-                        transition={morphTransition}
+                        transition={springPresets.morph}
                         className="absolute inset-0 rounded-full bg-[var(--color-accent)] dark:bg-white"
                       />
                     )}
                     <span className="relative z-10 text-[10px] opacity-80">{tab.number}</span>
                     <span className="relative z-10">{tab.label}</span>
-                  </motion.button>
+                  </button>
                 );
               })}
             </div>
@@ -218,8 +209,8 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
                           key={i}
                           className="flex items-start gap-2 text-xs sm:text-sm text-[var(--color-text-primary)] p-3 rounded-xl bg-[var(--color-canvas)]/60 border border-[var(--color-border-subtle)]"
                         >
-                          <svg className="w-4 h-4 text-[var(--color-success)] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          <svg className="w-4 h-4 text-[var(--color-success)] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{h}</span>
                         </li>
@@ -312,7 +303,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
                           <button
                             type="button"
                             onClick={() => handleCopy(snippet.code, idx)}
-                            className="px-3.5 py-2 min-h-[44px] rounded-lg bg-zinc-800 hover:bg-zinc-700 text-[11px] font-mono text-zinc-300 transition-colors cursor-pointer inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                            className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] font-mono text-zinc-300 transition-colors cursor-pointer"
                           >
                             {copiedIndex === idx ? 'Copied ✓' : 'Copy Code'}
                           </button>

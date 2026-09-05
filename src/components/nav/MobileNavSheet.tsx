@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion, type PanInfo } from 'framer-motion';
+import { motion, AnimatePresence, type PanInfo } from 'framer-motion';
 import { X, FileText, ArrowUpRight } from 'lucide-react';
-import { springPresets, instantTransition, mechanicalClick } from '../../lib/springs';
+import { springPresets } from '../../lib/springs';
 import ThemeToggle from '../ui/ThemeToggle';
 
 export interface NavItem {
@@ -25,8 +25,6 @@ export default function MobileNavSheet({
   activeSection,
   onItemClick,
 }: MobileNavSheetProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   // Lock body scroll when open
   useEffect(() => {
     if (isOpen) {
@@ -48,8 +46,6 @@ export default function MobileNavSheet({
     }
   };
 
-  const sheetTransition = shouldReduceMotion ? instantTransition : springPresets.sheet;
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -59,7 +55,7 @@ export default function MobileNavSheet({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={shouldReduceMotion ? instantTransition : { duration: 0.25 }}
+            transition={{ duration: 0.25 }}
             onClick={onClose}
             aria-hidden="true"
             className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-md"
@@ -67,10 +63,10 @@ export default function MobileNavSheet({
 
           {/* Sheet Drawer */}
           <motion.div
-            initial={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
-            animate={shouldReduceMotion ? { opacity: 1 } : { y: 0 }}
-            exit={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
-            transition={sheetTransition}
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={springPresets.sheet}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={{ top: 0.05, bottom: 0.6 }}
@@ -97,31 +93,27 @@ export default function MobileNavSheet({
               </div>
               <div className="flex items-center gap-2">
                 <ThemeToggle />
-                <motion.button
+                <button
                   type="button"
                   onClick={onClose}
-                  whileTap={shouldReduceMotion ? undefined : { scale: 0.92 }}
-                  transition={springPresets.snappy}
                   aria-label="Close menu"
-                  className="p-2.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                  className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 >
                   <X className="w-5 h-5" />
-                </motion.button>
+                </button>
               </div>
             </div>
 
             {/* Nav Links */}
-            <nav className="flex flex-col gap-1 py-4" aria-label="Mobile Menu Navigation">
+            <nav className="flex flex-col gap-1 py-4">
               {items.map((item) => {
                 const isActive = activeSection === item.href || (item.href === '#hero' && activeSection === '');
                 return (
-                  <motion.a
+                  <a
                     key={item.label}
                     href={item.href}
                     target={item.isExternal ? '_blank' : undefined}
                     rel={item.isExternal ? 'noopener noreferrer' : undefined}
-                    whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-                    transition={springPresets.snappy}
                     onClick={(e) => {
                       if (!item.isExternal && item.href.startsWith('#')) {
                         e.preventDefault();
@@ -131,7 +123,7 @@ export default function MobileNavSheet({
                         onClose();
                       }
                     }}
-                    className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-medium transition-colors min-h-[48px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
+                    className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-medium transition-colors min-h-[48px] ${
                       isActive
                         ? 'bg-[var(--color-accent)] text-white font-semibold shadow-sm'
                         : 'text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
@@ -145,24 +137,22 @@ export default function MobileNavSheet({
                         {item.href}
                       </span>
                     )}
-                  </motion.a>
+                  </a>
                 );
               })}
             </nav>
 
             {/* Bottom Actions */}
             <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-col gap-3">
-              <motion.a
+              <a
                 href="/Naveen_Bishnoi_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileTap={shouldReduceMotion ? undefined : mechanicalClick}
-                transition={springPresets.snappy}
-                className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-2xl bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] font-semibold text-sm shadow-md transition-opacity hover:opacity-90 min-h-[48px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-2xl bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] font-semibold text-sm shadow-md transition-opacity hover:opacity-90 min-h-[48px]"
               >
                 <FileText className="w-4 h-4" />
                 <span>Download Resume (PDF)</span>
-              </motion.a>
+              </a>
               <div className="text-center text-xs text-[var(--color-text-muted)] font-mono">
                 0029bishnoinaveen@gmail.com
               </div>

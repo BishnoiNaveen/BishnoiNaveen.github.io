@@ -1,14 +1,7 @@
 ---
 /**
- * src/pages/index.astro — Master Storytelling Page: 8-Chapter Cinematic Scroll-Typography
- * Chapter 01: Cinematic Editorial Hero (#hero)
- * Chapter 02: Typographic Manifesto & Systems Invariants (#manifesto)
- * Chapter 03: Featured Engineering Works (#work, #projects)
- * Chapter 04: The Systems Lab & Interactive Simulators (#lab, #workflows, #hermes)
- * Chapter 05: Editorial Narrative & Principles (#about)
- * Chapter 06: Technical Competencies Bento Grid (#skills)
- * Chapter 07: Verified Career & Academic Timeline (#timeline)
- * Chapter 08: Direct Communication & Verified Signature (#contact)
+ * index.astro — BEAST MODE: Dark Luxury AI Portfolio
+ * 8 Chapters · Cinematic Scroll · Glass + Gradient Throughout
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FloatingNav from '../components/nav/FloatingNav';
@@ -27,50 +20,70 @@ import Footer from '../components/contact/Footer.astro';
   title="Naveen Bishnoi | Software Architect & AI Systems Engineer"
   description="Personal Brand & Systems Architecture Showcase of Naveen Bishnoi — Software Architect, AI Automation Engineer, and Systems Builder at KRONE Agriculture India."
 >
-  {/* Floating Navigation Dock (Level 3 visionOS Glass) */}
+  {/* Floating Navigation */}
   <FloatingNav slot="header" />
 
-  {/* CINEMATIC SCROLL-DRIVEN 3D JOURNEY — 7 continuous scenes (BOOT → PORTFOLIO) */}
+  {/* CINEMATIC 3D JOURNEY */}
   <CinematicExperience client:only="react" scrollTrackHeight="700vh" />
 
-  <div class="relative w-full overflow-hidden bg-[var(--color-canvas)] text-[var(--color-text-primary)]">
-    {/* CHAPTER 01: CINEMATIC EDITORIAL HERO */}
+  {/* ── ALL EDITORIAL SECTIONS — Dark Luxury ── */}
+  <div class="relative w-full overflow-hidden" style="background: #020208; color: #f8fafc;">
+
+    {/* Chapter 01: Hero */}
     <div class="chapter-reveal is-revealed" data-chapter="1">
       <CinematicHero />
     </div>
 
-    {/* CHAPTER 02: TYPOGRAPHIC MANIFESTO */}
-    <div class="chapter-reveal" data-chapter="2">
+    {/* Gradient Divider */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 02: Typographic Manifesto */}
+    <div class="chapter-reveal stagger-reveal" data-chapter="2"
+      style="background: linear-gradient(180deg, #020208 0%, #05050f 100%); position:relative;">
+      {/* Mesh orb */}
+      <div aria-hidden="true" class="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] opacity-30"
+        style="background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%); filter:blur(80px);"></div>
       <TypographicManifesto />
     </div>
 
-    {/* CHAPTER 03: FEATURED ENGINEERING WORKS */}
-    <div class="chapter-reveal" data-chapter="3">
+    {/* Gradient Divider */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 03: Featured Projects */}
+    <div class="chapter-reveal stagger-reveal" data-chapter="3"
+      style="background: linear-gradient(180deg, #05050f 0%, #020208 100%); position:relative; overflow:hidden;">
+      {/* Background orb */}
+      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[600px] opacity-25"
+        style="background: radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%); filter:blur(100px);"></div>
+
       <section
         id="work"
         aria-label="Featured Engineering Works"
-        class="relative py-24 md:py-36 px-4 sm:px-6 md:px-12 lg:px-16 border-t border-[var(--color-border-subtle)] contain-layout"
+        class="relative py-24 md:py-36 px-6 md:px-12 lg:px-16 contain-layout"
       >
         <div id="projects" class="max-w-[96rem] mx-auto w-full">
+
+          {/* Section Header */}
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-[var(--color-border)] mb-4 select-none">
-                <span class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
-                <span class="type-badge-label text-[var(--color-text-secondary)] text-[11px] font-semibold tracking-[0.08em] uppercase">
-                  Chapter 03 · Featured Engineering Systems
-                </span>
+              <div class="badge-accent mb-5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
+                Chapter 03 · Featured Engineering Systems
               </div>
-              <h2 class="type-headline-chapter text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.035em] text-[var(--color-text-primary)]">
-                Architecture Built for Determinism.
+              <h2 style="font-size:clamp(2.2rem,1.5rem + 3vw,4rem); font-weight:800; letter-spacing:-0.035em; line-height:1.05; color:#f8fafc;">
+                Architecture Built<br/>
+                <span style="background: linear-gradient(135deg, #c7d2fe, #818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+                  for Determinism.
+                </span>
               </h2>
             </div>
             <a
               href="/projects"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline"
+              class="btn-glass inline-flex items-center gap-2 shrink-0"
             >
-              <span>View All Engineering Works</span>
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <span>View All Works</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
           </div>
@@ -80,42 +93,64 @@ import Footer from '../components/contact/Footer.astro';
       </section>
     </div>
 
-    {/* CHAPTER 04: THE SYSTEMS LAB (INTERACTIVE EXPERIMENTAL SUITE) */}
-    <div class="chapter-reveal" data-chapter="4">
+    {/* Gradient Divider */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 04: Lab */}
+    <div class="chapter-reveal stagger-reveal" data-chapter="4"
+      style="background: linear-gradient(180deg, #020208 0%, #03030d 100%); position:relative; overflow:hidden;">
+      <div aria-hidden="true" class="pointer-events-none absolute top-1/4 right-0 w-[500px] h-[500px] opacity-20"
+        style="background: radial-gradient(circle, rgba(6,182,212,0.4) 0%, transparent 70%); filter:blur(80px);"></div>
       <LabSection />
     </div>
 
-    {/* CHAPTER 05 & 07: EDITORIAL ABOUT NARRATIVE & 3-TIER TIMELINE */}
-    <div class="chapter-reveal" data-chapter="5">
+    {/* Gradient Divider */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 05: About */}
+    <div class="chapter-reveal stagger-reveal" data-chapter="5"
+      style="background: linear-gradient(180deg, #03030d 0%, #050510 100%); position:relative; overflow:hidden;">
+      <div aria-hidden="true" class="pointer-events-none absolute top-0 left-1/3 w-[600px] h-[600px] opacity-20"
+        style="background: radial-gradient(circle, rgba(99,102,241,0.35) 0%, transparent 70%); filter:blur(100px);"></div>
       <AboutSection />
     </div>
 
-    {/* CHAPTER 06: TECHNICAL COMPETENCIES BENTO GRID */}
-    <div class="chapter-reveal" data-chapter="6">
+    {/* Gradient Divider */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 06: Skills */}
+    <div class="chapter-reveal stagger-reveal" data-chapter="6"
+      style="background: linear-gradient(180deg, #050510 0%, #020208 100%); position:relative; overflow:hidden;">
+      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] opacity-20"
+        style="background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); filter:blur(80px);"></div>
       <SkillsSection />
     </div>
 
-    {/* CHAPTER 08: DIRECT COMMUNICATION & VERIFIED SIGNATURE */}
-    <div class="chapter-reveal" data-chapter="8">
+    {/* Gradient Divider */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 08: Contact */}
+    <div class="chapter-reveal stagger-reveal" data-chapter="8"
+      style="background: linear-gradient(180deg, #020208 0%, #030312 100%); position:relative; overflow:hidden;">
+      {/* Big glow behind contact */}
+      <div aria-hidden="true" class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-30"
+        style="background: radial-gradient(ellipse, rgba(99,102,241,0.4) 0%, transparent 70%); filter:blur(80px);"></div>
       <ContactSection />
     </div>
   </div>
 
-  {/* MINIMALIST SYSTEM FOOTER */}
+  {/* Footer */}
   <Footer slot="footer" />
 
-  {/* Scroll Storytelling & Chapter Reveal Observer (Apple WWDC 2018 Fluid Physics) */}
+  {/* Scroll Reveals Observer */}
   <script is:inline>
     (function () {
       function initChapterReveals() {
         var reveals = document.querySelectorAll('.chapter-reveal');
         if (!reveals.length) return;
 
-        // If reduced motion is requested, immediately reveal all chapters without animation
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          reveals.forEach(function (el) {
-            el.classList.add('is-revealed');
-          });
+          reveals.forEach(function (el) { el.classList.add('is-revealed'); });
           return;
         }
 
@@ -129,20 +164,11 @@ import Footer from '../components/contact/Footer.astro';
                 }
               });
             },
-            {
-              rootMargin: '0px 0px -8% 0px',
-              threshold: 0.08,
-            }
+            { rootMargin: '0px 0px -6% 0px', threshold: 0.05 }
           );
-
-          reveals.forEach(function (el) {
-            observer.observe(el);
-          });
+          reveals.forEach(function (el) { observer.observe(el); });
         } else {
-          // Fallback for older browsers
-          reveals.forEach(function (el) {
-            el.classList.add('is-revealed');
-          });
+          reveals.forEach(function (el) { el.classList.add('is-revealed'); });
         }
       }
 
@@ -151,7 +177,6 @@ import Footer from '../components/contact/Footer.astro';
       } else {
         initChapterReveals();
       }
-
       document.addEventListener('astro:page-load', initChapterReveals);
     })();
   </script>

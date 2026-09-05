@@ -6,12 +6,6 @@ export default function Preloader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Honest UX Fix: Don't show preloader on every single page navigation
-    if (sessionStorage.getItem('site_loaded')) {
-      setLoading(false);
-      return;
-    }
-
     // Prevent scrolling while loading
     document.body.style.overflow = 'hidden';
     
@@ -23,7 +17,6 @@ export default function Preloader() {
         setTimeout(() => {
           setLoading(false);
           document.body.style.overflow = '';
-          sessionStorage.setItem('site_loaded', 'true');
         }, 500); // Hold at 100% briefly
       } else {
         setProgress(Math.floor(current));

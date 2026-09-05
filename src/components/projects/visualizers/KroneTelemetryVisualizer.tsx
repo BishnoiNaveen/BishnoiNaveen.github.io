@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { springPresets } from '../../../lib/springs';
 
 const SENSOR_STREAMS = [
@@ -12,7 +12,6 @@ const SENSOR_STREAMS = [
 export default function KroneTelemetryVisualizer() {
   const [isBlackout, setIsBlackout] = useState(false);
   const [bufferUsage, setBufferUsage] = useState(14.8);
-  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (isBlackout) {
@@ -42,19 +41,17 @@ export default function KroneTelemetryVisualizer() {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <motion.button
+          <button
             type="button"
             onClick={() => setIsBlackout(!isBlackout)}
-            whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
-            transition={springPresets.snappy}
-            className={`px-3 py-1 rounded-full text-xs font-mono font-bold border transition-colors cursor-pointer ${
+            className={`px-3 py-1 rounded-full text-xs font-mono font-bold border transition-all cursor-pointer ${
               isBlackout
                 ? 'bg-[#FF3B30]/15 text-[#FF3B30] border-[#FF3B30]/40'
                 : 'bg-[var(--color-success)]/15 text-[var(--color-success)] border-[var(--color-success)]/40'
             }`}
           >
             {isBlackout ? 'Mode: 72h Cellular Blackout (Active)' : 'Mode: LTE Connected (Burst Stream)'}
-          </motion.button>
+          </button>
         </div>
       </div>
 

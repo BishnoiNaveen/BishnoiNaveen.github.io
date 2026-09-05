@@ -13,24 +13,24 @@ export const THEME_STORAGE_KEY = 'naveen-bishnoi-theme';
  * Check the system's preferred color scheme
  */
 export function getSystemTheme(): ResolvedTheme {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  if (typeof window === 'undefined') return 'dark';
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
 /**
- * Retrieve the user's stored theme preference or fallback to 'system'
+ * Retrieve the user's stored theme preference or fallback to 'dark'
  */
 export function getStoredTheme(): Theme {
-  if (typeof window === 'undefined') return 'system';
+  if (typeof window === 'undefined') return 'dark';
   try {
     const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-    if (stored === 'light' || stored === 'dark' || stored === 'system') {
+    if (stored === 'light' || stored === 'dark') {
       return stored;
     }
   } catch (e) {
     // Graceful fallback if localStorage is unavailable
   }
-  return 'system';
+  return 'dark';
 }
 
 /**
@@ -39,9 +39,9 @@ export function getStoredTheme(): Theme {
 export function getResolvedTheme(): ResolvedTheme {
   const stored = getStoredTheme();
   if (stored === 'system') {
-    return getSystemTheme();
+    return 'dark';
   }
-  return stored;
+  return stored as ResolvedTheme;
 }
 
 /**

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { springPresets } from '../../../lib/springs';
 
 const DAG_STAGES = [
@@ -35,7 +35,6 @@ const DAG_STAGES = [
 
 export default function UltronDagVisualizer() {
   const [selectedStage, setSelectedStage] = useState(2);
-  const shouldReduceMotion = useReducedMotion();
 
   return (
     <div className="w-full rounded-2xl md:rounded-3xl border border-[var(--color-border)] bg-[var(--material-1-bg)] p-5 sm:p-6 md:p-8 shadow-[var(--shadow-soft-md)] overflow-hidden">
@@ -60,13 +59,11 @@ export default function UltronDagVisualizer() {
           const isSelected = selectedStage === idx;
           const isDone = selectedStage >= idx;
           return (
-            <motion.button
+            <button
               key={s.stage}
               type="button"
               onClick={() => setSelectedStage(idx)}
-              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-              transition={springPresets.snappy}
-              className={`p-3.5 rounded-xl border text-left transition-colors cursor-pointer ${
+              className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
                 isSelected
                   ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/[0.06] shadow-sm'
                   : 'border-[var(--color-border-subtle)] bg-[var(--color-canvas)]/60 hover:border-[var(--color-border)]'
@@ -98,7 +95,7 @@ export default function UltronDagVisualizer() {
                   </span>
                 ))}
               </div>
-            </motion.button>
+            </button>
           );
         })}
       </div>

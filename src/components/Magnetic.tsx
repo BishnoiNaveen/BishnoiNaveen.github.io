@@ -1,44 +1,17 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { playHoverSound, playClickSound } from '../utils/sound';
-import { springPresets, instantTransition, mechanicalClick } from '../lib/springs';
 
-export default function Magnetic({
-  children,
-  className = '',
-  maxRadius = 24,
-  strength = 0.28,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  maxRadius?: number;
-  strength?: number;
-}) {
+export default function Magnetic({ children, className = '' }: { children: React.ReactNode, className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isFinePointer, setIsFinePointer] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      setIsFinePointer(window.matchMedia('(pointer: fine)').matches);
-    }
-  }, []);
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isFinePointer || shouldReduceMotion || !ref.current) return;
     const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current.getBoundingClientRect();
-    const rawX = (clientX - (left + width / 2)) * strength;
-    const rawY = (clientY - (top + height / 2)) * strength;
-
-    const distance = Math.hypot(rawX, rawY);
-    if (distance > maxRadius && distance > 0) {
-      const ratio = maxRadius / distance;
-      setPosition({ x: rawX * ratio, y: rawY * ratio });
-    } else {
-      setPosition({ x: rawX, y: rawY });
-    }
+    const { height, width, left, top } = ref.current!.getBoundingClientRect();
+    const middleX = clientX - (left + width / 2);
+    const middleY = clientY - (top + height / 2);
+    setPosition({ x: middleX * 0.3, y: middleY * 0.3 });
   };
 
   const reset = () => {
@@ -52,13 +25,11 @@ export default function Magnetic({
       onMouseLeave={reset}
       onMouseEnter={playHoverSound}
       onClick={playClickSound}
-      animate={shouldReduceMotion ? { x: 0, y: 0 } : { x: position.x, y: position.y }}
-      whileTap={shouldReduceMotion ? undefined : mechanicalClick}
-      transition={shouldReduceMotion ? instantTransition : springPresets.magnetic}
+      animate={{ x: position.x, y: position.y }}
+      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={`inline-block ${className}`}
     >
       {children}
     </motion.div>
   );
 }
-

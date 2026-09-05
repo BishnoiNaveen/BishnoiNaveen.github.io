@@ -13,6 +13,14 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      fs: {
+        allow: [
+          'C:/Portfolio',
+          'C:/Users/Naveen/OneDrive - KRONE AGRICULTURE INDIA PVT LTD/Desktop/Naveen Bishnoi Portfolio',
+        ],
+      },
+    },
     build: {
       cssMinify: true,
     },

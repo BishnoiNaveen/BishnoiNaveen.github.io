@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { springPresets, instantTransition } from '../../../lib/springs';
+import { motion, AnimatePresence } from 'framer-motion';
+import { springPresets } from '../../../lib/springs';
 
 const COMMIT_STEPS = [
   {
@@ -39,7 +39,6 @@ const COMMIT_STEPS = [
 
 export default function GamsMemoryVisualizer() {
   const [activeStep, setActiveStep] = useState(2); // Step 3 by default (Atomic Inode Swap)
-  const shouldReduceMotion = useReducedMotion();
 
   return (
     <div className="w-full rounded-2xl md:rounded-3xl border border-[var(--color-border)] bg-[var(--material-1-bg)] p-5 sm:p-6 md:p-8 shadow-[var(--shadow-soft-md)] overflow-hidden">
@@ -78,10 +77,10 @@ export default function GamsMemoryVisualizer() {
                 key={item.step}
                 type="button"
                 onClick={() => setActiveStep(idx)}
-                whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-                transition={shouldReduceMotion ? instantTransition : springPresets.snappy}
-                className={`w-full text-left p-3.5 sm:p-4 rounded-xl border transition-colors cursor-pointer ${
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                transition={springPresets.snappy}
+                className={`w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
                   isActive
                     ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/[0.06] shadow-sm'
                     : 'border-[var(--color-border-subtle)] bg-[var(--color-canvas)]/60 hover:border-[var(--color-border)]'

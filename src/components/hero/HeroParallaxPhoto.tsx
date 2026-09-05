@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
-import { springPresets, instantTransition } from '../../lib/springs';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { springPresets } from '../../lib/springs';
 
 interface HeroParallaxPhotoProps {
   imageSrc?: string;
@@ -16,21 +16,20 @@ export default function HeroParallaxPhoto({
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isFinePointer, setIsFinePointer] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
 
   // Raw normalized mouse coordinates [-0.5, 0.5]
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   // Physics springs for fluid organic movement
-  const springX = useSpring(mouseX, shouldReduceMotion ? instantTransition : springPresets.glide);
-  const springY = useSpring(mouseY, shouldReduceMotion ? instantTransition : springPresets.glide);
+  const springX = useSpring(mouseX, { mass: 0.6, stiffness: 220, damping: 24 });
+  const springY = useSpring(mouseY, { mass: 0.6, stiffness: 220, damping: 24 });
 
-  // 3D Transform mappings (subtle restrained parallax angle)
-  const rotateX = useTransform(springY, [-0.5, 0.5], [4, -4]);
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-4, 4]);
-  const translateX = useTransform(springX, [-0.5, 0.5], [-10, 10]);
-  const translateY = useTransform(springY, [-0.5, 0.5], [-10, 10]);
+  // 3D Transform mappings
+  const rotateX = useTransform(springY, [-0.5, 0.5], [5, -5]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-5, 5]);
+  const translateX = useTransform(springX, [-0.5, 0.5], [-12, 12]);
+  const translateY = useTransform(springY, [-0.5, 0.5], [-12, 12]);
   const glareOpacity = useTransform(springY, [-0.5, 0.5], [0.15, 0.35]);
 
   useEffect(() => {

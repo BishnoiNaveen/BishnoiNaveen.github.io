@@ -13,16 +13,13 @@ import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useTimeline, getSceneProgress } from '../timeline/CinematicTimeline';
-import { useQualityTier, getParticleScale } from '../quality/useQualityTier';
 
 export default function Scene01Boot() {
   const progress = useTimeline((s) => s.progress);
-  const tier = useQualityTier();
   const sceneProgress = getSceneProgress(progress, 0);
 
-  // Instanced particles setup (scaled by adaptive quality tier)
-  const baseParticleCount = 280;
-  const particleCount = Math.max(40, Math.round(baseParticleCount * getParticleScale(tier.tier)));
+  // Instanced particles setup
+  const particleCount = 280;
   const instancedMeshRef = useRef<THREE.InstancedMesh>(null);
   const coreRef = useRef<THREE.Group>(null);
   const innerIcosaRef = useRef<THREE.Mesh>(null);
