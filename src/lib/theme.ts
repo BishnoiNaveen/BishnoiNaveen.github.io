@@ -18,10 +18,10 @@ export function getSystemTheme(): ResolvedTheme {
 }
 
 /**
- * Retrieve the user's stored theme preference or fallback to 'dark'
+ * Retrieve the user's stored theme preference or fallback to 'light'
  */
 export function getStoredTheme(): Theme {
-  if (typeof window === 'undefined') return 'dark';
+  if (typeof window === 'undefined') return 'light';
   try {
     const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
     if (stored === 'light' || stored === 'dark') {
@@ -30,7 +30,7 @@ export function getStoredTheme(): Theme {
   } catch (e) {
     // Graceful fallback if localStorage is unavailable
   }
-  return 'dark';
+  return 'light';
 }
 
 /**

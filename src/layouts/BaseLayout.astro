@@ -21,7 +21,7 @@ interface Props {
 const {
   title = 'Naveen Bishnoi | Software Architect & AI Automation Engineer',
   description = 'Personal Brand & Systems Architecture Showcase of Naveen Bishnoi — Software Architect, AI Automation Engineer, and Systems Builder.',
-  ogImage = '/images/portfolio_hero.jpg',
+  ogImage = '/favicon.svg',
   canonicalUrl = Astro.url.href,
   keywords = [
     'Naveen Bishnoi',
@@ -58,7 +58,7 @@ const jsonLdGraph = {
       jobTitle: 'Software Architect & AI Automation Engineer',
       description: 'Systems builder specializing in distributed systems, AI automation swarms, agricultural IoT telematics, and high-performance software.',
       url: 'https://BishnoiNaveen.github.io',
-      image: 'https://BishnoiNaveen.github.io/images/portfolio_hero.jpg',
+      image: 'https://BishnoiNaveen.github.io/favicon.svg',
       email: '0029bishnoinaveen@gmail.com',
       sameAs: [
         'https://github.com/BishnoiNaveen',
@@ -121,8 +121,8 @@ const jsonLdGraph = {
         try {
           var storageKey = 'naveen-bishnoi-theme';
           var stored = localStorage.getItem(storageKey);
-          // Default to Dark Luxury for the cinematic portfolio
-          var isDark = stored !== 'light';
+          // Default to Bright Apple Ceramic Light Mode
+          var isDark = stored === 'dark';
           var root = document.documentElement;
           if (isDark) {
             root.classList.add('dark');

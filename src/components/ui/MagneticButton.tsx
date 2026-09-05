@@ -43,13 +43,13 @@ export default function MagneticButton({
 
   const variantStyles = {
     primary:
-      'bg-white text-zinc-950 hover:bg-zinc-100 font-bold shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.35)]',
+      'bg-[var(--color-accent)] hover:bg-[#0077ed] text-white font-bold shadow-[0_4px_16px_rgba(0,113,227,0.35)] hover:shadow-[0_6px_24px_rgba(0,113,227,0.45)]',
     secondary:
-      'bg-white/[0.05] hover:bg-white/[0.1] text-zinc-200 hover:text-white border border-white/10 backdrop-blur-xl',
+      'bg-black/[0.04] dark:bg-white/[0.05] hover:bg-black/[0.08] dark:hover:bg-white/[0.1] text-[var(--color-text-primary)] border border-black/[0.08] dark:border-white/10 backdrop-blur-xl shadow-sm',
     glass:
-      'bg-white/[0.07] hover:bg-white/[0.14] text-white border border-white/15 hover:border-white/30 backdrop-blur-2xl shadow-[0_4px_24px_rgba(0,0,0,0.4)]',
+      'bg-white/80 dark:bg-white/[0.07] hover:bg-white dark:hover:bg-white/[0.14] text-[var(--color-text-primary)] border border-black/[0.08] dark:border-white/15 hover:border-black/20 dark:hover:border-white/30 backdrop-blur-2xl shadow-[0_4px_16px_rgba(0,0,0,0.04)]',
     ghost:
-      'text-zinc-400 hover:text-white hover:bg-white/[0.06]',
+      'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]',
   }[variant];
 
   const content = (

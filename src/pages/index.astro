@@ -1,78 +1,72 @@
 ---
 /**
- * index.astro — BEAST MODE: Dark Luxury AI Portfolio
- * 8 Chapters · Cinematic Scroll · Glass + Gradient Throughout
+ * index.astro — Apple VisionOS Luminous Portfolio
+ * 8 Chapters · Natural High-Speed Smooth Scroll · Translucent Liquid Glass · AI Toys & Copilot
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FloatingNav from '../components/nav/FloatingNav';
-import CinematicExperience from '../experience/CinematicExperience';
 import CinematicHero from '../components/hero/CinematicHero.astro';
 import TypographicManifesto from '../components/manifesto/TypographicManifesto.astro';
 import Projects from '../components/Projects';
+import InteractivePlayground from '../components/toys/InteractivePlayground';
 import LabSection from '../components/lab/LabSection.astro';
 import AboutSection from '../components/about/AboutSection.astro';
 import SkillsSection from '../components/about/SkillsSection.astro';
 import ContactSection from '../components/contact/ContactSection.astro';
 import Footer from '../components/contact/Footer.astro';
+import NaveenAssistant from '../components/ai/NaveenAssistant';
 ---
 
 <BaseLayout
   title="Naveen Bishnoi | Software Architect & AI Systems Engineer"
   description="Personal Brand & Systems Architecture Showcase of Naveen Bishnoi — Software Architect, AI Automation Engineer, and Systems Builder at KRONE Agriculture India."
 >
-  {/* Floating Navigation */}
-  <FloatingNav slot="header" />
+  {/* Floating Navigation Bar */}
+  <FloatingNav slot="header" client:load />
 
-  {/* CINEMATIC 3D JOURNEY */}
-  <CinematicExperience client:only="react" scrollTrackHeight="700vh" />
+  {/* ── ALL EDITORIAL CHAPTERS — Apple VisionOS Ceramic Luminous Aesthetic ── */}
+  <div class="relative w-full overflow-hidden bg-[var(--color-canvas)] text-[var(--color-text-primary)]">
 
-  {/* ── ALL EDITORIAL SECTIONS — Dark Luxury ── */}
-  <div class="relative w-full overflow-hidden" style="background: #020208; color: #f8fafc;">
-
-    {/* Chapter 01: Hero */}
+    {/* Chapter 01: Hero (Interactive Monogram & Identity Hub) */}
     <div class="chapter-reveal is-revealed" data-chapter="1">
       <CinematicHero />
     </div>
 
-    {/* Gradient Divider */}
+    {/* Section Divider Hairline */}
     <div class="divider-gradient w-full"></div>
 
     {/* Chapter 02: Typographic Manifesto */}
-    <div class="chapter-reveal stagger-reveal" data-chapter="2"
-      style="background: linear-gradient(180deg, #020208 0%, #05050f 100%); position:relative;">
-      {/* Mesh orb */}
-      <div aria-hidden="true" class="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] opacity-30"
-        style="background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%); filter:blur(80px);"></div>
+    <div class="chapter-reveal stagger-reveal relative" data-chapter="2">
+      <div aria-hidden="true" class="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] opacity-25"
+        style="background: radial-gradient(circle, rgba(0,113,227,0.12) 0%, transparent 70%); filter:blur(80px);"></div>
       <TypographicManifesto />
     </div>
 
-    {/* Gradient Divider */}
+    {/* Section Divider Hairline */}
     <div class="divider-gradient w-full"></div>
 
-    {/* Chapter 03: Featured Projects */}
-    <div class="chapter-reveal stagger-reveal" data-chapter="3"
-      style="background: linear-gradient(180deg, #05050f 0%, #020208 100%); position:relative; overflow:hidden;">
-      {/* Background orb */}
-      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[600px] opacity-25"
-        style="background: radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%); filter:blur(100px);"></div>
+    {/* Chapter 03: Featured Engineering Systems */}
+    <div class="chapter-reveal stagger-reveal relative overflow-hidden" data-chapter="3">
+      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[600px] opacity-20"
+        style="background: radial-gradient(circle, rgba(128,32,232,0.1) 0%, transparent 70%); filter:blur(90px);"></div>
 
       <section
         id="work"
         aria-label="Featured Engineering Works"
-        class="relative py-24 md:py-36 px-6 md:px-12 lg:px-16 contain-layout"
+        class="relative py-20 md:py-32 px-6 md:px-12 lg:px-16 contain-layout"
       >
         <div id="projects" class="max-w-[96rem] mx-auto w-full">
 
           {/* Section Header */}
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <div class="badge-accent mb-5">
+              <div class="badge-accent mb-4">
                 <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
                 Chapter 03 · Featured Engineering Systems
               </div>
-              <h2 style="font-size:clamp(2.2rem,1.5rem + 3vw,4rem); font-weight:800; letter-spacing:-0.035em; line-height:1.05; color:#f8fafc;">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.035em] text-[var(--color-text-primary)] leading-[1.05]">
                 Architecture Built<br/>
-                <span style="background: linear-gradient(135deg, #c7d2fe, #818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+                <span class="bg-gradient-to-r from-[var(--color-accent)] to-purple-600 bg-clip-text text-transparent">
                   for Determinism.
                 </span>
               </h2>
@@ -93,51 +87,57 @@ import Footer from '../components/contact/Footer.astro';
       </section>
     </div>
 
-    {/* Gradient Divider */}
+    {/* Section Divider Hairline */}
     <div class="divider-gradient w-full"></div>
 
-    {/* Chapter 04: Lab */}
-    <div class="chapter-reveal stagger-reveal" data-chapter="4"
-      style="background: linear-gradient(180deg, #020208 0%, #03030d 100%); position:relative; overflow:hidden;">
-      <div aria-hidden="true" class="pointer-events-none absolute top-1/4 right-0 w-[500px] h-[500px] opacity-20"
-        style="background: radial-gradient(circle, rgba(6,182,212,0.4) 0%, transparent 70%); filter:blur(80px);"></div>
+    {/* Chapter 04: Interactive Systems Toys (Playground) */}
+    <div class="chapter-reveal stagger-reveal relative overflow-hidden" data-chapter="4">
+      <InteractivePlayground client:load />
+    </div>
+
+    {/* Section Divider Hairline */}
+    <div class="divider-gradient w-full"></div>
+
+    {/* Chapter 05: Engineering Lab Suite */}
+    <div class="chapter-reveal stagger-reveal relative overflow-hidden" data-chapter="5">
+      <div aria-hidden="true" class="pointer-events-none absolute top-1/4 right-0 w-[500px] h-[500px] opacity-15"
+        style="background: radial-gradient(circle, rgba(2,132,199,0.15) 0%, transparent 70%); filter:blur(80px);"></div>
       <LabSection />
     </div>
 
-    {/* Gradient Divider */}
+    {/* Section Divider Hairline */}
     <div class="divider-gradient w-full"></div>
 
-    {/* Chapter 05: About */}
-    <div class="chapter-reveal stagger-reveal" data-chapter="5"
-      style="background: linear-gradient(180deg, #03030d 0%, #050510 100%); position:relative; overflow:hidden;">
-      <div aria-hidden="true" class="pointer-events-none absolute top-0 left-1/3 w-[600px] h-[600px] opacity-20"
-        style="background: radial-gradient(circle, rgba(99,102,241,0.35) 0%, transparent 70%); filter:blur(100px);"></div>
+    {/* Chapter 06: About & Axioms */}
+    <div class="chapter-reveal stagger-reveal relative overflow-hidden" data-chapter="6">
+      <div aria-hidden="true" class="pointer-events-none absolute top-0 left-1/3 w-[600px] h-[600px] opacity-15"
+        style="background: radial-gradient(circle, rgba(0,113,227,0.12) 0%, transparent 70%); filter:blur(90px);"></div>
       <AboutSection />
     </div>
 
-    {/* Gradient Divider */}
+    {/* Section Divider Hairline */}
     <div class="divider-gradient w-full"></div>
 
-    {/* Chapter 06: Skills */}
-    <div class="chapter-reveal stagger-reveal" data-chapter="6"
-      style="background: linear-gradient(180deg, #050510 0%, #020208 100%); position:relative; overflow:hidden;">
-      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] opacity-20"
-        style="background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); filter:blur(80px);"></div>
+    {/* Chapter 07: Technical Competencies Bento */}
+    <div class="chapter-reveal stagger-reveal relative overflow-hidden" data-chapter="7">
+      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] opacity-15"
+        style="background: radial-gradient(circle, rgba(128,32,232,0.12) 0%, transparent 70%); filter:blur(80px);"></div>
       <SkillsSection />
     </div>
 
-    {/* Gradient Divider */}
+    {/* Section Divider Hairline */}
     <div class="divider-gradient w-full"></div>
 
-    {/* Chapter 08: Contact */}
-    <div class="chapter-reveal stagger-reveal" data-chapter="8"
-      style="background: linear-gradient(180deg, #020208 0%, #030312 100%); position:relative; overflow:hidden;">
-      {/* Big glow behind contact */}
-      <div aria-hidden="true" class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-30"
-        style="background: radial-gradient(ellipse, rgba(99,102,241,0.4) 0%, transparent 70%); filter:blur(80px);"></div>
+    {/* Chapter 08: Direct Contact & Signature */}
+    <div class="chapter-reveal stagger-reveal relative overflow-hidden" data-chapter="8">
+      <div aria-hidden="true" class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-20"
+        style="background: radial-gradient(ellipse, rgba(0,113,227,0.15) 0%, transparent 70%); filter:blur(90px);"></div>
       <ContactSection />
     </div>
   </div>
+
+  {/* Floating Naveen AI Copilot Widget */}
+  <NaveenAssistant client:load />
 
   {/* Footer */}
   <Footer slot="footer" />

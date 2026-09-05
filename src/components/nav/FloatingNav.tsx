@@ -88,9 +88,9 @@ export default function FloatingNav() {
         <nav
           role="navigation"
           aria-label="Primary Navigation"
-          className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 md:gap-6 px-3.5 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-300 bg-[#0a0d17]/85 backdrop-blur-2xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.7)] ${
+          className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 md:gap-6 px-3.5 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-300 bg-white/80 dark:bg-[#0a0d17]/85 backdrop-blur-2xl border border-black/[0.08] dark:border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.7)] ${
             isScrolled
-              ? 'border-cyan-500/30 shadow-[0_12px_40px_rgba(6,182,212,0.15)]'
+              ? 'border-[var(--color-accent)]/30 shadow-[0_12px_40px_rgba(0,113,227,0.12)]'
               : ''
           }`}
         >
@@ -139,7 +139,7 @@ export default function FloatingNav() {
                     <motion.div
                       layoutId="active-nav-pill"
                       transition={springPresets.glide}
-                      className="absolute inset-0 rounded-full bg-white/15 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] -z-10"
+                      className="absolute inset-0 rounded-full bg-black/[0.06] dark:bg-white/15 border border-black/10 dark:border-white/20 shadow-sm -z-10"
                     />
                   )}
 
@@ -148,7 +148,7 @@ export default function FloatingNav() {
                     <motion.div
                       layoutId="hover-nav-pill"
                       transition={{ type: 'spring', mass: 0.5, stiffness: 400, damping: 30 }}
-                      className="absolute inset-0 rounded-full bg-white/[0.08] -z-10"
+                      className="absolute inset-0 rounded-full bg-black/[0.03] dark:bg-white/[0.08] -z-10"
                     />
                   )}
 

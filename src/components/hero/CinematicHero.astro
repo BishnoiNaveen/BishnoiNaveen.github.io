@@ -1,90 +1,87 @@
 ---
 /**
- * CinematicHero.astro — BEAST MODE: Dark Luxury AI Hero
- * Premium gradient hero with glassmorphism, floating orbs, stats, tech strip
+ * CinematicHero.astro — Apple VisionOS Luminous Hero
+ * Interactive Apple Identity Hub (Monogram & Telemetry), Spring physics, crisp typography
  */
-import HeroParallaxPhoto from './HeroParallaxPhoto';
+import AppleIdentityHub from './AppleIdentityHub';
 import HeroActionButtons from './HeroActionButtons';
 ---
 
-<section id="hero" aria-label="Introduction" class="relative w-full overflow-hidden">
+<section id="hero" aria-label="Introduction" class="relative w-full overflow-hidden bg-[var(--color-canvas)]">
 
-  {/* ── BEAST MODE HERO PANEL ── */}
-  <div class="relative w-full min-h-screen flex items-center overflow-hidden" style="background: #020208;">
+  {/* ── LUMINOUS HERO PANEL ── */}
+  <div class="relative w-full min-h-screen flex items-center overflow-hidden">
 
-    {/* Animated Gradient Mesh Orbs */}
+    {/* Animated Ambient Gradient Mesh Orbs */}
     <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* Orb 1 — Indigo */}
-      <div class="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full"
-        style="background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%); filter: blur(80px); animation: float-slow 8s ease-in-out infinite;"></div>
-      {/* Orb 2 — Violet */}
-      <div class="absolute top-[10%] right-[-10%] w-[600px] h-[600px] rounded-full"
-        style="background: radial-gradient(circle, rgba(139,92,246,0.20) 0%, transparent 70%); filter: blur(80px); animation: float-slow 10s ease-in-out infinite reverse;"></div>
-      {/* Orb 3 — Cyan */}
-      <div class="absolute bottom-[0%] left-[30%] w-[500px] h-[500px] rounded-full"
-        style="background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%); filter: blur(80px); animation: float-slow 12s ease-in-out infinite 2s;"></div>
+      {/* Orb 1 — Apple Electric Blue */}
+      <div class="absolute top-[-10%] left-[-5%] w-[650px] h-[650px] rounded-full opacity-60 dark:opacity-25"
+        style="background: radial-gradient(circle, rgba(0,113,227,0.18) 0%, transparent 70%); filter: blur(90px); animation: float-slow 8s ease-in-out infinite;"></div>
+      {/* Orb 2 — Apple Violet */}
+      <div class="absolute top-[10%] right-[-10%] w-[600px] h-[600px] rounded-full opacity-50 dark:opacity-20"
+        style="background: radial-gradient(circle, rgba(128,32,232,0.15) 0%, transparent 70%); filter: blur(90px); animation: float-slow 10s ease-in-out infinite reverse;"></div>
+      {/* Orb 3 — Emerald Invariant */}
+      <div class="absolute bottom-[0%] left-[30%] w-[500px] h-[500px] rounded-full opacity-40 dark:opacity-15"
+        style="background: radial-gradient(circle, rgba(52,199,89,0.14) 0%, transparent 70%); filter: blur(80px); animation: float-slow 12s ease-in-out infinite 2s;"></div>
       {/* Grid overlay */}
-      <div class="absolute inset-0 opacity-[0.03]"
-        style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
-      {/* Subtle dot matrix overlay */}
-      <div class="absolute inset-0 opacity-[0.04]"
-        style="background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 32px 32px;"></div>
+      <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+        style="background-image: linear-gradient(rgba(0,0,0,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.4) 1px, transparent 1px); background-size: 60px 60px;"></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-[96rem] mx-auto px-6 md:px-12 pt-36 pb-20 md:pt-48 md:pb-28">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+    <div class="relative z-10 w-full max-w-[96rem] mx-auto px-6 md:px-12 pt-32 pb-20 md:pt-44 md:pb-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-        {/* ── LEFT COLUMN ── */}
+        {/* ── LEFT COLUMN: Core Narrative & Actions ── */}
         <div class="lg:col-span-7 flex flex-col items-start">
 
           {/* Status Badge */}
-          <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full mb-8 cursor-default select-none"
-            style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); backdrop-filter: blur(12px);">
-            <span class="status-live"></span>
-            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#a5b4fc;">
-              Available · Open to Opportunities
+          <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full mb-8 cursor-default select-none bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/25 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[11px] font-mono font-bold tracking-widest uppercase text-emerald-700 dark:text-emerald-400">
+              Available for Architectural Leadership · Open to Opportunities
             </span>
           </div>
 
           {/* Chapter Eyebrow */}
-          <p class="type-badge-label text-[var(--text-muted)] mb-4" style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;">
-            Chapter 01 · Systems Architect &amp; AI Engineer
+          <p class="type-badge-label text-[var(--color-text-muted)] mb-4" style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;">
+            Chapter 01 · Software Architect &amp; AI Systems Engineer
           </p>
 
-          {/* MASSIVE Gradient Headline */}
-          <h1 class="mb-6" style="font-size: clamp(3rem,2rem + 5vw,6.5rem); font-weight:900; line-height:0.95; letter-spacing:-0.04em;">
-            <span style="display:block; color: #f8fafc;">Building</span>
-            <span style="display:block; background: linear-gradient(135deg, #c7d2fe 0%, #a5b4fc 30%, #818cf8 60%, #6366f1 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
-              Resilient
+          {/* Clean High-Impact Apple Headline */}
+          <h1 class="mb-6 font-extrabold tracking-[-0.04em] leading-[0.98]" style="font-size: clamp(2.8rem, 2rem + 4.5vw, 6rem);">
+            <span class="block text-[var(--color-text-primary)]">Architecting</span>
+            <span class="block bg-gradient-to-r from-[var(--color-accent)] via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Autonomous Systems.
             </span>
-            <span style="display:block; color: #94a3b8; font-weight:400;">Systems.</span>
+            <span class="block text-[var(--color-text-secondary)] font-normal text-3xl sm:text-4xl md:text-5xl tracking-[-0.03em] mt-1">
+              Engineered for Determinism.
+            </span>
           </h1>
 
-          {/* Subheadline */}
-          <p class="mb-4" style="font-size:clamp(1.1rem, 0.9rem + 0.6vw, 1.4rem); font-weight:600; color:#e0e7ff; letter-spacing:-0.01em;">
+          {/* Subheadline & Bio */}
+          <p class="mb-4 text-lg sm:text-xl font-semibold text-[var(--color-accent)] tracking-tight">
             Naveen Bishnoi — Software Architect &amp; AI Systems Engineer
           </p>
-          <p class="mb-10" style="font-size:clamp(1rem,0.9rem + 0.3vw,1.2rem); font-weight:400; color:#94a3b8; line-height:1.7; max-width:560px;">
-            Crafting fault-tolerant distributed platforms, low-level POSIX engines with proven memory invariants, and deterministic multi-agent orchestration systems.
+          <p class="mb-10 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-2xl font-normal">
+            Building fault-tolerant distributed platforms, low-level POSIX engines with mathematically proven memory invariants, and deterministic multi-agent orchestration systems at <strong class="font-semibold text-[var(--color-text-primary)]">KRONE Agriculture India</strong>.
           </p>
 
           {/* Action Buttons */}
           <HeroActionButtons client:load />
 
           {/* Verified System Invariants */}
-          <div class="mt-10 pt-8 w-full max-w-2xl" style="border-top: 1px solid rgba(255,255,255,0.08);">
-            <p style="font-family:var(--font-mono); font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.75rem;">
+          <div class="mt-10 pt-8 w-full max-w-2xl border-t border-[var(--color-border-subtle)]">
+            <p style="font-family:var(--font-mono); font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:0.75rem;">
               Core Verified Invariants
             </p>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2.5">
               {[
                 { label: 'POSIX Atomic Inode', color: '#10b981' },
                 { label: 'Valgrind 0-Byte Leak', color: '#10b981' },
-                { label: '50Hz CAN Edge Ingest', color: '#10b981' },
-                { label: '99.9% Uptime SLA', color: '#6366f1' },
+                { label: '50Hz CAN Edge Ingest', color: '#0071e3' },
+                { label: '99.99% Uptime SLA', color: '#8020e8' },
               ].map(chip => (
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md"
-                  style={`background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); font-family:var(--font-mono); font-size:0.72rem; color:#94a3b8;`}>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] shadow-sm text-xs font-mono font-medium text-[var(--color-text-secondary)]">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={chip.color} stroke-width="2.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
@@ -95,49 +92,20 @@ import HeroActionButtons from './HeroActionButtons';
           </div>
         </div>
 
-        {/* ── RIGHT COLUMN: Photo + Stats ── */}
+        {/* ── RIGHT COLUMN: Interactive Apple Identity Hub ── */}
         <div class="lg:col-span-5 flex flex-col items-center gap-8">
-
-          {/* Photo Frame with gradient border */}
-          <div class="relative w-full max-w-md">
-            {/* Gradient glow behind photo */}
-            <div class="absolute -inset-4 rounded-3xl opacity-60"
-              style="background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(139,92,246,0.3)); filter: blur(40px); z-index:0;"></div>
-            
-            {/* Animated border ring */}
-            <div class="absolute -inset-[2px] rounded-3xl z-0"
-              style="background: linear-gradient(135deg, rgba(99,102,241,0.8), rgba(139,92,246,0.6), rgba(6,182,212,0.5)); padding: 2px; border-radius: 24px;">
-              <div style="background:#020208; border-radius: 22px; height:100%;"></div>
-            </div>
-
-            <div class="relative z-10 rounded-3xl overflow-hidden" style="aspect-ratio:4/5; border-radius:22px;">
-              <HeroParallaxPhoto
-                client:load
-                imageSrc="/images/portfolio_hero.jpg"
-                altText="Naveen Bishnoi — Software Architect"
-              />
-              {/* Gradient overlay on photo */}
-              <div class="absolute inset-0 pointer-events-none"
-                style="background: linear-gradient(180deg, transparent 60%, rgba(2,2,8,0.8) 100%);"></div>
-              {/* Name overlay on photo */}
-              <div class="absolute bottom-5 left-5 right-5">
-                <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:4px;">Principal Engineer</p>
-                <p style="font-size:1rem; font-weight:700; color:white;">KRONE Agriculture India</p>
-              </div>
-            </div>
-          </div>
+          <AppleIdentityHub client:load />
 
           {/* Stats Row */}
-          <div class="grid grid-cols-3 gap-4 w-full max-w-md">
+          <div class="grid grid-cols-3 gap-3 w-full max-w-lg">
             {[
-              { value: '3+', label: 'Years Building', color: '#818cf8' },
-              { value: '12+', label: 'Systems Shipped', color: '#a78bfa' },
-              { value: '∞', label: 'Coffee Consumed', color: '#67e8f9' },
+              { value: '3+', label: 'Years Building', color: '#0071e3' },
+              { value: '12+', label: 'Systems Shipped', color: '#8020e8' },
+              { value: '99.99%', label: 'Telemetry SLA', color: '#10b981' },
             ].map(stat => (
-              <div class="flex flex-col items-center p-4 rounded-2xl text-center"
-                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
-                <span style={`font-size: 1.8rem; font-weight: 900; line-height:1; color: ${stat.color}; letter-spacing:-0.03em;`}>{stat.value}</span>
-                <span style="font-size: 0.65rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#64748b; margin-top:4px;">{stat.label}</span>
+              <div class="flex flex-col items-center p-3.5 rounded-2xl text-center bg-white/75 dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08] shadow-sm backdrop-blur-xl">
+                <span style={`font-size: 1.6rem; font-weight: 900; line-height:1.1; color: ${stat.color}; letter-spacing:-0.03em;`}>{stat.value}</span>
+                <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-[var(--color-text-muted)] mt-1">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -145,24 +113,23 @@ import HeroActionButtons from './HeroActionButtons';
       </div>
 
       {/* ── TECH STACK MARQUEE ── */}
-      <div class="mt-20 pt-10" style="border-top: 1px solid rgba(255,255,255,0.06);">
-        <p class="text-center mb-6" style="font-size:0.7rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2);">
-          Core Technology Stack
+      <div class="mt-20 pt-10 border-t border-[var(--color-border-subtle)]">
+        <p class="text-center mb-6 text-xs font-mono font-bold tracking-widest uppercase text-[var(--color-text-muted)]">
+          Core Technology Stack &amp; Systems Architecture
         </p>
-        <div class="relative overflow-hidden">
-          <div class="flex gap-8 items-center" style="animation: marquee 25s linear infinite; width: max-content;">
-            {['Rust', 'C/C++', 'Python', 'TypeScript', 'React', 'Astro', 'Three.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'POSIX', 'CAN Bus', 'WebRTC', 'GSAP', 'LangChain', 'PyTorch', 'gRPC', 'MQTT',
-              'Rust', 'C/C++', 'Python', 'TypeScript', 'React', 'Astro', 'Three.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'POSIX', 'CAN Bus', 'WebRTC', 'GSAP', 'LangChain', 'PyTorch', 'gRPC', 'MQTT'
+        <div class="relative overflow-hidden py-2">
+          <div class="flex gap-4 items-center" style="animation: marquee 30s linear infinite; width: max-content;">
+            {['Rust', 'C/C++', 'Python', 'TypeScript', 'React 19', 'Astro', 'Three.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'POSIX', 'CAN Bus', 'WebRTC', 'LangChain', 'PyTorch', 'gRPC', 'MQTT',
+              'Rust', 'C/C++', 'Python', 'TypeScript', 'React 19', 'Astro', 'Three.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'POSIX', 'CAN Bus', 'WebRTC', 'LangChain', 'PyTorch', 'gRPC', 'MQTT'
             ].map((tech, i) => (
-              <span key={i} class="whitespace-nowrap px-5 py-2 rounded-full text-sm font-semibold select-none"
-                style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); letter-spacing:0.02em; flex-shrink:0;">
+              <span key={i} class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-semibold select-none bg-white/80 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/10 text-[var(--color-text-secondary)] shadow-sm">
                 {tech}
               </span>
             ))}
           </div>
           {/* Fade edges */}
-          <div class="absolute inset-y-0 left-0 w-24 pointer-events-none" style="background: linear-gradient(90deg, #020208, transparent);"></div>
-          <div class="absolute inset-y-0 right-0 w-24 pointer-events-none" style="background: linear-gradient(270deg, #020208, transparent);"></div>
+          <div class="absolute inset-y-0 left-0 w-28 pointer-events-none bg-gradient-to-r from-[var(--color-canvas)] to-transparent"></div>
+          <div class="absolute inset-y-0 right-0 w-28 pointer-events-none bg-gradient-to-l from-[var(--color-canvas)] to-transparent"></div>
         </div>
       </div>
     </div>
