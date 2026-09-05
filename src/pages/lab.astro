@@ -7,6 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FloatingNav from '../components/nav/FloatingNav';
 import LabSuite from '../components/lab/LabSuite';
 import Footer from '../components/contact/Footer.astro';
+import NaveenAssistant from '../components/ai/NaveenAssistant';
 ---
 
 <BaseLayout
@@ -21,5 +22,6 @@ import Footer from '../components/contact/Footer.astro';
     </div>
   </div>
 
+  <NaveenAssistant client:load />
   <Footer slot="footer" />
 </BaseLayout>
