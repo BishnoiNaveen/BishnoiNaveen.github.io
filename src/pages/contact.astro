@@ -1,27 +1,23 @@
----
+﻿---
 /**
- * src/pages/contact.astro — Dedicated Contact & Communication Showcase
+ * src/pages/contact.astro — Clean Minimalist Contact Page
  * Author: Naveen Bishnoi
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FloatingNav from '../components/nav/FloatingNav';
-import ContactTerminal from '../components/contact/ContactTerminal';
+import CleanContact from '../components/contact/CleanContact.astro';
 import Footer from '../components/contact/Footer.astro';
-import NaveenAssistant from '../components/ai/NaveenAssistant';
 ---
 
 <BaseLayout
-  title="Contact & Advisory | Naveen Bishnoi"
-  description="Direct communication with Naveen Bishnoi — Software Architect, Systems Engineer & AI Automation Craftsman. Response SLA < 24 hours guaranteed."
+  title="Contact | Naveen Bishnoi · Software Architect & Systems Engineer"
+  description="Get in touch with Naveen Bishnoi — Software Architect & Systems Engineer at KRONE Agriculture India."
 >
   <FloatingNav client:load slot="header" />
 
-  <div class="w-full min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] pt-32 pb-24 px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col justify-center">
-    <div class="max-w-[96rem] mx-auto w-full">
-      <ContactTerminal client:load />
-    </div>
-  </div>
+  <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24">
+    <CleanContact />
+  </main>
 
-  <NaveenAssistant client:load />
   <Footer slot="footer" />
 </BaseLayout>
