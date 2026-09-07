@@ -7,8 +7,8 @@ import MobileNavSheet, { type NavItem } from './MobileNavSheet';
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Lab', href: '#lab' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
   { label: 'Resume', href: '/Naveen_Bishnoi_Resume.pdf', isExternal: true },
 ];
@@ -29,7 +29,7 @@ export default function FloatingNav() {
     handleScroll();
 
     // Section Observer for Scroll Spy
-    const sectionIds = ['hero', 'manifesto', 'work', 'projects', 'about', 'skills', 'lab', 'contact'];
+    const sectionIds = ['hero', 'work', 'experience', 'skills', 'contact'];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -43,13 +43,9 @@ export default function FloatingNav() {
         // Find highest intersecting entry
         const visibleEntries = entries.filter((e) => e.isIntersecting);
         if (visibleEntries.length > 0) {
-          // Sort by top boundary
           visibleEntries.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
           const topEntry = visibleEntries[0];
-          const id = topEntry.target.id;
-          if (id === 'projects') setActiveSection('#work');
-          else if (id === 'manifesto' || id === 'skills') setActiveSection('#about');
-          else setActiveSection(`#${id}`);
+          setActiveSection(`#${topEntry.target.id}`);
         }
       },
       {

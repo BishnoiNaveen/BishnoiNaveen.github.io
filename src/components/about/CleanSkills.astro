@@ -1,0 +1,72 @@
+﻿---
+/**
+ * CleanSkills.astro — Ultra-Clean Minimalist Skills
+ * Structured 4-Category Bento Grid · Zero Clutter
+ */
+
+interface SkillCategory {
+  title: string;
+  description: string;
+  skills: string[];
+}
+
+const CATEGORIES: SkillCategory[] = [
+  {
+    title: "Programming Languages",
+    description: "Systems programming & high-performance backend development.",
+    skills: ["C", "C++", "Rust", "Go", "TypeScript", "Python", "SQL", "Bash"],
+  },
+  {
+    title: "Systems & Architecture",
+    description: "Distributed communication, protocols, and edge computing.",
+    skills: ["Linux / POSIX", "Distributed Systems", "CAN-Bus (ISO 11783)", "gRPC & Protobuf", "MQTT", "Microservices", "Socket Programming"],
+  },
+  {
+    title: "Cloud & DevOps",
+    description: "Containerization, infrastructure as code, and orchestration.",
+    skills: ["Docker", "Kubernetes", "Terraform", "AWS", "Google Cloud", "CI/CD (GitHub Actions)", "Linux Kernel", "Nginx"],
+  },
+  {
+    title: "Databases & Messaging",
+    description: "Data persistence, time-series storage, and message queues.",
+    skills: ["PostgreSQL", "Redis", "InfluxDB (Time-Series)", "RabbitMQ", "SQLite", "Apache Kafka"],
+  },
+];
+---
+
+<section id="skills" aria-label="Skills and Technologies" class="portfolio-section relative">
+  {/* Section Header */}
+  <div class="mb-10 sm:mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+      Technical Competencies
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
+      Skills &amp; Technologies
+    </h2>
+    <p class="text-base sm:text-lg text-[var(--color-text-secondary)] mt-2 max-w-xl">
+      Tools, languages, and distributed systems technologies I leverage to build production platforms.
+    </p>
+  </div>
+
+  {/* Skills Grid — 4 Clean Bento Cards */}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    {CATEGORIES.map((cat) => (
+      <div class="clean-card p-6 sm:p-8">
+        <h3 class="text-lg sm:text-xl font-bold text-[var(--color-text-primary)] mb-1.5">
+          {cat.title}
+        </h3>
+        <p class="text-xs sm:text-sm text-[var(--color-text-muted)] mb-5">
+          {cat.description}
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          {cat.skills.map((skill) => (
+            <span class="skill-pill">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

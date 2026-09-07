@@ -699,3 +699,85 @@ button, a, input, select, textarea { touch-action: manipulation; }
     --section-px: 1.25rem;
   }
 }
+
+/* Portfolio Clean Layout Helpers */
+.portfolio-hero {
+  padding-top: clamp(7.5rem, 15vh, 10.5rem);
+  padding-bottom: clamp(3.5rem, 7vh, 5.5rem);
+}
+
+.portfolio-section {
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+}
+
+.clean-card {
+  background-color: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+:root[data-theme="dark"] .clean-card,
+.dark .clean-card {
+  background-color: rgba(18, 22, 36, 0.88);
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.clean-card:hover {
+  border-color: rgba(0, 113, 227, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 113, 227, 0.08);
+}
+:root[data-theme="dark"] .clean-card:hover,
+.dark .clean-card:hover {
+  border-color: rgba(0, 113, 227, 0.45);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+:root[data-theme="dark"] .skill-pill,
+.dark .skill-pill {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+.skill-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: rgba(0, 113, 227, 0.06);
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+:root[data-theme="dark"] .tech-tag,
+.dark .tech-tag {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+

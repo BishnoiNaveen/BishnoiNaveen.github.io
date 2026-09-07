@@ -1,0 +1,111 @@
+﻿---
+/**
+ * CleanExperience.astro — Ultra-Clean Minimalist Career Timeline
+ * Clear Chronology · Concrete Accomplishments · High Readability
+ */
+
+interface ExperienceItem {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  highlights: string[];
+  skills: string[];
+}
+
+const EXPERIENCES: ExperienceItem[] = [
+  {
+    role: "Software Architect & Systems Engineer",
+    company: "KRONE Agriculture India",
+    period: "2023 — Present",
+    location: "India · Full-time",
+    highlights: [
+      "Architected the edge telematics runtime ingesting 50Hz ISO 11783 CAN-bus telemetry across agricultural machinery fleets.",
+      "Designed an offline-first write-ahead log (WAL) synchronization protocol, guaranteeing zero data loss during rural cellular blackouts.",
+      "Established system-wide architectural standards across edge daemons, messaging brokers, and cloud time-series pipelines.",
+    ],
+    skills: ["C++", "Go", "CAN-Bus", "MQTT", "Linux POSIX", "Docker", "InfluxDB"],
+  },
+  {
+    role: "Infrastructure & Backend Systems Engineer",
+    company: "Distributed Systems & Cloud Engineering",
+    period: "2021 — 2023",
+    location: "Engineering & Open Source",
+    highlights: [
+      "Engineered high-throughput event processing microservices and API gateways serving distributed telemetry feeds.",
+      "Automated multi-region container orchestrations with Kubernetes and Terraform, achieving automated failover and zero-downtime updates.",
+      "Implemented comprehensive distributed tracing, alerting, and observability pipelines using Prometheus and Grafana.",
+    ],
+    skills: ["Rust", "Go", "Kubernetes", "Terraform", "gRPC", "Redis", "PostgreSQL"],
+  },
+  {
+    role: "Bachelor of Technology (B.Tech)",
+    company: "Computer Science & Engineering",
+    period: "2017 — 2021",
+    location: "Academic Foundation",
+    highlights: [
+      "Rigorous core curriculum in Operating Systems, Distributed Systems, Computer Networks, and Database Management Systems.",
+      "Hands-on research and projects in low-level memory allocators, POSIX file systems, and distributed consensus mechanisms.",
+    ],
+    skills: ["Operating Systems", "Distributed Systems", "Algorithms", "C/C++", "Networking"],
+  },
+];
+---
+
+<section id="experience" aria-label="Work Experience" class="portfolio-section relative">
+  {/* Section Header */}
+  <div class="mb-10 sm:mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+      Career Path
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
+      Work Experience
+    </h2>
+    <p class="text-base sm:text-lg text-[var(--color-text-secondary)] mt-2 max-w-xl">
+      Engineering leadership and hands-on systems development across industrial IoT and cloud infrastructure.
+    </p>
+  </div>
+
+  {/* Experience List */}
+  <div class="space-y-6">
+    {EXPERIENCES.map((item) => (
+      <div class="clean-card p-6 sm:p-8">
+        {/* Header Row */}
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 mb-1.5">
+          <h3 class="text-lg sm:text-xl font-bold text-[var(--color-text-primary)]">
+            {item.role}
+          </h3>
+          <span class="text-xs sm:text-sm font-mono font-semibold text-[var(--color-accent)] shrink-0">
+            {item.period}
+          </span>
+        </div>
+
+        {/* Company & Location */}
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-[var(--color-text-muted)] font-medium mb-5">
+          <span class="text-[var(--color-text-secondary)] font-semibold">{item.company}</span>
+          <span>&middot;</span>
+          <span>{item.location}</span>
+        </div>
+
+        {/* Highlights List */}
+        <ul class="space-y-2.5 mb-6">
+          {item.highlights.map((highlight) => (
+            <li class="text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Tech Badges */}
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-black/[0.06] dark:border-white/[0.08]">
+          {item.skills.map((skill) => (
+            <span class="tech-tag">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
