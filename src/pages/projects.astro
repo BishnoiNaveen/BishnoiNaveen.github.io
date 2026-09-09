@@ -1,22 +1,137 @@
-﻿---
+---
 /**
- * src/pages/projects.astro — Clean Minimalist Projects Page
+ * src/pages/projects.astro — World-Class Systems Gallery
+ * Showcases all production projects with rich photography, metrics, and case studies.
  * Author: Naveen Bishnoi
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FloatingNav from '../components/nav/FloatingNav';
-import CleanProjects from '../components/projects/CleanProjects.astro';
+import AmbientAtmosphere from '../components/ui/AmbientAtmosphere';
 import Footer from '../components/contact/Footer.astro';
+import { projects } from '../data/projects';
 ---
 
 <BaseLayout
-  title="Projects | Naveen Bishnoi · Software Architect & Systems Engineer"
-  description="Selected engineering projects and architecture implementations by Naveen Bishnoi: KRONE IoT Telematics, GAMS Storage Core, Ultron Automation, and Aeonis Infrastructure."
+  title="Projects Gallery | Naveen Bishnoi · Software Engineer (IoT & Edge)"
+  description="Comprehensive systems engineering and software architecture portfolio of Naveen Bishnoi: KRONE IoT Telematics, GAMS Storage Core, Ultron DAG, and AEONIS OPS."
 >
+  <AmbientAtmosphere client:load />
   <FloatingNav client:load slot="header" />
 
-  <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24 space-y-12">
-    <CleanProjects />
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+    {/* Page Header */}
+    <div class="mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full mb-4 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] select-none">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+        Systems &amp; Architecture Archive
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--color-text-primary)] mb-4">
+        Engineering Projects
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
+        Production IoT runtimes, deterministic POSIX storage engines, and autonomous multi-agent pipelines engineered for zero data loss and mathematical certainty.
+      </p>
+    </div>
+
+    {/* Projects Visual Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {projects.map((project) => (
+        <article class="group flex flex-col justify-between rounded-3xl overflow-hidden bg-white/80 dark:bg-[#0c101d]/85 backdrop-blur-xl border border-black/[0.08] dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.5)] hover:border-[var(--color-accent)]/40 hover:-translate-y-1.5 transition-all duration-300">
+          <div>
+            {/* Visual Image Header */}
+            <div class="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-950">
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent pointer-events-none" />
+
+              {/* Domain & Status Pills */}
+              <div class="absolute top-3 inset-x-3 flex items-center justify-between gap-2 pointer-events-none">
+                <span class="px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono font-medium tracking-wide">
+                  {project.domain}
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-emerald-400 text-[10px] font-mono font-medium flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  {project.status === 'live' ? 'Production' : 'Verified'}
+                </span>
+              </div>
+            </div>
+
+            {/* Content Area */}
+            <div class="p-6 sm:p-7">
+              <h2 class="text-xl font-extrabold tracking-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors mb-2">
+                {project.title}
+              </h2>
+              <p class="text-xs sm:text-sm text-[var(--color-text-muted)] font-mono font-medium mb-3">
+                {project.subtitle}
+              </p>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-3 mb-5 font-normal">
+                {project.description}
+              </p>
+
+              {/* Highlights */}
+              <ul class="space-y-1.5 mb-6">
+                {project.highlights.slice(0, 2).map((highlight) => (
+                  <li class="flex items-start gap-2 text-xs text-[var(--color-text-secondary)]">
+                    <svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="line-clamp-1">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Card Footer: Tech Tags & Links */}
+          <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-black/[0.06] dark:border-white/[0.08] flex flex-col gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              {project.techStack.slice(0, 4).map((tech) => (
+                <span class="px-2 py-0.5 rounded-md bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.05] dark:border-white/10 text-[10px] font-mono text-[var(--color-text-muted)]">
+                  {tech}
+                </span>
+              ))}
+              {project.techStack.length > 4 && (
+                <span class="px-1.5 py-0.5 text-[10px] font-mono text-[var(--color-text-muted)]">
+                  +{project.techStack.length - 4}
+                </span>
+              )}
+            </div>
+
+            <div class="flex items-center justify-between gap-3 pt-2">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                >
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  <span>Source Code</span>
+                </a>
+              )}
+
+              {project.live && (
+                <a
+                  href={project.live}
+                  class="inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-accent)] hover:underline"
+                >
+                  <span>Case Study</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
   </main>
 
   <Footer slot="footer" />

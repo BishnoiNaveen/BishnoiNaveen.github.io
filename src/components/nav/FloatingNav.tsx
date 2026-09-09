@@ -7,10 +7,10 @@ import MobileNavSheet, { type NavItem } from './MobileNavSheet';
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Work', href: '#work' },
+  { label: 'Projects', href: '/projects' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Resume', href: '/resume' },
   { label: 'Contact', href: '#contact' },
-  { label: 'Resume', href: '/Naveen_Bishnoi_Resume.pdf', isExternal: true },
 ];
 
 export default function FloatingNav() {

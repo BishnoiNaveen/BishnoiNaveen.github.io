@@ -23,6 +23,7 @@ interface Project {
   tags: string[];
   githubUrl: string;
   architectureUrl?: string;
+  image: string;
   interactiveType: 'krone' | 'gams' | 'ultron' | 'aeonis';
 }
 
@@ -34,6 +35,7 @@ const PROJECTS: Project[] = [
     badge: 'Production · KRONE Fleet',
     icon: Radio,
     accentColor: '#0071E3',
+    image: '/images/krone-telematics.jpg',
     description:
       'High-frequency IoT runtime deployed on heavy agricultural machinery. Ingests 50Hz ISO 11783 CAN-bus telemetry, buffering data locally via an offline write-ahead log (WAL) protocol to guarantee zero packet loss across remote farming fields.',
     highlights: [
@@ -42,7 +44,7 @@ const PROJECTS: Project[] = [
       'Bi-directional MQTT synchronization to cloud timeseries database',
     ],
     tags: ['C++', 'Go', 'CAN-Bus', 'MQTT', 'Protobuf', 'Docker', 'InfluxDB'],
-    githubUrl: 'https://github.com/BishnoiNaveen',
+    githubUrl: 'https://github.com/BishnoiNaveen/krone-iot-telematics',
     architectureUrl: 'https://github.com/BishnoiNaveen',
     interactiveType: 'krone',
   },
@@ -53,6 +55,7 @@ const PROJECTS: Project[] = [
     badge: 'Verified · 0-Byte Leak',
     icon: Database,
     accentColor: '#10B981',
+    image: '/images/gas_agency_system.jpg',
     description:
       'High-assurance persistent storage engine written in C. Features atomic directory entry pointer swaps for crash consistency, deterministic heap memory allocations, and verified 0-byte leaks under automated Valgrind profiling.',
     highlights: [
@@ -61,7 +64,7 @@ const PROJECTS: Project[] = [
       'Crash recovery in < 2ms via binary WAL replay',
     ],
     tags: ['C', 'Linux / POSIX', 'Valgrind', 'CMake', 'System Calls', 'WAL'],
-    githubUrl: 'https://github.com/BishnoiNaveen',
+    githubUrl: 'https://github.com/BishnoiNaveen/gas-agency-management-system',
     architectureUrl: 'https://github.com/BishnoiNaveen',
     interactiveType: 'gams',
   },
@@ -72,6 +75,7 @@ const PROJECTS: Project[] = [
     badge: 'Distributed Swarm',
     icon: Cpu,
     accentColor: '#8020E8',
+    image: '/images/ultron_framework.jpg',
     description:
       'Distributed workflow orchestration engine executing topological dependency graphs (DAG). Features sandboxed isolated worker processes, exponential backoff retries, and real-time telemetry streaming.',
     highlights: [
@@ -80,7 +84,7 @@ const PROJECTS: Project[] = [
       'Persistent checkpointing & resumable state machines',
     ],
     tags: ['TypeScript', 'Node.js', 'Redis', 'RabbitMQ', 'Temporal', 'Docker'],
-    githubUrl: 'https://github.com/BishnoiNaveen',
+    githubUrl: 'https://github.com/BishnoiNaveen/Ultron',
     architectureUrl: 'https://github.com/BishnoiNaveen',
     interactiveType: 'ultron',
   },
@@ -91,6 +95,7 @@ const PROJECTS: Project[] = [
     badge: 'Multi-Region High Availability',
     icon: Cloud,
     accentColor: '#0284C7',
+    image: '/images/aeonis_ops.jpg',
     description:
       'Multi-region cloud infrastructure management platform providing automated failover orchestration, continuous health probes, and real-time observability telemetry.',
     highlights: [
@@ -99,7 +104,7 @@ const PROJECTS: Project[] = [
       'End-to-end distributed tracing with Prometheus & Grafana',
     ],
     tags: ['Rust', 'Kubernetes', 'Terraform', 'gRPC', 'Prometheus', 'AWS'],
-    githubUrl: 'https://github.com/BishnoiNaveen',
+    githubUrl: 'https://github.com/BishnoiNaveen/AEONIS-OPS',
     architectureUrl: 'https://github.com/BishnoiNaveen',
     interactiveType: 'aeonis',
   },
@@ -132,26 +137,32 @@ export default function InteractiveProjects() {
                 }}
               />
 
-              {/* Card Header */}
-              <div>
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center text-white"
-                      style={{ backgroundColor: project.accentColor }}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
-                      {project.tagline}
-                    </span>
-                  </div>
+              {/* Card Visual Media Banner */}
+              <div className="relative w-full h-44 sm:h-52 rounded-2xl overflow-hidden mb-5 bg-slate-900 border border-black/[0.06] dark:border-white/10 shadow-inner">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  loading="lazy"
+                />
+                {/* Subtle vignette gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                  <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10 text-[var(--color-text-muted)] font-medium">
-                    {project.badge}
-                  </span>
+                {/* Floating Top Domain Badge */}
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-medium select-none">
+                  <Icon className="w-3.5 h-3.5" style={{ color: project.accentColor }} />
+                  <span>{project.tagline}</span>
                 </div>
 
+                {/* Floating Top Status Badge */}
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-medium select-none">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>{project.badge}</span>
+                </div>
+              </div>
+
+              {/* Card Header & Content */}
+              <div>
                 <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors mb-3">
                   {project.title}
                 </h3>
