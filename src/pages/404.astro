@@ -1,0 +1,72 @@
+---
+/**
+ * 404.astro — Naveen Bishnoi Portfolio
+ * VisionOS Diagnostic 404 Error Page
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import Footer from '../components/contact/Footer.astro';
+---
+
+<BaseLayout
+  title="404 — Route Not Found | Naveen Bishnoi"
+  description="The requested route does not exist in Naveen Bishnoi's systems architecture portfolio."
+  noindex={true}
+>
+  <FloatingNav slot="header" client:load />
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 min-h-[75vh] flex items-center justify-center py-24">
+    <div class="w-full p-8 sm:p-12 rounded-3xl bg-white/80 dark:bg-[#0c101d]/85 backdrop-blur-2xl border border-black/[0.08] dark:border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.06)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.7)] text-center">
+      {/* Diagnostic Pill */}
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-400 text-xs font-mono font-bold uppercase tracking-wider mb-6">
+        <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+        HTTP Status 404 // Node Unreachable
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-[var(--color-text-primary)] mb-4 font-sans">
+        Coordinate Mismatch
+      </h1>
+
+      <p class="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-lg mx-auto mb-8 leading-relaxed font-normal">
+        The requested endpoint or memory address could not be resolved within this distributed cluster. Please navigate back to a verified subsystem.
+      </p>
+
+      {/* Action Buttons */}
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/"
+          class="px-6 py-3 rounded-full bg-[var(--color-accent)] text-white text-sm font-semibold tracking-tight shadow-md hover:opacity-90 transition-opacity inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Return to Command Center
+        </a>
+
+        <a
+          href="/projects"
+          class="px-6 py-3 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/10 text-[var(--color-text-primary)] text-sm font-semibold tracking-tight hover:bg-black/[0.08] dark:hover:bg-white/[0.1] transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer"
+        >
+          Explore Projects
+        </a>
+
+        <a
+          href="/resume"
+          class="px-6 py-3 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/10 text-[var(--color-text-primary)] text-sm font-semibold tracking-tight hover:bg-black/[0.08] dark:hover:bg-white/[0.1] transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer"
+        >
+          View Resume
+        </a>
+      </div>
+
+      {/* Terminal Diagnostic Block */}
+      <div class="mt-10 p-4 rounded-xl bg-black/[0.03] dark:bg-black/40 border border-black/[0.05] dark:border-white/5 text-left font-mono text-xs text-[var(--color-text-secondary)] overflow-x-auto max-w-md mx-auto">
+        <div class="text-neutral-500 mb-1">$ curl -I https://BishnoiNaveen.github.io{Astro.url.pathname}</div>
+        <div class="text-rose-700 dark:text-rose-400 font-semibold">HTTP/2 404 Not Found</div>
+        <div class="text-neutral-400">x-cluster-node: edge-krone-delhi-01</div>
+        <div class="text-neutral-400">content-type: text/html; charset=utf-8</div>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

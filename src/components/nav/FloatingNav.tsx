@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, ArrowUpRight } from 'lucide-react';
+import { Menu, ArrowUpRight, Search } from 'lucide-react';
 import { springPresets } from '../../lib/springs';
 import ThemeToggle from '../ui/ThemeToggle';
 import MobileNavSheet, { type NavItem } from './MobileNavSheet';
+import CommandPalette from '../ui/CommandPalette';
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Work', href: '#work' },
@@ -17,6 +18,7 @@ export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState<string>('#hero');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState<boolean>(false);
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   // Scroll spy & scrolled threshold listener
@@ -60,6 +62,19 @@ export default function FloatingNav() {
       window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
     };
+  }, []);
+
+  // Global Cmd+K / Ctrl+K listener
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -159,8 +174,19 @@ export default function FloatingNav() {
 
           <div className="h-4 w-px bg-[var(--color-hairline)] mx-0.5 hidden md:block" />
 
-          {/* Theme Toggle & Mobile Trigger */}
-          <div className="flex items-center gap-1">
+          {/* Theme Toggle, Search Trigger & Mobile Trigger */}
+          <div className="flex items-center gap-1.5">
+            {/* Command Palette Trigger Button */}
+            <button
+              type="button"
+              onClick={() => setIsCommandPaletteOpen(true)}
+              aria-label="Search and quick actions (⌘K)"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline text-[10px] font-mono px-1 py-0.2 rounded bg-black/[0.05] dark:bg-white/10">⌘K</span>
+            </button>
+
             <ThemeToggle />
 
             {/* Mobile Hamburger Button */}
@@ -176,6 +202,12 @@ export default function FloatingNav() {
           </div>
         </nav>
       </header>
+
+      {/* Command Palette Modal */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+      />
 
       {/* Mobile Drawer Sheet */}
       <MobileNavSheet

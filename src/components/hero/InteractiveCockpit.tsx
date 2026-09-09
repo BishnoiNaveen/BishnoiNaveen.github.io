@@ -64,6 +64,18 @@ export default function InteractiveCockpit() {
     }
   }, [isBlackout]);
 
+  // Keyboard navigation for Cockpit tabs (1, 2, 3)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') return;
+      if (e.key === '1') setActiveTab('telematics');
+      else if (e.key === '2') setActiveTab('storage');
+      else if (e.key === '3') setActiveTab('swarm');
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className="relative w-full max-w-lg mx-auto" style={{ perspective: '1200px' }}>
       {/* Dynamic Ambient Background Glow */}
@@ -115,9 +127,9 @@ export default function InteractiveCockpit() {
         <div className="p-1 rounded-2xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.06] dark:border-white/10 grid grid-cols-3 gap-1 mb-5">
           {(
             [
-              { id: 'telematics', label: 'CAN-Bus IoT', icon: Radio },
-              { id: 'storage', label: 'POSIX Storage', icon: Database },
-              { id: 'swarm', label: 'Ultron DAG', icon: Cpu },
+              { id: 'telematics', label: 'CAN-Bus IoT', icon: Radio, shortcut: '1' },
+              { id: 'storage', label: 'POSIX Storage', icon: Database, shortcut: '2' },
+              { id: 'swarm', label: 'Ultron DAG', icon: Cpu, shortcut: '3' },
             ] as const
           ).map((tab) => {
             const Icon = tab.icon;
@@ -127,6 +139,7 @@ export default function InteractiveCockpit() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
+                title={`Press '${tab.shortcut}' to switch`}
                 className={`relative py-2 px-2 rounded-xl text-xs font-semibold tracking-tight transition-all flex items-center justify-center gap-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
                   isActive
                     ? 'text-[var(--color-text-primary)] font-bold'
@@ -142,6 +155,9 @@ export default function InteractiveCockpit() {
                 )}
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--color-accent)]' : ''}`} />
                 <span className="truncate">{tab.label}</span>
+                <span className="hidden sm:inline text-[9px] font-mono opacity-50 px-1 rounded bg-black/5 dark:bg-white/10">
+                  {tab.shortcut}
+                </span>
               </button>
             );
           })}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ChevronRight, CheckCircle2, ShieldCheck, Terminal, Cpu, Radio, Database, Cloud } from 'lucide-react';
+import { ExternalLink, ChevronRight, CheckCircle2, ShieldCheck, Terminal, Cpu, Radio, Database, Cloud, ZoomIn, Share2, Check } from 'lucide-react';
 import { springPresets } from '../../lib/springs';
+import ImageLightboxModal from '../ui/ImageLightboxModal';
 
 function GithubIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
   return (
@@ -112,6 +113,28 @@ const PROJECTS: Project[] = [
 
 export default function InteractiveProjects() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const [lightboxData, setLightboxData] = useState<{
+    isOpen: boolean;
+    imageUrl: string;
+    imageAlt: string;
+    title: string;
+    subtitle: string;
+  }>({
+    isOpen: false,
+    imageUrl: '',
+    imageAlt: '',
+    title: '',
+    subtitle: '',
+  });
+  const [copiedProjectId, setCopiedProjectId] = useState<string | null>(null);
+
+  const handleCopyLink = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const url = `${window.location.origin}/projects#${id}`;
+    navigator.clipboard.writeText(url);
+    setCopiedProjectId(id);
+    setTimeout(() => setCopiedProjectId(null), 1500);
+  };
 
   return (
     <div className="space-y-8">
@@ -137,16 +160,36 @@ export default function InteractiveProjects() {
                 }}
               />
 
-              {/* Card Visual Media Banner */}
-              <div className="relative w-full h-44 sm:h-52 rounded-2xl overflow-hidden mb-5 bg-slate-900 border border-black/[0.06] dark:border-white/10 shadow-inner">
+              {/* Card Visual Media Banner with Lightbox Trigger */}
+              <div
+                onClick={() =>
+                  setLightboxData({
+                    isOpen: true,
+                    imageUrl: project.image,
+                    imageAlt: project.title,
+                    title: project.title,
+                    subtitle: project.tagline,
+                  })
+                }
+                title="Click to zoom architecture visual"
+                className="relative w-full h-44 sm:h-52 rounded-2xl overflow-hidden mb-5 bg-slate-900 border border-black/[0.06] dark:border-white/10 shadow-inner cursor-zoom-in group/img"
+              >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500 ease-out"
                   loading="lazy"
                 />
                 {/* Subtle vignette gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* Hover Zoom Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity backdrop-blur-[1px]">
+                  <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-lg">
+                    <ZoomIn className="w-3.5 h-3.5" />
+                    <span>Zoom Diagram</span>
+                  </span>
+                </div>
 
                 {/* Floating Top Domain Badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-medium select-none">
@@ -220,6 +263,26 @@ export default function InteractiveProjects() {
                         <ExternalLink className="w-3 h-3" />
                       </a>
                     )}
+
+                    {/* 1-Click Share Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => handleCopyLink(project.id, e)}
+                      title="Copy deep link anchor to clipboard"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors cursor-pointer"
+                    >
+                      {copiedProjectId === project.id ? (
+                        <>
+                          <Check className="w-3 h-3 text-emerald-500" />
+                          <span className="text-emerald-500 text-[11px] font-mono font-semibold">Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="w-3 h-3" />
+                          <span className="text-[11px] font-mono">Share</span>
+                        </>
+                      )}
+                    </button>
                   </div>
 
                   <span className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1">
@@ -232,6 +295,16 @@ export default function InteractiveProjects() {
           );
         })}
       </div>
+
+      {/* Full-Screen Image Lightbox */}
+      <ImageLightboxModal
+        isOpen={lightboxData.isOpen}
+        onClose={() => setLightboxData((prev) => ({ ...prev, isOpen: false }))}
+        imageUrl={lightboxData.imageUrl}
+        imageAlt={lightboxData.imageAlt}
+        title={lightboxData.title}
+        subtitle={lightboxData.subtitle}
+      />
     </div>
   );
 }

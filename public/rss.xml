@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naveen Bishnoi — Systems Architecture &amp; Engineering Feed</title>
+    <link>https://BishnoiNaveen.github.io</link>
+    <description>Engineering case studies, agricultural IoT telematics, distributed systems, and POSIX architecture by Naveen Bishnoi.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://BishnoiNaveen.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KRONE Agriculture Telematics: Ingesting 50k+ Machines at Sub-200ms</title>
+      <link>https://BishnoiNaveen.github.io/projects/krone-iot</link>
+      <description>Architectural deep-dive into scaling telemetry pipelines from 1,000 to 50,000+ agricultural machines with hybrid edge-cloud clustering and predictive downtime reduction.</description>
+      <pubDate>Wed, 09 Sep 2026 12:00:00 GMT</pubDate>
+      <guid>https://BishnoiNaveen.github.io/projects/krone-iot</guid>
+    </item>
+    <item>
+      <title>High-Concurrency POSIX C Storage Engine with Atomic File-Locking</title>
+      <link>https://BishnoiNaveen.github.io/projects#posix-storage</link>
+      <description>Zero-data-loss POSIX storage implementation utilizing transactional byte-range file locking and binary indexing.</description>
+      <pubDate>Wed, 09 Sep 2026 10:00:00 GMT</pubDate>
+      <guid>https://BishnoiNaveen.github.io/projects#posix-storage</guid>
+    </item>
+  </channel>
+</rss>

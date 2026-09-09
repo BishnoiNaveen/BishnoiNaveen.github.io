@@ -1,0 +1,17 @@
+{
+  "name": "Naveen Bishnoi — Software Architect & Systems Engineer",
+  "short_name": "Naveen Bishnoi",
+  "description": "Distributed systems, IoT telematics, AI swarms, and high-performance POSIX architecture.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090E",
+  "theme_color": "#0071E3",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
