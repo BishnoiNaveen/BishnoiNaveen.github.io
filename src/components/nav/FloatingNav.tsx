@@ -79,14 +79,14 @@ export default function FloatingNav() {
     <>
       <header
         role="banner"
-        className="fixed top-4 md:top-6 inset-x-0 z-40 flex justify-center px-4 pointer-events-none"
+        className="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
       >
         <nav
           role="navigation"
           aria-label="Primary Navigation"
-          className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 md:gap-6 px-3.5 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-300 bg-white/80 dark:bg-[#0a0d17]/85 backdrop-blur-2xl border border-black/[0.08] dark:border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.7)] ${
+          className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-4 md:gap-6 px-4 sm:px-5 py-2.5 rounded-full transition-all duration-300 bg-white/85 dark:bg-[#0c101d]/90 backdrop-blur-2xl border border-black/[0.08] dark:border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
             isScrolled
-              ? 'border-[var(--color-accent)]/30 shadow-[0_12px_40px_rgba(0,113,227,0.12)]'
+              ? 'border-[var(--color-accent)]/30 shadow-[0_12px_40px_rgba(0,113,227,0.15)] scale-[0.98]'
               : ''
           }`}
         >
@@ -105,7 +105,7 @@ export default function FloatingNav() {
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-1 relative">
+          <div className="hidden md:flex items-center gap-1.5 relative">
             {NAV_ITEMS.map((item, index) => {
               const isActive = activeSection === item.href;
               const isHovered = hoveredIndex === index;
@@ -124,7 +124,7 @@ export default function FloatingNav() {
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
+                  className={`relative inline-flex items-center justify-center px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
                     isActive
                       ? 'text-[var(--color-text-primary)] font-semibold'
                       : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'

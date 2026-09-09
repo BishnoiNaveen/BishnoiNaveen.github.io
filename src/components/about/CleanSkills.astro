@@ -1,72 +1,108 @@
-﻿---
+---
 /**
- * CleanSkills.astro — Ultra-Clean Minimalist Skills
- * Structured 4-Category Bento Grid · Zero Clutter
+ * CleanSkills.astro — Technical Skills Bento
+ * 4 Distinct Architectural Pillars with Modern Bento Cards & Clean Tags
  */
+import { Terminal, Cpu, Cloud, Database } from 'lucide-react';
 
 interface SkillCategory {
   title: string;
+  tagline: string;
   description: string;
+  icon: any;
+  color: string;
   skills: string[];
 }
 
 const CATEGORIES: SkillCategory[] = [
   {
-    title: "Programming Languages",
-    description: "Systems programming & high-performance backend development.",
-    skills: ["C", "C++", "Rust", "Go", "TypeScript", "Python", "SQL", "Bash"],
+    title: "Low-Level & Edge Runtimes",
+    tagline: "Systems Programming",
+    description: "Kernel interactions, memory allocators, and real-time machine telematics.",
+    icon: Terminal,
+    color: "#0071E3",
+    skills: ["C", "C++", "Rust", "Go", "Linux / POSIX", "CAN-Bus (ISO 11783)", "Valgrind", "CMake", "WAL Journaling"],
   },
   {
-    title: "Systems & Architecture",
-    description: "Distributed communication, protocols, and edge computing.",
-    skills: ["Linux / POSIX", "Distributed Systems", "CAN-Bus (ISO 11783)", "gRPC & Protobuf", "MQTT", "Microservices", "Socket Programming"],
+    title: "Distributed Systems & Architecture",
+    tagline: "Backend & Orchestration",
+    description: "Scalable microservices, fault-tolerant consensus, and task graphs.",
+    icon: Cpu,
+    color: "#8020E8",
+    skills: ["Distributed Systems", "gRPC & Protobuf", "MQTT", "Topological DAGs", "Node.js", "TypeScript", "Python", "Microservices"],
   },
   {
-    title: "Cloud & DevOps",
-    description: "Containerization, infrastructure as code, and orchestration.",
-    skills: ["Docker", "Kubernetes", "Terraform", "AWS", "Google Cloud", "CI/CD (GitHub Actions)", "Linux Kernel", "Nginx"],
+    title: "Cloud Infrastructure & SRE",
+    tagline: "DevOps & Reliability",
+    description: "Automated multi-region orchestration, IaC, and observability.",
+    icon: Cloud,
+    color: "#0284C7",
+    skills: ["Docker", "Kubernetes", "Terraform", "AWS", "Google Cloud", "Prometheus", "Grafana", "CI/CD Actions"],
   },
   {
-    title: "Databases & Messaging",
-    description: "Data persistence, time-series storage, and message queues.",
-    skills: ["PostgreSQL", "Redis", "InfluxDB (Time-Series)", "RabbitMQ", "SQLite", "Apache Kafka"],
+    title: "Data Engines & Message Brokers",
+    tagline: "Persistence & Streaming",
+    description: "High-throughput message queuing and time-series sensor stores.",
+    icon: Database,
+    color: "#10B981",
+    skills: ["InfluxDB (Time-Series)", "PostgreSQL", "Redis", "RabbitMQ", "Apache Kafka", "SQLite", "Atomic Inode Swap"],
   },
 ];
 ---
 
-<section id="skills" aria-label="Skills and Technologies" class="portfolio-section relative">
+<section id="skills" aria-label="Skills and Technologies" class="py-16 md:py-24 relative">
   {/* Section Header */}
-  <div class="mb-10 sm:mb-12">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+  <div class="mb-10 sm:mb-14">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] select-none">
+      <span class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
       Technical Competencies
     </div>
     <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
-      Skills &amp; Technologies
+      Skills &amp; Technology Stack
     </h2>
     <p class="text-base sm:text-lg text-[var(--color-text-secondary)] mt-2 max-w-xl">
-      Tools, languages, and distributed systems technologies I leverage to build production platforms.
+      Production tools, systems languages, and distributed architectures I build with every day.
     </p>
   </div>
 
-  {/* Skills Grid — 4 Clean Bento Cards */}
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-    {CATEGORIES.map((cat) => (
-      <div class="clean-card p-6 sm:p-8">
-        <h3 class="text-lg sm:text-xl font-bold text-[var(--color-text-primary)] mb-1.5">
-          {cat.title}
-        </h3>
-        <p class="text-xs sm:text-sm text-[var(--color-text-muted)] mb-5">
-          {cat.description}
-        </p>
+  {/* 4-Pillar Bento Grid */}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+    {CATEGORIES.map((cat) => {
+      const Icon = cat.icon;
+      return (
+        <div class="group relative flex flex-col justify-between rounded-3xl p-6 sm:p-8 bg-white/80 dark:bg-[#0c101d]/85 backdrop-blur-xl border border-black/[0.08] dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.5)] hover:border-[var(--color-accent)]/30 transition-all duration-300">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2.5">
+                <div
+                  class="w-8 h-8 rounded-xl flex items-center justify-center text-white"
+                  style={`background-color: ${cat.color};`}
+                >
+                  <Icon class="w-4 h-4" />
+                </div>
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+                  {cat.tagline}
+                </span>
+              </div>
+            </div>
 
-        <div class="flex flex-wrap gap-2">
-          {cat.skills.map((skill) => (
-            <span class="skill-pill">
-              {skill}
-            </span>
-          ))}
+            <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2">
+              {cat.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">
+              {cat.description}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-black/[0.06] dark:border-white/[0.08]">
+            {cat.skills.map((skill) => (
+              <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-medium bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.05] dark:border-white/8 text-[var(--color-text-secondary)] group-hover:border-[var(--color-accent)]/20 transition-colors">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
+      );
+    })}
   </div>
 </section>

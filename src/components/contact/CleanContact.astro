@@ -1,41 +1,42 @@
 ---
 /**
- * CleanContact.astro — Ultra-Clean Minimalist Contact Section
- * Frictionless Connection · 1-Click Email Copy · Social Profiles
+ * CleanContact.astro — High-Converting Contact & CTA Section
+ * Glassmorphic Action Card · 1-Click Copy with Toast · Direct Socials
  */
 ---
 
-<section id="contact" aria-label="Contact Naveen Bishnoi" class="portfolio-section relative">
-  {/* Ambient luminous blur */}
+<section id="contact" aria-label="Contact Naveen Bishnoi" class="py-20 md:py-28 relative">
+  {/* Ambient luminous glow */}
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-25 dark:opacity-15 blur-3xl rounded-full"
-    style="background: radial-gradient(circle, rgba(0,113,227,0.2) 0%, rgba(128,32,232,0.1) 60%, transparent 80%);"
+    class="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] opacity-35 dark:opacity-20 blur-3xl rounded-full"
+    style="background: radial-gradient(circle, rgba(0,113,227,0.25) 0%, rgba(128,32,232,0.15) 60%, transparent 80%);"
   ></div>
 
   <div class="relative z-10 max-w-3xl mx-auto text-center">
     {/* Section Badge */}
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 bg-neutral-100 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] select-none">
+      <span class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
       Get in Touch
     </div>
 
     {/* Section Title */}
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)] mb-4">
-      Let's build something extraordinary.
+      Let's build something extraordinary together.
     </h2>
 
     <p class="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-xl mx-auto mb-10">
-      Whether you want to discuss distributed systems architecture, edge telematics, or engineering leadership roles &mdash; my inbox is always open.
+      Whether you want to discuss edge telematics, distributed storage architecture, or explore high-impact engineering leadership roles &mdash; feel free to reach out.
     </p>
 
     {/* Contact Card */}
-    <div class="clean-card p-8 sm:p-10 rounded-3xl flex flex-col items-center gap-6">
+    <div class="rounded-3xl p-8 sm:p-10 bg-white/80 dark:bg-[#0c101d]/85 backdrop-blur-2xl border border-black/[0.08] dark:border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.06)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.6)] flex flex-col items-center gap-6">
       
-      {/* Email Copy Trigger */}
+      {/* Primary Action Row */}
       <div class="flex flex-col sm:flex-row items-center gap-3 w-full justify-center">
         <a
           href="mailto:0029bishnoinaveen@gmail.com"
-          class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[var(--color-accent)] text-white text-sm font-semibold shadow-sm hover:opacity-90 active:scale-[0.98] transition-all w-full sm:w-auto"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white text-sm font-semibold shadow-md shadow-[var(--color-accent)]/20 active:scale-[0.98] transition-all w-full sm:w-auto cursor-pointer"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -46,9 +47,9 @@
         <button
           id="copy-email-btn"
           type="button"
-          class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-black/[0.04] dark:bg-white/[0.08] hover:bg-black/[0.08] dark:hover:bg-white/[0.12] border border-black/[0.08] dark:border-white/[0.12] text-[var(--color-text-primary)] text-sm font-medium transition-all active:scale-[0.98] w-full sm:w-auto cursor-pointer"
+          class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-black/[0.04] dark:bg-white/[0.08] hover:bg-black/[0.08] dark:hover:bg-white/[0.12] border border-black/[0.08] dark:border-white/[0.12] text-[var(--color-text-primary)] text-sm font-mono font-medium transition-all active:scale-[0.98] w-full sm:w-auto cursor-pointer"
         >
-          <svg class="w-4 h-4 text-[var(--color-text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg id="copy-icon" class="w-4 h-4 text-[var(--color-text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
           </svg>
           <span id="copy-btn-text">0029bishnoinaveen@gmail.com</span>
@@ -56,12 +57,12 @@
       </div>
 
       {/* Social and Resume Links */}
-      <div class="flex items-center gap-6 pt-4 border-t border-neutral-100 dark:border-neutral-800/80 w-full justify-center">
+      <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-black/[0.06] dark:border-white/[0.08] w-full justify-center">
         <a
           href="https://github.com/BishnoiNaveen"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors cursor-pointer"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
@@ -73,7 +74,7 @@
           href="https://linkedin.com/in/naveen-bishnoi"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors cursor-pointer"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -85,7 +86,7 @@
           href="/Naveen_Bishnoi_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors cursor-pointer"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -96,43 +97,37 @@
 
       {/* Location note */}
       <p class="text-xs text-[var(--color-text-muted)] font-mono">
-        India (IST &middot; UTC+5:30) &middot; Open to remote &amp; on-site engineering roles worldwide
+        India (IST &middot; UTC+5:30) &middot; Open to remote &amp; on-site systems architecture roles worldwide
       </p>
     </div>
   </div>
 </section>
 
-<script is:inline>
-  (function () {
-    function setupCopyEmail() {
-      var copyBtn = document.getElementById('copy-email-btn');
-      var copyBtnText = document.getElementById('copy-btn-text');
-      if (!copyBtn || !copyBtnText) return;
+<script>
+  function setupCopyEmail() {
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-btn-text');
+    const email = '0029bishnoinaveen@gmail.com';
 
-      var email = '0029bishnoinaveen@gmail.com';
+    if (!copyBtn || !copyText) return;
 
-      copyBtn.addEventListener('click', function () {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).then(function () {
-            var orig = copyBtnText.textContent;
-            copyBtnText.textContent = 'Copied to clipboard!';
-            setTimeout(function () {
-              copyBtnText.textContent = orig;
-            }, 2500);
-          }).catch(function () {
-            window.location.href = 'mailto:' + email;
-          });
-        } else {
-          window.location.href = 'mailto:' + email;
-        }
-      });
-    }
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        const originalText = copyText.textContent;
+        copyText.textContent = '✓ Copied to clipboard!';
+        copyBtn.classList.add('border-emerald-500', 'text-emerald-600', 'dark:text-emerald-400');
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupCopyEmail);
-    } else {
-      setupCopyEmail();
-    }
-    document.addEventListener('astro:page-load', setupCopyEmail);
-  })();
+        setTimeout(() => {
+          copyText.textContent = originalText;
+          copyBtn.classList.remove('border-emerald-500', 'text-emerald-600', 'dark:text-emerald-400');
+        }, 2200);
+      } catch (err) {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  }
+
+  setupCopyEmail();
+  document.addEventListener('astro:after-swap', setupCopyEmail);
 </script>

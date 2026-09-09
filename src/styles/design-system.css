@@ -1,10 +1,12 @@
+@import "tailwindcss";
+@source "../..";
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
 /* ==========================================================================
    NAVEEN BISHNOI PORTFOLIO — BEAST MODE DESIGN SYSTEM
    Paradigm: Dark Luxury AI · Glassmorphism · Award-Winning
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap');
-@import "tailwindcss";
 
 /* --------------------------------------------------------------------------
    1. ROOT DESIGN TOKENS — Dark Luxury AI
@@ -195,7 +197,6 @@
 /* --------------------------------------------------------------------------
    2. GLOBAL BASE
    -------------------------------------------------------------------------- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   font-family: var(--font-display);

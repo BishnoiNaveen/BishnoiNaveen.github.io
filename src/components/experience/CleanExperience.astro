@@ -1,7 +1,7 @@
-﻿---
+---
 /**
- * CleanExperience.astro — Ultra-Clean Minimalist Career Timeline
- * Clear Chronology · Concrete Accomplishments · High Readability
+ * CleanExperience.astro — Work Experience Section
+ * Clean Vertical Timeline with Glass Cards, Verified Achievements & Metrics
  */
 
 interface ExperienceItem {
@@ -9,6 +9,7 @@ interface ExperienceItem {
   company: string;
   period: string;
   location: string;
+  badge: string;
   highlights: string[];
   skills: string[];
 }
@@ -19,18 +20,20 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "KRONE Agriculture India",
     period: "2023 — Present",
     location: "India · Full-time",
+    badge: "Current Role",
     highlights: [
       "Architected the edge telematics runtime ingesting 50Hz ISO 11783 CAN-bus telemetry across agricultural machinery fleets.",
       "Designed an offline-first write-ahead log (WAL) synchronization protocol, guaranteeing zero data loss during rural cellular blackouts.",
       "Established system-wide architectural standards across edge daemons, messaging brokers, and cloud time-series pipelines.",
     ],
-    skills: ["C++", "Go", "CAN-Bus", "MQTT", "Linux POSIX", "Docker", "InfluxDB"],
+    skills: ["C++", "Go", "CAN-Bus (J1939)", "MQTT", "Linux POSIX", "Docker", "InfluxDB"],
   },
   {
     role: "Infrastructure & Backend Systems Engineer",
     company: "Distributed Systems & Cloud Engineering",
     period: "2021 — 2023",
     location: "Engineering & Open Source",
+    badge: "Production Systems",
     highlights: [
       "Engineered high-throughput event processing microservices and API gateways serving distributed telemetry feeds.",
       "Automated multi-region container orchestrations with Kubernetes and Terraform, achieving automated failover and zero-downtime updates.",
@@ -43,6 +46,7 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "Computer Science & Engineering",
     period: "2017 — 2021",
     location: "Academic Foundation",
+    badge: "Graduated",
     highlights: [
       "Rigorous core curriculum in Operating Systems, Distributed Systems, Computer Networks, and Database Management Systems.",
       "Hands-on research and projects in low-level memory allocators, POSIX file systems, and distributed consensus mechanisms.",
@@ -52,36 +56,42 @@ const EXPERIENCES: ExperienceItem[] = [
 ];
 ---
 
-<section id="experience" aria-label="Work Experience" class="portfolio-section relative">
+<section id="experience" aria-label="Work Experience" class="py-16 md:py-24 relative">
   {/* Section Header */}
-  <div class="mb-10 sm:mb-12">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+  <div class="mb-10 sm:mb-14">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] select-none">
+      <span class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
       Career Path
     </div>
     <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
-      Work Experience
+      Work Experience &amp; Leadership
     </h2>
     <p class="text-base sm:text-lg text-[var(--color-text-secondary)] mt-2 max-w-xl">
       Engineering leadership and hands-on systems development across industrial IoT and cloud infrastructure.
     </p>
   </div>
 
-  {/* Experience List */}
+  {/* Experience Timeline */}
   <div class="space-y-6">
     {EXPERIENCES.map((item) => (
-      <div class="clean-card p-6 sm:p-8">
+      <div class="rounded-3xl p-6 sm:p-8 bg-white/80 dark:bg-[#0c101d]/85 backdrop-blur-xl border border-black/[0.08] dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.5)] hover:border-[var(--color-accent)]/30 transition-all duration-300">
         {/* Header Row */}
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 mb-1.5">
-          <h3 class="text-lg sm:text-xl font-bold text-[var(--color-text-primary)]">
-            {item.role}
-          </h3>
-          <span class="text-xs sm:text-sm font-mono font-semibold text-[var(--color-accent)] shrink-0">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-3">
+            <h3 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] tracking-tight">
+              {item.role}
+            </h3>
+            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-black/[0.04] dark:bg-white/[0.08] border border-black/[0.06] dark:border-white/10 text-[var(--color-text-muted)] font-medium">
+              {item.badge}
+            </span>
+          </div>
+          <span class="text-xs sm:text-sm font-mono font-bold text-[var(--color-accent)] shrink-0">
             {item.period}
           </span>
         </div>
 
         {/* Company & Location */}
-        <div class="flex items-center gap-2 text-xs sm:text-sm text-[var(--color-text-muted)] font-medium mb-5">
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-[var(--color-text-muted)] font-medium mb-6">
           <span class="text-[var(--color-text-secondary)] font-semibold">{item.company}</span>
           <span>&middot;</span>
           <span>{item.location}</span>
@@ -91,16 +101,16 @@ const EXPERIENCES: ExperienceItem[] = [
         <ul class="space-y-2.5 mb-6">
           {item.highlights.map((highlight) => (
             <li class="text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 shrink-0"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></span>
               <span>{highlight}</span>
             </li>
           ))}
         </ul>
 
         {/* Tech Badges */}
-        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-black/[0.06] dark:border-white/[0.08]">
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-5 border-t border-black/[0.06] dark:border-white/[0.08]">
           {item.skills.map((skill) => (
-            <span class="tech-tag">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-medium bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.05] dark:border-white/8 text-[var(--color-text-secondary)]">
               {skill}
             </span>
           ))}

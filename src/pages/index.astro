@@ -1,10 +1,11 @@
-﻿---
+---
 /**
  * index.astro — Naveen Bishnoi Portfolio
- * Clean, Modern Minimalist Engineering Portfolio
- * Inspired by Apple, Linear & Vercel
+ * World-Class Systems Engineering Landing Page
+ * Inspired by Apple, Linear & Bishnoi Gas Services UI Fluidity
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AmbientAtmosphere from '../components/ui/AmbientAtmosphere';
 import FloatingNav from '../components/nav/FloatingNav';
 import CleanHero from '../components/hero/CleanHero.astro';
 import CleanProjects from '../components/projects/CleanProjects.astro';
@@ -16,40 +17,43 @@ import Footer from '../components/contact/Footer.astro';
 
 <BaseLayout
   title="Naveen Bishnoi · Software Architect & Systems Engineer"
-  description="Personal engineering portfolio of Naveen Bishnoi — Software Architect & Systems Engineer at KRONE Agriculture India. Distributed systems, edge telematics, and cloud infrastructure."
+  description="Personal engineering portfolio of Naveen Bishnoi — Software Architect & Systems Engineer at KRONE Agriculture India. Edge telematics, distributed systems, POSIX engines, and cloud infrastructure."
 >
+  {/* Ambient Dynamic Background & Starfield Particles */}
+  <AmbientAtmosphere client:load />
+
   {/* Floating Navigation */}
   <FloatingNav slot="header" client:load />
 
-  {/* Main Content Area */}
-  <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-    {/* Hero Section */}
+  {/* Main Landing Page Content Container */}
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Hero Section with Split Cockpit */}
     <CleanHero />
 
     {/* Subtle Section Divider */}
     <hr class="border-black/[0.06] dark:border-white/[0.08]" />
 
-    {/* Featured Projects */}
+    {/* Featured Projects Bento */}
     <CleanProjects />
 
     {/* Subtle Section Divider */}
     <hr class="border-black/[0.06] dark:border-white/[0.08]" />
 
-    {/* Work Experience */}
+    {/* Work Experience Timeline */}
     <CleanExperience />
 
     {/* Subtle Section Divider */}
     <hr class="border-black/[0.06] dark:border-white/[0.08]" />
 
-    {/* Technical Skills */}
+    {/* Technical Skills Bento */}
     <CleanSkills />
 
     {/* Subtle Section Divider */}
     <hr class="border-black/[0.06] dark:border-white/[0.08]" />
 
-    {/* Contact Section */}
+    {/* Contact & CTA Section */}
     <CleanContact />
-  </main>
+  </div>
 
   {/* Clean Footer */}
   <Footer slot="footer" />
