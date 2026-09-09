@@ -15,6 +15,7 @@ import {
   X,
   Layers
 } from 'lucide-react';
+import { sound } from '../../lib/sound';
 
 interface CommandItem {
   id: string;
@@ -53,6 +54,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
 
   const copyEmail = () => {
     navigator.clipboard.writeText('0029bishnoinaveen@gmail.com');
+    sound.playChirp();
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
@@ -209,12 +211,15 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
         onClose();
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
+        sound.playClick();
         setSelectedIndex((prev) => (prev + 1) % (filteredCommands.length || 1));
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
+        sound.playClick();
         setSelectedIndex((prev) => (prev - 1 + filteredCommands.length) % (filteredCommands.length || 1));
       } else if (e.key === 'Enter') {
         e.preventDefault();
+        sound.playPop();
         if (filteredCommands[selectedIndex]) {
           filteredCommands[selectedIndex].action();
         }

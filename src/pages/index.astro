@@ -12,6 +12,7 @@ import CleanProjects from '../components/projects/CleanProjects.astro';
 import CleanExperience from '../components/experience/CleanExperience.astro';
 import CleanSkills from '../components/about/CleanSkills.astro';
 import CleanContact from '../components/contact/CleanContact.astro';
+import KeyboardHintBanner from '../components/ui/KeyboardHintBanner';
 import Footer from '../components/contact/Footer.astro';
 ---
 
@@ -54,6 +55,9 @@ import Footer from '../components/contact/Footer.astro';
     {/* Contact & CTA Section */}
     <CleanContact />
   </div>
+
+  {/* Floating Keyboard Shortcut & Acoustic Feedback Hint Banner */}
+  <KeyboardHintBanner client:load />
 
   {/* Clean Footer */}
   <Footer slot="footer" />

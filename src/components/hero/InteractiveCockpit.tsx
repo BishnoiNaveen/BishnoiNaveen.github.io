@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { Radio, Database, Cpu, Activity, ShieldCheck, Wifi, WifiOff, CheckCircle2 } from 'lucide-react';
 import { springPresets } from '../../lib/springs';
+import { sound } from '../../lib/sound';
 
 type TabMode = 'telematics' | 'storage' | 'swarm';
 
@@ -138,7 +139,10 @@ export default function InteractiveCockpit() {
               <button
                 key={tab.id}
                 type="button"
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  sound.playPop();
+                  setActiveTab(tab.id);
+                }}
                 title={`Press '${tab.shortcut}' to switch`}
                 className={`relative py-2 px-2 rounded-xl text-xs font-semibold tracking-tight transition-all flex items-center justify-center gap-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
                   isActive
@@ -213,7 +217,10 @@ export default function InteractiveCockpit() {
                   </span>
                   <button
                     type="button"
-                    onClick={() => setIsBlackout(!isBlackout)}
+                    onClick={() => {
+                      sound.playPop();
+                      setIsBlackout(!isBlackout);
+                    }}
                     className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold transition-all cursor-pointer ${
                       isBlackout
                         ? 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30'

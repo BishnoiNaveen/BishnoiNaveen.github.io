@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 import { getResolvedTheme, toggleTheme, subscribeToThemeChange, type ResolvedTheme } from '../../lib/theme';
 import { springPresets } from '../../lib/springs';
+import { sound } from '../../lib/sound';
 
 interface ThemeToggleProps {
   className?: string;
@@ -25,8 +26,17 @@ export default function ThemeToggle({ className = '' }: ThemeToggleProps) {
 
   const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const next = toggleTheme();
-    setResolvedTheme(next);
+    sound.playPop();
+
+    if ('startViewTransition' in document) {
+      (document as unknown as { startViewTransition: (cb: () => void) => void }).startViewTransition(() => {
+        const next = toggleTheme();
+        setResolvedTheme(next);
+      });
+    } else {
+      const next = toggleTheme();
+      setResolvedTheme(next);
+    }
   };
 
   const isDark = mounted ? resolvedTheme === 'dark' : false;
