@@ -9,6 +9,7 @@ import AmbientAtmosphere from '../components/ui/AmbientAtmosphere';
 import FloatingNav from '../components/nav/FloatingNav';
 import CleanHero from '../components/hero/CleanHero.astro';
 import CleanProjects from '../components/projects/CleanProjects.astro';
+import InteractivePlayground from '../components/toys/InteractivePlayground';
 import CleanExperience from '../components/experience/CleanExperience.astro';
 import CleanSkills from '../components/about/CleanSkills.astro';
 import CleanContact from '../components/contact/CleanContact.astro';
@@ -36,6 +37,12 @@ import Footer from '../components/contact/Footer.astro';
 
     {/* Featured Projects Bento */}
     <CleanProjects />
+
+    {/* Subtle Section Divider */}
+    <hr class="border-black/[0.06] dark:border-white/[0.08]" />
+
+    {/* Interactive Systems Lab & Toys Playground */}
+    <InteractivePlayground client:visible />
 
     {/* Subtle Section Divider */}
     <hr class="border-black/[0.06] dark:border-white/[0.08]" />

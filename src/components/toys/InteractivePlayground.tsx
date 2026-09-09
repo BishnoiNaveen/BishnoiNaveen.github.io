@@ -115,20 +115,18 @@ export default function InteractivePlayground() {
   };
 
   return (
-    <section id="toys" aria-label="Interactive Engineering Playground" className="relative py-20 px-6 md:px-12 lg:px-16 contain-layout">
-      <div className="max-w-[96rem] mx-auto w-full">
+    <section id="toys" aria-label="Interactive Systems Playground" className="py-16 md:py-24 relative">
+      <div className="w-full">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/10 mb-4 select-none">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] select-none">
               <Sparkles className="w-3.5 h-3.5 text-[var(--color-accent)]" />
-              <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[var(--color-text-secondary)]">
-                Chapter 04 · Interactive Engineering Playground
-              </span>
+              <span>Interactive Systems Lab</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.035em] text-[var(--color-text-primary)]">
-              Interactive Systems Toys.
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
+              Interactive Hardware &amp; Swarm Lab
             </h2>
             <p className="text-base sm:text-lg text-[var(--color-text-secondary)] mt-2 max-w-2xl font-normal">
               Directly interact with live micro-simulators of Naveen&apos;s real-world architectures: CAN-bus tractor telematics, multi-agent BFT consensus, and tactile sound design.
@@ -216,7 +214,7 @@ export default function InteractivePlayground() {
                 <span className="text-2xl sm:text-3xl font-black text-[var(--color-accent)] my-1">
                   {rpm}
                 </span>
-                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-300 font-semibold">
                   Nominal Band (1800-1900)
                 </span>
               </div>
@@ -225,7 +223,7 @@ export default function InteractivePlayground() {
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase tracking-wider">
                   Hydraulic Pressure
                 </span>
-                <span className="text-2xl sm:text-3xl font-black text-purple-600 dark:text-purple-400 my-1">
+                <span className="text-2xl sm:text-3xl font-black text-purple-700 dark:text-purple-300 my-1">
                   {hydraulics} bar
                 </span>
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)]">
@@ -237,7 +235,7 @@ export default function InteractivePlayground() {
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase tracking-wider">
                   Packets Ingested
                 </span>
-                <span className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 my-1">
+                <span className="text-2xl sm:text-3xl font-black text-emerald-700 dark:text-emerald-300 my-1">
                   {packetsIngested.toLocaleString()}
                 </span>
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)]">
@@ -249,7 +247,7 @@ export default function InteractivePlayground() {
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase tracking-wider">
                   Edge WAL Buffer
                 </span>
-                <span className="text-2xl sm:text-3xl font-black text-amber-500 my-1">
+                <span className="text-2xl sm:text-3xl font-black text-amber-700 dark:text-amber-300 my-1">
                   {bufferedCount} pkts
                 </span>
                 <span className="text-[10px] font-mono text-[var(--color-text-muted)]">

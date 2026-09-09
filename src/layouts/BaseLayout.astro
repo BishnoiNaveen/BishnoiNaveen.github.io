@@ -6,6 +6,7 @@
  */
 import '../styles/design-system.css';
 import { ClientRouter } from 'astro:transitions';
+import NaveenAssistant from '../components/ai/NaveenAssistant';
 
 interface Props {
   title?: string;
@@ -220,6 +221,7 @@ const jsonLdGraph = {
     </main>
 
     <slot name="footer" />
+    <NaveenAssistant client:load />
 
     <!-- Astro ViewTransitions Theme Preservation -->
     <script is:inline>
