@@ -97,7 +97,7 @@ export default function FloatingNav() {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            aria-label="Naveen Bishnoi — Return to top"
+            aria-label="NB — Return to top"
             className="group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-tight text-[var(--color-text-primary)] hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
           >
             <span className="font-extrabold tracking-tighter text-sm">NB</span>
