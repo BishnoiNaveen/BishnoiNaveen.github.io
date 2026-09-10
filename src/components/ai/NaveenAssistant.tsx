@@ -264,7 +264,7 @@ export default function NaveenAssistant() {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
           transition={springPresets.snappy}
-          aria-label={isOpen ? 'Close Naveen AI' : undefined}
+          aria-label={isOpen ? 'Close Naveen AI Assistant' : undefined}
           aria-expanded={isOpen}
           className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-white/95 dark:bg-[#0f1424]/95 backdrop-blur-2xl border border-black/10 dark:border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] group min-h-[44px]"
         >

@@ -120,11 +120,6 @@ export default function InteractivePlayground() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] select-none">
-              <Sparkles className="w-3.5 h-3.5 text-[var(--color-accent)]" />
-              <span>Interactive Systems Lab</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
               Interactive Hardware &amp; Swarm Lab
             </h2>
