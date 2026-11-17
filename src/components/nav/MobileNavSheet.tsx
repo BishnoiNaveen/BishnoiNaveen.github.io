@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence, type PanInfo } from 'framer-motion';
-import { X, FileText, ArrowUpRight } from 'lucide-react';
+import { X, FileDown, ArrowUpRight } from 'lucide-react';
 import { springPresets } from '../../lib/springs';
 import ThemeToggle from '../ui/ThemeToggle';
 
@@ -23,9 +23,7 @@ export default function MobileNavSheet({
   onClose,
   items,
   activeSection,
-  onItemClick,
 }: MobileNavSheetProps) {
-  // Lock body scroll when open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -49,7 +47,7 @@ export default function MobileNavSheet({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-end md:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col justify-end lg:hidden">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -74,7 +72,7 @@ export default function MobileNavSheet({
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
-            className="relative z-10 w-full max-h-[85vh] overflow-y-auto rounded-t-[28px] bg-[rgba(255,255,255,0.92)] dark:bg-[rgba(18,18,21,0.92)] backdrop-blur-3xl border-t border-[var(--color-border)] shadow-[0_-16px_40px_rgba(0,0,0,0.15)] px-6 pt-4 pb-10"
+            className="relative z-10 w-full max-h-[85vh] overflow-y-auto rounded-t-[28px] bg-white/95 dark:bg-[#0c101d]/95 backdrop-blur-3xl border-t border-[var(--color-border)] shadow-[0_-16px_40px_rgba(0,0,0,0.15)] px-6 pt-4 pb-10"
           >
             {/* Drag Handle */}
             <div className="flex justify-center mb-4">
@@ -84,11 +82,11 @@ export default function MobileNavSheet({
             {/* Header / Brand & Controls */}
             <div className="flex items-center justify-between pb-4 border-b border-[var(--color-border-subtle)]">
               <div className="flex items-center gap-3">
-                <span className="font-bold text-lg tracking-tight text-[var(--color-text-primary)]">
+                <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 bg-clip-text text-transparent">
                   Naveen Bishnoi
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-[var(--color-text-secondary)] font-mono">
-                  v2.0
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-mono font-medium">
+                  Engineer
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -97,7 +95,7 @@ export default function MobileNavSheet({
                   type="button"
                   onClick={onClose}
                   aria-label="Close menu"
-                  className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -105,27 +103,32 @@ export default function MobileNavSheet({
             </div>
 
             {/* Nav Links */}
-            <nav className="flex flex-col gap-1 py-4">
+            <nav className="flex flex-col gap-1.5 py-4">
+              <a
+                href="/"
+                onClick={onClose}
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl text-base font-medium transition-colors min-h-[46px] ${
+                  activeSection === '/'
+                    ? 'bg-blue-600 text-white font-semibold shadow-sm'
+                    : 'text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
+                }`}
+              >
+                <span>Home</span>
+                <span className={`text-xs font-mono ${activeSection === '/' ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>/</span>
+              </a>
+
               {items.map((item) => {
-                const isActive = activeSection === item.href || (item.href === '#hero' && activeSection === '');
+                const isActive = activeSection === item.href;
                 return (
                   <a
                     key={item.label}
                     href={item.href}
                     target={item.isExternal ? '_blank' : undefined}
                     rel={item.isExternal ? 'noopener noreferrer' : undefined}
-                    onClick={(e) => {
-                      if (!item.isExternal && item.href.startsWith('#')) {
-                        e.preventDefault();
-                        onItemClick(item.href);
-                        onClose();
-                      } else {
-                        onClose();
-                      }
-                    }}
-                    className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-medium transition-colors min-h-[48px] ${
+                    onClick={onClose}
+                    className={`flex items-center justify-between px-4 py-3 rounded-2xl text-base font-medium transition-colors min-h-[46px] ${
                       isActive
-                        ? 'bg-[var(--color-accent)] text-white font-semibold shadow-sm'
+                        ? 'bg-blue-600 text-white font-semibold shadow-sm'
                         : 'text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
                     }`}
                   >
@@ -145,16 +148,15 @@ export default function MobileNavSheet({
             {/* Bottom Actions */}
             <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-col gap-3">
               <a
-                href="/Naveen_Bishnoi_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-2xl bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] font-semibold text-sm shadow-md transition-opacity hover:opacity-90 min-h-[48px]"
+                href="/naveen_bishnoi_resume.pdf"
+                download="naveen_bishnoi_resume.pdf"
+                className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 rounded-2xl bg-blue-600 text-white font-semibold text-sm shadow-md transition-opacity hover:opacity-90 min-h-[48px] cursor-pointer"
               >
-                <FileText className="w-4 h-4" />
-                <span>Download Resume (PDF)</span>
+                <FileDown className="w-4 h-4" />
+                <span>Download naveen_bishnoi_resume.pdf</span>
               </a>
               <div className="text-center text-xs text-[var(--color-text-muted)] font-mono">
-                0029bishnoinaveen@gmail.com
+                0029bishnoinaveen@gmail.com &middot; +91 9478334329
               </div>
             </div>
           </motion.div>

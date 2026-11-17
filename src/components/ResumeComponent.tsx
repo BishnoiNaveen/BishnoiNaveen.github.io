@@ -3,27 +3,51 @@ import { motion } from 'framer-motion';
 
 export default function ResumeComponent() {
   const experienceJSON = {
-    "role": "Software Architect & AI Engineer",
-    "location": "India",
-    "focus": ["Agentic AI", "Generative Systems", "High-Performance APIs"],
+    "engineer": "Naveen Bishnoi",
+    "role": "AI Systems & Cloud Backend Engineer",
+    "location": "Punjab / Delhi NCR, India",
+    "contact": {
+      "phone": "+91 9478334329",
+      "email": "0029bishnoinaveen@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/naveen-bishnoi-b0b00941a/",
+      "github": "https://github.com/BishnoiNaveen"
+    },
+    "focus": ["AI Systems & Automation", "Cloud Backend & Edge Microservices", "Data Engineering & Telematics"],
     "experience": [
       {
-        "company": "KRONE Agriculture",
-        "title": "Software Engineer",
-        "period": "Present",
-        "impact": "Architected IoT telemetry pipelines and predictive analytics for fleet management."
+        "company": "KRONE Agriculture India Pvt. Ltd.",
+        "title": "AI Systems & Cloud Backend Engineer",
+        "period": "July 2026 – Present (5 Months)",
+        "modules": [
+          "Enterprise Billing Engine (billing.kroneindia.com for Reliance, Bio Fuel Corp, VERBIO, Landforce)",
+          "KIN OneHub Employee Intranet on Cloudflare Workers edge & Supabase PostgreSQL",
+          "Fieldy FSM Microservices (199+ REST endpoints) & 50Hz SocketCAN telematics across 326+ assets",
+          "Forensic Python (pandas, NumPy) reporting engine reconciling 520+ service jobs with 100% financial accuracy"
+        ]
       },
       {
-        "company": "AEONIS OPS",
-        "title": "Lead Developer",
-        "period": "Previous",
-        "impact": "Built autonomous supply chain orchestration systems using React and Node.js."
+        "company": "ITTECHXPERT",
+        "title": "Full-Stack Software Engineering Intern",
+        "period": "June 2025 – July 2025 (Abohar, Punjab)",
+        "modules": [
+          "Core Java, PHP, MySQL 3NF database design",
+          "Accelerated development workflows using AI tooling (Cursor, Claude, ChatGPT)"
+        ]
       }
     ],
+    "education": {
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "institution": "Panjab University (DAV College Abohar)",
+      "batch": "2026"
+    },
+    "certifications": [
+      "IBM Python for Data Science (Credly: ea12611d-75c0-4282-8bf5-baaf48aa0cca)",
+      "Deloitte Data Analytics Job Simulation (Forage: wMeKLdvmcywB24F9m)"
+    ],
     "tech_stack": {
-      "languages": ["Python", "TypeScript", "SQL"],
-      "frameworks": ["React", "Astro", "FastAPI", "LangChain"],
-      "systems": ["Kafka", "Docker", "PostgreSQL", "Redis"]
+      "languages": ["Python", "TypeScript", "JavaScript", "C99", "SQL", "HTML5/CSS3"],
+      "frameworks": ["FastAPI", "Next.js", "Astro", "React", "Node.js", "Express", "Tailwind CSS"],
+      "cloud_data": ["PostgreSQL", "Supabase", "Cloudflare Workers", "Prisma ORM", "Docker", "SocketCAN"]
     }
   };
 
@@ -48,15 +72,19 @@ export default function ResumeComponent() {
           className="prose prose-invert prose-lg text-zinc-400"
         >
           <p className="font-light leading-relaxed mb-6">
-            I specialize in bridging the gap between raw algorithmic power and human-centric design. 
-            My work focuses on building <strong>Autonomous Systems</strong> and <strong>Agentic AI</strong> architectures that scale securely.
+            AI Systems & Cloud Backend Engineer with 5+ months production experience at KRONE Agriculture India and an engineering internship at ITTECHXPERT.
           </p>
           <p className="font-light leading-relaxed mb-12">
-            Beyond writing code, I focus on system design, data orchestration, and crafting highly optimized user interfaces that feel instantaneous.
+            Final year Bachelor of Computer Applications (BCA) candidate at Panjab University (Batch 2026). Specializing in AI-driven automation, edge microservices, forensic data reconciliation, and high-performance full-stack systems.
           </p>
 
-          <a href="/Naveen_Bishnoi_Resume.pdf" target="_blank" className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white text-black font-bold uppercase tracking-widest text-sm hover:bg-emerald-400 transition-colors">
-            Download PDF
+          <a 
+            href="/naveen_bishnoi_resume.pdf" 
+            download="naveen_bishnoi_resume.pdf" 
+            target="_blank" 
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white text-black font-bold uppercase tracking-widest text-sm hover:bg-emerald-400 transition-colors"
+          >
+            Download naveen_bishnoi_resume.pdf
           </a>
         </motion.div>
       </div>

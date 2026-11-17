@@ -87,49 +87,82 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       shortcut: 'H',
     },
     {
+      id: 'about',
+      title: 'About Naveen Bishnoi',
+      description: 'Engineering mindset, Panjab University BCA, systems background',
+      icon: <FileText className="w-4 h-4 text-blue-500" />,
+      category: 'Navigation',
+      action: () => navigateTo('/about'),
+      shortcut: 'A',
+    },
+    {
+      id: 'experience',
+      title: 'Production Experience',
+      description: 'KRONE Agriculture India (AI Systems & Cloud Backend) & ITTECHXPERT',
+      icon: <Briefcase className="w-4 h-4 text-amber-500" />,
+      category: 'Navigation',
+      action: () => navigateTo('/experience'),
+      shortcut: 'E',
+    },
+    {
       id: 'projects',
       title: 'Projects Gallery',
-      description: 'Explore all 4 production distributed systems',
+      description: 'Smart Task System, GAMS C99 ERP, AgriBridge India, KRONE Telematics',
       icon: <Layers className="w-4 h-4 text-indigo-500" />,
       category: 'Navigation',
       action: () => navigateTo('/projects'),
       shortcut: 'P',
     },
     {
-      id: 'krone',
-      title: 'KRONE Telematics Case Study',
-      description: '50k+ machines, CAN bus telemetry, sub-200ms latency',
+      id: 'skills',
+      title: 'Technical Skills & Architecture',
+      description: 'AI Automation, Python Data Analytics, Cloudflare Workers, PostgreSQL 3NF',
       icon: <Cpu className="w-4 h-4 text-emerald-500" />,
-      category: 'Case Studies',
-      action: () => navigateTo('/projects/krone-iot'),
-      shortcut: 'K',
+      category: 'Navigation',
+      action: () => navigateTo('/skills'),
+      shortcut: 'S',
     },
     {
-      id: 'experience',
-      title: 'Experience Timeline',
-      description: 'KRONE Agriculture Software Engineer & Systems Architect',
-      icon: <Briefcase className="w-4 h-4 text-amber-500" />,
+      id: 'credentials',
+      title: 'Education & Verified Certifications',
+      description: 'Panjab University BCA, IBM Python Credly, Deloitte Forensic Simulation',
+      icon: <FileText className="w-4 h-4 text-cyan-500" />,
       category: 'Navigation',
-      action: () => navigateTo('/#experience'),
-      shortcut: 'E',
+      action: () => navigateTo('/credentials'),
     },
     {
       id: 'resume',
-      title: 'Executive Resume',
-      description: 'Printable credentials, BCA honors, and verified proof',
+      title: 'View Resume Online',
+      description: 'ATS unrejectable resume preview and full details',
       icon: <FileText className="w-4 h-4 text-purple-500" />,
       category: 'Navigation',
       action: () => navigateTo('/resume'),
       shortcut: 'R',
     },
     {
-      id: 'lab',
-      title: 'Interactive 3D Lab Suite',
-      description: 'Real-time telemetry, memory graphs, and AST diffs',
-      icon: <Terminal className="w-4 h-4 text-cyan-500" />,
+      id: 'download-resume',
+      title: 'Download Resume (PDF)',
+      description: 'Download naveen_bishnoi_resume.pdf directly',
+      icon: <FileText className="w-4 h-4 text-emerald-500" />,
+      category: 'Actions',
+      action: () => {
+        const link = document.createElement('a');
+        link.href = '/naveen_bishnoi_resume.pdf';
+        link.download = 'naveen_bishnoi_resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        onClose();
+      },
+      shortcut: 'D',
+    },
+    {
+      id: 'contact',
+      title: 'Contact Naveen',
+      description: 'Send direct inquiry or view email and phone details',
+      icon: <Terminal className="w-4 h-4 text-rose-500" />,
       category: 'Navigation',
-      action: () => navigateTo('/lab'),
-      shortcut: 'L',
+      action: () => navigateTo('/contact'),
     },
     {
       id: 'copy-email',
@@ -143,7 +176,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
     {
       id: 'toggle-theme',
       title: 'Toggle Dark / Light Theme',
-      description: 'Switch between Apple Obsidian Dark and Ceramic Light',
+      description: 'Switch between Obsidian Dark and Ceramic Light',
       icon: <SunMoon className="w-4 h-4 text-orange-400" />,
       category: 'Actions',
       action: toggleTheme,
@@ -162,12 +195,12 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
     },
     {
       id: 'linkedin',
-      title: 'LinkedIn Network',
-      description: 'linkedin.com/in/naveen-bishnoi',
+      title: 'LinkedIn Profile',
+      description: 'linkedin.com/in/naveen-bishnoi-b0b00941a/',
       icon: <ExternalLink className="w-4 h-4 text-blue-400" />,
       category: 'Actions',
       action: () => {
-        window.open('https://linkedin.com/in/naveen-bishnoi', '_blank', 'noopener,noreferrer');
+        window.open('https://www.linkedin.com/in/naveen-bishnoi-b0b00941a/', '_blank', 'noopener,noreferrer');
         onClose();
       },
     },

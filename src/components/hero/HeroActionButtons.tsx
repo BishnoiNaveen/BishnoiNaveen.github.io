@@ -26,11 +26,11 @@ export default function HeroActionButtons() {
       </MagneticButton>
 
       <MagneticButton
-        href="/Naveen_Bishnoi_Resume.pdf"
-        target="_blank"
+        href="/naveen_bishnoi_resume.pdf"
+        download="naveen_bishnoi_resume.pdf"
         variant="secondary"
         size="lg"
-        ariaLabel="Download Naveen Bishnoi Resume PDF"
+        ariaLabel="Download naveen_bishnoi_resume.pdf"
       >
         <FileText className="w-4 h-4 text-[var(--color-text-secondary)]" />
         <span>Resume</span>

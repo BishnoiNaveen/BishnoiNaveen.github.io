@@ -164,7 +164,7 @@ export default function NaveenAssistant() {
       return {
         id: `ai-${Date.now()}`,
         sender: 'ai',
-        text: "Naveen Bishnoi is a Software Architect with 3+ years of production experience in agricultural telematics and distributed platforms. He holds a Bachelor of Computer Applications (BCA Honors) with Distinction.\n\nYou can view his live interactive resume or download the verified PDF.",
+        text: "Naveen Bishnoi is an AI Systems & Cloud Backend Engineer with 5+ months production experience at KRONE Agriculture India and an engineering internship at ITTECHXPERT. He is in his final year of BCA at Panjab University (Batch 2026).\n\nYou can view his live interactive resume or download the verified PDF directly as naveen_bishnoi_resume.pdf.",
         actions: [
           {
             label: 'View Web Resume',
@@ -175,9 +175,14 @@ export default function NaveenAssistant() {
             icon: FileText,
           },
           {
-            label: 'Download PDF',
+            label: 'Download naveen_bishnoi_resume.pdf',
             action: () => {
-              window.open('/Naveen_Bishnoi_Resume.pdf', '_blank');
+              const link = document.createElement('a');
+              link.href = '/naveen_bishnoi_resume.pdf';
+              link.download = 'naveen_bishnoi_resume.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
             },
             icon: FileText,
           },
@@ -189,7 +194,7 @@ export default function NaveenAssistant() {
       return {
         id: `ai-${Date.now()}`,
         sender: 'ai',
-        text: "You can reach Naveen directly:\n\n• **Email:** 0029bishnoinaveen@gmail.com\n• **Location:** India (IST · UTC+5:30)\n• **Availability:** Open for architectural consulting, enterprise systems, and high-impact software roles.",
+        text: "You can reach Naveen directly:\n\n• **Email:** 0029bishnoinaveen@gmail.com\n• **Phone:** +91 9478334329\n• **Location:** Punjab / Delhi NCR, India (IST · UTC+5:30)\n• **Availability:** Open for AI systems, cloud backend, and Python automation roles.",
         actions: [
           {
             label: copied ? 'Copied to Clipboard!' : 'Copy Email Address',
@@ -198,7 +203,7 @@ export default function NaveenAssistant() {
           },
           {
             label: 'LinkedIn Profile',
-            action: () => window.open('https://linkedin.com/in/naveen-bishnoi', '_blank'),
+            action: () => window.open('https://www.linkedin.com/in/naveen-bishnoi-b0b00941a/', '_blank'),
             icon: ExternalLink,
           },
         ],
@@ -209,15 +214,22 @@ export default function NaveenAssistant() {
     return {
       id: `ai-${Date.now()}`,
       sender: 'ai',
-      text: "Naveen specializes in deterministic systems engineering, distributed IoT telematics, and autonomous multi-agent swarms. Would you like to explore his work at KRONE Agriculture, inspect his Ultron architecture, or download his resume?",
+      text: "Naveen specializes in AI systems engineering, cloud backend, Python automation, and real-time telematics. Would you like to explore his production work at KRONE Agriculture, inspect his projects, or download his resume?",
       actions: [
         {
-          label: 'KRONE Telematics',
+          label: 'KRONE Telematics & Billing',
           action: () => handleSendQuery('What did Naveen build at KRONE Agriculture?'),
         },
         {
           label: 'Download Resume',
-          action: () => window.open('/Naveen_Bishnoi_Resume.pdf', '_blank'),
+          action: () => {
+            const link = document.createElement('a');
+            link.href = '/naveen_bishnoi_resume.pdf';
+            link.download = 'naveen_bishnoi_resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          },
           icon: FileText,
         },
       ],

@@ -1,0 +1,256 @@
+---
+/**
+ * src/pages/experience.astro — Dedicated Experience Page
+ * In-depth production engineering timeline & systems achievements of Naveen Bishnoi
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import Footer from '../components/contact/Footer.astro';
+import { bioData } from '../data/bio';
+---
+
+<BaseLayout
+  title="Production Experience · Naveen Bishnoi"
+  description="Detailed production engineering experience at KRONE Agriculture India and ITTECHXPERT. Enterprise billing, KIN OneHub intranet, 199+ Fieldy FSM APIs, and 50Hz SocketCAN telematics."
+>
+  <FloatingNav client:load slot="header" />
+
+  <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24">
+    {/* Page Header */}
+    <div class="mb-14 sm:mb-20 pb-8 border-b border-black/[0.08] dark:border-white/10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-semibold tracking-wide uppercase mb-4">
+        <span>02 &middot; Career &amp; Experience</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[var(--color-text-primary)] leading-[1.1] mb-6">
+        Mission-critical production engineering.
+      </h1>
+      <p class="text-lg sm:text-xl text-[var(--color-text-secondary)] font-normal leading-relaxed max-w-3xl">
+        A deep breakdown of the systems, portals, and data pipelines I have built and maintained in live production environments.
+      </p>
+
+      {/* Production Impact Summary */}
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-black/[0.06] dark:border-white/[0.08]">
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-blue-600 dark:text-blue-400">199+</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">Fieldy FSM REST APIs</span>
+        </div>
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">326+</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">Commercial Assets Monitored</span>
+        </div>
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-purple-400">50 Hz</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">SocketCAN Telemetry Stream</span>
+        </div>
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">100%</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">Financial Audit Accuracy</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Detailed Role Breakdown */}
+    <div class="space-y-16">
+      {/* 1. KRONE Agriculture India */}
+      <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-white/[0.03] border border-black/[0.08] dark:border-white/10 shadow-sm relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-black/[0.06] dark:border-white/[0.08]">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 text-xs font-semibold mb-2">
+              Corporate Production Role
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-text-primary)]">
+              AI Systems &amp; Cloud Backend Automation Engineer
+            </h2>
+            <p class="text-base font-semibold text-blue-600 dark:text-blue-400 mt-1">
+              KRONE Agriculture India Pvt. Ltd.
+            </p>
+          </div>
+          <div class="sm:text-right">
+            <span class="text-sm font-semibold font-mono text-[var(--color-text-primary)] block">July 2026 &mdash; Present</span>
+            <span class="text-xs text-[var(--color-text-muted)] block">5 Months &middot; Punjab / Gurugram, India</span>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-6">
+          <h3 class="text-base font-bold uppercase tracking-wider text-[var(--color-text-muted)] font-mono">
+            Core Production Deployments &amp; Engineering Modules
+          </h3>
+
+          <div class="grid grid-cols-1 gap-6">
+            {/* Feature 1 */}
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-base font-bold text-[var(--color-text-primary)] flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <span>Enterprise Billing &amp; Invoicing Platform (billing.kroneindia.com)</span>
+              </h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                Architected and engineered an automated enterprise billing and invoicing platform for high-capacity harvesting/baling machinery across tier-1 enterprise clients including <strong>Reliance Industries Limited</strong>, <strong>Bio Fuel Corporation</strong>, <strong>VERBIO</strong>, and <strong>Landforce</strong>. Automated monthly proforma and tax invoices with HSN 998599, 18% IGST compliance, and cryptographic double-billing prevention.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-300">HSN 998599</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-300">18% IGST</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-300">Double-Billing Prevention</span>
+              </div>
+            </div>
+
+            {/* Feature 2 */}
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-base font-bold text-[var(--color-text-primary)] flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                <span>Server Setups &amp; Employee Intranet (KIN OneHub)</span>
+              </h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                Set up and deployed internal portal infrastructure, including the <strong>KIN OneHub</strong> employee intranet on <strong>Cloudflare Workers (serverless edge)</strong> with a Supabase PostgreSQL backend and automated document storage bucket (<code>kin-documents</code>), unifying internal service dispatch, field reporting, and operational records under a single pane of glass.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-300">Cloudflare Workers Edge</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-300">Supabase PostgreSQL</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-300">kin-documents Storage</span>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-base font-bold text-[var(--color-text-primary)] flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                <span>Fieldy FSM REST API Integration &amp; Live Telematics View</span>
+              </h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                Configured and integrated the Krone Green Portal with Fieldy FSM cloud microservices (Accounting, Job, Tracking, and Attendance across <strong>199+ API endpoints</strong>); engineered the live <strong>Telematics View</strong> monitoring real-time GPS reverse-geocoded navigation, customer site check-in/out timestamps, and <strong>50Hz SocketCAN machinery telemetry across 326+ commercial assets</strong>.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">199+ REST Endpoints</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">50Hz SocketCAN</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">326+ Live Machines</span>
+              </div>
+            </div>
+
+            {/* Feature 4 */}
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-base font-bold text-[var(--color-text-primary)] flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                <span>Autonomous 34-Column Master Reporting Engine</span>
+              </h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                Built an automated Python (pandas, NumPy) reporting engine consolidating technician logs, trip odometers, and billing summaries across <strong>520+ service jobs</strong>, reconciling <strong>350+ historical records</strong> with <strong>100% financial audit accuracy</strong> and zero calculation drift.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-300">Python pandas/NumPy</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-300">520+ Service Jobs</span>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-300">100% Audit Precision</span>
+              </div>
+            </div>
+
+            {/* Feature 5 */}
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-base font-bold text-[var(--color-text-primary)] flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-600"></span>
+                <span>AI Automations &amp; Multilingual Structured JSON Pipelines</span>
+              </h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                Designed structured JSON data extraction workflows for processing complex multilingual field service reports (Hindi/English technician notes), boosting data ingestion speed and eliminating manual key-person billing dependencies.
+              </p>
+            </div>
+
+            {/* Feature 6 */}
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-base font-bold text-[var(--color-text-primary)] flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-rose-600"></span>
+                <span>Security, Access Hygiene &amp; Server Validation</span>
+              </h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                Enforced environment-isolated credential vaults, automated cron background synchronizations, and pre-deployment validation test suites protecting API gateways, production tokens, and Supabase service roles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. ITTECHXPERT */}
+      <section class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-white/[0.03] border border-black/[0.08] dark:border-white/10 shadow-sm relative overflow-hidden">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-black/[0.06] dark:border-white/[0.08]">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 text-xs font-semibold mb-2">
+              Software Development Internship
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-text-primary)]">
+              Intern Developer &amp; AI Development Assistant
+            </h2>
+            <p class="text-base font-semibold text-blue-600 dark:text-blue-400 mt-1">
+              ITTECHXPERT
+            </p>
+          </div>
+          <div class="sm:text-right">
+            <span class="text-sm font-semibold font-mono text-[var(--color-text-primary)] block">June 2025 &mdash; July 2025</span>
+            <span class="text-xs text-[var(--color-text-muted)] block">Abohar, Punjab, India &middot; Grade: Excellent</span>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-sm font-bold text-[var(--color-text-primary)] mb-1">Full-Stack Web Modules</h4>
+              <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                Built clean, modular client-facing frontend and backend features using Java, PHP, MySQL, HTML5, and CSS3 for business enterprise client applications.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-sm font-bold text-[var(--color-text-primary)] mb-1">AI-Assisted Workflows</h4>
+              <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                Utilized modern AI development environments (Cursor, Claude, ChatGPT) to write clean boilerplate code, accelerate debugging, and automate unit test routines.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.06]">
+              <h4 class="text-sm font-bold text-[var(--color-text-primary)] mb-1">Normalized 3NF MySQL</h4>
+              <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                Designed normalized 3NF MySQL database tables and executed optimized SQL queries for customer invoicing, account records, and billing summaries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation Links to Other Pages */}
+      <section class="mt-16 p-8 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-blue-500/5 to-purple-500/10 border border-emerald-500/20 text-center flex flex-col items-center">
+        <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Explore the Code &amp; Verified Credentials</h3>
+        <p class="text-sm sm:text-base text-[var(--color-text-secondary)] max-w-xl mb-6">
+          See the actual source repositories, inspect certified badges from IBM and Deloitte, or download my verified resume.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/projects"
+            class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm transition-all"
+          >
+            Explore Projects &rarr;
+          </a>
+          <a
+            href="/skills"
+            class="px-5 py-2.5 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] text-[var(--color-text-primary)] border border-black/[0.08] dark:border-white/10 text-sm font-semibold transition-all"
+          >
+            Technical Skills &rarr;
+          </a>
+          <a
+            href="/credentials"
+            class="px-5 py-2.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold shadow-sm transition-all"
+          >
+            Verified Credentials &rarr;
+          </a>
+          <a
+            href="/naveen_bishnoi_resume.pdf"
+            download="naveen_bishnoi_resume.pdf"
+            class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition-all"
+          >
+            Download Resume (PDF) &darr;
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

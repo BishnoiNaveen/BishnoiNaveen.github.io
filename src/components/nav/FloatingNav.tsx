@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, ArrowUpRight, Search } from 'lucide-react';
+import { Menu, ArrowUpRight, Search, FileDown } from 'lucide-react';
 import { springPresets } from '../../lib/springs';
 import ThemeToggle from '../ui/ThemeToggle';
 import MobileNavSheet, { type NavItem } from './MobileNavSheet';
 import CommandPalette from '../ui/CommandPalette';
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Work', href: '#work' },
+  { label: 'About', href: '/about' },
+  { label: 'Experience', href: '/experience' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Credentials', href: '/credentials' },
   { label: 'Resume', href: '/resume' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function FloatingNav() {
-  const [activeSection, setActiveSection] = useState<string>('#hero');
+  const [currentPath, setCurrentPath] = useState<string>('');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMobileSheetOpen, setIsMobileSheetOpen] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // Scroll spy & scrolled threshold listener
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname.replace(/\/$/, '') || '/');
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -30,38 +35,7 @@ export default function FloatingNav() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Section Observer for Scroll Spy
-    const sectionIds = ['hero', 'work', 'experience', 'skills', 'contact'];
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-
-    if (sections.length === 0) {
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find highest intersecting entry
-        const visibleEntries = entries.filter((e) => e.isIntersecting);
-        if (visibleEntries.length > 0) {
-          visibleEntries.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-          const topEntry = visibleEntries[0];
-          setActiveSection(`#${topEntry.target.id}`);
-        }
-      },
-      {
-        rootMargin: '-20% 0px -50% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      }
-    );
-
-    sections.forEach((sec) => observer.observe(sec));
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Global Cmd+K / Ctrl+K listener
@@ -77,71 +51,47 @@ export default function FloatingNav() {
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      const targetEl = document.querySelector(href) || (href === '#work' ? document.querySelector('#projects') : null);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(href);
-      } else {
-        // If target element is not on current page, navigate to root with anchor
-        window.location.href = `/${href}`;
-      }
-    }
-  };
-
   return (
     <>
       <header
         role="banner"
-        className="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
+        className="fixed top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none"
       >
         <nav
           role="navigation"
           aria-label="Primary Navigation"
-          className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-4 md:gap-6 px-4 sm:px-5 py-2.5 rounded-full transition-all duration-300 bg-white/85 dark:bg-[#0c101d]/90 backdrop-blur-2xl border border-black/[0.08] dark:border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
+          className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 md:gap-5 px-3.5 sm:px-5 py-2.5 rounded-full transition-all duration-300 bg-white/90 dark:bg-[#0c101d]/90 backdrop-blur-2xl border border-black/[0.08] dark:border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
             isScrolled
-              ? 'border-[var(--color-accent)]/30 shadow-[0_12px_40px_rgba(0,113,227,0.15)] scale-[0.98]'
+              ? 'border-blue-500/40 shadow-[0_12px_36px_rgba(37,99,235,0.15)] scale-[0.98]'
               : ''
           }`}
         >
           {/* Logo Pill */}
           <a
-            href="#hero"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('#hero');
-            }}
-            aria-label="NB — Return to top"
-            className="group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-tight text-[var(--color-text-primary)] hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+            href="/"
+            aria-label="Naveen Bishnoi — Home"
+            className="group relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-bold tracking-tight text-[var(--color-text-primary)] hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
-            <span className="font-extrabold tracking-tighter text-sm">NB</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] group-hover:scale-125 transition-transform" />
+            <span className="font-extrabold tracking-tighter text-sm sm:text-base bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 bg-clip-text text-transparent">NB.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:scale-125 transition-transform" />
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-1.5 relative">
+          <div className="hidden lg:flex items-center gap-1 relative">
             {NAV_ITEMS.map((item, index) => {
-              const isActive = activeSection === item.href;
+              const itemCleanHref = item.href.replace(/\/$/, '') || '/';
+              const isActive = currentPath === itemCleanHref;
               const isHovered = hoveredIndex === index;
 
               return (
                 <a
                   key={item.label}
                   href={item.href}
-                  target={item.isExternal ? '_blank' : undefined}
-                  rel={item.isExternal ? 'noopener noreferrer' : undefined}
-                  onClick={(e) => {
-                    if (!item.isExternal && item.href.startsWith('#')) {
-                      e.preventDefault();
-                      handleNavClick(item.href);
-                    }
-                  }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative inline-flex items-center justify-center px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
+                  className={`relative inline-flex items-center justify-center px-3 py-1.5 rounded-full text-xs font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                     isActive
-                      ? 'text-[var(--color-text-primary)] font-semibold'
+                      ? 'text-blue-600 dark:text-blue-400 font-semibold'
                       : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
                   }`}
                 >
@@ -150,7 +100,7 @@ export default function FloatingNav() {
                     <motion.div
                       layoutId="active-nav-pill"
                       transition={springPresets.glide}
-                      className="absolute inset-0 rounded-full bg-black/[0.06] dark:bg-white/15 border border-black/10 dark:border-white/20 shadow-sm -z-10"
+                      className="absolute inset-0 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800/60 shadow-sm -z-10"
                     />
                   )}
 
@@ -159,29 +109,37 @@ export default function FloatingNav() {
                     <motion.div
                       layoutId="hover-nav-pill"
                       transition={{ type: 'spring', mass: 0.5, stiffness: 400, damping: 30 }}
-                      className="absolute inset-0 rounded-full bg-black/[0.03] dark:bg-white/[0.08] -z-10"
+                      className="absolute inset-0 rounded-full bg-black/[0.04] dark:bg-white/[0.08] -z-10"
                     />
                   )}
 
-                  <span className="inline-flex items-center gap-1">
-                    {item.label}
-                    {item.isExternal && <ArrowUpRight className="w-3 h-3 opacity-60" />}
-                  </span>
+                  <span>{item.label}</span>
                 </a>
               );
             })}
           </div>
 
-          <div className="h-4 w-px bg-[var(--color-hairline)] mx-0.5 hidden md:block" />
+          <div className="h-4 w-px bg-black/[0.08] dark:bg-white/15 mx-0.5 hidden lg:block" />
 
-          {/* Theme Toggle, Search Trigger & Mobile Trigger */}
-          <div className="flex items-center gap-1.5">
-            {/* Command Palette Trigger Button */}
+          {/* Actions & Buttons */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* Quick Resume Download Pill */}
+            <a
+              href="/naveen_bishnoi_resume.pdf"
+              download="naveen_bishnoi_resume.pdf"
+              title="Download Resume as naveen_bishnoi_resume.pdf"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-all active:scale-[0.98] cursor-pointer"
+            >
+              <FileDown className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Resume</span>
+            </a>
+
+            {/* Command Palette Trigger */}
             <button
               type="button"
               onClick={() => setIsCommandPaletteOpen(true)}
               aria-label="Search and quick actions (⌘K)"
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] cursor-pointer"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
             >
               <Search className="w-3.5 h-3.5" />
               <span className="hidden sm:inline text-[10px] font-mono px-1 py-0.2 rounded bg-black/[0.05] dark:bg-white/10">⌘K</span>
@@ -195,7 +153,7 @@ export default function FloatingNav() {
               onClick={() => setIsMobileSheetOpen(true)}
               aria-label="Open Navigation Menu"
               aria-expanded={isMobileSheetOpen}
-              className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              className="lg:hidden inline-flex items-center justify-center w-8 h-8 rounded-full text-[var(--color-text-primary)] hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               <Menu className="w-4 h-4" />
             </button>
@@ -214,8 +172,8 @@ export default function FloatingNav() {
         isOpen={isMobileSheetOpen}
         onClose={() => setIsMobileSheetOpen(false)}
         items={NAV_ITEMS}
-        activeSection={activeSection}
-        onItemClick={handleNavClick}
+        activeSection={currentPath}
+        onItemClick={() => setIsMobileSheetOpen(false)}
       />
     </>
   );

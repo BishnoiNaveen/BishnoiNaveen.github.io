@@ -1,53 +1,351 @@
 ---
 /**
- * src/pages/resume.astro — Clean Minimalist Resume Page
+ * src/pages/resume.astro — ATS-Unrejectable Executive Resume Page
  * Author: Naveen Bishnoi
+ * Standard: Clean digital resume view with 1-click download as naveen_bishnoi_resume.pdf
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FloatingNav from '../components/nav/FloatingNav';
-import ReadingProgress from '../components/ui/ReadingProgress';
-import CleanExperience from '../components/experience/CleanExperience.astro';
-import CleanSkills from '../components/about/CleanSkills.astro';
 import Footer from '../components/contact/Footer.astro';
 ---
 
 <BaseLayout
-  title="Resume | Naveen Bishnoi · Software Architect & Systems Engineer"
-  description="Verified engineering career trajectory, technical proficiencies, and resume of Naveen Bishnoi — Software Architect & Systems Engineer at KRONE Agriculture India."
+  title="Resume · Naveen Bishnoi | AI Systems & Cloud Backend Engineer"
+  description="Official ATS-Unrejectable Resume of Naveen Bishnoi — AI Systems & Cloud Backend Engineer at KRONE Agriculture India. Download as naveen_bishnoi_resume.pdf."
 >
-  <ReadingProgress client:load />
   <FloatingNav client:load slot="header" />
 
-  <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24 space-y-16">
-    {/* Header with Direct Download Action */}
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-8 border-b border-black/[0.06] dark:border-white/[0.08]">
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24">
+    {/* Page Action Bar */}
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-10 border-b border-black/[0.08] dark:border-white/10">
       <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)] mb-3">
-          Resume &amp; Experience
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase mb-2">
+          <span>06 &middot; ATS Unrejectable Resume</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-[var(--color-text-primary)]">
+          Naveen Bishnoi &mdash; Curriculum Vitae
         </h1>
-        <p class="text-base sm:text-lg text-[var(--color-text-secondary)]">
-          Naveen Bishnoi &middot; Software Architect &amp; Systems Engineer
-        </p>
       </div>
 
       <a
-        href="/Naveen_Bishnoi_Resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-accent)] text-white text-sm font-semibold shadow-sm hover:opacity-90 active:scale-[0.98] transition-all shrink-0"
+        href="/naveen_bishnoi_resume.pdf"
+        download="naveen_bishnoi_resume.pdf"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md shadow-blue-500/20 active:scale-[0.98] transition-all cursor-pointer shrink-0"
       >
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
-        <span>Download PDF Resume</span>
+        <span>Download naveen_bishnoi_resume.pdf</span>
       </a>
     </div>
 
-    {/* Work Experience */}
-    <CleanExperience />
+    {/* Digital Paper Container */}
+    <div class="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#0c101d] border border-black/[0.08] dark:border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.06)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.6)] space-y-10 text-[var(--color-text-primary)]">
+      
+      {/* Resume Header */}
+      <div class="text-center pb-8 border-b border-black/[0.08] dark:border-white/10">
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight uppercase">NAVEEN BISHNOI</h2>
+        <p class="text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 mt-1">
+          AI Systems &amp; Cloud Backend Engineer | Python Automation &amp; Systems Specialist
+        </p>
+        <p class="text-xs sm:text-sm text-[var(--color-text-secondary)] mt-2 font-mono flex flex-wrap justify-center items-center gap-x-3 gap-y-1">
+          <span>Punjab / Delhi NCR, India</span>
+          <span>&middot;</span>
+          <a href="tel:+919478334329" class="hover:text-blue-600 underline">+91 9478334329</a>
+          <span>&middot;</span>
+          <a href="mailto:0029bishnoinaveen@gmail.com" class="hover:text-blue-600 underline">0029bishnoinaveen@gmail.com</a>
+        </p>
+        <p class="text-xs font-mono text-[var(--color-text-secondary)] mt-1.5 flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+          <a href="https://www.linkedin.com/in/naveen-bishnoi-b0b00941a/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+            linkedin.com/in/naveen-bishnoi-b0b00941a/
+          </a>
+          <span>&middot;</span>
+          <a href="https://github.com/BishnoiNaveen" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+            github.com/BishnoiNaveen
+          </a>
+          <span>&middot;</span>
+          <a href="https://bishnoinaveen.github.io" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+            bishnoinaveen.github.io
+          </a>
+        </p>
+      </div>
 
-    {/* Technical Skills */}
-    <CleanSkills />
+      {/* Professional Summary */}
+      <section class="space-y-2">
+        <h3 class="text-base font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b border-black/[0.08] dark:border-white/10 pb-1 font-mono">
+          Professional Summary
+        </h3>
+        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          Results-driven AI Systems and Cloud Backend Engineer with 5+ months of mission-critical production experience at KRONE Agriculture India and a foundational software engineering internship at ITTECHXPERT. Proven track record architecting automated enterprise billing portals, serverless internal intranet systems (KIN OneHub), and real-time machinery telematics monitoring solutions via Fieldy FSM REST microservices. Industry-certified by IBM (Python for Data Science) and Deloitte (Data Analytics &amp; Forensic Technology). Deep expertise in Python automation, relational database engineering (PostgreSQL, MySQL, Supabase), API integrations, and agentic LLM workflows. Final-year Bachelor of Computer Applications (BCA) candidate at Panjab University (Batch 2026).
+        </p>
+      </section>
+
+      {/* Key Skills & Core Competencies */}
+      <section class="space-y-3">
+        <h3 class="text-base font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b border-black/[0.08] dark:border-white/10 pb-1 font-mono">
+          Key Skills &amp; Core Competencies
+        </h3>
+        <div class="space-y-2 text-sm">
+          <div>
+            <strong class="text-[var(--color-text-primary)]">AI-Driven Automation &amp; Tooling:</strong>
+            <span class="text-[var(--color-text-secondary)] ml-1">
+              Agentic LLM Workflows, Automated Task Execution, Prompt Engineering, Structured JSON Outputs, Cursor, Claude, ChatGPT, AI-Assisted Full-Stack Development
+            </span>
+          </div>
+          <div>
+            <strong class="text-[var(--color-text-primary)]">Python &amp; Forensic Data Analytics:</strong>
+            <span class="text-[var(--color-text-secondary)] ml-1">
+              Python Scripting, pandas, NumPy, Data Reconciliation, Automated CSV/Excel Workbooks, Forensic Ledger Auditing, 34-Column Master Report Pipelines
+            </span>
+          </div>
+          <div>
+            <strong class="text-[var(--color-text-primary)]">Cloud, Backend &amp; Server Setups:</strong>
+            <span class="text-[var(--color-text-secondary)] ml-1">
+              Cloudflare Workers (Serverless Edge), Supabase PostgreSQL, Prisma ORM, RESTful Microservices, Server Setups, Environment Isolation, Secret Hygiene, Crons
+            </span>
+          </div>
+          <div>
+            <strong class="text-[var(--color-text-primary)]">Databases &amp; Systems Programming:</strong>
+            <span class="text-[var(--color-text-secondary)] ml-1">
+              PostgreSQL, MySQL, SQLite, 3NF Schema Normalization, Complex SQL Queries, C/C++ Systems, SocketCAN 50Hz Telematics, Linux/Bash
+            </span>
+          </div>
+          <div>
+            <strong class="text-[var(--color-text-primary)]">Full-Stack Web Technologies:</strong>
+            <span class="text-[var(--color-text-secondary)] ml-1">
+              JavaScript (ES6+), TypeScript, React.js, Next.js, Node.js, Express.js, Java, PHP, HTML5, CSS3, Vite, Git/GitHub, Postman, Swagger/OpenAPI
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Experience */}
+      <section class="space-y-6">
+        <h3 class="text-base font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b border-black/[0.08] dark:border-white/10 pb-1 font-mono">
+          Professional Experience
+        </h3>
+
+        {/* Role 1 */}
+        <div class="space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <div>
+              <h4 class="text-base font-bold text-[var(--color-text-primary)]">
+                AI Systems &amp; Cloud Backend Automation Engineer
+              </h4>
+              <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                KRONE Agriculture India Pvt. Ltd.
+              </p>
+            </div>
+            <div class="sm:text-right text-xs font-mono text-[var(--color-text-muted)]">
+              <span>July 2026 &mdash; Present (5 Months)</span>
+              <span class="block">Punjab / Gurugram, India</span>
+            </div>
+          </div>
+          <ul class="list-disc list-outside pl-5 space-y-1.5 text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            <li>
+              <strong>Enterprise Billing &amp; Invoicing Systems:</strong> Architected and engineered an automated enterprise billing and invoicing platform (billing.kroneindia.com) for high-capacity harvesting/baling machinery across tier-1 enterprise clients (Reliance Industries Limited, Bio Fuel Corporation, VERBIO, Landforce), automating monthly proforma and tax invoices with HSN 998599, 18% IGST, and cryptographic double-billing prevention.
+            </li>
+            <li>
+              <strong>Server Setups &amp; Internal Portals (KIN OneHub):</strong> Set up and deployed internal portal infrastructure, including the KIN OneHub employee intranet on Cloudflare Workers (serverless edge) with a Supabase PostgreSQL backend and automated document storage bucket (kin-documents), unifying internal service dispatch, field reporting, and operational records.
+            </li>
+            <li>
+              <strong>Fieldy FSM REST API Integration &amp; Telematics View:</strong> Configured and integrated the Krone Green Portal with Fieldy FSM cloud microservices (Accounting, Job, Tracking, and Attendance across 199+ API endpoints); engineered the live Telematics View monitoring real-time GPS reverse-geocoded navigation, customer site check-in/out timestamps, and 50Hz SocketCAN machinery telemetry across 326+ commercial assets.
+            </li>
+            <li>
+              <strong>Autonomous 34-Column Master Reporting Engine:</strong> Built an automated Python (pandas, NumPy) reporting engine consolidating technician logs, trip odometers, and billing summaries across 520+ service jobs, reconciling 350+ historical records with 100% financial audit accuracy.
+            </li>
+            <li>
+              <strong>AI Automations &amp; Structured JSON Pipelines:</strong> Designed structured JSON data extraction workflows for processing complex multilingual field service reports (Hindi/English technician notes), boosting data ingestion speed and eliminating manual key-person billing dependencies.
+            </li>
+            <li>
+              <strong>Security, Access Hygiene &amp; Server Validation:</strong> Enforced environment-isolated credential vaults, automated cron background synchronizations, and pre-deployment validation test suites protecting API gateways, production tokens, and Supabase service roles.
+            </li>
+          </ul>
+        </div>
+
+        {/* Role 2 */}
+        <div class="space-y-2 pt-4 border-t border-black/[0.04] dark:border-white/[0.04]">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <div>
+              <h4 class="text-base font-bold text-[var(--color-text-primary)]">
+                Intern Developer &amp; AI Development Assistant
+              </h4>
+              <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                ITTECHXPERT
+              </p>
+            </div>
+            <div class="sm:text-right text-xs font-mono text-[var(--color-text-muted)]">
+              <span>June 2025 &mdash; July 2025 (Internship)</span>
+              <span class="block">Abohar, Punjab, India</span>
+            </div>
+          </div>
+          <ul class="list-disc list-outside pl-5 space-y-1.5 text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            <li>
+              <strong>Full-Stack Web &amp; Database Modules:</strong> Built clean, modular client-facing frontend and backend features using Java, PHP, MySQL, HTML5, and CSS3 for business enterprise client applications.
+            </li>
+            <li>
+              <strong>AI-Assisted Engineering Workflows:</strong> Utilized modern AI development environments (Cursor, Claude, ChatGPT) to write clean boilerplate code, accelerate debugging, and automate unit test routines.
+            </li>
+            <li>
+              <strong>Relational Database Structuring:</strong> Designed normalized 3NF MySQL database tables and executed optimized SQL queries for customer invoicing, account records, and billing summaries.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Real-World Engineering Projects */}
+      <section class="space-y-4">
+        <h3 class="text-base font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b border-black/[0.08] dark:border-white/10 pb-1 font-mono">
+          Real-World Engineering Projects
+        </h3>
+
+        <div class="space-y-3">
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="text-sm font-bold text-[var(--color-text-primary)]">
+                Smart Task System &middot; <span class="font-normal font-mono text-xs text-[var(--color-text-muted)]">Next.js, TypeScript, PostgreSQL, Prisma ORM, AI APIs</span>
+              </h4>
+              <a href="https://github.com/BishnoiNaveen/smart-task-system" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-600 hover:underline">
+                [GitHub Repo]
+              </a>
+            </div>
+            <ul class="list-disc list-outside pl-5 space-y-1 text-xs text-[var(--color-text-secondary)] mt-1">
+              <li>Engineered a full-stack task and workflow management web application with Next.js, TypeScript, Prisma ORM, and PostgreSQL utilizing MVC architecture.</li>
+              <li>Implemented dual AI service adapters (Google Gemini &amp; OpenAI APIs) with fallback redundancy for automated task decomposition, priority scoring, and natural-language summaries.</li>
+              <li>Built dynamic task pipelines, relational schema migrations, secure JWT authentication guards, and RESTful API routes with complete Postman test suites.</li>
+              <li>Developed an automated background reminder worker using node-cron loops and Nodemailer to deliver transactional email notifications with 99.8% scheduled dispatch reliability.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="text-sm font-bold text-[var(--color-text-primary)]">
+                Gas Agency Management System (GAMS) &middot; <span class="font-normal font-mono text-xs text-[var(--color-text-muted)]">C99, MySQL, File Systems, REST API, PWA, Android</span>
+              </h4>
+              <a href="https://github.com/BishnoiNaveen/gas-agency-management-system" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-600 hover:underline">
+                [GitHub Repo]
+              </a>
+            </div>
+            <ul class="list-disc list-outside pl-5 space-y-1 text-xs text-[var(--color-text-secondary)] mt-1">
+              <li>Developed an enterprise-grade LPG distribution and inventory management ERP in C99 for tracking customer subscriptions, cylinder inventory, and deliveries.</li>
+              <li>Engineered high-performance C99 core engine utilizing custom binary file persistence and binary search indexing, achieving O(log N) record retrieval across 10,000+ consumer records.</li>
+              <li>Migrated database architecture to normalized MySQL with foreign keys and ACID transactions; implemented custom CSV/PDF report generation, admin RBAC, and seamless data sync.</li>
+              <li>Extended core functionality to modern cross-platform interfaces (Desktop PWA and Android APK), replacing manual paper ledgers with automated audit logging.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="text-sm font-bold text-[var(--color-text-primary)]">
+                AgriBridge India Platform &middot; <span class="font-normal font-mono text-xs text-[var(--color-text-muted)]">HTML5, CSS3, JavaScript, Web UI</span>
+              </h4>
+              <a href="https://github.com/BishnoiNaveen/agribridge-india" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-blue-600 hover:underline">
+                [GitHub Repo]
+              </a>
+            </div>
+            <ul class="list-disc list-outside pl-5 space-y-1 text-xs text-[var(--color-text-secondary)] mt-1">
+              <li>Created a modern, responsive web portal for precision farm machinery, booking management, and agricultural clean-energy infrastructure demonstration.</li>
+              <li>Structured interactive equipment booking flows, subsidy calculation modals, and interactive product catalogs optimized for mobile and desktop screens.</li>
+              <li>Integrated client-side state handling and form validation routines for frictionless machine service bookings and inquiry pipelines.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Education & Academic Credentials */}
+      <section class="space-y-3">
+        <h3 class="text-base font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b border-black/[0.08] dark:border-white/10 pb-1 font-mono">
+          Education &amp; Academic Credentials
+        </h3>
+        <div class="space-y-2 text-xs sm:text-sm">
+          <div class="flex justify-between items-baseline">
+            <div>
+              <strong class="text-[var(--color-text-primary)]">Bachelor of Computer Applications (BCA) &ndash; Final Year (Batch 2026)</strong>
+              <span class="block text-xs text-[var(--color-text-muted)]">DAV College Abohar (Panjab University, Chandigarh) &middot; Punjab, India</span>
+            </div>
+            <span class="font-mono text-xs text-[var(--color-text-muted)]">2023 &ndash; 2026</span>
+          </div>
+          <p class="text-xs text-[var(--color-text-secondary)] pl-2 border-l border-blue-500/30">
+            <strong>Relevant Coursework:</strong> Database Management Systems (DBMS), Advanced SQL Querying, Data Structures &amp; Algorithms, Python Programming, Computer Networks, Operating Systems, Artificial Intelligence Fundamentals.
+          </p>
+
+          <div class="flex justify-between items-baseline pt-2">
+            <div>
+              <strong class="text-[var(--color-text-primary)]">Senior Secondary Education (Class XII) &ndash; PSEB</strong>
+              <span class="block text-xs text-[var(--color-text-muted)]">Maya Devi Memorial Aadarsh School, Punjab</span>
+            </div>
+            <span class="font-mono text-xs font-bold text-emerald-600">81% &middot; 2021 &ndash; 2023</span>
+          </div>
+
+          <div class="flex justify-between items-baseline pt-1">
+            <div>
+              <strong class="text-[var(--color-text-primary)]">Secondary School Certificate (Class X) &ndash; PSEB</strong>
+              <span class="block text-xs text-[var(--color-text-muted)]">Maya Devi Memorial Aadarsh School, Punjab</span>
+            </div>
+            <span class="font-mono text-xs font-bold text-purple-600">93% (Distinction) &middot; 2019 &ndash; 2021</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications & Industry Credentials */}
+      <section class="space-y-3">
+        <h3 class="text-base font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b border-black/[0.08] dark:border-white/10 pb-1 font-mono">
+          Certifications &amp; Industry Credentials
+        </h3>
+        <div class="space-y-3 text-xs sm:text-sm">
+          <div>
+            <div class="flex justify-between items-baseline">
+              <strong class="text-[var(--color-text-primary)]">Python for Data Science | IBM</strong>
+              <span class="font-mono text-xs text-[var(--color-text-muted)]">Issued: September 2026</span>
+            </div>
+            <p class="text-xs text-[var(--color-text-secondary)]">
+              Demonstrated industry proficiency in Python programming, data structures, data analysis libraries (pandas, NumPy), and data science fundamentals.
+            </p>
+            <p class="text-[11px] font-mono text-blue-600 dark:text-blue-400">
+              Official Verification: Credly Badge ID: ea12611d-75c0-4282-8bf5-baaf48aa0cca
+            </p>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-baseline">
+              <strong class="text-[var(--color-text-primary)]">Data Analytics Job Simulation | Deloitte (Forage)</strong>
+              <span class="font-mono text-xs text-[var(--color-text-muted)]">Issued: July 2026</span>
+            </div>
+            <p class="text-xs text-[var(--color-text-secondary)]">
+              Completed practical industry simulation in Data Analysis and Forensic Technology, evaluating enterprise business records and detecting ledger anomalies.
+            </p>
+            <p class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">
+              Official Verification: Enrolment Code: wMeKLdvmcywB24F9m | User Code: 68b9914a675caa305d2244be
+            </p>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-baseline">
+              <strong class="text-[var(--color-text-primary)]">Industrial Internship &ndash; Software &amp; Web Development | ITTECHXPERT</strong>
+              <span class="font-mono text-xs text-[var(--color-text-muted)]">Issued: August 2025</span>
+            </div>
+            <p class="text-xs text-[var(--color-text-secondary)]">
+              Completed hands-on software development in Java, PHP, MySQL, HTML5/CSS3, and modern AI development tooling (Cursor, ChatGPT, Claude). Grade: Excellent.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Direct Bottom Download Button */}
+      <div class="pt-8 border-t border-black/[0.08] dark:border-white/10 text-center">
+        <a
+          href="/naveen_bishnoi_resume.pdf"
+          download="naveen_bishnoi_resume.pdf"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-base font-bold shadow-lg shadow-emerald-600/20 active:scale-[0.98] transition-all cursor-pointer"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Download naveen_bishnoi_resume.pdf</span>
+        </a>
+      </div>
+
+    </div>
   </main>
 
   <Footer slot="footer" />
@@ -65,12 +363,6 @@ import Footer from '../components/contact/Footer.astro';
     main {
       padding-top: 0 !important;
       max-width: 100% !important;
-    }
-    .rounded-3xl {
-      border: 1px solid #e5e5e5 !important;
-      box-shadow: none !important;
-      background: #ffffff !important;
-      break-inside: avoid;
     }
   }
 </style>

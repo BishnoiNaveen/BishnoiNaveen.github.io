@@ -1,13 +1,14 @@
 /**
  * src/data/skills.ts — Master Technical Competencies & Evidence Dataset
- * Standard: 4 Architectural Domains, Verifiable Codebase Evidence Tags, Strictly NO Percentage Bars
+ * Author: Naveen Bishnoi
+ * Standard: 5 Verified Engineering Pillars from Production Experience & Real-World Projects
  */
 
 export interface SkillItem {
   id: string;
   name: string;
-  domainId: 'systems' | 'ai' | 'frontend' | 'infrastructure';
-  level: string; // Architectural classification e.g. "Core Architecture", "Production Invariant", "Deep Systems"
+  domainId: 'ai-automation' | 'python-analytics' | 'cloud-backend' | 'databases-systems' | 'fullstack-web';
+  level: string;
   description: string;
   evidenceRepo: string;
   evidenceProof: string;
@@ -17,204 +18,190 @@ export interface SkillItem {
 }
 
 export interface SkillDomain {
-  id: 'systems' | 'ai' | 'frontend' | 'infrastructure';
+  id: 'ai-automation' | 'python-analytics' | 'cloud-backend' | 'databases-systems' | 'fullstack-web';
   title: string;
   subtitle: string;
   lead: string;
   badge: string;
+  color: string;
   skills: SkillItem[];
 }
 
 export const skillDomains: SkillDomain[] = [
   {
-    id: 'systems',
-    title: 'Systems & Core Architecture',
-    subtitle: 'Low-Level Invariants & Memory Determinism',
-    lead: 'Architecting zero-overhead systems software, POSIX-compliant file persistence, and hardware-interfaced edge telematics.',
-    badge: 'Domain 01 · Systems',
+    id: 'ai-automation',
+    title: 'AI-Driven Automation & Tooling',
+    subtitle: 'Agentic LLM Workflows & Structured JSON Pipelines',
+    lead: 'Constructing robust agentic pipelines, structured JSON outputs, prompt engineering, and modern AI development acceleration.',
+    badge: 'Domain 01 · AI Systems',
+    color: 'from-blue-500 to-indigo-600',
     skills: [
       {
-        id: 'c-posix',
-        name: 'C / POSIX Systems & Memory Safety',
-        domainId: 'systems',
+        id: 'agentic-workflows',
+        name: 'Agentic LLM Workflows & Tool Calling',
+        domainId: 'ai-automation',
+        level: 'Production Engineering',
+        description: 'Designing autonomous multi-step reasoning loops, deterministic tool execution, and context-aware fallback cascades.',
+        evidenceRepo: 'smart-task-system',
+        evidenceProof: 'Dual AI service adapters (Google Gemini & OpenAI APIs) with fallback redundancy',
+        repoUrl: 'https://github.com/BishnoiNaveen/smart-task-system',
+        verifiedInvariants: ['Dual API Fallback', 'Automated Task Decomposition', 'Deterministic JSON Output'],
+        tags: ['Agentic LLM', 'Gemini API', 'OpenAI', 'Cursor', 'Claude', 'ChatGPT']
+      },
+      {
+        id: 'multilingual-json',
+        name: 'Multilingual Structured JSON Extraction',
+        domainId: 'ai-automation',
         level: 'Production Invariant',
-        description: 'Low-level systems programming with explicit heap management, zero dynamic memory leaks, and atomic filesystem primitives.',
+        description: 'Extracting structured operational data from complex multilingual field service reports (Hindi/English technician notes).',
+        evidenceRepo: 'KRONE Production',
+        evidenceProof: 'Boosted data ingestion speed and eliminated manual key-person billing dependencies',
+        verifiedInvariants: ['Zero Billing Schema Corruption', 'Multilingual Hindi/English Extraction', 'High-Speed Parsing'],
+        tags: ['JSON Schema', 'Prompt Engineering', 'Data Normalization', 'AI Pipelines']
+      }
+    ]
+  },
+  {
+    id: 'python-analytics',
+    title: 'Python & Forensic Data Analytics',
+    subtitle: 'High-Throughput Reconciliation & Audit Pipelines',
+    lead: 'Building enterprise data pipelines with pandas and NumPy, automated workbooks, and forensic ledger reconciliation.',
+    badge: 'Domain 02 · Python & Data',
+    color: 'from-emerald-500 to-teal-600',
+    skills: [
+      {
+        id: 'master-reporting-engine',
+        name: 'Autonomous 34-Column Master Reporting Engine',
+        domainId: 'python-analytics',
+        level: 'Production Engineering',
+        description: 'Automated Python engine consolidating field technician logs, trip odometers, and billing summaries with 100% financial accuracy.',
+        evidenceRepo: 'KRONE Production',
+        evidenceProof: 'Reconciled 350+ historical records across 520+ service jobs with 100% financial audit accuracy',
+        verifiedInvariants: ['34-Column Financial Ledger', 'Zero Calculation Discrepancies', 'pandas & NumPy Vectorized Ops'],
+        tags: ['Python', 'pandas', 'NumPy', 'Data Reconciliation', 'Forensic Auditing']
+      },
+      {
+        id: 'automated-workbooks',
+        name: 'Automated CSV/Excel Workbooks & Billing Exports',
+        domainId: 'python-analytics',
+        level: 'Production Invariant',
+        description: 'Generating multi-sheet reconciled audit spreadsheets with dynamic formatting, automated tax calculations, and formula validation.',
         evidenceRepo: 'gas-agency-management-system',
-        evidenceProof: 'Atomic Inode Swap & 0-Byte Leak (Valgrind verified)',
+        evidenceProof: 'Automated CSV/PDF reports with customer ledgers and stock balance verification',
         repoUrl: 'https://github.com/BishnoiNaveen/gas-agency-management-system',
-        verifiedInvariants: ['rename() Atomic Inode Swap', 'Valgrind 0-Byte Leak', 'O_SYNC File Guarantees'],
-        tags: ['C99', 'POSIX.1-2008', 'Valgrind', 'Memory Safety', 'Linux']
-      },
-      {
-        id: 'socketcan-edge',
-        name: 'Linux SocketCAN & Edge Telematics',
-        domainId: 'systems',
-        level: 'Core Architecture',
-        description: 'Industrial CAN bus protocol decoding, 50Hz raw frame filtering, and circular buffer persistence for agricultural IoT.',
-        evidenceRepo: 'krone-telematics-edge',
-        evidenceProof: '50Hz Raw SocketCAN Ingest with 72h SQLite Ring Buffer',
-        verifiedInvariants: ['50Hz Continuous Ingest', 'Circular Inode Buffer', 'LTE Disconnect Resiliency'],
-        tags: ['SocketCAN', 'IoT Edge', 'SQLite', 'C/C++', 'Industrial Telematics']
-      },
-      {
-        id: 'rust-concurrency',
-        name: 'Rust & Systems Invariants',
-        domainId: 'systems',
-        level: 'Deep Systems',
-        description: 'Memory-safe concurrent pipelines, thread affinity, and deterministic resource lifecycles via affine type systems.',
-        evidenceRepo: 'ultron-agent-engine',
-        evidenceProof: 'Thread-Safe Lock-Free Task Queue & Rayon Scheduling',
-        repoUrl: 'https://github.com/BishnoiNaveen',
-        verifiedInvariants: ['Send + Sync Thread Safety', 'Zero-Cost Abstractions', 'Compile-Time Lifetimes'],
-        tags: ['Rust', 'Concurrency', 'Tokio', 'Lock-Free Queues', 'Systems']
+        verifiedInvariants: ['Zero Decimal Drift', 'Formula Validation', 'Double-Entry Balance Verification'],
+        tags: ['Excel Automation', 'CSV Pipelines', 'Data Cleansing', 'OpenPyXL']
       }
     ]
   },
   {
-    id: 'ai',
-    title: 'AI Automation & Agent Orchestration',
-    subtitle: 'Autonomous Swarms, BFT Quorums & AST Sentry',
-    lead: 'Constructing multi-agent consensus protocols, acyclic task decomposition engines, and static AST security analyzers.',
-    badge: 'Domain 02 · AI Agents',
+    id: 'cloud-backend',
+    title: 'Cloud, Backend & Server Setups',
+    subtitle: 'Serverless Edge, Microservices & Environment Isolation',
+    lead: 'Deploying high-availability edge microservices, serverless APIs, automated background crons, and zero-trust credential hygiene.',
+    badge: 'Domain 03 · Cloud & Edge',
+    color: 'from-purple-500 to-violet-600',
     skills: [
       {
-        id: 'agent-dag',
-        name: 'Dynamic Topological DAG Scheduling',
-        domainId: 'ai',
+        id: 'cloudflare-workers-edge',
+        name: 'Cloudflare Workers (Serverless Edge)',
+        domainId: 'cloud-backend',
+        level: 'Production Engineering',
+        description: 'Architected and deployed internal portal infrastructure (KIN OneHub intranet) running with sub-10ms global edge latency.',
+        evidenceRepo: 'KRONE Production',
+        evidenceProof: 'Serverless edge runtime connected to Supabase PostgreSQL with automated document storage bucket',
+        verifiedInvariants: ['Edge Cold-Start < 5ms', 'Environment Isolation', 'Zero Local State Dependency'],
+        tags: ['Cloudflare Workers', 'Edge Computing', 'Serverless', 'TypeScript', 'Wrangler']
+      },
+      {
+        id: 'enterprise-billing-portal',
+        name: 'Enterprise Billing & Invoicing Systems',
+        domainId: 'cloud-backend',
         level: 'Production Invariant',
-        description: 'Kahn algorithm cycle detection, dependency-ordered task dispatching, and dynamic sub-task decomposition for autonomous agents.',
-        evidenceRepo: 'Ultron',
-        evidenceProof: 'Topological Sort & Cycle Detection (O(V+E) Kahn engine)',
-        repoUrl: 'https://github.com/BishnoiNaveen',
-        verifiedInvariants: ['O(V+E) Kahn Cycle Detection', 'Parallel Branch Dispatching', 'Dynamic Backtracking'],
-        tags: ['LangGraph', 'Topological Sort', 'DAG', 'Agentic Workflows', 'Python']
-      },
-      {
-        id: 'bft-quorum',
-        name: 'Byzantine Fault Tolerant Multi-Agent Quorum',
-        domainId: 'ai',
-        level: 'Core Architecture',
-        description: 'Cryptographic consensus verification across autonomous code-generation, security-auditing, and QA agents before production merges.',
-        evidenceRepo: 'AEONIS-OPS',
-        evidenceProof: 'Byzantine Fault Tolerant Quorum (3f+1 consensus gate)',
-        repoUrl: 'https://github.com/BishnoiNaveen',
-        verifiedInvariants: ['3f+1 Byzantine Quorum', 'Ed25519 Sign-off', 'Canary Rollback Guard'],
-        tags: ['Multi-Agent', 'BFT Consensus', 'Distributed Systems', 'LangChain']
-      },
-      {
-        id: 'ast-taint',
-        name: 'Abstract Syntax Tree (AST) Security Sentry',
-        domainId: 'ai',
-        level: 'Deep Systems',
-        description: 'Static source-to-sink taint analysis, control-flow graph traversal, and automated surgical code patch synthesis.',
-        evidenceRepo: 'Sentinel-AI',
-        evidenceProof: 'Forward Taint Traversal Tree & Surgical AST Diff Synthesizer',
-        repoUrl: 'https://github.com/BishnoiNaveen',
-        verifiedInvariants: ['Zero False-Negative Taint Paths', 'Surgical Patch Synthesis', 'SAIF Compliance'],
-        tags: ['AST', 'Taint Analysis', 'Static Analysis', 'Security', 'TypeScript']
-      },
-      {
-        id: 'vector-memory',
-        name: '3-Tier Semantic & Vector Memory Architecture',
-        domainId: 'ai',
-        level: 'Core Architecture',
-        description: 'HNSW vector indexing, short-term context buffers, and persistent episodic memory graphs for long-running agent swarms.',
-        evidenceRepo: 'Ultron',
-        evidenceProof: 'Qdrant HNSW Vector Memory with Sub-50ms Retrieval',
-        repoUrl: 'https://github.com/BishnoiNaveen',
-        verifiedInvariants: ['HNSW Cosine Similarity', 'Sub-50ms Vector Retrieval', 'Episodic Graph Pruning'],
-        tags: ['Qdrant', 'HNSW', 'Vector DB', 'Semantic Memory', 'Embeddings']
+        description: 'Architected automated billing platform (billing.kroneindia.com) for high-capacity baling machinery across tier-1 enterprise clients.',
+        evidenceRepo: 'KRONE Production',
+        evidenceProof: 'Automated proforma and tax invoices for Reliance Industries, Bio Fuel Corp, VERBIO, Landforce (HSN 998599, 18% IGST)',
+        verifiedInvariants: ['Cryptographic Double-Billing Prevention', 'HSN 998599 Tax Invariants', 'Automated GST Proforma'],
+        tags: ['Enterprise Billing', 'REST APIs', 'Supabase', 'Prisma ORM', 'IGST Compliance']
       }
     ]
   },
   {
-    id: 'frontend',
-    title: 'Full-Stack Craft & Architecture',
-    subtitle: 'Astro 7 Islands & visionOS Spatial Materials',
-    lead: 'Engineering zero-layout-shift web architectures, fluid harmonic spring physics, and high-contrast editorial typography.',
-    badge: 'Domain 03 · Full-Stack',
+    id: 'databases-systems',
+    title: 'Databases & Systems Programming',
+    subtitle: 'Relational 3NF Normalization & 50Hz Telematics',
+    lead: 'Engineering C systems cores, normalized relational database schemas, SocketCAN telematics, and crash-resilient storage.',
+    badge: 'Domain 04 · Systems & DB',
+    color: 'from-amber-500 to-orange-600',
     skills: [
       {
-        id: 'astro-islands',
-        name: 'Astro 7 Component Islands & Static Performance',
-        domainId: 'frontend',
-        level: 'Production Invariant',
-        description: 'Zero-JS static HTML baseline with selective React 19 island hydration, achieving perfect 100/100 Lighthouse audits.',
-        evidenceRepo: 'BishnoiNaveen.github.io',
-        evidenceProof: '100/100 Lighthouse & Sub-16ms INP with 0.000 CLS',
-        repoUrl: 'https://github.com/BishnoiNaveen/BishnoiNaveen.github.io',
-        verifiedInvariants: ['CLS = 0.000', '100/100 Lighthouse', 'Sub-16ms Input Latency'],
-        tags: ['Astro 7', 'React 19', 'TypeScript', 'Performance', 'Vite']
-      },
-      {
-        id: 'visionos-physics',
-        name: 'visionOS Spatial Materials & Harmonic Springs',
-        domainId: 'frontend',
+        id: 'c99-core-engine',
+        name: 'C99 Systems Core & Binary Search Indexing',
+        domainId: 'databases-systems',
         level: 'Core Architecture',
-        description: 'Mathematical harmonic oscillator physics (mass-spring-damper systems) with 5-level material depth hierarchy and WCAG AAA contrast.',
-        evidenceRepo: 'BishnoiNaveen.github.io',
-        evidenceProof: '7 WWDC Harmonic Spring Presets (zeta in [0.3, 1.6])',
-        repoUrl: 'https://github.com/BishnoiNaveen/BishnoiNaveen.github.io',
-        verifiedInvariants: ['Harmonic Damping Bounds', 'WCAG AAA 16:1 Contrast', 'Reduced-Motion Engine'],
-        tags: ['Framer Motion 13', 'Spring Physics', 'visionOS Glass', 'Design Systems']
+        description: 'High-performance C99 core engine utilizing custom binary file persistence and binary search indexing for O(log N) record retrieval.',
+        evidenceRepo: 'gas-agency-management-system',
+        evidenceProof: 'O(log N) record retrieval across 10,000+ consumer records with zero dynamic heap leak',
+        repoUrl: 'https://github.com/BishnoiNaveen/gas-agency-management-system',
+        verifiedInvariants: ['O(log N) Binary Search', 'Valgrind 0-Byte Leak', 'POSIX Atomic Rename File Commit'],
+        tags: ['C99', 'POSIX Syscalls', 'Binary File I/O', 'Data Structures', 'Linux']
       },
       {
-        id: 'typescript-architecture',
-        name: 'Type-Safe Distributed Web Architecture',
-        domainId: 'frontend',
-        level: 'Deep Systems',
-        description: 'End-to-end type invariants, discriminated unions, exhaustive switch checking, and strict schema validation.',
-        evidenceRepo: 'BishnoiNaveen.github.io',
-        evidenceProof: 'Strict Type-Safe Data Schemas & Zero Any Types',
-        repoUrl: 'https://github.com/BishnoiNaveen/BishnoiNaveen.github.io',
-        verifiedInvariants: ['Strict Null Checks', 'Exhaustive Union Matching', 'Zero Unsafe Casts'],
-        tags: ['TypeScript 5', 'Zod', 'Discriminated Unions', 'Architecture']
+        id: 'socketcan-telematics',
+        name: 'SocketCAN 50Hz Telematics & Fieldy FSM',
+        domainId: 'databases-systems',
+        level: 'Production Engineering',
+        description: 'Engineered live Telematics View monitoring real-time GPS reverse-geocoded navigation and 50Hz SocketCAN machinery telemetry across 326+ assets.',
+        evidenceRepo: 'KRONE Production',
+        evidenceProof: 'Integrated Fieldy FSM cloud microservices across 199+ API endpoints (Accounting, Job, Tracking, Attendance)',
+        verifiedInvariants: ['50Hz Continuous Stream', 'GPS Reverse Geocoding', '326+ Assets Concurrently Tracked'],
+        tags: ['SocketCAN', 'Fieldy FSM', 'CAN Bus', 'IoT Telematics', 'Linux/Bash']
+      },
+      {
+        id: 'relational-db-3nf',
+        name: 'PostgreSQL, MySQL & 3NF Schema Normalization',
+        domainId: 'databases-systems',
+        level: 'Production Invariant',
+        description: 'Designing normalized 3NF relational schemas, complex SQL queries, index optimization, and transactional ACID guarantees.',
+        evidenceRepo: 'smart-task-system & GAMS',
+        evidenceProof: 'Prisma ORM migrations and normalized MySQL schemas with foreign keys and ACID transactions',
+        verifiedInvariants: ['3NF Normalization', 'ACID Transactions', 'Zero Orphaned Foreign Keys'],
+        tags: ['PostgreSQL', 'MySQL', 'Supabase', 'Prisma ORM', 'SQLite', 'Complex SQL']
       }
     ]
   },
   {
-    id: 'infrastructure',
-    title: 'Infrastructure & Data Pipelines',
-    subtitle: 'Distributed Streaming & GitOps Resiliency',
-    lead: 'Operating event-driven stream processing, distributed time-series databases, and automated canary deployment gates.',
-    badge: 'Domain 04 · Infrastructure',
+    id: 'fullstack-web',
+    title: 'Full-Stack Web Technologies',
+    subtitle: 'Modern TypeScript, Next.js, React & API Architectures',
+    lead: 'Building fast, accessible, responsive full-stack applications with clean MVC architecture and comprehensive test coverage.',
+    badge: 'Domain 05 · Full-Stack',
+    color: 'from-cyan-500 to-blue-600',
     skills: [
       {
-        id: 'kafka-streams',
-        name: 'Apache Kafka & Distributed Event Streaming',
-        domainId: 'infrastructure',
+        id: 'nextjs-fullstack',
+        name: 'Next.js, TypeScript & React.js',
+        domainId: 'fullstack-web',
+        level: 'Production Engineering',
+        description: 'Building full-stack web applications with Next.js App Router, TypeScript, server actions, and responsive Tailwind styling.',
+        evidenceRepo: 'smart-task-system',
+        evidenceProof: 'MVC architecture with JWT auth guards, RESTful API routes, and background reminder worker',
+        repoUrl: 'https://github.com/BishnoiNaveen/smart-task-system',
+        verifiedInvariants: ['Strict TypeScript Typing', 'Sub-100ms API Latency', 'Node-Cron Background Worker'],
+        tags: ['Next.js', 'TypeScript', 'React.js', 'Tailwind CSS', 'Node.js', 'Express.js']
+      },
+      {
+        id: 'web-portals-ui',
+        name: 'Responsive Web Portals & Form Validation',
+        domainId: 'fullstack-web',
         level: 'Production Invariant',
-        description: 'High-throughput event partitioning, exactly-once stream processing semantics, and durable consumer group coordination.',
-        evidenceRepo: 'AEONIS-OPS',
-        evidenceProof: 'Partitioned Multi-Broker Event Bus with Avro Schemas',
-        verifiedInvariants: ['Exactly-Once Semantics', 'Consumer Rebalance Safety', 'Durable Retention'],
-        tags: ['Apache Kafka', 'Event-Driven', 'Avro', 'Distributed Streaming']
-      },
-      {
-        id: 'timescale-flink',
-        name: 'TimescaleDB & Apache Flink Telematics Analytics',
-        domainId: 'infrastructure',
-        level: 'Core Architecture',
-        description: 'Time-series hypertables, continuous aggregates, and sliding-window event stream processing for machine telemetry.',
-        evidenceRepo: 'krone-telematics-edge',
-        evidenceProof: 'Continuous Hypertables & Sliding-Window Rollups',
-        verifiedInvariants: ['Hypertables Chunk Partitioning', 'Sliding-Window Aggregation', 'Sub-10ms Queries'],
-        tags: ['TimescaleDB', 'PostgreSQL', 'Apache Flink', 'Time-Series']
-      },
-      {
-        id: 'gitops-ci-cd',
-        name: 'GitOps CI/CD & Automated Canary Sentry',
-        domainId: 'infrastructure',
-        level: 'Deep Systems',
-        description: 'Declarative container orchestration, Docker multi-stage builds, Istio canary traffic splitting, and automated metric rollbacks.',
-        evidenceRepo: 'AEONIS-OPS',
-        evidenceProof: 'Istio Canary Traffic Splitter with Automated Rollback Sentry',
-        repoUrl: 'https://github.com/BishnoiNaveen',
-        verifiedInvariants: ['Zero-Downtime Rollout', 'Automated Metric Threshold Rollback', 'Hermetic Builds'],
-        tags: ['Docker', 'Kubernetes', 'Istio', 'GitHub Actions', 'Prometheus']
+        description: 'Developing high-conversion portals with interactive equipment booking flows, subsidy calculation modals, and clean UI components.',
+        evidenceRepo: 'agribridge-india',
+        evidenceProof: 'Client-side state handling and form validation routines for machine service bookings and inquiry pipelines',
+        repoUrl: 'https://github.com/BishnoiNaveen/agribridge-india',
+        verifiedInvariants: ['100% Mobile Responsive', 'Frictionless Booking Pipeline', 'Client-Side Form Sanitization'],
+        tags: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'Vite', 'Postman', 'Swagger/OpenAPI']
       }
     ]
   }
 ];
-
-export const allSkillsList: SkillItem[] = skillDomains.flatMap(d => d.skills);

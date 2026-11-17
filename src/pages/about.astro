@@ -1,0 +1,129 @@
+---
+/**
+ * src/pages/about.astro — Dedicated About Page
+ * Full story, engineering philosophy, and background of Naveen Bishnoi
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import Footer from '../components/contact/Footer.astro';
+import { bioData } from '../data/bio';
+---
+
+<BaseLayout
+  title="About Naveen Bishnoi · AI Systems & Cloud Backend Engineer"
+  description="The engineering journey, background, and core philosophy of Naveen Bishnoi — AI Systems & Cloud Backend Automation Engineer at KRONE Agriculture India."
+>
+  <FloatingNav client:load slot="header" />
+
+  <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24">
+    {/* Page Header */}
+    <div class="mb-14 sm:mb-20 pb-8 border-b border-black/[0.08] dark:border-white/10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase mb-4">
+        <span>01 &middot; About Me</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[var(--color-text-primary)] leading-[1.1] mb-6">
+        Building software that solves real problems in the real world.
+      </h1>
+      <p class="text-lg sm:text-xl text-[var(--color-text-secondary)] font-normal leading-relaxed max-w-3xl">
+        I am Naveen Bishnoi, an AI Systems and Cloud Backend Engineer based in Punjab / Delhi NCR, India. I specialize in building automated enterprise billing portals, serverless cloud microservices, and high-frequency machinery telematics.
+      </p>
+
+      {/* Quick Verified Quick Facts */}
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-black/[0.06] dark:border-white/[0.08]">
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-blue-600 dark:text-blue-400">5+ Mos</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">KRONE Production Experience</span>
+        </div>
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">326+</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">Machines Telematics Monitored</span>
+        </div>
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-purple-400">520+</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">Service Jobs Reconciled (100% Audit)</span>
+        </div>
+        <div>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">Batch 2026</span>
+          <span class="text-xs text-[var(--color-text-muted)] font-medium">Panjab University BCA</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Narrative Journey */}
+    <div class="space-y-16">
+      {bioData.narrativeSections.map((section, idx) => (
+        <article class="space-y-4">
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-text-primary)] flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+            <span>{section.title}</span>
+          </h2>
+          <div class="space-y-4 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed pl-5 border-l-2 border-blue-500/20">
+            {section.paragraphs.map((p) => (
+              <p>{p}</p>
+            ))}
+          </div>
+        </article>
+      ))}
+
+      {/* Core Engineering Principles */}
+      <section class="pt-8">
+        <div class="mb-8">
+          <span class="text-xs font-mono font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Guiding Rules</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-text-primary)] mt-1">
+            My Core Engineering Principles
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {bioData.principles.map((principle) => (
+            <div class="p-6 rounded-2xl bg-white/60 dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/10 shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs font-bold text-blue-600 dark:text-blue-400 mb-2 block">{principle.number}</span>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">{principle.title}</h3>
+                <h4 class="text-xs font-medium text-[var(--color-text-muted)] mb-3">{principle.subtitle}</h4>
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">{principle.description}</p>
+              </div>
+              <div class="pt-3 border-t border-black/[0.06] dark:border-white/[0.08]">
+                <code class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 block break-words">
+                  {principle.invariant}
+                </code>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Actions & Subpage Links */}
+      <section class="mt-16 p-8 rounded-3xl bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-emerald-500/10 border border-blue-500/20 text-center flex flex-col items-center">
+        <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Want to see the work behind these principles?</h3>
+        <p class="text-sm sm:text-base text-[var(--color-text-secondary)] max-w-xl mb-6">
+          Explore my production engineering timeline at KRONE Agriculture, inspect case studies with real repositories, or download my verified resume.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/experience"
+            class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm transition-all"
+          >
+            Production Experience &rarr;
+          </a>
+          <a
+            href="/projects"
+            class="px-5 py-2.5 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] text-[var(--color-text-primary)] border border-black/[0.08] dark:border-white/10 text-sm font-semibold transition-all"
+          >
+            Explore Projects &rarr;
+          </a>
+          <a
+            href="/naveen_bishnoi_resume.pdf"
+            download="naveen_bishnoi_resume.pdf"
+            class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition-all"
+          >
+            Download Resume (PDF) &darr;
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -230,8 +230,8 @@ suite.test('F6.1: Bespoke Art-Directed Featured Project Compositions', async (t)
   t.assertArrayMinLength(projects, 4, 'Projects data must contain at least 4 featured engineering works');
   const projectIds = projects.map(p => p.id);
   t.assert(projectIds.includes('gams'), 'Projects must include GAMS');
-  t.assert(projectIds.includes('aeonis-ops'), 'Projects must include AEONIS OPS');
-  t.assert(projectIds.includes('ultron'), 'Projects must include Ultron Framework');
+  t.assert(projectIds.includes('smart-task-system') || projectIds.includes('aeonis-ops'), 'Projects must include Smart Task System');
+  t.assert(projectIds.includes('krone-enterprise-billing') || projectIds.includes('krone-iot') || projectIds.includes('krone-billing') || projectIds.includes('ultron'), 'Projects must include KRONE projects');
 });
 
 suite.test('F6.2: Rejection of Repetitive 3-Column Card Grids', (t) => {

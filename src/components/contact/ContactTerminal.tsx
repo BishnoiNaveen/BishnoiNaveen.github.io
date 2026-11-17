@@ -111,19 +111,20 @@ export default function ContactTerminal() {
 
           {/* Download Verified Resume */}
           <motion.a
-            href="/Naveen_Bishnoi_Resume.pdf"
+            href="/naveen_bishnoi_resume.pdf"
+            download="naveen_bishnoi_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
             whileTap={shouldReduceMotion ? undefined : mechanicalClick}
             transition={buttonSpring}
-            aria-label="Download verified resume PDF"
+            aria-label="Download naveen_bishnoi_resume.pdf"
             className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3.5 sm:py-4 min-h-[48px] rounded-2xl bg-[var(--material-2-glass-bg)] backdrop-blur-xl border border-[var(--color-border)] text-[var(--color-text-primary)] font-bold text-xs sm:text-sm md:text-base hover:bg-black/5 dark:hover:bg-white/10 transition-colors shadow-sm cursor-pointer select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
           >
             <svg className="w-4 h-4 text-[var(--color-accent)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <span>Download Resume (PDF)</span>
+            <span>Download naveen_bishnoi_resume.pdf</span>
           </motion.a>
         </div>
 
