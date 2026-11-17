@@ -551,7 +551,7 @@ export default function LabSuite() {
                     onClick={handleSimulateCrash}
                     className="px-4 py-2.5 min-h-[44px] rounded-lg text-xs font-mono font-bold bg-rose-500 hover:bg-rose-600 text-white shadow-sm transition-colors inline-flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                   >
-                    ⚡ Interrupt Power (Simulate Crash)
+                     Interrupt Power (Simulate Crash)
                   </button>
                 ) : (
                   <button

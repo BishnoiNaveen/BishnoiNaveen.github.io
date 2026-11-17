@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { springPresets } from '../../../lib/springs';
 
 const SENSOR_STREAMS = [
-  { name: 'Crop Moisture', rate: '50 Hz', value: '14.2%', status: 'NOMINAL', icon: '💧' },
-  { name: 'Bale Density', rate: '50 Hz', value: '184 kg/m³', status: 'OPTIMAL', icon: '🌾' },
-  { name: 'Hydraulic Pressure', rate: '50 Hz', value: '210 bar', status: 'STABLE', icon: '⚙️' },
-  { name: 'Engine Torque Load', rate: '50 Hz', value: '78.4%', status: 'HIGH-YIELD', icon: '🚜' },
+  { name: 'Crop Moisture', rate: '50 Hz', value: '14.2%', status: 'NOMINAL', icon: '' },
+  { name: 'Bale Density', rate: '50 Hz', value: '184 kg/m³', status: 'OPTIMAL', icon: '' },
+  { name: 'Hydraulic Pressure', rate: '50 Hz', value: '210 bar', status: 'STABLE', icon: '️' },
+  { name: 'Engine Torque Load', rate: '50 Hz', value: '78.4%', status: 'HIGH-YIELD', icon: '' },
 ];
 
 export default function KroneTelemetryVisualizer() {

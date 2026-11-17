@@ -789,7 +789,7 @@ spec:
     // Instant self-healing rollback
     await IstioClient.setTrafficSplit({ stable: 100, canary: 0 });
     await GitHubClient.addIssueComment({
-      body: \`🚨 AEONIS OPS Auto-Rollback triggered: P99 latency (\${health.p99_ms}ms) exceeded 50ms SLA.\`
+      body: \`[WARN] AEONIS OPS Auto-Rollback triggered: P99 latency (\${health.p99_ms}ms) exceeded 50ms SLA.\`
     });
   }
 }`

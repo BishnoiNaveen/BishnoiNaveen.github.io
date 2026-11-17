@@ -95,7 +95,7 @@ app.get('/user', async (req, res) => {
            ├── VariableDeclaration (const { id } = req.query) [SOURCE: TAINTED]
            ├── VariableDeclaration (const sql = ... + id + ...) [PROPAGATED]
            └── AwaitExpression
-                └── CallExpression (db.query) [SINK: SQL_EXECUTION] ⚠️ VULNERABLE`}
+                └── CallExpression (db.query) [SINK: SQL_EXECUTION] [ALERT]️ VULNERABLE`}
           </pre>
         </div>
       )}

@@ -140,6 +140,22 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       shortcut: 'R',
     },
     {
+      id: 'security',
+      title: 'Security Architecture & Compliance',
+      description: 'DPDP 2023 / GDPR compliance, zero-telemetry policy, and responsible disclosure',
+      icon: <Terminal className="w-4 h-4 text-emerald-500" />,
+      category: 'Navigation',
+      action: () => navigateTo('/security'),
+    },
+    {
+      id: 'terms',
+      title: 'Terms of Service & Licensing',
+      description: 'MIT License, CC BY-SA 4.0 Open Knowledge standards',
+      icon: <FileText className="w-4 h-4 text-sky-500" />,
+      category: 'Navigation',
+      action: () => navigateTo('/terms'),
+    },
+    {
       id: 'download-resume',
       title: 'Download Resume (PDF)',
       description: 'Download naveen_bishnoi_resume.pdf directly',

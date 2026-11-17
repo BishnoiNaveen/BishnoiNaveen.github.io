@@ -1,0 +1,132 @@
+---
+/**
+ * src/pages/security.astro — Systems Security Architecture & Responsible Disclosure
+ * Author: Naveen Bishnoi
+ * Standard: ISO/IEC 27001 principles, OWASP Top 10, DPDP Act 2023, Zero-Telemetry
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import Footer from '../components/contact/Footer.astro';
+---
+
+<BaseLayout
+  title="Security Architecture & Disclosure Policy | Naveen Bishnoi"
+  description="Security architecture standards, data privacy compliance (DPDP 2023 / GDPR), zero-telemetry policy, and responsible disclosure guidelines by Naveen Bishnoi."
+>
+  <FloatingNav client:load slot="header" />
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+    
+    {/* Header */}
+    <div class="mb-12 border-b border-black/[0.08] dark:border-white/10 pb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+        [SEC-ARCH] Systems Security &amp; Compliance Policy
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-[var(--color-text-primary)] mb-4 font-sans">
+        Security Architecture &amp; Governance
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-text-secondary)] font-normal leading-relaxed">
+        Engineering distributed systems requires rigorous defensive architecture. This document outlines the cryptographic invariants, privacy protections, zero-telemetry rules, and vulnerability disclosure protocols governing all code and public services maintained by Naveen Bishnoi.
+      </p>
+    </div>
+
+    {/* Section 1: Zero-Telemetry & Data Privacy */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        1. Zero-Telemetry &amp; Privacy First
+      </h2>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        <p>
+          In strict compliance with the <strong>Digital Personal Data Protection (DPDP) Act 2023 (India)</strong> and the <strong>EU General Data Protection Regulation (GDPR)</strong>:
+        </p>
+        <ul class="space-y-2 list-disc pl-5">
+          <li><strong>No Tracking Cookies:</strong> This portfolio does not install third-party tracking cookies, analytics pixels, or canvas fingerprinters.</li>
+          <li><strong>Zero Telemetry Logging:</strong> Visitor IP addresses and interaction events are never sold, streamed to surveillance brokers, or retained beyond ephemeral Edge CDN routing buffers.</li>
+          <li><strong>Local Storage Isolation:</strong> The only client-side browser storage utilized is an ephemeral key for theme synchronization (<code class="font-mono text-xs px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10">theme: dark | light</code>), which remains 100% on the visitor's hardware.</li>
+        </ul>
+      </div>
+    </section>
+
+    {/* Section 2: Systems Architectural Invariants */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+        2. Defensive Invariants Across Production Systems
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm">
+          <div class="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 mb-1">[EDGE-ISOLATION]</div>
+          <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">Cloudflare Workers &amp; JWT</h3>
+          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+            All intranet and microservice endpoints (KIN OneHub, Fieldy FSM) validate stateless signed JSON Web Tokens (JWT) at the network edge with strict audience and expiration verification before traffic touches persistence layers.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm">
+          <div class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 mb-1">[ATOMIC-STORAGE]</div>
+          <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">Crash-Resilient Atomic Writes</h3>
+          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+            In C99 storage engines (GAMS), state changes occur via POSIX atomic temporary-file inode swaps (<code class="font-mono text-xs">rename()</code>), preventing mid-write corruption and maintaining zero-heap memory leaks.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm">
+          <div class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 mb-1">[SECRET-HYGIENE]</div>
+          <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">Strict Secret Vaulting</h3>
+          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+            Database credentials, API tokens, and private keys are never hardcoded or committed to git trees. Production workloads leverage environment vaults and Cloudflare secrets with automated rotation.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm">
+          <div class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 mb-1">[NDA-BOUNDARY]</div>
+          <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">Confidentiality &amp; NDA Compliance</h3>
+          <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+            Proprietary industrial firmware, agricultural machinery telematics protocols, and commercial partner accounts (Reliance, Bio Fuel Corp, VERBIO, Landforce) are sanitized according to corporate non-disclosure agreements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 3: Responsible Vulnerability Disclosure */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+        3. Responsible Vulnerability Disclosure Policy
+      </h2>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        <p>
+          I welcome security researchers, colleagues, and peer engineers to review open-source repositories and infrastructure for potential security flaws. If you discover a vulnerability:
+        </p>
+        <ol class="space-y-2 list-decimal pl-5">
+          <li><strong>Direct Notice:</strong> Email <a href="mailto:0029bishnoinaveen@gmail.com" class="text-blue-600 dark:text-blue-400 font-mono font-semibold underline">0029bishnoinaveen@gmail.com</a> with the subject tag <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10">[SECURITY-REPORT]</code>.</li>
+          <li><strong>Reproducible Proof:</strong> Provide a reproducible proof-of-concept (PoC) or description of the potential attack vector. Please do not access or destroy unauthorized data.</li>
+          <li><strong>Response SLA:</strong> Initial acknowledgment will be dispatched within <strong>24 hours</strong>, followed by root-cause remediation and patched deployment within <strong>72 hours</strong>.</li>
+          <li><strong>Public Recognition:</strong> Valid, responsible disclosures will be credited with peer attribution in the repository release notes.</li>
+        </ol>
+      </div>
+    </section>
+
+    {/* Quick Return Bar */}
+    <div class="pt-8 border-t border-black/[0.08] dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)] hover:text-blue-600 transition-colors"
+      >
+        <span>&larr; Back to Command Center</span>
+      </a>
+
+      <div class="flex items-center gap-4 text-xs font-mono text-[var(--color-text-muted)]">
+        <a href="/terms" class="hover:text-blue-600 transition-colors">Terms of Service</a>
+        <span>&middot;</span>
+        <a href="/resume" class="hover:text-blue-600 transition-colors">Resume</a>
+        <span>&middot;</span>
+        <a href="/contact" class="hover:text-blue-600 transition-colors">Contact</a>
+      </div>
+    </div>
+
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

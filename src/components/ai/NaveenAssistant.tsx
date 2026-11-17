@@ -35,12 +35,12 @@ const INITIAL_MESSAGE: ChatMessage = {
 };
 
 const SUGGESTED_QUERIES = [
-  { label: '🚜 KRONE Agriculture IoT', query: 'What did Naveen build at KRONE Agriculture?' },
-  { label: '🤖 Ultron Multi-Agent Swarm', query: 'Tell me about the Ultron AI swarm architecture' },
-  { label: '💾 GAMS POSIX C Storage', query: 'How does the GAMS POSIX C engine guarantee zero corruption?' },
-  { label: '⚙️ Technical Stack', query: 'What is Naveen’s technical stack and expertise?' },
-  { label: '📄 Resume & Background', query: 'Where can I see his resume and verified experience?' },
-  { label: '📬 Contact & Hire', query: 'How can I get in touch or hire Naveen?' },
+  { label: ' KRONE Agriculture IoT', query: 'What did Naveen build at KRONE Agriculture?' },
+  { label: ' Ultron Multi-Agent Swarm', query: 'Tell me about the Ultron AI swarm architecture' },
+  { label: 'GAMS C99 POSIX C Storage', query: 'How does the GAMS POSIX C engine guarantee zero corruption?' },
+  { label: '️ Technical Stack', query: 'What is Naveen’s technical stack and expertise?' },
+  { label: 'Resume & Background', query: 'Where can I see his resume and verified experience?' },
+  { label: 'Contact & Hire', query: 'How can I get in touch or hire Naveen?' },
 ];
 
 export default function NaveenAssistant() {

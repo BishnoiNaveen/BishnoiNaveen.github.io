@@ -313,7 +313,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }: CaseStudyMo
                         </pre>
                         {snippet.explanation && (
                           <div className="px-4 py-2.5 bg-[#18181B]/50 border-t border-zinc-800 text-xs font-mono text-zinc-400">
-                            💡 {snippet.explanation}
+                             {snippet.explanation}
                           </div>
                         )}
                       </div>

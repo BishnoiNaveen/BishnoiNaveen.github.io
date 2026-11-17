@@ -1,0 +1,117 @@
+---
+/**
+ * src/pages/terms.astro — Terms of Service, Licensing & Open Knowledge Standards
+ * Author: Naveen Bishnoi
+ * Standard: MIT Open Source, CC BY-SA 4.0, Information Technology Act 2000 (India)
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FloatingNav from '../components/nav/FloatingNav';
+import Footer from '../components/contact/Footer.astro';
+---
+
+<BaseLayout
+  title="Terms of Service & Open Source Licensing | Naveen Bishnoi"
+  description="Terms of service, open source licensing (MIT), Wikipedia open knowledge attribution standards (CC BY-SA 4.0), and acceptable use policy for Naveen Bishnoi's engineering portfolio."
+>
+  <FloatingNav client:load slot="header" />
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+    
+    {/* Header */}
+    <div class="mb-12 border-b border-black/[0.08] dark:border-white/10 pb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+        [LEGAL-TERMS] Open Knowledge &amp; Code Governance
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-[var(--color-text-primary)] mb-4 font-sans">
+        Terms of Service &amp; Licensing
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-text-secondary)] font-normal leading-relaxed">
+        This document defines the licensing, fair-use boundaries, open-knowledge attribution standards, and acceptable terms of use governing this portfolio and associated public open-source software authored by Naveen Bishnoi.
+      </p>
+    </div>
+
+    {/* Section 1: Open Source Code Licensing */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+        1. Open Source Code Licensing (MIT License)
+      </h2>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        <p>
+          Unless explicitly annotated otherwise, all publicly published source code repositories authored by Naveen Bishnoi (including <strong>Smart Task System</strong>, <strong>Gas Agency Management System [GAMS]</strong>, and <strong>AgriBridge India</strong>) are distributed under the permissive <strong>MIT License</strong>:
+        </p>
+        <div class="p-4 rounded-xl bg-black/[0.03] dark:bg-black/40 border border-black/[0.06] dark:border-white/10 font-mono text-xs text-[var(--color-text-secondary)] leading-relaxed">
+          Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to retaining the original copyright notice.
+        </div>
+      </div>
+    </section>
+
+    {/* Section 2: Wikipedia & Creative Commons Open Knowledge Standards */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        2. Open Knowledge &amp; Attribution Standards
+      </h2>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        <p>
+          Technical explanations, architectural diagrams, systems tutorials, and research notes published on this site adhere to the principles of open knowledge and educational fair use, aligned with <strong>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</strong>:
+        </p>
+        <ul class="space-y-2 list-disc pl-5">
+          <li><strong>Attribution:</strong> You are free to share and adapt the technical concepts, provided appropriate credit is given to Naveen Bishnoi with a canonical link back to <code class="font-mono text-xs">https://bishnoinaveen.github.io</code>.</li>
+          <li><strong>ShareAlike:</strong> If you remix, transform, or build upon the architectural concepts, you must distribute your contributions under the same open-source or educational license.</li>
+          <li><strong>Zero Commercial Misrepresentation:</strong> No third party may claim authorship of these systems, publish counterfeit mirrors, or re-license these designs under restrictive closed terms.</li>
+        </ul>
+      </div>
+    </section>
+
+    {/* Section 3: Professional Resume Distribution & Fair Use */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+        3. Resume Distribution &amp; Recruitment Verification
+      </h2>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        <p>
+          The downloadable curriculum vitae (<code class="font-mono text-xs px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10">naveen_bishnoi_resume.pdf</code>) is provided exclusively for bona fide employment evaluations, recruitment screenings, and technical peer reviews.
+        </p>
+        <p>
+          Recruiters, hiring managers, and prospective collaborators are granted permission to archive, transmit internally, and verify the credentials listed within using the official verification IDs provided (IBM Credly ID: <code class="font-mono text-xs">ea12611d-75c0-4282-8bf5-baaf48aa0cca</code>, Deloitte Forage Enrolment: <code class="font-mono text-xs">wMeKLdvmcywB24F9m</code>).
+        </p>
+      </div>
+    </section>
+
+    {/* Section 4: Governing Law */}
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        4. Governing Law &amp; Jurisdiction
+      </h2>
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-[#0c111e]/80 border border-black/[0.08] dark:border-white/10 shadow-sm space-y-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        <p>
+          These terms and all operations of this web service are governed by and construed in accordance with the laws of the <strong>Republic of India</strong>, including the <strong>Information Technology Act, 2000</strong> and amendments thereunder. Any disputes shall be subject to the exclusive jurisdiction of the competent courts in Punjab / Delhi NCR, India.
+        </p>
+      </div>
+    </section>
+
+    {/* Quick Return Bar */}
+    <div class="pt-8 border-t border-black/[0.08] dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)] hover:text-blue-600 transition-colors"
+      >
+        <span>&larr; Back to Command Center</span>
+      </a>
+
+      <div class="flex items-center gap-4 text-xs font-mono text-[var(--color-text-muted)]">
+        <a href="/security" class="hover:text-blue-600 transition-colors">Security Policy</a>
+        <span>&middot;</span>
+        <a href="/resume" class="hover:text-blue-600 transition-colors">Resume</a>
+        <span>&middot;</span>
+        <a href="/contact" class="hover:text-blue-600 transition-colors">Contact</a>
+      </div>
+    </div>
+
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>

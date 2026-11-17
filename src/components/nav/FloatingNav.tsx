@@ -13,6 +13,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Skills', href: '/skills' },
   { label: 'Credentials', href: '/credentials' },
   { label: 'Resume', href: '/resume' },
+  { label: 'Security', href: '/security' },
   { label: 'Contact', href: '/contact' },
 ];
 
